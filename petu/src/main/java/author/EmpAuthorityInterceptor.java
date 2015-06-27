@@ -1,10 +1,10 @@
 package author;
 
+import com.keemo.petstore.action.WebConstant;
 import com.opensymphony.xwork2.*;
 
 import com.opensymphony.xwork2.interceptor.*;
 
-import action.WebConstant;
 
 /**
  * Description:

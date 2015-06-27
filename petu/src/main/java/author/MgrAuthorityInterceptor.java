@@ -1,10 +1,10 @@
 package author;
 
+import com.keemo.petstore.action.WebConstant;
 import com.opensymphony.xwork2.*;
 
 import com.opensymphony.xwork2.interceptor.*;
 
-import action.WebConstant;
 /**
  * Description:
  * <br/>利嫋: <a href="http://www.crazyit.org">決髄Java選男</a> 

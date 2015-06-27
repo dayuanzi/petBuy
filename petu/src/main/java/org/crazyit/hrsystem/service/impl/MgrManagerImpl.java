@@ -6,6 +6,16 @@ import org.crazyit.hrsystem.vo.*;
 import exception.*;
 import org.crazyit.hrsystem.service.*;
 
+import com.keemo.petstore.dao.ApplicationDao;
+import com.keemo.petstore.dao.AttendDao;
+import com.keemo.petstore.dao.AttendTypeDao;
+import com.keemo.petstore.dao.CheckBackDao;
+import com.keemo.petstore.dao.EmployeeDao;
+import com.keemo.petstore.dao.ManagerDao;
+import com.keemo.petstore.dao.PaymentDao;
+import com.keemo.petstore.exception.HrException;
+import com.keemo.petstore.service.MgrManager;
+
 import java.text.*;
 import java.util.*;
 
