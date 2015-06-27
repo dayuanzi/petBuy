@@ -12,7 +12,7 @@ import com.opensymphony.xwork2.*;
 
 import org.apache.struts2.interceptor.*;
 
-import petu.store.bean.*;
+import com.keemo.petstore.bean.*;
 import static com.keemo.petstore.service.EmpManager.*;
 
 
