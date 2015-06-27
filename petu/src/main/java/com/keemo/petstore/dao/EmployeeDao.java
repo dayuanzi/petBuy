@@ -2,7 +2,7 @@ package com.keemo.petstore.dao;
 
 import java.util.*; 
 
-import petu.store.bean.*;
+import com.keemo.petstore.bean.*;
 
 /**
  * Description:

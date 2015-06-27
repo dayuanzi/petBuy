@@ -3,11 +3,11 @@ package com.keemo.petstore.dao.impl;
 import java.util.*; 
 import java.text.*; 
 
-import petu.store.bean.*;
-import org.crazyit.common.hibernate3.support.*;
-import org.crazyit.hrsystem.dao.*;
+import com.keemo.petstore.bean.*;
+import com.keemo.petstore.common.hibernate3.support.*;
+import com.keemo.petstore.dao.*;
 
-import com.keemo.petsore.common.hibernate3.support.YeekuHibernateDaoSupport;
+import com.keemo.petstore.common.hibernate3.support.YeekuHibernateDaoSupport;
 import com.keemo.petstore.dao.AttendDao;
 
 /**
