@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>PetU</groupId>
-  <artifactId>petBuy</artifactId>
-  <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>petBuy Maven Webapp</name>
-  <url>http://maven.apache.org</url>
-  <properties>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>PetU</groupId>
+	<artifactId>petBuy</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>petBuy Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<properties>
 		<jdk.version>1.6</jdk.version>
 		<spring.version>3.0.5.RELEASE</spring.version>
 		<hibernate.version>4.1.2.FINAL</hibernate.version>
@@ -15,12 +15,12 @@
 	</properties>
 
 	<dependencies>
-      <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-      </dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
 		<!-- jsp servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -58,15 +58,15 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.21</version>
 		</dependency>
-		<!-- 读取字节码包 -->  
-        <dependency>  
-            <groupId>javassist</groupId>  
-            <artifactId>javassist</artifactId>  
-            <version>3.12.1.GA</version>  
-        </dependency>  
+		<!-- 读取字节码包 -->
+		<dependency>
+			<groupId>javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.12.1.GA</version>
+		</dependency>
 
-		
-		
+
+
 		<!-- proxool -->
 
 		<!-- junit -->
@@ -93,7 +93,7 @@
 			<version>1.1.1</version>
 		</dependency>
 		<!-- commons-logging -->
-		
+
 		<!-- io -->
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -142,22 +142,22 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-	    <dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aspects</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		 <dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		 <dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-asm</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-	
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -168,7 +168,7 @@
 			<artifactId>spring-instrument-tomcat</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-			<dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-instrument</artifactId>
 			<version>${spring.version}</version>
@@ -188,53 +188,68 @@
 			<artifactId>spring-oxm</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		<!--  <dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>transaction</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>text</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		-->
-		<!-- <dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web-portlet</artifactId>
-			<version>${spring.version}</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>transaction</artifactId> 
+			<version>${spring.version}</version> </dependency> <dependency> <groupId>org.springframework</groupId> 
+			<artifactId>text</artifactId> <version>${spring.version}</version> </dependency> -->
+		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-web-portlet</artifactId> 
+			<version>${spring.version}</version> </dependency> -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
+		<!-- spring安全框架 -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core-tiger</artifactId>
+			<version>2.0.5.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-acl</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
 		<!-- slf4j -->
 		<dependency>
-         <groupId>org.slf4j</groupId>
-         <artifactId>slf4j-api</artifactId>
-         <version>1.6.1</version>
-        </dependency>
-		
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+
 		<dependency>
-         <groupId>org.slf4j</groupId>
-         <artifactId>slf4j-nop</artifactId>
-         <version>1.6.1</version>
-        </dependency>
-		 
-		
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-nop</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+
+
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
 			<version>1.6.11</version>
 		</dependency>
 		<dependency>
-      <groupId>org.aspectj</groupId>
-      <artifactId>aspectjrt</artifactId>
-      <version>1.6.11</version>
-    </dependency>
-    <dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.6.11</version>
+		</dependency>
+		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib</artifactId>
 			<version>2.2</version>
@@ -242,11 +257,11 @@
 		<!-- spring -->
 
 		<!-- hibernate -->
-		 <dependency>  
-            <groupId>org.hibernate</groupId>  
-            <artifactId>hibernate-core</artifactId>  
-            <version>${hibernate.version}</version>  
-        </dependency>  
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
 		<!--hibernate -->
 
 		<!--struts -->
@@ -265,75 +280,75 @@
 			<artifactId>struts2-convention-plugin</artifactId>
 			<version>${struts.version}</version>
 		</dependency>
-		 <dependency>
-             <groupId>org.apache.struts</groupId>
-             <artifactId>struts2-config-browser-plugin</artifactId>
-             <version>${struts.version}</version>
-         </dependency>
-         <!-- dbcp连接池 -->
-		<dependency> 
-    <groupId>c3p0</groupId> 
-    <artifactId>c3p0</artifactId> 
-    <version>0.9.1.2</version>   
-    </dependency> 
-    <dependency> 
-    <groupId>org.hibernate</groupId> 
-    <artifactId>hibernate-core</artifactId> 
-    <version>3.6.5.Final</version> 
-    </dependency>
-    <dependency> 
-     <groupId>c3p0</groupId> 
-     <artifactId>c3p0-oracle-thin-extras</artifactId> 
-    <version>0.9.0.2</version>
-    </dependency>
-    
-    <dependency>
-    <groupId>net.sf.ehcache</groupId>
-    <artifactId>ehcache</artifactId>
-    <version>1.5.0</version>
-</dependency>
-    
-   <dependency>
-    <groupId>backport-util-concurrent</groupId>
-    <artifactId>backport-util-concurrent</artifactId>
-    <version>3.0</version>
-    </dependency>
-    
-    <!-- dom4j -->
-	<dependency>
-        <groupId>dom4j</groupId>
-        <artifactId>dom4j</artifactId>
-        <version>1.6.1</version>
-    </dependency>
-	
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-config-browser-plugin</artifactId>
+			<version>${struts.version}</version>
+		</dependency>
+		<!-- dbcp连接池 -->
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>3.6.5.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0-oracle-thin-extras</artifactId>
+			<version>0.9.0.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+			<version>1.5.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>backport-util-concurrent</groupId>
+			<artifactId>backport-util-concurrent</artifactId>
+			<version>3.0</version>
+		</dependency>
+
+		<!-- dom4j -->
+		<dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+
 
 	</dependencies>
 	<build>
-	 <finalName>petBuy</finalName>
-	 
-<plugins>  
-    <plugin>  
-        <groupId>org.mortbay.jetty</groupId>  
-        <artifactId>jetty-maven-plugin</artifactId>  
-        <version>8.1.5.v20120716</version>  
-        <configuration>  
-        <stopPort>9966</stopPort>   
-        <stopKey>foo</stopKey>  
-        <scanIntervalSeconds>10</scanIntervalSeconds>  
-        </configuration>  
-</plugin>  
+		<finalName>petBuy</finalName>
+
+		<plugins>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>8.1.5.v20120716</version>
+				<configuration>
+					<stopPort>9966</stopPort>
+					<stopKey>foo</stopKey>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+				</configuration>
+			</plugin>
 
 
-       <plugin>
-		<groupId>org.apache.maven.plugins</groupId>
-		<artifactId>maven-compiler-plugin</artifactId>
-		<version>3.1</version>
-		<configuration>
-			<source>${jdk.version}</source>
-			<target>${jdk.version}</target>
-		</configuration>
-		</plugin>
-</plugins>
-	
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+
 	</build>
 </project>
