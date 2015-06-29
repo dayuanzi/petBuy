@@ -38,5 +38,10 @@ public interface AdminDao
 	 * @param id 需要被删除的Admin实例的标识属性值
 	 */
 	void delete(Integer id);
-
+	
+	/**
+	 * 根据用户名密码查找用户用于登陆
+	 * @param id 需要被删除的Admin实例的标识属性值
+	 */
+	public List<Admin> findByNameAndPass(Admin admin);
 }
