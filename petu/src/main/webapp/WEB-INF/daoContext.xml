@@ -10,31 +10,31 @@
 		p:sessionFactory-ref="sessionFactory"/>
 
 	<bean id="employeeDao"
-		class="org.crazyit.hrsystem.dao.impl.EmployeeDaoHibernate"
+		class="com.keemo.petstore.dao.impl.EmployeeDaoHibernate"
 		parent="daoTemplate"/>
 
 	<bean id="managerDao"
-		class="org.crazyit.hrsystem.dao.impl.ManagerDaoHibernate"
+		class="com.keemo.petstore.dao.impl.ManagerDaoHibernate"
 		parent="daoTemplate"/>
 
 	<bean id="attendDao"
-		class="org.crazyit.hrsystem.dao.impl.AttendDaoHibernate"
+		class="com.keemo.petstore.dao.impl.AttendDaoHibernate"
 		parent="daoTemplate"/>
 
 	<bean id="attendTypeDao"
-		class="org.crazyit.hrsystem.dao.impl.AttendTypeDaoHibernate"
+		class="com.keemo.petstore.dao.impl.AttendTypeDaoHibernate"
 		parent="daoTemplate"/>
 
 	<bean id="appDao"
-		class="org.crazyit.hrsystem.dao.impl.ApplicationDaoHibernate"
+		class="com.keemo.petstore.dao.impl.ApplicationDaoHibernate"
 		parent="daoTemplate"/>
 
 	<bean id="checkDao"
-		class="org.crazyit.hrsystem.dao.impl.CheckBackDaoHibernate"
+		class="com.keemo.petstore.dao.impl.CheckBackDaoHibernate"
 		parent="daoTemplate"/>
 
 	<bean id="payDao"
-		class="org.crazyit.hrsystem.dao.impl.PaymentDaoHibernate"
+		class="com.keemo.petstore.dao.impl.PaymentDaoHibernate"
 		parent="daoTemplate"/>
 
 </beans>

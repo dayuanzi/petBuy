@@ -10,10 +10,30 @@
 	<constant name="struts.i18n.encoding" value="GBK"/>
 	<constant name="struts.devMode" value="true"/>
 	<package name="lee" extends="struts-default">
+    <interceptors>
+			<!-- 配置普通员工角色的权限检查拦截器 -->
+			<interceptor name="empAuth"	class=
+			"com.keemo.petstore.authority.EmpAuthorityInterceptor"/>
+			<!-- 配置经理角色的权限检查拦截器 -->
+			<interceptor name="mgrAuth"	class=
+			"com.keemo.petstore.action.authority.MgrAuthorityInterceptor"/>
+			<!-- 配置普通员工的默认的拦截器栈 -->
+			<interceptor-stack name="empStack">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="empAuth"/>
+			</interceptor-stack>
+			<!-- 配置经理的默认的拦截器栈 -->
+			<interceptor-stack name="mgrStack">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="mgrAuth"/>
+			</interceptor-stack>
+		</interceptors>
+	 
+	
 		<!-- 定义处理用户请求的Action -->
 		<!-- 定义处理登录系统的的Action -->
 	<action name="processLogin"
-		class="action.LoginAction">
+		class="com.keemo.petstore.action.LoginAction">
 	<result name="input">/content/login.jsp</result>
 	<result name="mgr">/content/manager/index.jsp</result>
 	<result name="emp">/content/employee/index.jsp</result>
