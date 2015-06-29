@@ -4,7 +4,7 @@
 	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
 
-	<!-- ÅäÖÃSpringÅäÖÃÎÄ¼þµÄÎ»ÖÃ -->
+	<!-- ï¿½ï¿½ï¿½ï¿½Springï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Î»ï¿½ï¿½ -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/applicationContext.xml,
@@ -12,12 +12,12 @@
 	</context-param>
 
 
-	<!-- Ê¹ÓÃContextLoaderListener³õÊ¼»¯SpringÈÝÆ÷ -->
+	<!-- Ê¹ï¿½ï¿½ContextLoaderListenerï¿½ï¿½Ê¼ï¿½ï¿½Springï¿½ï¿½ï¿½ï¿½ -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
-	<!-- ÏÈÉèÖÃ±àÂë¸ñÊ½²¢½øÐÐÇ¿ÖÆ×ªÂë -->
+	<!-- ï¿½ï¿½ï¿½ï¿½ï¿½Ã±ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½×ªï¿½ï¿½ -->
 	<filter>
 		<filter-name>Set Character Encoding</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -27,7 +27,7 @@
 		</init-param>
 		<init-param>
 			<param-name>forceEncoding</param-name>
-			<param-value>true</param-value><!-- Ç¿ÖÆ½øÐÐ×ªÂë -->
+			<param-value>true</param-value><!-- Ç¿ï¿½Æ½ï¿½ï¿½ï¿½×ªï¿½ï¿½ -->
 		</init-param>
 	</filter>
 	<filter-mapping>
@@ -35,17 +35,18 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
-	<!--ÅäÖÃSpringSecurity filter£¬ÈÃSpringSecurityÏÈ¼ÓÔØ£¬·ÀÖ¹SpringSecurityÀ¹½ØÊ§Ð§ -->
-	<filter>
+	<!--ï¿½ï¿½ï¿½ï¿½SpringSecurity filterï¿½ï¿½ï¿½ï¿½SpringSecurityï¿½È¼ï¿½ï¿½Ø£ï¿½ï¿½ï¿½Ö¹SpringSecurityï¿½ï¿½ï¿½ï¿½Ê§Ð§ -->
+<!-- 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 	</filter>
-	<filter-mapping>
+	 -->
+	<!--  <filter-mapping>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-
-	<!-- ¶¨ÒåStruts 2µÄºËÐÄFilter -->
+-->
+	<!-- ï¿½ï¿½ï¿½ï¿½Struts 2ï¿½Äºï¿½ï¿½ï¿½Filter -->
 	<filter>
 		<filter-name>struts2</filter-name>
 		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
@@ -57,7 +58,7 @@
 
 
 
-	<!-- ¶¨ÒåWebÓ¦ÓÃµÄÊ×Ò³ -->
+	<!-- ï¿½ï¿½ï¿½ï¿½WebÓ¦ï¿½Ãµï¿½ï¿½ï¿½Ò³ -->
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
