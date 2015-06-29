@@ -18,7 +18,7 @@
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close"
 		p:driverClass="com.mysql.jdbc.Driver"
-		p:jdbcUrl="jdbc:mysql://localhost:3306/hrSystem"
+		p:jdbcUrl="jdbc:mysql://localhost:3306/petbuy"
 		p:user="root"
 		p:password="zsy"
 		p:maxPoolSize="40"

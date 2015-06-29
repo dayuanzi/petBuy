@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory name="foo">
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password">zsy</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306?useUnicode=true&amp;characterEncoding=utf8</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hibernate.default_catalog">petBuy</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.search.autoregister_listeners">false</property>
+        <mapping resource="Whut/cmf/bishe/bean/Menutbl.hbm.xml" />
+        <mapping resource="Whut/cmf/bishe/bean/Ordertbl.hbm.xml" />
+        <mapping resource="Whut/cmf/bishe/bean/Menutypetbl.hbm.xml" />
+        <mapping resource="Whut/cmf/bishe/bean/Usertbl.hbm.xml" />
+        <mapping resource="Whut/cmf/bishe/bean/Tabletbl.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>

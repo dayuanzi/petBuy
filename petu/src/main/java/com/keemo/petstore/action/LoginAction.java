@@ -66,35 +66,29 @@ public class LoginAction
 		//创建ActionContext实例
 		ActionContext ctx = ActionContext.getContext();
 		//获取HttpSession中的rand属性
-		System.out.println("4");
 		String ver2 = (String)ctx.getSession().get("rand");
 		//if (vercode.equalsIgnoreCase(ver2))
 		//{
 			//调用业务逻辑方法来处理登录请求
-		System.out.println("1");
 			int result = mgr.validLogin(getManager());
 			//登录结果为普通员工
 			if (result == LOGIN_EMP)
 			{
-				System.out.println("2");
 				ctx.getSession().put(WebConstant.USER 
 					, manager.getName());
 				ctx.getSession().put(WebConstant.LEVEL
 					, WebConstant.EMP_LEVEL);
 				setTip("您已经成功登录系统");
-				System.out.println("5");
 				return EMP_RESULT;
 			}
 			//登录结果为经理
 			else if (result == LOGIN_MGR)
 			{
-				System.out.println("3");
 				ctx.getSession().put(WebConstant.USER 
 					, manager.getName());
 				ctx.getSession().put(WebConstant.LEVEL
 					, WebConstant.MGR_LEVEL);
 				setTip("您已经成功登录系统");
-				System.out.println("6");
 				return MGR_RESULT;
 			}
 			//用户名和密码不匹配
