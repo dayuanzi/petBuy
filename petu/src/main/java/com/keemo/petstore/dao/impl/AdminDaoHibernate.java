@@ -1,6 +1,9 @@
 package com.keemo.petstore.dao.impl;
 
+import java.util.List;
+
 import com.keemo.petstore.bean.Admin;
+import com.keemo.petstore.bean.Manager;
 import com.keemo.petstore.common.hibernate3.support.YeekuHibernateDaoSupport;
 import com.keemo.petstore.dao.AdminDao;
 
@@ -15,15 +18,20 @@ public class AdminDaoHibernate extends YeekuHibernateDaoSupport implements Admin
 	 */
 	public Admin get(Integer id)
 	{
-		return null;}
+		return getHibernateTemplate()
+		.get(Admin.class , id);
+		
+	}
 
 	/**
 	 * 持久化指定的Admin实例
 	 * @param Admin 需要被持久化的Admin实例
 	 * @return Admin实例被持久化后的标识属性值
 	 */
-	public Integer save(Admin Admin) {
-		return null;
+	public String save(Admin Admin) {
+		
+		return (String)getHibernateTemplate()
+		.save(Admin);
 	}
 
 	/**
@@ -31,6 +39,9 @@ public class AdminDaoHibernate extends YeekuHibernateDaoSupport implements Admin
 	 * @param Admin 需要被修改的Admin实例
 	 */
 	public void update(Admin Admin) {
+		
+		getHibernateTemplate()
+		.update(Admin);
 	}
 
 	/**
@@ -38,6 +49,8 @@ public class AdminDaoHibernate extends YeekuHibernateDaoSupport implements Admin
 	 * @param Admin 需要被删除的Admin实例
 	 */
 	public void delete(Admin Admin) {
+		getHibernateTemplate()
+		.delete(Admin);
 	}
 
 	/**
@@ -45,6 +58,20 @@ public class AdminDaoHibernate extends YeekuHibernateDaoSupport implements Admin
 	 * @param id 需要被删除的Admin实例的标识属性值
 	 */
 	public void delete(Integer id) {
+		getHibernateTemplate()
+		.delete(get(id));
+	}
+	
+	/**
+	 * 根据用户名和密码查询经理
+	 * @param emp 包含指定用户名、密码的经理
+	 * @return 符合指定用户名和密码的经理
+	 */ 
+	public List<Admin> findByNameAndPass(Admin admin)
+	{
+		return (List<Admin>)getHibernateTemplate()
+			.find("from Admin admin where admin.name = ? and admin.pass=?"
+			, admin.getLoginName() , admin.getLoginPwd());
 	}
 	
 }

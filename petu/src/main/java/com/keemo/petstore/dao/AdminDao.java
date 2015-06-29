@@ -19,7 +19,7 @@ public interface AdminDao
 	 * @param Admin 需要被持久化的Admin实例
 	 * @return Admin实例被持久化后的标识属性值
 	 */
-	Integer save(Admin Admin);
+	String save(Admin Admin);
 
 	/**
 	 * 修改指定的Admin实例
