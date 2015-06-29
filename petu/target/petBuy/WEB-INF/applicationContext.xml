@@ -35,12 +35,12 @@
 		<property name="mappingResources">
 			<list>
 				<!-- 以下用来列出Hibernate映射文件 -->
-				<value>petu/store/bean/Application.hbm.xml</value>
-				<value>petu/store/bean/Attend.hbm.xml</value>
-				<value>petu/store/bean/AttendType.hbm.xml</value>
-				<value>petu/store/bean/CheckBack.hbm.xml</value>
-				<value>petu/store/bean/Employee.hbm.xml</value>
-				<value>petu/store/bean/Payment.hbm.xml</value>
+				<value>com/keemo/petstore/bean/Application.hbm.xml</value>
+				<value>com/keemo/petstore/bean/Attend.hbm.xml</value>
+				<value>com/keemo/petstore/bean/AttendType.hbm.xml</value>
+				<value>com/keemo/petstore/bean/CheckBack.hbm.xml</value>
+				<value>com/keemo/petstore/bean/Employee.hbm.xml</value>
+				<value>com/keemo/petstore/bean/Payment.hbm.xml</value>
 			</list>
 		</property>
 		<!-- 定义Hibernate的SessionFactory的属性 -->
@@ -99,10 +99,10 @@
 
 	<!-- 定义两个业务逻辑组件，继承业务逻辑组件的模板 -->
 	<bean id="empManager"
-		class="org.crazyit.hrsystem.service.impl.EmpManagerImpl"
+		class="com.keemo.petstore.service.impl.EmpManagerImpl"
 		parent="managerTemplate"/>
 	<bean id="mgrManager"
-		class="org.crazyit.hrsystem.service.impl.MgrManagerImpl"
+		class="com.keemo.petstore.service.impl.MgrManagerImpl"
 		parent="managerTemplate"/>
 
 <!-- 执行实际的调度调度 -->
