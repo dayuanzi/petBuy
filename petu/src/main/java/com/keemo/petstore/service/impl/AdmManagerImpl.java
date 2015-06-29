@@ -13,8 +13,6 @@ public class AdmManagerImpl
 	implements AdmManager
 {
 	private AdminDao admindao;
-
-
 	public void setAdminDao(AdminDao admindao)
 	{
 		this.admindao = admindao;
@@ -22,13 +20,13 @@ public class AdmManagerImpl
 
 	
 	/**
-	 * ÒÔ¾­ÀíÉí·ÝÀ´ÑéÖ¤µÇÂ¼
-	 * @param mgr µÇÂ¼µÄ¾­ÀíÉí·Ý
-	 * @return µÇÂ¼ºóµÄÉí·ÝÈ·ÈÏ:0ÎªµÇÂ¼Ê§°Ü£¬1ÎªµÇÂ¼emp 2ÎªµÇÂ¼mgr
+	 * ä»¥ç»ç†èº«ä»½æ¥éªŒè¯ç™»å½•
+	 * @param mgr ç™»å½•çš„ç»ç†èº«ä»½
+	 * @return ç™»å½•åŽçš„èº«ä»½ç¡®è®¤:0ä¸ºç™»å½•å¤±è´¥ï¼Œ1ä¸ºç™»å½•emp 2ä¸ºç™»å½•mgr
 	 */
 	public int validLogin(Admin admin)
 	{
-		//Èç¹ûÕÒµ½Ò»¸ö¾­Àí£¬ÒÔ¾­ÀíµÇÂ¼
+		//å¦‚æžœæ‰¾åˆ°ä¸€ä¸ªç»ç†ï¼Œä»¥ç»ç†ç™»å½•
 		
 		if (admindao.findByNameAndPass(admin).size()
 			>= 1)

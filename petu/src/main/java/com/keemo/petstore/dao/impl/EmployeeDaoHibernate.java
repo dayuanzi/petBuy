@@ -15,9 +15,9 @@ public class EmployeeDaoHibernate
 	implements EmployeeDao
 {
 	/**
-	 * ¸ù¾İ±êÊ¶ÊôĞÔÀ´¼ÓÔØEmployeeÊµÀı
-	 * @param id ĞèÒª¼ÓÔØµÄEmployeeÊµÀıµÄ±êÊ¶ÊôĞÔÖµ
-	 * @return Ö¸¶¨±êÊ¶ÊôĞÔ¶ÔÓ¦µÄEmployeeÊµÀı
+	 * æ ¹æ®æ ‡è¯†å±æ€§æ¥åŠ è½½Employeeå®ä¾‹
+	 * @param id éœ€è¦åŠ è½½çš„Employeeå®ä¾‹çš„æ ‡è¯†å±æ€§å€¼
+	 * @return æŒ‡å®šæ ‡è¯†å±æ€§å¯¹åº”çš„Employeeå®ä¾‹
 	 */
 	public Employee get(Integer id)
 	{
@@ -26,9 +26,9 @@ public class EmployeeDaoHibernate
 	}
 
 	/**
-	 * ³Ö¾Ã»¯Ö¸¶¨µÄEmployeeÊµÀı
-	 * @param employee ĞèÒª±»³Ö¾Ã»¯µÄEmployeeÊµÀı
-	 * @return EmployeeÊµÀı±»³Ö¾Ã»¯ºóµÄ±êÊ¶ÊôĞÔÖµ
+	 * æŒä¹…åŒ–æŒ‡å®šçš„Employeeå®ä¾‹
+	 * @param employee éœ€è¦è¢«æŒä¹…åŒ–çš„Employeeå®ä¾‹
+	 * @return Employeeå®ä¾‹è¢«æŒä¹…åŒ–åçš„æ ‡è¯†å±æ€§å€¼
 	 */
 	public Integer save(Employee employee)
 	{
@@ -37,8 +37,8 @@ public class EmployeeDaoHibernate
 	}
 
 	/**
-	 * ĞŞ¸ÄÖ¸¶¨µÄEmployeeÊµÀı
-	 * @param employee ĞèÒª±»ĞŞ¸ÄµÄEmployeeÊµÀı
+	 * ä¿®æ”¹æŒ‡å®šçš„Employeeå®ä¾‹
+	 * @param employee éœ€è¦è¢«ä¿®æ”¹çš„Employeeå®ä¾‹
 	 */
 	public void update(Employee employee)
 	{
@@ -47,8 +47,8 @@ public class EmployeeDaoHibernate
 	}
 
 	/**
-	 * É¾³ıÖ¸¶¨µÄEmployeeÊµÀı
-	 * @param employee ĞèÒª±»É¾³ıµÄEmployeeÊµÀı
+	 * åˆ é™¤æŒ‡å®šçš„Employeeå®ä¾‹
+	 * @param employee éœ€è¦è¢«åˆ é™¤çš„Employeeå®ä¾‹
 	 */
 	public void delete(Employee employee)
 	{
@@ -57,8 +57,8 @@ public class EmployeeDaoHibernate
 	}
 
 	/**
-	 * ¸ù¾İ±êÊ¶ÊôĞÔÉ¾³ıEmployeeÊµÀı
-	 * @param id ĞèÒª±»É¾³ıµÄEmployeeÊµÀıµÄ±êÊ¶ÊôĞÔÖµ
+	 * æ ¹æ®æ ‡è¯†å±æ€§åˆ é™¤Employeeå®ä¾‹
+	 * @param id éœ€è¦è¢«åˆ é™¤çš„Employeeå®ä¾‹çš„æ ‡è¯†å±æ€§å€¼
 	 */
 	public void delete(Integer id)
 	{
@@ -67,8 +67,8 @@ public class EmployeeDaoHibernate
 	}
 
 	/**
-	 * ²éÑ¯È«²¿µÄEmployeeÊµÀı
-	 * @return Êı¾İ¿âÖĞÈ«²¿µÄEmployeeÊµÀı
+	 * æŸ¥è¯¢å…¨éƒ¨çš„Employeeå®ä¾‹
+	 * @return æ•°æ®åº“ä¸­å…¨éƒ¨çš„Employeeå®ä¾‹
 	 */
 	public List<Employee> findAll()
 	{
@@ -77,9 +77,9 @@ public class EmployeeDaoHibernate
 	}
 
 	/**
-	 * ¸ù¾İÓÃ»§ÃûºÍÃÜÂë²éÑ¯Ô±¹¤
-	 * @param emp °üº¬Ö¸¶¨ÓÃ»§Ãû¡¢ÃÜÂëµÄÔ±¹¤
-	 * @return ·ûºÏÖ¸¶¨ÓÃ»§ÃûºÍÃÜÂëµÄÔ±¹¤¼¯ºÏ
+	 * æ ¹æ®ç”¨æˆ·åå’Œå¯†ç æŸ¥è¯¢å‘˜å·¥
+	 * @param emp åŒ…å«æŒ‡å®šç”¨æˆ·åã€å¯†ç çš„å‘˜å·¥
+	 * @return ç¬¦åˆæŒ‡å®šç”¨æˆ·åå’Œå¯†ç çš„å‘˜å·¥é›†åˆ
 	 */ 
 	public List<Employee> findByNameAndPass(Employee emp)
 	{
@@ -89,9 +89,9 @@ public class EmployeeDaoHibernate
 	}
 
 	/**
-	 * ¸ù¾İÓÃ»§Ãû²éÑ¯Ô±¹¤
-	 * @param name Ô±¹¤µÄÓÃ»§Ãû
-	 * @return ·ûºÏÓÃ»§ÃûµÄÔ±¹¤
+	 * æ ¹æ®ç”¨æˆ·åæŸ¥è¯¢å‘˜å·¥
+	 * @param name å‘˜å·¥çš„ç”¨æˆ·å
+	 * @return ç¬¦åˆç”¨æˆ·åçš„å‘˜å·¥
 	 */ 
 	public Employee findByName(String name)
 	{
@@ -105,9 +105,9 @@ public class EmployeeDaoHibernate
 	}
 
 	/**
-	 * ¸ù¾İ¾­Àí²éÑ¯Ô±¹¤
-	 * @param mgr ¾­Àí
-	 * @return ¸Ã¾­Àí¶ÔÓ¦µÄËùÓĞÔ±¹¤
+	 * æ ¹æ®ç»ç†æŸ¥è¯¢å‘˜å·¥
+	 * @param mgr ç»ç†
+	 * @return è¯¥ç»ç†å¯¹åº”çš„æ‰€æœ‰å‘˜å·¥
 	 */ 
 	public List<Employee> findByMgr(Manager mgr)
 	{

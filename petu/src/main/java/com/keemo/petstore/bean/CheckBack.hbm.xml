@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="GBK"?>
-<!-- Ö¸¶¨HibernateÓ³ÉäÎÄ¼þµÄDTDÐÅÏ¢ -->
+<!-- æŒ‡å®šHibernateæ˜ å°„æ–‡ä»¶çš„DTDä¿¡æ¯ -->
 <!DOCTYPE hibernate-mapping PUBLIC 
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- HibernateÓ³ÉäÎÄ¼þµÄ¸ùÔªËØ -->
+<!-- Hibernateæ˜ å°„æ–‡ä»¶çš„æ ¹å…ƒç´  -->
 <hibernate-mapping package="com.keemo.petstore.bean">
 	<class name="CheckBack" table="check_table">
-		<!-- Ê¹ÓÃÖ»¶Á»º´æ -->
+		<!-- ä½¿ç”¨åªè¯»ç¼“å­˜ -->
 		<cache usage="read-only"/>
-		<!-- Ó³Éä±êÊ¶ÊôÐÔ -->
+		<!-- æ˜ å°„æ ‡è¯†å±žæ€§ -->
 		<id	name="id" type="integer" column="check_id">
-			<!-- Ö¸¶¨Ê¹ÓÃidentityÖ÷¼üÉú³É²ßÂÔ -->
+			<!-- æŒ‡å®šä½¿ç”¨identityä¸»é”®ç”Ÿæˆç­–ç•¥ -->
 			<generator class="identity"/>
 		</id>
-		<!-- Ó³ÉäÆÕÍ¨ÊôÐÔ -->
+		<!-- æ˜ å°„æ™®é€šå±žæ€§ -->
 		<property name="reason" column="check_reason"
 			type="string" length="50"/>
 		<property name="result" column="check_result"
 			type="boolean" length="50" not-null="true"/>
-		<!-- Ó³ÉäºÍApplicationµÄ¹ØÁª¹ØÏµ -->
+		<!-- æ˜ å°„å’ŒApplicationçš„å…³è”å…³ç³» -->
 		<many-to-one name="app" column="app_id" not-null="true"
 			class="Application" unique="true" lazy="false"/>
-		<!-- Ó³ÉäºÍManagerµÄ¹ØÁª¹ØÏµ -->
+		<!-- æ˜ å°„å’ŒManagerçš„å…³è”å…³ç³» -->
 		<many-to-one name="manager" column="mgr_id" 
 			class="Manager" not-null="true" lazy="false"/>
 	</class>

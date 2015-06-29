@@ -10,18 +10,18 @@ public class SalaryBean
 	private String empName;
 	private double amount;
 
-	//ÎÞ²ÎÊýµÄ¹¹ÔìÆ÷
+	//æ— å‚æ•°çš„æž„é€ å™¨
 	public SalaryBean()
 	{
 	}
-	//³õÊ¼»¯È«²¿ÊôÐÔµÄ¹¹ÔìÆ÷
+	//åˆå§‹åŒ–å…¨éƒ¨å±žæ€§çš„æž„é€ å™¨
 	public SalaryBean(String empName , double amount)
 	{
 		this.empName = empName;
 		this.amount = amount;
 	}
 
-	//empNameÊôÐÔµÄsetterºÍgetter·½·¨
+	//empNameå±žæ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setEmpName(String empName)
 	{
 		this.empName = empName;
@@ -31,7 +31,7 @@ public class SalaryBean
 		return this.empName;
 	}
 
-	//amountÊôÐÔµÄsetterºÍgetter·½·¨
+	//amountå±žæ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setAmount(double amount)
 	{
 		this.amount = amount;

@@ -8,27 +8,27 @@ public class Employee
 	implements Serializable
 {
 	private static final long serialVersionUID = 48L;
-	//±êÊ¶ÊôĞÔ
+	//æ ‡è¯†å±æ€§
 	private Integer id;
-	//Ô±¹¤ĞÕÃû
+	//å‘˜å·¥å§“å
 	private String name;
-	//Ô±¹¤ÃÜÂë
+	//å‘˜å·¥å¯†ç 
 	private String pass;
-	//Ô±¹¤¹¤×Ê
+	//å‘˜å·¥å·¥èµ„
 	private double salary;
-	//Ô±¹¤¶ÔÓ¦µÄ¾­Àí
+	//å‘˜å·¥å¯¹åº”çš„ç»ç†
 	private Manager manager;
-	//Ô±¹¤¶ÔÓ¦µÄ³öÇÚ¼ÇÂ¼
+	//å‘˜å·¥å¯¹åº”çš„å‡ºå‹¤è®°å½•
 	private Set<Attend> attends = new HashSet<Attend>();
-	//Ô±¹¤¶ÔÓ¦µÄ¹¤×ÊÖ§¸¶¼ÇÂ¼
+	//å‘˜å·¥å¯¹åº”çš„å·¥èµ„æ”¯ä»˜è®°å½•
 	private Set<Payment> payments = new HashSet<Payment>();
 	
 
-	//ÎŞ²ÎÊıµÄ¹¹ÔìÆ÷
+	//æ— å‚æ•°çš„æ„é€ å™¨
 	public Employee()
 	{
 	}
-	//³õÊ¼»¯È«²¿ÊôĞÔµÄ¹¹ÔìÆ÷
+	//åˆå§‹åŒ–å…¨éƒ¨å±æ€§çš„æ„é€ å™¨
 	public Employee(Integer id , String name , String pass , 
 		double salary , Manager manager , 
 		Set<Attend> attends , Set<Payment> payments)
@@ -42,7 +42,7 @@ public class Employee
 		this.payments = payments;
 	}
 
-	//idÊôĞÔµÄsetterºÍgetter·½·¨
+	//idå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setId(Integer id)
 	{
 		this.id = id;
@@ -52,7 +52,7 @@ public class Employee
 		return this.id;
 	}
 
-	//nameÊôĞÔµÄsetterºÍgetter·½·¨
+	//nameå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setName(String name)
 	{
 		this.name = name;
@@ -62,7 +62,7 @@ public class Employee
 		return this.name;
 	}
 
-	//passÊôĞÔµÄsetterºÍgetter·½·¨
+	//passå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setPass(String pass)
 	{
 		this.pass = pass;
@@ -72,7 +72,7 @@ public class Employee
 		return this.pass;
 	}
 
-	//salaryÊôĞÔµÄsetterºÍgetter·½·¨
+	//salaryå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setSalary(double salary)
 	{
 		this.salary = salary;
@@ -82,7 +82,7 @@ public class Employee
 		return this.salary;
 	}
 
-	//managerÊôĞÔµÄsetterºÍgetter·½·¨
+	//managerå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setManager(Manager manager)
 	{
 		this.manager = manager;
@@ -92,7 +92,7 @@ public class Employee
 		return this.manager;
 	}
 
-	//attendsÊôĞÔµÄsetterºÍgetter·½·¨
+	//attendså±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setAttends(Set<Attend> attends)
 	{
 		this.attends = attends;
@@ -102,7 +102,7 @@ public class Employee
 		return this.attends;
 	}
 
-	//paymentsÊôĞÔµÄsetterºÍgetter·½·¨
+	//paymentså±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setPayments(Set<Payment> payments)
 	{
 		this.payments = payments;
@@ -112,7 +112,7 @@ public class Employee
 		return this.payments;
 	}
  
-	//ÖØĞ´equals()·½·¨£¬Ö»Òªname¡¢passÏàÍ¬µÄÔ±¹¤¼´ÈÏÎªÏàµÈ¡£
+	//é‡å†™equals()æ–¹æ³•ï¼Œåªè¦nameã€passç›¸åŒçš„å‘˜å·¥å³è®¤ä¸ºç›¸ç­‰ã€‚
 	public boolean equals(Object obj)
 	{
 		if (this == obj)
@@ -128,7 +128,7 @@ public class Employee
 		}
 		return false;
 	}
-	//¸ù¾İÔ±¹¤µÄname¡¢passÀ´¼ÆËãhashCodeÖµ
+	//æ ¹æ®å‘˜å·¥çš„nameã€passæ¥è®¡ç®—hashCodeå€¼
 	public int hashCode()
 	{
 		return name.hashCode()

@@ -66,19 +66,19 @@ public class EmpManagerImpl
 	}
 
 	/**
-	 * ÒÔ¾­ÀíÉí·İÀ´ÑéÖ¤µÇÂ¼
-	 * @param mgr µÇÂ¼µÄ¾­ÀíÉí·İ
-	 * @return µÇÂ¼ºóµÄÉí·İÈ·ÈÏ:0ÎªµÇÂ¼Ê§°Ü£¬1ÎªµÇÂ¼emp 2ÎªµÇÂ¼mgr
+	 * ä»¥ç»ç†èº«ä»½æ¥éªŒè¯ç™»å½•
+	 * @param mgr ç™»å½•çš„ç»ç†èº«ä»½
+	 * @return ç™»å½•åçš„èº«ä»½ç¡®è®¤:0ä¸ºç™»å½•å¤±è´¥ï¼Œ1ä¸ºç™»å½•emp 2ä¸ºç™»å½•mgr
 	 */
 	public int validLogin(Manager mgr)
 	{
-		//Èç¹ûÕÒµ½Ò»¸ö¾­Àí£¬ÒÔ¾­ÀíµÇÂ¼
+		//å¦‚æœæ‰¾åˆ°ä¸€ä¸ªç»ç†ï¼Œä»¥ç»ç†ç™»å½•
 		if (mgrDao.findByNameAndPass(mgr).size()
 			>= 1)
 		{
 			return LOGIN_MGR;
 		}
-		//Èç¹ûÕÒµ½ÆÕÍ¨Ô±¹¤£¬ÒÔÆÕÍ¨Ô±¹¤µÇÂ¼
+		//å¦‚æœæ‰¾åˆ°æ™®é€šå‘˜å·¥ï¼Œä»¥æ™®é€šå‘˜å·¥ç™»å½•
 		else if (empDao.findByNameAndPass(mgr)
 			.size() >= 1)
 		{
@@ -91,32 +91,32 @@ public class EmpManagerImpl
 	}
 
 	/**
-	 * ×Ô¶¯´ò¿¨£¬ÖÜÒ»µ½ÖÜÎå£¬ÔçÉÏ7£º00ÎªÃ¿¸öÔ±¹¤²åÈë¿õ¹¤¼ÇÂ¼
+	 * è‡ªåŠ¨æ‰“å¡ï¼Œå‘¨ä¸€åˆ°å‘¨äº”ï¼Œæ—©ä¸Š7ï¼š00ä¸ºæ¯ä¸ªå‘˜å·¥æ’å…¥æ—·å·¥è®°å½•
 	 */
 	public void autoPunch()
 	{
-		System.out.println("×Ô¶¯²åÈë¿õ¹¤¼ÇÂ¼");
+		System.out.println("è‡ªåŠ¨æ’å…¥æ—·å·¥è®°å½•");
 		List<Employee> emps = empDao.findAll();
-		//»ñÈ¡µ±Ç°Ê±¼ä
+		//è·å–å½“å‰æ—¶é—´
 		String dutyDay = new java.sql.Date(
 			System.currentTimeMillis()).toString();
 		for (Employee e : emps)
 		{
-			//»ñÈ¡¿õ¹¤¶ÔÓ¦µÄ³öÇÚÀàĞÍ
+			//è·å–æ—·å·¥å¯¹åº”çš„å‡ºå‹¤ç±»å‹
 			AttendType atype = typeDao.get(6);
 			Attend a = new Attend();
 			a.setDutyDay(dutyDay);
 			a.setType(atype);
-			//Èç¹ûµ±Ç°Ê±¼äÊÇÊÇÔçÉÏ£¬¶ÔÓ¦ÓÚÉÏ°à´ò¿¨
+			//å¦‚æœå½“å‰æ—¶é—´æ˜¯æ˜¯æ—©ä¸Šï¼Œå¯¹åº”äºä¸Šç­æ‰“å¡
 			if (Calendar.getInstance()
 				.get(Calendar.HOUR_OF_DAY) < AM_LIMIT)
 			{
-				//ÉÏ°à´ò¿¨
+				//ä¸Šç­æ‰“å¡
 				a.setIsCome(true);
 			}
 			else
 			{
-				//ÏÂ°à´ò¿¨
+				//ä¸‹ç­æ‰“å¡
 				a.setIsCome(false);
 			}
 			a.setEmployee(e);
@@ -125,31 +125,31 @@ public class EmpManagerImpl
 	}
 
 	/**
-	 * ×Ô¶¯½áËã¹¤×Ê£¬Ã¿ÔÂ1ºÅ£¬½áËãÉÏ¸öÔÂ¹¤×Ê
+	 * è‡ªåŠ¨ç»“ç®—å·¥èµ„ï¼Œæ¯æœˆ1å·ï¼Œç»“ç®—ä¸Šä¸ªæœˆå·¥èµ„
 	 */
 	public void autoPay()
 	{
-		System.out.println("×Ô¶¯²åÈë¹¤×Ê½áËã");
+		System.out.println("è‡ªåŠ¨æ’å…¥å·¥èµ„ç»“ç®—");
 		List<Employee> emps = empDao.findAll();
-		//»ñÈ¡ÉÏ¸öÔÂÊ±¼ä
+		//è·å–ä¸Šä¸ªæœˆæ—¶é—´
 		Calendar c = Calendar.getInstance();
 		c.add(Calendar.DAY_OF_MONTH, -15);
 		SimpleDateFormat sdf = new  SimpleDateFormat("yyyy-MM");
 		String payMonth = sdf.format(c.getTime());
-		//ÎªÃ¿¸öÔ±¹¤¼ÆËãÉÏ¸öÔÂ¹¤×Ê
+		//ä¸ºæ¯ä¸ªå‘˜å·¥è®¡ç®—ä¸Šä¸ªæœˆå·¥èµ„
 		for (Employee e : emps)
 		{
 			Payment pay = new Payment();
-			//»ñÈ¡¸ÃÔ±¹¤µÄ¹¤×Ê
+			//è·å–è¯¥å‘˜å·¥çš„å·¥èµ„
 			double amount = e.getSalary();
-			//»ñÈ¡¸ÃÔ±¹¤ÉÏ¸öÔÂµÄ³öÇÚ¼ÇÂ¼
+			//è·å–è¯¥å‘˜å·¥ä¸Šä¸ªæœˆçš„å‡ºå‹¤è®°å½•
 			List<Attend> attends = attendDao.findByEmp(e);
-			//ÓÃ¹¤×ÊÀÛ»ıÆä³öÇÚ¼ÇÂ¼µÄ¹¤×Ê
+			//ç”¨å·¥èµ„ç´¯ç§¯å…¶å‡ºå‹¤è®°å½•çš„å·¥èµ„
 			for ( Attend a : attends )
 			{
 				amount += a.getType().getAmerce();
 			}
-			//Ìí¼Ó¹¤×Ê½áËã
+			//æ·»åŠ å·¥èµ„ç»“ç®—
 			pay.setPayMonth(payMonth);
 			pay.setEmployee(e);
 			pay.setAmount(amount);
@@ -158,27 +158,27 @@ public class EmpManagerImpl
 	}
 
 	/**
-	 * ÑéÖ¤Ä³¸öÔ±¹¤ÊÇ·ñ¿É´ò¿¨
-	 * @param user Ô±¹¤Ãû
-	 * @param dutyDay ÈÕÆÚ
-	 * @return ¿É´ò¿¨µÄÀà±ğ
+	 * éªŒè¯æŸä¸ªå‘˜å·¥æ˜¯å¦å¯æ‰“å¡
+	 * @param user å‘˜å·¥å
+	 * @param dutyDay æ—¥æœŸ
+	 * @return å¯æ‰“å¡çš„ç±»åˆ«
 	 */
 	public int validPunch(String user , String dutyDay)
 	{
-		//²»ÄÜ²éÕÒµ½¶ÔÓ¦ÓÃ»§£¬·µ»ØÎŞ·¨´ò¿¨
+		//ä¸èƒ½æŸ¥æ‰¾åˆ°å¯¹åº”ç”¨æˆ·ï¼Œè¿”å›æ— æ³•æ‰“å¡
 		Employee emp = empDao.findByName(user);
 		if (emp == null)
 		{
 			return NO_PUNCH;
 		}
-		//ÕÒµ½Ô±¹¤µ±Ç°µÄ³öÇÚ¼ÇÂ¼
+		//æ‰¾åˆ°å‘˜å·¥å½“å‰çš„å‡ºå‹¤è®°å½•
 		List<Attend> attends = attendDao.findByEmpAndDutyDay(emp , dutyDay);
-		//ÏµÍ³Ã»ÓĞÎªÓÃ»§ÔÚµ±Ìì²åÈë¿Õ´ò¿¨¼ÇÂ¼£¬ÎŞ·¨´ò¿¨
+		//ç³»ç»Ÿæ²¡æœ‰ä¸ºç”¨æˆ·åœ¨å½“å¤©æ’å…¥ç©ºæ‰“å¡è®°å½•ï¼Œæ— æ³•æ‰“å¡
 		if (attends == null || attends.size() <= 0)
 		{
 			return NO_PUNCH;
 		}
-		//¿ªÊ¼ÉÏ°à´ò¿¨
+		//å¼€å§‹ä¸Šç­æ‰“å¡
 		else if (attends.size() == 1
 			&& attends.get(0).getIsCome() 
 			&& attends.get(0).getPunchTime() == null)
@@ -192,13 +192,13 @@ public class EmpManagerImpl
 		}
 		else if (attends.size() == 2)
 		{
-			//¿ÉÒÔÉÏ°à¡¢ÏÂ°à´ò¿¨
+			//å¯ä»¥ä¸Šç­ã€ä¸‹ç­æ‰“å¡
 			if (attends.get(0).getPunchTime() == null 
 				&& attends.get(1).getPunchTime() == null)
 			{
 				return BOTH_PUNCH;
 			}
-			//¿ÉÒÔÏÂ°à´ò¿¨
+			//å¯ä»¥ä¸‹ç­æ‰“å¡
 			else if (attends.get(1).getPunchTime() == null)
 			{
 				return LEAVE_PUNCH;
@@ -212,11 +212,11 @@ public class EmpManagerImpl
 	}
 
 	/**
-	 * ´ò¿¨
-	 * @param user Ô±¹¤Ãû
-	 * @param dutyDay ´ò¿¨ÈÕÆÚ
-	 * @param isCome ÊÇ·ñÊÇÉÏ°à´ò¿¨
-	 * @return ´ò¿¨½á¹û
+	 * æ‰“å¡
+	 * @param user å‘˜å·¥å
+	 * @param dutyDay æ‰“å¡æ—¥æœŸ
+	 * @param isCome æ˜¯å¦æ˜¯ä¸Šç­æ‰“å¡
+	 * @return æ‰“å¡ç»“æœ
 	 */
 	public int punch(String user , String dutyDay , boolean isCome)
 	{
@@ -225,47 +225,47 @@ public class EmpManagerImpl
 		{
 			return PUNCH_FAIL;
 		}
-		//ÕÒµ½Ô±¹¤±¾´Î´ò¿¨¶ÔÓ¦µÄ³öÇÚ¼ÇÂ¼
+		//æ‰¾åˆ°å‘˜å·¥æœ¬æ¬¡æ‰“å¡å¯¹åº”çš„å‡ºå‹¤è®°å½•
 		Attend attend = 
 			attendDao.findByEmpAndDutyDayAndCome(emp , dutyDay , isCome);
 		if (attend == null)
 		{
 			return PUNCH_FAIL;
 		}
-		//ÒÑ¾­´ò¿¨
+		//å·²ç»æ‰“å¡
 		if (attend.getPunchTime() != null)
 		{
 			return PUNCHED;
 		}
-		System.out.println("============´ò¿¨==========");
-		//»ñÈ¡´ò¿¨Ê±¼ä
+		System.out.println("============æ‰“å¡==========");
+		//è·å–æ‰“å¡æ—¶é—´
 		int punchHour = Calendar.getInstance()
 			.get(Calendar.HOUR_OF_DAY);
 		attend.setPunchTime(new Date());
-		//ÉÏ°à´ò¿¨
+		//ä¸Šç­æ‰“å¡
 		if (isCome)
 		{
-			// 9µãÖ®Ç°ËãÕı³£
+			// 9ç‚¹ä¹‹å‰ç®—æ­£å¸¸
 			if (punchHour < COME_LIMIT)
 			{
 				attend.setType(typeDao.get(1));
 			}
-			// 9¡«11µãÖ®¼äËã³Ùµ½
+			// 9ï½11ç‚¹ä¹‹é—´ç®—è¿Ÿåˆ°
 			else if (punchHour < LATE_LIMIT)
 			{
 				attend.setType(typeDao.get(4));
 			}
-			//11µãÖ®ºóËã¿õ¹¤,ÎŞĞèÀí»á
+			//11ç‚¹ä¹‹åç®—æ—·å·¥,æ— éœ€ç†ä¼š
 		}
-		//ÏÂ°à´ò¿¨
+		//ä¸‹ç­æ‰“å¡
 		else
 		{
-			//18µãÖ®ºóËãÕı³£
+			//18ç‚¹ä¹‹åç®—æ­£å¸¸
 			if (punchHour > LEAVE_LIMIT)
 			{
 				attend.setType(typeDao.get(1));
 			}
-			//16~18µãÖ®¼äËãÔçÍË
+			//16~18ç‚¹ä¹‹é—´ç®—æ—©é€€
 			else if (punchHour < EARLY_LIMIT)
 			{
 				attend.setType(typeDao.get(5));
@@ -276,18 +276,18 @@ public class EmpManagerImpl
 	}
 
 	/**
-	 * ¸ù¾İÔ±¹¤ä¯ÀÀ×Ô¼ºµÄ¹¤×Ê
-	 * @param empName Ô±¹¤Ãû
-	 * @return ¸ÃÔ±¹¤µÄ¹¤×ÊÁĞ±í
+	 * æ ¹æ®å‘˜å·¥æµè§ˆè‡ªå·±çš„å·¥èµ„
+	 * @param empName å‘˜å·¥å
+	 * @return è¯¥å‘˜å·¥çš„å·¥èµ„åˆ—è¡¨
 	 */
 	public List<PaymentBean> empSalary(String empName)
 	{
-		//»ñÈ¡µ±Ç°Ô±¹¤
+		//è·å–å½“å‰å‘˜å·¥
 		Employee emp = empDao.findByName(empName);
-		//»ñÈ¡¸ÃÔ±¹¤µÄÈ«²¿¹¤×ÊÁĞ±í
+		//è·å–è¯¥å‘˜å·¥çš„å…¨éƒ¨å·¥èµ„åˆ—è¡¨
 		List<Payment> pays = payDao.findByEmp(emp);
 		List<PaymentBean> result = new ArrayList<PaymentBean>();
-		//·â×°VO¼¯ºÏ
+		//å°è£…VOé›†åˆ
 		for (Payment p : pays )
 		{
 			result.add(new PaymentBean(p.getPayMonth()
@@ -297,19 +297,19 @@ public class EmpManagerImpl
 	}
 
 	/**
-	 * Ô±¹¤²é¿´×Ô¼ºµÄ×î½üÈıÌì·ÇÕı³£´ò¿¨
-	 * @param empName Ô±¹¤Ãû
-	 * @return ¸ÃÔ±¹¤µÄ×î½üÈıÌìµÄ·ÇÕı³£´ò¿¨
+	 * å‘˜å·¥æŸ¥çœ‹è‡ªå·±çš„æœ€è¿‘ä¸‰å¤©éæ­£å¸¸æ‰“å¡
+	 * @param empName å‘˜å·¥å
+	 * @return è¯¥å‘˜å·¥çš„æœ€è¿‘ä¸‰å¤©çš„éæ­£å¸¸æ‰“å¡
 	 */
 	public List<AttendBean> unAttend(String empName)
 	{
-		//ÕÒ³öÕı³£ÉÏ°à
+		//æ‰¾å‡ºæ­£å¸¸ä¸Šç­
 		AttendType type = typeDao.get(1);
 		Employee emp = empDao.findByName(empName);
-		//ÕÒ³ö·ÇÕı³£ÉÏ°àµÄ³öÇÚ¼ÇÂ¼
+		//æ‰¾å‡ºéæ­£å¸¸ä¸Šç­çš„å‡ºå‹¤è®°å½•
 		List<Attend> attends = attendDao.findByEmpUnAttend(emp, type);
 		List<AttendBean> result = new ArrayList<AttendBean>();
-		//·â×°VO¼¯ºÏ
+		//å°è£…VOé›†åˆ
 		for (Attend att : attends )
 		{
 			result.add(new AttendBean(att.getId() , att.getDutyDay()
@@ -319,8 +319,8 @@ public class EmpManagerImpl
 	}
 
 	/**
-	 * ·µ»ØÈ«²¿µÄ³öÇÚÀà±ğ
-	 * @return È«²¿µÄ³öÇÚÀà±ğ
+	 * è¿”å›å…¨éƒ¨çš„å‡ºå‹¤ç±»åˆ«
+	 * @return å…¨éƒ¨çš„å‡ºå‹¤ç±»åˆ«
 	 */
 	public List<AttendType> getAllType()
 	{
@@ -328,18 +328,18 @@ public class EmpManagerImpl
 	}
 
 	/**
-	 * Ìí¼ÓÉêÇë
-	 * @param attId ÉêÇëµÄ³öÇÚID
-	 * @param typeId ÉêÇëµÄÀàĞÍID
-	 * @param reason ÉêÇëµÄÀíÓÉ
-	 * @return Ìí¼ÓµÄ½á¹û
+	 * æ·»åŠ ç”³è¯·
+	 * @param attId ç”³è¯·çš„å‡ºå‹¤ID
+	 * @param typeId ç”³è¯·çš„ç±»å‹ID
+	 * @param reason ç”³è¯·çš„ç†ç”±
+	 * @return æ·»åŠ çš„ç»“æœ
 	 */
 	public boolean addApplication(int attId , int typeId 
 		, String reason)
 	{
-		//´´½¨Ò»¸öÉêÇë
+		//åˆ›å»ºä¸€ä¸ªç”³è¯·
 		Application app = new Application();
-		//»ñÈ¡ÉêÇëĞèÒª¸Ä±äµÄ³öÇÚ¼ÇÂ¼
+		//è·å–ç”³è¯·éœ€è¦æ”¹å˜çš„å‡ºå‹¤è®°å½•
 		Attend attend = attendDao.get(attId);
 		AttendType type = typeDao.get(typeId);
 		app.setAttend(attend);

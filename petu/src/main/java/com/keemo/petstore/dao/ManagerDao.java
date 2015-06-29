@@ -8,54 +8,54 @@ import com.keemo.petstore.bean.*;
 public interface ManagerDao
 {
 	/**
-	 * ¸ù¾İ±êÊ¶ÊôĞÔÀ´¼ÓÔØManagerÊµÀı
-	 * @param id ĞèÒª¼ÓÔØµÄManagerÊµÀıµÄ±êÊ¶ÊôĞÔÖµ
-	 * @return Ö¸¶¨±êÊ¶ÊôĞÔ¶ÔÓ¦µÄManagerÊµÀı
+	 * æ ¹æ®æ ‡è¯†å±æ€§æ¥åŠ è½½Managerå®ä¾‹
+	 * @param id éœ€è¦åŠ è½½çš„Managerå®ä¾‹çš„æ ‡è¯†å±æ€§å€¼
+	 * @return æŒ‡å®šæ ‡è¯†å±æ€§å¯¹åº”çš„Managerå®ä¾‹
 	 */
 	Manager get(Integer id);
 
 	/**
-	 * ³Ö¾Ã»¯Ö¸¶¨µÄManagerÊµÀı
-	 * @param manager ĞèÒª±»³Ö¾Ã»¯µÄManagerÊµÀı
-	 * @return ManagerÊµÀı±»³Ö¾Ã»¯ºóµÄ±êÊ¶ÊôĞÔÖµ
+	 * æŒä¹…åŒ–æŒ‡å®šçš„Managerå®ä¾‹
+	 * @param manager éœ€è¦è¢«æŒä¹…åŒ–çš„Managerå®ä¾‹
+	 * @return Managerå®ä¾‹è¢«æŒä¹…åŒ–åçš„æ ‡è¯†å±æ€§å€¼
 	 */
 	String save(Manager manager);
 
 	/**
-	 * ĞŞ¸ÄÖ¸¶¨µÄManagerÊµÀı
-	 * @param manager ĞèÒª±»ĞŞ¸ÄµÄManagerÊµÀı
+	 * ä¿®æ”¹æŒ‡å®šçš„Managerå®ä¾‹
+	 * @param manager éœ€è¦è¢«ä¿®æ”¹çš„Managerå®ä¾‹
 	 */
 	void update(Manager manager);
 
 	/**
-	 * É¾³ıÖ¸¶¨µÄManagerÊµÀı
-	 * @param manager ĞèÒª±»É¾³ıµÄManagerÊµÀı
+	 * åˆ é™¤æŒ‡å®šçš„Managerå®ä¾‹
+	 * @param manager éœ€è¦è¢«åˆ é™¤çš„Managerå®ä¾‹
 	 */
 	void delete(Manager manager);
 
 	/**
-	 * ¸ù¾İ±êÊ¶ÊôĞÔÉ¾³ıManagerÊµÀı
-	 * @param id ĞèÒª±»É¾³ıµÄManagerÊµÀıµÄ±êÊ¶ÊôĞÔÖµ
+	 * æ ¹æ®æ ‡è¯†å±æ€§åˆ é™¤Managerå®ä¾‹
+	 * @param id éœ€è¦è¢«åˆ é™¤çš„Managerå®ä¾‹çš„æ ‡è¯†å±æ€§å€¼
 	 */
 	void delete(Integer id);
 
 	/**
-	 * ²éÑ¯È«²¿µÄManagerÊµÀı
-	 * @return Êı¾İ¿âÖĞÈ«²¿µÄManagerÊµÀı
+	 * æŸ¥è¯¢å…¨éƒ¨çš„Managerå®ä¾‹
+	 * @return æ•°æ®åº“ä¸­å…¨éƒ¨çš„Managerå®ä¾‹
 	 */
 	List<Manager> findAll();
 
 	/**
-	 * ¸ù¾İÓÃ»§ÃûºÍÃÜÂë²éÑ¯¾­Àí
-	 * @param emp °üº¬Ö¸¶¨ÓÃ»§Ãû¡¢ÃÜÂëµÄ¾­Àí
-	 * @return ·ûºÏÖ¸¶¨ÓÃ»§ÃûºÍÃÜÂëµÄ¾­Àí
+	 * æ ¹æ®ç”¨æˆ·åå’Œå¯†ç æŸ¥è¯¢ç»ç†
+	 * @param emp åŒ…å«æŒ‡å®šç”¨æˆ·åã€å¯†ç çš„ç»ç†
+	 * @return ç¬¦åˆæŒ‡å®šç”¨æˆ·åå’Œå¯†ç çš„ç»ç†
 	 */ 
 	List<Manager> findByNameAndPass(Manager mgr);
 
 	/**
-	 * ¸ù¾İÓÃ»§Ãû²éÕÒ¾­Àí
-	 * @param name ¾­ÀíµÄÃû×Ö
-	 * @return Ãû×Ö¶ÔÓ¦µÄ¾­Àí
+	 * æ ¹æ®ç”¨æˆ·åæŸ¥æ‰¾ç»ç†
+	 * @param name ç»ç†çš„åå­—
+	 * @return åå­—å¯¹åº”çš„ç»ç†
 	 */
 	Manager findByName(String name);
 }

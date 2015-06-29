@@ -14,40 +14,40 @@ import java.util.*;
 public interface MgrManager
 {
 	/**
-	 * ĞÂÔöÔ±¹¤
-	 * @param emp ĞÂÔöµÄÔ±¹¤
-	 * @param mgr Ô±¹¤ËùÊôµÄ¾­Àí
+	 * æ–°å¢å‘˜å·¥
+	 * @param emp æ–°å¢çš„å‘˜å·¥
+	 * @param mgr å‘˜å·¥æ‰€å±çš„ç»ç†
 	 */
 	void addEmp(Employee emp , String mgr)
 		throws HrException;
 
 
 	/**
-	 * ¸ù¾İ¾­Àí·µ»ØËùÓĞµÄ²¿ÃÅÉÏ¸öÔÂ¹¤×Ê
-	 * @param mgr ĞÂÔöµÄÔ±¹¤Ãû
-	 * @return ²¿ÃÅÉÏ¸öÔÂ¹¤×Ê
+	 * æ ¹æ®ç»ç†è¿”å›æ‰€æœ‰çš„éƒ¨é—¨ä¸Šä¸ªæœˆå·¥èµ„
+	 * @param mgr æ–°å¢çš„å‘˜å·¥å
+	 * @return éƒ¨é—¨ä¸Šä¸ªæœˆå·¥èµ„
 	 */
 	List<SalaryBean> getSalaryByMgr(String mgr)throws HrException;
 
 	/**
-	 * ¸ù¾İ¾­Àí·µ»Ø¸Ã²¿ÃÅµÄÈ«²¿Ô±¹¤
-	 * @param mgr ¾­ÀíÃû
-	 * @return ¾­ÀíµÄÈ«²¿ÏÂÊô
+	 * æ ¹æ®ç»ç†è¿”å›è¯¥éƒ¨é—¨çš„å…¨éƒ¨å‘˜å·¥
+	 * @param mgr ç»ç†å
+	 * @return ç»ç†çš„å…¨éƒ¨ä¸‹å±
 	 */
 	List<EmpBean> getEmpsByMgr(String mgr)throws HrException;
 
 	/**
-	 * ¸ù¾İ¾­Àí·µ»Ø¸Ã²¿ÃÅµÄÃ»ÓĞÅú¸´µÄÉêÇë
-	 * @param mgr ¾­ÀíÃû
-	 * @return ¸Ã²¿ÃÅµÄÈ«²¿ÉêÇë
+	 * æ ¹æ®ç»ç†è¿”å›è¯¥éƒ¨é—¨çš„æ²¡æœ‰æ‰¹å¤çš„ç”³è¯·
+	 * @param mgr ç»ç†å
+	 * @return è¯¥éƒ¨é—¨çš„å…¨éƒ¨ç”³è¯·
 	 */
 	List<AppBean> getAppsByMgr(String mgr)throws HrException;
 
 	/**
-	 * ´¦ÀíÉêÇë
-	 * @param appid ÉêÇëID
-	 * @param mgrName ¾­ÀíÃû×Ö
-	 * @param result ÊÇ·ñÍ¨¹ı
+	 * å¤„ç†ç”³è¯·
+	 * @param appid ç”³è¯·ID
+	 * @param mgrName ç»ç†åå­—
+	 * @param result æ˜¯å¦é€šè¿‡
 	 */
 	void check(int appid, String mgrName, boolean result);
 }

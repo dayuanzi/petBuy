@@ -9,16 +9,16 @@ import java.util.*;
 
 public interface AdmManager
 {
-	//µÇÂ¼Ê§°Ü
+	//ç™»å½•å¤±è´¥
 	public static final int LOGIN_FAIL = 0;
-	//µÇÂ½³É¹¦
+	//ç™»é™†æˆåŠŸ
 	public static final int LOGIN_SUC = 1;
 	
 
 	/**
-	 * ÒÔÂò¼ÒÉí·İÀ´ÑéÖ¤µÇÂ¼
-	 * @param admin µÇÂ¼µÄÊµÀıĞÅÏ¢
-	 * @return µÇÂ¼ºóµÄÉí·İÈ·ÈÏ:0ÎªµÇÂ¼Ê§°Ü£¬1ÎªµÇÂ¼³É¹¦
+	 * ä»¥ä¹°å®¶èº«ä»½æ¥éªŒè¯ç™»å½•
+	 * @param admin ç™»å½•çš„å®ä¾‹ä¿¡æ¯
+	 * @return ç™»å½•åçš„èº«ä»½ç¡®è®¤:0ä¸ºç™»å½•å¤±è´¥ï¼Œ1ä¸ºç™»å½•æˆåŠŸ
 	 */
 	int validLogin(Admin admin);
 

@@ -67,46 +67,46 @@ public class MgrManagerImpl
 	}
 
 	/**
-	 * ĞÂÔöÔ±¹¤
-	 * @param emp ĞÂÔöµÄÔ±¹¤
-	 * @param mgr Ô±¹¤ËùÊôµÄ¾­Àí
+	 * æ–°å¢å‘˜å·¥
+	 * @param emp æ–°å¢çš„å‘˜å·¥
+	 * @param mgr å‘˜å·¥æ‰€å±çš„ç»ç†
 	 */
 	public void addEmp(Employee emp , String mgr)throws HrException
 	{
 		Manager m = mgrDao.findByName(mgr);
 		if (m == null)
 		{
-			throw new HrException("ĞÂÔöÔ±¹¤µÄÒµÎñÒì³£");
+			throw new HrException("æ–°å¢å‘˜å·¥çš„ä¸šåŠ¡å¼‚å¸¸");
 		}
 		emp.setManager(m);
 		empDao.save(emp);
 	}
 
 	/**
-	 * ¸ù¾İ¾­Àí·µ»ØËùÓĞµÄ²¿ÃÅÉÏ¸öÔÂ¹¤×Ê
-	 * @param mgr ĞÂÔöµÄÔ±¹¤Ãû
-	 * @return ²¿ÃÅÉÏ¸öÔÂ¹¤×Ê
+	 * æ ¹æ®ç»ç†è¿”å›æ‰€æœ‰çš„éƒ¨é—¨ä¸Šä¸ªæœˆå·¥èµ„
+	 * @param mgr æ–°å¢çš„å‘˜å·¥å
+	 * @return éƒ¨é—¨ä¸Šä¸ªæœˆå·¥èµ„
 	 */
 	public List<SalaryBean> getSalaryByMgr(String mgr)throws HrException
 	{
 		Manager m = mgrDao.findByName(mgr);
 		if (m == null)
 		{
-			throw new HrException("ÄúÊÇ¾­ÀíÂğ£¿»òÄã»¹Î´µÇÂ¼£¿");
+			throw new HrException("æ‚¨æ˜¯ç»ç†å—ï¼Ÿæˆ–ä½ è¿˜æœªç™»å½•ï¼Ÿ");
 		}
-		//²éÑ¯¸Ã¾­Àí¶ÔÓ¦µÄÈ«²¿Ô±¹¤
+		//æŸ¥è¯¢è¯¥ç»ç†å¯¹åº”çš„å…¨éƒ¨å‘˜å·¥
 		List<Employee> emps = empDao.findByMgr(m);
-		//²¿ÃÅÒÀÈ»Ã»ÓĞÔ±¹¤
+		//éƒ¨é—¨ä¾ç„¶æ²¡æœ‰å‘˜å·¥
 		if (emps == null || emps.size() < 1)
 		{
-			throw new HrException("ÄúµÄ²¿ÃÅÃ»ÓĞÔ±¹¤");
+			throw new HrException("æ‚¨çš„éƒ¨é—¨æ²¡æœ‰å‘˜å·¥");
 		}
 		Calendar c = Calendar.getInstance();
 		c.add(Calendar.MONTH , -1);
 		SimpleDateFormat sdf = new  SimpleDateFormat("yyyy-MM");
 		String payMonth = sdf.format(c.getTime());
 		List<SalaryBean> result = new ArrayList<SalaryBean>();
-		//±éÀú±¾²¿ÃÅÃ¿¸öÔ±¹¤
+		//éå†æœ¬éƒ¨é—¨æ¯ä¸ªå‘˜å·¥
 		for (Employee e : emps)
 		{
 			Payment p = payDao.findByMonthAndEmp(payMonth , e);
@@ -121,9 +121,9 @@ public class MgrManagerImpl
 	}
 
 	/**
-	* ¸ù¾İ¾­Àí·µ»Ø¸Ã²¿ÃÅµÄÈ«²¿Ô±¹¤
-	* @param mgr ¾­ÀíÃû
-	* @return ¾­ÀíµÄÈ«²¿ÏÂÊô
+	* æ ¹æ®ç»ç†è¿”å›è¯¥éƒ¨é—¨çš„å…¨éƒ¨å‘˜å·¥
+	* @param mgr ç»ç†å
+	* @return ç»ç†çš„å…¨éƒ¨ä¸‹å±
 	*/
 	public List<EmpBean> getEmpsByMgr(String mgr)
 		throws HrException
@@ -131,16 +131,16 @@ public class MgrManagerImpl
 		Manager m = mgrDao.findByName(mgr);
 		if (m == null)
 		{
-			throw new HrException("ÄúÊÇ¾­ÀíÂğ£¿»òÄã»¹Î´µÇÂ¼£¿");
+			throw new HrException("æ‚¨æ˜¯ç»ç†å—ï¼Ÿæˆ–ä½ è¿˜æœªç™»å½•ï¼Ÿ");
 		}
-		//²éÑ¯¸Ã¾­Àí¶ÔÓ¦µÄÈ«²¿Ô±¹¤
+		//æŸ¥è¯¢è¯¥ç»ç†å¯¹åº”çš„å…¨éƒ¨å‘˜å·¥
 		List<Employee> emps = empDao.findByMgr(m);
-		//²¿ÃÅÒÀÈ»Ã»ÓĞÔ±¹¤
+		//éƒ¨é—¨ä¾ç„¶æ²¡æœ‰å‘˜å·¥
 		if (emps == null || emps.size() < 1)
 		{
-			throw new HrException("ÄúµÄ²¿ÃÅÃ»ÓĞÔ±¹¤");
+			throw new HrException("æ‚¨çš„éƒ¨é—¨æ²¡æœ‰å‘˜å·¥");
 		}
-		//·â×°VO¼¯
+		//å°è£…VOé›†
 		List<EmpBean> result = new ArrayList<EmpBean>();		
 		for (Employee e : emps)
 		{
@@ -151,35 +151,35 @@ public class MgrManagerImpl
 	}
 
 	/**
-	 * ¸ù¾İ¾­Àí·µ»Ø¸Ã²¿ÃÅµÄÃ»ÓĞÅú¸´µÄÉêÇë
-	 * @param mgr ¾­ÀíÃû
-	 * @return ¸Ã²¿ÃÅµÄÈ«²¿ÉêÇë
+	 * æ ¹æ®ç»ç†è¿”å›è¯¥éƒ¨é—¨çš„æ²¡æœ‰æ‰¹å¤çš„ç”³è¯·
+	 * @param mgr ç»ç†å
+	 * @return è¯¥éƒ¨é—¨çš„å…¨éƒ¨ç”³è¯·
 	 */
 	public List<AppBean> getAppsByMgr(String mgr)throws HrException
 	{
 		Manager m = mgrDao.findByName(mgr);
 		if (m == null)
 		{
-			throw new HrException("ÄúÊÇ¾­ÀíÂğ£¿»òÄã»¹Î´µÇÂ¼£¿");
+			throw new HrException("æ‚¨æ˜¯ç»ç†å—ï¼Ÿæˆ–ä½ è¿˜æœªç™»å½•ï¼Ÿ");
 		}
-		//²éÑ¯¸Ã¾­Àí¶ÔÓ¦µÄÈ«²¿Ô±¹¤
+		//æŸ¥è¯¢è¯¥ç»ç†å¯¹åº”çš„å…¨éƒ¨å‘˜å·¥
 		List<Employee> emps = empDao.findByMgr(m);
-		//²¿ÃÅÒÀÈ»Ã»ÓĞÔ±¹¤
+		//éƒ¨é—¨ä¾ç„¶æ²¡æœ‰å‘˜å·¥
 		if (emps == null || emps.size() < 1)
 		{
-			throw new HrException("ÄúµÄ²¿ÃÅÃ»ÓĞÔ±¹¤");
+			throw new HrException("æ‚¨çš„éƒ¨é—¨æ²¡æœ‰å‘˜å·¥");
 		}
-		//·â×°VO¼¯
+		//å°è£…VOé›†
 		List<AppBean> result = new ArrayList<AppBean>();		
 		for (Employee e : emps)
 		{
-			//²é¿´¸ÃÔ±¹¤µÄÈ«²¿ÉêÇë
+			//æŸ¥çœ‹è¯¥å‘˜å·¥çš„å…¨éƒ¨ç”³è¯·
 			List<Application> apps = appDao.findByEmp(e);
 			if (apps != null && apps.size() > 0)
 			{
 				for (Application app : apps)
 				{
-					//Ö»Ñ¡Ôñ»¹Î´´¦ÀíµÄÉêÇë
+					//åªé€‰æ‹©è¿˜æœªå¤„ç†çš„ç”³è¯·
 					if (app.getResult() == false)
 					{
 						Attend attend = app.getAttend();
@@ -194,37 +194,37 @@ public class MgrManagerImpl
 	}
 
 	/**
-	 * ´¦ÀíÉêÇë
-	 * @param appid ÉêÇëID
-	 * @param mgrName ¾­ÀíÃû×Ö
-	 * @param result ÊÇ·ñÍ¨¹ı
+	 * å¤„ç†ç”³è¯·
+	 * @param appid ç”³è¯·ID
+	 * @param mgrName ç»ç†åå­—
+	 * @param result æ˜¯å¦é€šè¿‡
 	 */
 	public void check(int appid, String mgrName, boolean result)
 	{
 		Application app = appDao.get(appid);
 		CheckBack check = new CheckBack();
 		check.setApp(app);
-		//Í¬ÒâÍ¨¹ıÉêÇë
+		//åŒæ„é€šè¿‡ç”³è¯·
 		if (result)
 		{
-			//ÉèÖÃÍ¨¹ıÉêÇë
+			//è®¾ç½®é€šè¿‡ç”³è¯·
 			check.setResult(true);
-			//ĞŞ¸ÄÉêÇëÎªÒÑ¾­Åú¸´
+			//ä¿®æ”¹ç”³è¯·ä¸ºå·²ç»æ‰¹å¤
 			app.setResult(true);
 			appDao.save(app);
-			//ÎªÕæÊ±£¬»¹ĞèÒªĞŞ¸Ä³öÇÚµÄÀàĞÍ
+			//ä¸ºçœŸæ—¶ï¼Œè¿˜éœ€è¦ä¿®æ”¹å‡ºå‹¤çš„ç±»å‹
 			Attend attend = app.getAttend();
 			attend.setType(app.getType());
 			attendDao.update(attend);
 		}
 		else
 		{
-			//Ã»ÓĞÍ¨¹ıÉêÇë
+			//æ²¡æœ‰é€šè¿‡ç”³è¯·
 			check.setResult(false);
 			app.setResult(true);
 			appDao.save(app);
 		}
-		//±£´æÉêÇëÅú¸´
+		//ä¿å­˜ç”³è¯·æ‰¹å¤
 		checkDao.save(check);
 	}
 }

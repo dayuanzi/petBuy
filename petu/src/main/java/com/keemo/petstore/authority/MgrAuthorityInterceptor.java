@@ -12,12 +12,12 @@ public class MgrAuthorityInterceptor
 	public String intercept(ActionInvocation invocation) 
 		throws Exception
 	{
-		//´´½¨ActionContextÊµÀı
+		//åˆ›å»ºActionContextå®ä¾‹
 		ActionContext ctx = ActionContext.getContext();
-		//»ñÈ¡HttpSessionÖĞµÄlevelÊôĞÔ
+		//è·å–HttpSessionä¸­çš„levelå±æ€§
 		String level = (String)ctx.getSession()
 			.get(WebConstant.LEVEL);
-		//Èç¹ûlevel²»Îªnull£¬ÇÒlevelÎªmgr
+		//å¦‚æœlevelä¸ä¸ºnullï¼Œä¸”levelä¸ºmgr
 		if ( level != null 
 			&& level.equals(WebConstant.MGR_LEVEL))
 		{

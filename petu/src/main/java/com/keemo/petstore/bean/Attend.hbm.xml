@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="GBK"?>
-<!-- Ö¸¶¨HibernateÓ³ÉäÎÄ¼þµÄDTDÐÅÏ¢ -->
+<!-- æŒ‡å®šHibernateæ˜ å°„æ–‡ä»¶çš„DTDä¿¡æ¯ -->
 <!DOCTYPE hibernate-mapping PUBLIC 
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- HibernateÓ³ÉäÎÄ¼þµÄ¸ùÔªËØ -->
+<!-- Hibernateæ˜ å°„æ–‡ä»¶çš„æ ¹å…ƒç´  -->
 <hibernate-mapping package="com.keemo.petstore.bean">
 	<class	name="Attend"	table="attend_table">
-		<!-- Ê¹ÓÃÖ»¶Á»º´æ -->
+		<!-- ä½¿ç”¨åªè¯»ç¼“å­˜ -->
 		<cache usage="read-only"/>
-		<!-- Ó³Éä±êÊ¶ÊôÐÔ -->
+		<!-- æ˜ å°„æ ‡è¯†å±žæ€§ -->
 		<id	name="id" type="integer" column="attend_id">
-			<!-- Ö¸¶¨Ê¹ÓÃidentityÖ÷¼üÉú³É²ßÂÔ -->
+			<!-- æŒ‡å®šä½¿ç”¨identityä¸»é”®ç”Ÿæˆç­–ç•¥ -->
 			<generator class="identity"/>
 		</id>
-		<!-- Ó³ÉäÆÕÍ¨ÊôÐÔ -->
+		<!-- æ˜ å°„æ™®é€šå±žæ€§ -->
 		<property name="dutyDay" column="duty_day"
 			type="string" not-null="true" length="50"/>
 		<property name="punchTime" column="punch_time"
 			type="java.util.Date" />
 		<property name="isCome" column="is_come"
 			type="boolean" not-null="true"/>
-		<!-- Ó³ÉäºÍAttendTypeÖ®¼äµÄ¹ØÁª¹ØÏµ -->
+		<!-- æ˜ å°„å’ŒAttendTypeä¹‹é—´çš„å…³è”å…³ç³» -->
 		<many-to-one name="type" column="type_id" 
 			class="AttendType" not-null="true" lazy="false"/>
-		<!-- Ó³ÉäºÍEmployeeÖ®¼äµÄ¹ØÁª¹ØÏµ -->
+		<!-- æ˜ å°„å’ŒEmployeeä¹‹é—´çš„å…³è”å…³ç³» -->
 		<many-to-one name="employee" column="emp_id" 
 			class="Employee" not-null="true" lazy="false"/>
 	</class>

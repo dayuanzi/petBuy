@@ -8,40 +8,40 @@ import com.keemo.petstore.bean.*;
 public interface AdminDao
 {
 	/**
-	 * ¸ù¾İ±êÊ¶ÊôĞÔÀ´¼ÓÔØAdminÊµÀı
-	 * @param id ĞèÒª¼ÓÔØµÄAdminÊµÀıµÄ±êÊ¶ÊôĞÔÖµ
-	 * @return Ö¸¶¨±êÊ¶ÊôĞÔ¶ÔÓ¦µÄAdminÊµÀı
+	 * æ ¹æ®æ ‡è¯†å±æ€§æ¥åŠ è½½Adminå®ä¾‹
+	 * @param id éœ€è¦åŠ è½½çš„Adminå®ä¾‹çš„æ ‡è¯†å±æ€§å€¼
+	 * @return æŒ‡å®šæ ‡è¯†å±æ€§å¯¹åº”çš„Adminå®ä¾‹
 	 */
 	Admin get(Integer id);
 
 	/**
-	 * ³Ö¾Ã»¯Ö¸¶¨µÄAdminÊµÀı
-	 * @param Admin ĞèÒª±»³Ö¾Ã»¯µÄAdminÊµÀı
-	 * @return AdminÊµÀı±»³Ö¾Ã»¯ºóµÄ±êÊ¶ÊôĞÔÖµ
+	 * æŒä¹…åŒ–æŒ‡å®šçš„Adminå®ä¾‹
+	 * @param Admin éœ€è¦è¢«æŒä¹…åŒ–çš„Adminå®ä¾‹
+	 * @return Adminå®ä¾‹è¢«æŒä¹…åŒ–åçš„æ ‡è¯†å±æ€§å€¼
 	 */
 	String save(Admin Admin);
 
 	/**
-	 * ĞŞ¸ÄÖ¸¶¨µÄAdminÊµÀı
-	 * @param Admin ĞèÒª±»ĞŞ¸ÄµÄAdminÊµÀı
+	 * ä¿®æ”¹æŒ‡å®šçš„Adminå®ä¾‹
+	 * @param Admin éœ€è¦è¢«ä¿®æ”¹çš„Adminå®ä¾‹
 	 */
 	void update(Admin Admin);
 
 	/**
-	 * É¾³ıÖ¸¶¨µÄAdminÊµÀı
-	 * @param Admin ĞèÒª±»É¾³ıµÄAdminÊµÀı
+	 * åˆ é™¤æŒ‡å®šçš„Adminå®ä¾‹
+	 * @param Admin éœ€è¦è¢«åˆ é™¤çš„Adminå®ä¾‹
 	 */
 	void delete(Admin Admin);
 
 	/**
-	 * ¸ù¾İ±êÊ¶ÊôĞÔÉ¾³ıAdminÊµÀı
-	 * @param id ĞèÒª±»É¾³ıµÄAdminÊµÀıµÄ±êÊ¶ÊôĞÔÖµ
+	 * æ ¹æ®æ ‡è¯†å±æ€§åˆ é™¤Adminå®ä¾‹
+	 * @param id éœ€è¦è¢«åˆ é™¤çš„Adminå®ä¾‹çš„æ ‡è¯†å±æ€§å€¼
 	 */
 	void delete(Integer id);
 	
 	/**
-	 * ¸ù¾İÓÃ»§ÃûÃÜÂë²éÕÒÓÃ»§ÓÃÓÚµÇÂ½
-	 * @param id ĞèÒª±»É¾³ıµÄAdminÊµÀıµÄ±êÊ¶ÊôĞÔÖµ
+	 * æ ¹æ®ç”¨æˆ·åå¯†ç æŸ¥æ‰¾ç”¨æˆ·ç”¨äºç™»é™†
+	 * @param id éœ€è¦è¢«åˆ é™¤çš„Adminå®ä¾‹çš„æ ‡è¯†å±æ€§å€¼
 	 */
 	public List<Admin> findByNameAndPass(Admin admin);
 }

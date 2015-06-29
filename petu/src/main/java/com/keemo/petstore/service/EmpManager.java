@@ -9,103 +9,103 @@ import java.util.*;
 
 public interface EmpManager
 {
-	//µÇÂ¼Ê§°Ü
+	//ç™»å½•å¤±è´¥
 	public static final int LOGIN_FAIL = 0;
-	//ÒÔÆÕÍ¨Ô±¹¤µÇÂ¼
+	//ä»¥æ™®é€šå‘˜å·¥ç™»å½•
 	public static final int LOGIN_EMP = 1;
-	//ÒÔ¾­ÀíµÇÂ¼
+	//ä»¥ç»ç†ç™»å½•
 	public static final int LOGIN_MGR = 2;
 
-	//²»ÄÜ´ò¿¨
+	//ä¸èƒ½æ‰“å¡
 	public static final int NO_PUNCH = 0;
-	//Ö»ÄÜÉÏ°à´ò¿¨
+	//åªèƒ½ä¸Šç­æ‰“å¡
 	public static final int COME_PUNCH = 1;
-	//Ö»ÄÜÏÂ°à´ò¿¨
+	//åªèƒ½ä¸‹ç­æ‰“å¡
 	public static final int LEAVE_PUNCH = 2;
-	//¼È¿ÉÒÔÉÏ°à£¬Ò²¿ÉÒÔÏÂ°à´ò¿¨
+	//æ—¢å¯ä»¥ä¸Šç­ï¼Œä¹Ÿå¯ä»¥ä¸‹ç­æ‰“å¡
 	public static final int BOTH_PUNCH = 3;
 
-	//´ò¿¨Ê§°Ü
+	//æ‰“å¡å¤±è´¥
 	public static final int PUNCH_FAIL = 0;
-	//ÒÑ¾­´ò¿¨
+	//å·²ç»æ‰“å¡
 	public static final int PUNCHED = 1;
-	//´ò¿¨³É¹¦
+	//æ‰“å¡æˆåŠŸ
 	public static final int PUNCH_SUCC = 2;
 
-	//ÒÔÉÏÎç11µãÎªÉÏÎçÊ±¼ä
+	//ä»¥ä¸Šåˆ11ç‚¹ä¸ºä¸Šåˆæ—¶é—´
 	public static final int AM_LIMIT = 11;
 
 	
-	//ÒÔÉÏÎç9µãÖ®Ç°ÎªÕı³£ÉÏ°à
+	//ä»¥ä¸Šåˆ9ç‚¹ä¹‹å‰ä¸ºæ­£å¸¸ä¸Šç­
 	public static final int COME_LIMIT = 9;
-	//ÒÔÉÏÎç9~11µãÖ®¼äËã³Ùµ½
+	//ä»¥ä¸Šåˆ9~11ç‚¹ä¹‹é—´ç®—è¿Ÿåˆ°
 	public static final int LATE_LIMIT = 11;
-	//ÒÔÏÂÎç18µãÖ®ºóËãÕı³£ÏÂ°à
+	//ä»¥ä¸‹åˆ18ç‚¹ä¹‹åç®—æ­£å¸¸ä¸‹ç­
 	public static final int LEAVE_LIMIT = 18;
-	//ÒÔÉÏÎç16~18µãÖ®¼äËã³Ùµ½
+	//ä»¥ä¸Šåˆ16~18ç‚¹ä¹‹é—´ç®—è¿Ÿåˆ°
 	public static final int EARLY_LIMIT = 16;
 
 	/**
-	 * ÒÔ¾­ÀíÉí·İÀ´ÑéÖ¤µÇÂ¼
-	 * @param mgr µÇÂ¼µÄ¾­ÀíÉí·İ
-	 * @return µÇÂ¼ºóµÄÉí·İÈ·ÈÏ:0ÎªµÇÂ¼Ê§°Ü£¬1ÎªµÇÂ¼emp 2ÎªµÇÂ¼mgr
+	 * ä»¥ç»ç†èº«ä»½æ¥éªŒè¯ç™»å½•
+	 * @param mgr ç™»å½•çš„ç»ç†èº«ä»½
+	 * @return ç™»å½•åçš„èº«ä»½ç¡®è®¤:0ä¸ºç™»å½•å¤±è´¥ï¼Œ1ä¸ºç™»å½•emp 2ä¸ºç™»å½•mgr
 	 */
 	int validLogin(Manager mgr);
 
 	/**
-	 * ×Ô¶¯´ò¿¨£¬ÖÜÒ»µ½ÖÜÎå£¬ÔçÉÏ7£º00ÎªÃ¿¸öÔ±¹¤²åÈë¿õ¹¤¼ÇÂ¼
+	 * è‡ªåŠ¨æ‰“å¡ï¼Œå‘¨ä¸€åˆ°å‘¨äº”ï¼Œæ—©ä¸Š7ï¼š00ä¸ºæ¯ä¸ªå‘˜å·¥æ’å…¥æ—·å·¥è®°å½•
 	 */
 	void autoPunch();
 
 	/**
-	 * ×Ô¶¯½áËã¹¤×Ê£¬Ã¿ÔÂ1ºÅ£¬½áËãÉÏ¸öÔÂ¹¤×Ê
+	 * è‡ªåŠ¨ç»“ç®—å·¥èµ„ï¼Œæ¯æœˆ1å·ï¼Œç»“ç®—ä¸Šä¸ªæœˆå·¥èµ„
 	 */
 	void autoPay();
 
 
 	/**
-	 * ÑéÖ¤Ä³¸öÔ±¹¤ÊÇ·ñ¿É´ò¿¨
-	 * @param user Ô±¹¤Ãû
-	 * @param dutyDay ÈÕÆÚ
-	 * @return ¿É´ò¿¨µÄÀà±ğ
+	 * éªŒè¯æŸä¸ªå‘˜å·¥æ˜¯å¦å¯æ‰“å¡
+	 * @param user å‘˜å·¥å
+	 * @param dutyDay æ—¥æœŸ
+	 * @return å¯æ‰“å¡çš„ç±»åˆ«
 	 */
 	int validPunch(String user , String dutyDay);
 
 	/**
-	 * ´ò¿¨
-	 * @param user Ô±¹¤Ãû
-	 * @param dutyDay ´ò¿¨ÈÕÆÚ
-	 * @param isCome ÊÇ·ñÊÇÉÏ°à´ò¿¨
-	 * @return ´ò¿¨½á¹û
+	 * æ‰“å¡
+	 * @param user å‘˜å·¥å
+	 * @param dutyDay æ‰“å¡æ—¥æœŸ
+	 * @param isCome æ˜¯å¦æ˜¯ä¸Šç­æ‰“å¡
+	 * @return æ‰“å¡ç»“æœ
 	 */
 	public int punch(String user , String dutyDay , boolean isCome);
 
 	/**
-	 * ¸ù¾İÔ±¹¤ä¯ÀÀ×Ô¼ºµÄ¹¤×Ê
-	 * @param empName Ô±¹¤Ãû
-	 * @return ¸ÃÔ±¹¤µÄ¹¤×ÊÁĞ±í
+	 * æ ¹æ®å‘˜å·¥æµè§ˆè‡ªå·±çš„å·¥èµ„
+	 * @param empName å‘˜å·¥å
+	 * @return è¯¥å‘˜å·¥çš„å·¥èµ„åˆ—è¡¨
 	 */
 	List<PaymentBean> empSalary(String empName);
 
 	/**
- 	 * Ô±¹¤²é¿´×Ô¼ºµÄ×î½üÈıÌì·ÇÕı³£´ò¿¨
-	 * @param empName Ô±¹¤Ãû
-	 * @return ¸ÃÔ±¹¤µÄ×î½üÈıÌìµÄ·ÇÕı³£´ò¿¨
+ 	 * å‘˜å·¥æŸ¥çœ‹è‡ªå·±çš„æœ€è¿‘ä¸‰å¤©éæ­£å¸¸æ‰“å¡
+	 * @param empName å‘˜å·¥å
+	 * @return è¯¥å‘˜å·¥çš„æœ€è¿‘ä¸‰å¤©çš„éæ­£å¸¸æ‰“å¡
 	 */
 	List<AttendBean> unAttend(String empName);
 
 	/**
-	 * ·µ»ØÈ«²¿µÄ³öÇÚÀà±ğ
-	 * @return È«²¿µÄ³öÇÚÀà±ğ
+	 * è¿”å›å…¨éƒ¨çš„å‡ºå‹¤ç±»åˆ«
+	 * @return å…¨éƒ¨çš„å‡ºå‹¤ç±»åˆ«
 	 */
 	List<AttendType> getAllType();
 
 	/**
-	 * Ìí¼ÓÉêÇë
-	 * @param attId ÉêÇëµÄ³öÇÚID
-	 * @param typeId ÉêÇëµÄÀàĞÍID
-	 * @param reason ÉêÇëµÄÀíÓÉ
-	 * @return Ìí¼ÓµÄ½á¹û
+	 * æ·»åŠ ç”³è¯·
+	 * @param attId ç”³è¯·çš„å‡ºå‹¤ID
+	 * @param typeId ç”³è¯·çš„ç±»å‹ID
+	 * @param reason ç”³è¯·çš„ç†ç”±
+	 * @return æ·»åŠ çš„ç»“æœ
 	 */
 	boolean addApplication(int attId , int typeId , String reason);
 

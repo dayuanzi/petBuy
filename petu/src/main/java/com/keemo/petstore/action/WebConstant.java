@@ -3,12 +3,12 @@ package com.keemo.petstore.action;
 
 public interface WebConstant
 {
-	//HttpSessionÀï´ú±í¾­ÀíµÄlevelÖµ
+	//HttpSessioné‡Œä»£è¡¨ç»ç†çš„levelå€¼
 	String MGR_LEVEL = "mgr";
-	//HttpSessionÀï´ú±íÔ±¹¤µÄlevelÖµ
+	//HttpSessioné‡Œä»£è¡¨å‘˜å·¥çš„levelå€¼
 	String EMP_LEVEL = "emp";
-	//HttpSessionÀï´ú±íÓÃ»§¼¶±ğµÄÊôĞÔÃû
+	//HttpSessioné‡Œä»£è¡¨ç”¨æˆ·çº§åˆ«çš„å±æ€§å
 	String LEVEL = "level";
-	//HttpSessionÀï´ú±íÓÃ»§ÃûµÄÊôĞÔÃû
+	//HttpSessioné‡Œä»£è¡¨ç”¨æˆ·åçš„å±æ€§å
 	String USER = "user";
 }

@@ -13,12 +13,12 @@ public class EmpAuthorityInterceptor
 	public String intercept(ActionInvocation invocation) 
 		throws Exception
 	{
-		//´´½¨ActionContextÊµÀı
+		//åˆ›å»ºActionContextå®ä¾‹
 		ActionContext ctx = ActionContext.getContext();
-		//»ñÈ¡HttpSessionÖĞµÄlevelÊôĞÔ
+		//è·å–HttpSessionä¸­çš„levelå±æ€§
 		String level = (String)ctx.getSession()
 			.get(WebConstant.LEVEL);
-		//Èç¹ûlevel²»Îªnull£¬ÇÒlevelÎªemp»òmgr
+		//å¦‚æœlevelä¸ä¸ºnullï¼Œä¸”levelä¸ºempæˆ–mgr
 		if (level != null 
 			&& (level.equals(WebConstant.EMP_LEVEL) 
 			|| level.equals(WebConstant.MGR_LEVEL)))

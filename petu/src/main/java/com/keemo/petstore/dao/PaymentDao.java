@@ -8,54 +8,54 @@ import com.keemo.petstore.bean.*;
 public interface PaymentDao
 {
 	/**
-	 * ¸ù¾İ±êÊ¶ÊôĞÔÀ´¼ÓÔØPaymentÊµÀı
-	 * @param id ĞèÒª¼ÓÔØµÄPaymentÊµÀıµÄ±êÊ¶ÊôĞÔÖµ
-	 * @return Ö¸¶¨±êÊ¶ÊôĞÔ¶ÔÓ¦µÄPaymentÊµÀı
+	 * æ ¹æ®æ ‡è¯†å±æ€§æ¥åŠ è½½Paymentå®ä¾‹
+	 * @param id éœ€è¦åŠ è½½çš„Paymentå®ä¾‹çš„æ ‡è¯†å±æ€§å€¼
+	 * @return æŒ‡å®šæ ‡è¯†å±æ€§å¯¹åº”çš„Paymentå®ä¾‹
 	 */
 	Payment get(Integer id);
 
 	/**
-	 * ³Ö¾Ã»¯Ö¸¶¨µÄPaymentÊµÀı
-	 * @param payment ĞèÒª±»³Ö¾Ã»¯µÄPaymentÊµÀı
-	 * @return PaymentÊµÀı±»³Ö¾Ã»¯ºóµÄ±êÊ¶ÊôĞÔÖµ
+	 * æŒä¹…åŒ–æŒ‡å®šçš„Paymentå®ä¾‹
+	 * @param payment éœ€è¦è¢«æŒä¹…åŒ–çš„Paymentå®ä¾‹
+	 * @return Paymentå®ä¾‹è¢«æŒä¹…åŒ–åçš„æ ‡è¯†å±æ€§å€¼
 	 */
 	Integer save(Payment payment);
 
 	/**
-	 * ĞŞ¸ÄÖ¸¶¨µÄPaymentÊµÀı
-	 * @param payment ĞèÒª±»ĞŞ¸ÄµÄPaymentÊµÀı
+	 * ä¿®æ”¹æŒ‡å®šçš„Paymentå®ä¾‹
+	 * @param payment éœ€è¦è¢«ä¿®æ”¹çš„Paymentå®ä¾‹
 	 */
 	void update(Payment payment);
 
 	/**
-	 * É¾³ıÖ¸¶¨µÄPaymentÊµÀı
-	 * @param payment ĞèÒª±»É¾³ıµÄPaymentÊµÀı
+	 * åˆ é™¤æŒ‡å®šçš„Paymentå®ä¾‹
+	 * @param payment éœ€è¦è¢«åˆ é™¤çš„Paymentå®ä¾‹
 	 */
 	void delete(Payment payment);
 
 	/**
-	 * ¸ù¾İ±êÊ¶ÊôĞÔÉ¾³ıPaymentÊµÀı
-	 * @param id ĞèÒª±»É¾³ıµÄPaymentÊµÀıµÄ±êÊ¶ÊôĞÔÖµ
+	 * æ ¹æ®æ ‡è¯†å±æ€§åˆ é™¤Paymentå®ä¾‹
+	 * @param id éœ€è¦è¢«åˆ é™¤çš„Paymentå®ä¾‹çš„æ ‡è¯†å±æ€§å€¼
 	 */
 	void delete(Integer id);
 
 	/**
-	 * ²éÑ¯È«²¿µÄPaymentÊµÀı
-	 * @return Êı¾İ¿âÖĞÈ«²¿µÄPaymentÊµÀı
+	 * æŸ¥è¯¢å…¨éƒ¨çš„Paymentå®ä¾‹
+	 * @return æ•°æ®åº“ä¸­å…¨éƒ¨çš„Paymentå®ä¾‹
 	 */
 	List<Payment> findAll();
 
 	/**
-	 * ¸ù¾İÔ±¹¤²éÑ¯ÔÂ½áĞ½Ë®
-	 * @return ¸ÃÔ±¹¤¶ÔÓ¦µÄÔÂ½áĞ½Ë®¼¯ºÏ
+	 * æ ¹æ®å‘˜å·¥æŸ¥è¯¢æœˆç»“è–ªæ°´
+	 * @return è¯¥å‘˜å·¥å¯¹åº”çš„æœˆç»“è–ªæ°´é›†åˆ
 	 */ 
 	List<Payment> findByEmp(Employee emp);
 
 	/**
-	 * ¸ù¾İÔ±¹¤ºÍ·¢Ğ½ÔÂ·İÀ´²éÑ¯ÔÂ½áĞ½Ë®
-	 * @param payMonth ·¢Ğ½ÔÂ·İ
-	 * @param emp ÁìĞ½µÄÔ±¹¤
-	 * @return Ö¸¶¨Ô±¹¤¡¢Ö¸¶¨ÔÂ·İµÄÔÂ½áĞ½Ë®
+	 * æ ¹æ®å‘˜å·¥å’Œå‘è–ªæœˆä»½æ¥æŸ¥è¯¢æœˆç»“è–ªæ°´
+	 * @param payMonth å‘è–ªæœˆä»½
+	 * @param emp é¢†è–ªçš„å‘˜å·¥
+	 * @return æŒ‡å®šå‘˜å·¥ã€æŒ‡å®šæœˆä»½çš„æœˆç»“è–ªæ°´
 	 */ 
 	Payment findByMonthAndEmp(String payMonth , Employee emp);
 }

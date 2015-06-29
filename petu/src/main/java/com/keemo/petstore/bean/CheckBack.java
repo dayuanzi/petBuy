@@ -8,22 +8,22 @@ public class CheckBack
 	implements Serializable
 {
 	private static final long serialVersionUID = 48L;
-	//±êÊ¶ÊôĞÔ
+	//æ ‡è¯†å±æ€§
 	private Integer id;
-	//ÊÇ·ñÍ¬ÒâÉêÇë
+	//æ˜¯å¦åŒæ„ç”³è¯·
 	private boolean result;
-	//Åú¸´ÀíÓÉ
+	//æ‰¹å¤ç†ç”±
 	private String reason;
-	//¸ÃÅú¸´¶ÔÓ¦µÄÉêÇë
+	//è¯¥æ‰¹å¤å¯¹åº”çš„ç”³è¯·
 	private Application app;
-	//Åú¸´µÄ¾­Àí
+	//æ‰¹å¤çš„ç»ç†
 	private Manager manager;
 
-	//ÎŞ²ÎÊıµÄ¹¹ÔìÆ÷
+	//æ— å‚æ•°çš„æ„é€ å™¨
 	public CheckBack()
 	{
 	}
-	//³õÊ¼»¯È«²¿ÊôĞÔµÄ¹¹ÔìÆ÷
+	//åˆå§‹åŒ–å…¨éƒ¨å±æ€§çš„æ„é€ å™¨
 	public CheckBack(Integer id , boolean result ,
 		String reason , Application app , Manager manager)
 	{
@@ -34,7 +34,7 @@ public class CheckBack
 		this.manager = manager;
 	}
 
-	//idÊôĞÔµÄsetterºÍgetter·½·¨
+	//idå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setId(Integer id)
 	{
 		this.id = id;
@@ -44,7 +44,7 @@ public class CheckBack
 		return this.id;
 	}
 
-	//resultÊôĞÔµÄsetterºÍgetter·½·¨
+	//resultå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setResult(boolean result)
 	{
 		this.result = result;
@@ -54,7 +54,7 @@ public class CheckBack
 		return this.result;
 	}
 
-	//reasonÊôĞÔµÄsetterºÍgetter·½·¨
+	//reasonå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setReason(String reason)
 	{
 		this.reason = reason;
@@ -64,7 +64,7 @@ public class CheckBack
 		return this.reason;
 	}
 
-	//appÊôĞÔµÄsetterºÍgetter·½·¨
+	//appå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setApp(Application app)
 	{
 		this.app = app;
@@ -74,7 +74,7 @@ public class CheckBack
 		return this.app;
 	}
 
-	//managerÊôĞÔµÄsetterºÍgetter·½·¨
+	//managerå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setManager(Manager manager)
 	{
 		this.manager = manager;

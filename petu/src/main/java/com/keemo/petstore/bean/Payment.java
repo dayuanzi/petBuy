@@ -8,19 +8,19 @@ public class Payment
 	implements Serializable
 {
 	private static final long serialVersionUID = 48L;
-	//±êÊ¶ÊôĞÔ
+	//æ ‡è¯†å±æ€§
 	private Integer id;
 	private String payMonth;
-	//·¢Ğ½µÄÊıÁ¿
+	//å‘è–ªçš„æ•°é‡
 	private double amount;
-	//ÁìĞ½µÄÔ±¹¤
+	//é¢†è–ªçš„å‘˜å·¥
 	private Employee employee;
 	
-	//ÎŞ²ÎÊıµÄ¹¹ÔìÆ÷
+	//æ— å‚æ•°çš„æ„é€ å™¨
 	public Payment()
 	{
 	}
-	//³õÊ¼»¯È«²¿ÊôĞÔµÄ¹¹ÔìÆ÷
+	//åˆå§‹åŒ–å…¨éƒ¨å±æ€§çš„æ„é€ å™¨
 	public Payment(Integer id , String payMonth , 
 		double amount , Employee employee)
 	{
@@ -30,7 +30,7 @@ public class Payment
 		this.employee = employee;
 	}
 
-	//idÊôĞÔµÄsetterºÍgetter·½·¨
+	//idå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setId(Integer id)
 	{
 		this.id = id;
@@ -40,7 +40,7 @@ public class Payment
 		return this.id;
 	}
 
-	//payMonthÊôĞÔµÄsetterºÍgetter·½·¨
+	//payMonthå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setPayMonth(String payMonth)
 	{
 		this.payMonth = payMonth;
@@ -50,7 +50,7 @@ public class Payment
 		return this.payMonth;
 	}
 
-	//amountÊôĞÔµÄsetterºÍgetter·½·¨
+	//amountå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setAmount(double amount)
 	{
 		this.amount = amount;
@@ -60,7 +60,7 @@ public class Payment
 		return this.amount;
 	}
 
-	//employeeÊôĞÔµÄsetterºÍgetter·½·¨
+	//employeeå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setEmployee(Employee employee)
 	{
 		this.employee = employee;

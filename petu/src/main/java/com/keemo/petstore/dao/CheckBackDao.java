@@ -8,40 +8,40 @@ import com.keemo.petstore.bean.*;
 public interface CheckBackDao
 {
 	/**
-	 * ¸ù¾İ±êÊ¶ÊôĞÔÀ´¼ÓÔØCheckBackÊµÀı
-	 * @param id ĞèÒª¼ÓÔØµÄCheckBackÊµÀıµÄ±êÊ¶ÊôĞÔÖµ
-	 * @return Ö¸¶¨±êÊ¶ÊôĞÔ¶ÔÓ¦µÄCheckBackÊµÀı
+	 * æ ¹æ®æ ‡è¯†å±æ€§æ¥åŠ è½½CheckBackå®ä¾‹
+	 * @param id éœ€è¦åŠ è½½çš„CheckBackå®ä¾‹çš„æ ‡è¯†å±æ€§å€¼
+	 * @return æŒ‡å®šæ ‡è¯†å±æ€§å¯¹åº”çš„CheckBackå®ä¾‹
 	 */
 	CheckBack get(Integer id);
 
 	/**
-	 * ³Ö¾Ã»¯Ö¸¶¨µÄCheckBackÊµÀı
-	 * @param checkBack ĞèÒª±»³Ö¾Ã»¯µÄCheckBackÊµÀı
-	 * @return CheckBackÊµÀı±»³Ö¾Ã»¯ºóµÄ±êÊ¶ÊôĞÔÖµ
+	 * æŒä¹…åŒ–æŒ‡å®šçš„CheckBackå®ä¾‹
+	 * @param checkBack éœ€è¦è¢«æŒä¹…åŒ–çš„CheckBackå®ä¾‹
+	 * @return CheckBackå®ä¾‹è¢«æŒä¹…åŒ–åçš„æ ‡è¯†å±æ€§å€¼
 	 */
 	Integer save(CheckBack checkBack);
 
 	/**
-	 * ĞŞ¸ÄÖ¸¶¨µÄCheckBackÊµÀı
-	 * @param checkBack ĞèÒª±»ĞŞ¸ÄµÄCheckBackÊµÀı
+	 * ä¿®æ”¹æŒ‡å®šçš„CheckBackå®ä¾‹
+	 * @param checkBack éœ€è¦è¢«ä¿®æ”¹çš„CheckBackå®ä¾‹
 	 */
 	void update(CheckBack checkBack);
 
 	/**
-	 * É¾³ıÖ¸¶¨µÄCheckBackÊµÀı
-	 * @param checkBack ĞèÒª±»É¾³ıµÄCheckBackÊµÀı
+	 * åˆ é™¤æŒ‡å®šçš„CheckBackå®ä¾‹
+	 * @param checkBack éœ€è¦è¢«åˆ é™¤çš„CheckBackå®ä¾‹
 	 */
 	void delete(CheckBack checkBack);
 
 	/**
-	 * ¸ù¾İ±êÊ¶ÊôĞÔÉ¾³ıCheckBackÊµÀı
-	 * @param id ĞèÒª±»É¾³ıµÄCheckBackÊµÀıµÄ±êÊ¶ÊôĞÔÖµ
+	 * æ ¹æ®æ ‡è¯†å±æ€§åˆ é™¤CheckBackå®ä¾‹
+	 * @param id éœ€è¦è¢«åˆ é™¤çš„CheckBackå®ä¾‹çš„æ ‡è¯†å±æ€§å€¼
 	 */
 	void delete(Integer id);
 
 	/**
-	 * ²éÑ¯È«²¿µÄCheckBackÊµÀı
-	 * @return Êı¾İ¿âÖĞÈ«²¿µÄCheckBackÊµÀı
+	 * æŸ¥è¯¢å…¨éƒ¨çš„CheckBackå®ä¾‹
+	 * @return æ•°æ®åº“ä¸­å…¨éƒ¨çš„CheckBackå®ä¾‹
 	 */
 	List<CheckBack> findAll();
 }

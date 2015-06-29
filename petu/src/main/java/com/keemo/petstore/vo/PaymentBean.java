@@ -9,18 +9,18 @@ public class PaymentBean implements Serializable
 	private String payMonth;
 	private double amount;
 
-	//ÎÞ²ÎÊýµÄ¹¹ÔìÆ÷
+	//æ— å‚æ•°çš„æž„é€ å™¨
 	public PaymentBean()
 	{
 	}
-	//³õÊ¼»¯È«²¿ÊôÐÔµÄ¹¹ÔìÆ÷
+	//åˆå§‹åŒ–å…¨éƒ¨å±žæ€§çš„æž„é€ å™¨
 	public PaymentBean(String payMonth , double amount)
 	{
 		this.payMonth = payMonth;
 		this.amount = amount;
 	}
 
-	//payMonthÊôÐÔµÄsetterºÍgetter·½·¨
+	//payMonthå±žæ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setPayMonth(String payMonth)
 	{
 		this.payMonth = payMonth;
@@ -30,7 +30,7 @@ public class PaymentBean implements Serializable
 		return this.payMonth;
 	}
 
-	//amountÊôÐÔµÄsetterºÍgetter·½·¨
+	//amountå±žæ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setAmount(double amount)
 	{
 		this.amount = amount;

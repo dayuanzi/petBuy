@@ -8,9 +8,9 @@ import com.opensymphony.xwork2.ActionSupport;
 public class EmpBaseAction
 	extends ActionSupport
 {
-	//依赖的业务逻辑组件
+	//渚濊禆鐨勪笟鍔￠�昏緫缁勪欢
 	protected EmpManager mgr;
-	//依赖注入业务逻辑组件所必须的setter方法
+	//渚濊禆娉ㄥ叆涓氬姟閫昏緫缁勪欢鎵�蹇呴』鐨剆etter鏂规硶
 	public void setEmpManager(EmpManager mgr)
 	{
 		this.mgr = mgr;

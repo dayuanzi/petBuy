@@ -12,11 +12,11 @@ public class AttendBean implements Serializable
 	private String unType;
 	private Date time;
 
-	//ÎÞ²ÎÊýµÄ¹¹ÔìÆ÷
+	//æ— å‚æ•°çš„æž„é€ å™¨
 	public AttendBean()
 	{
 	}
-	//³õÊ¼»¯È«²¿ÊôÐÔµÄ¹¹ÔìÆ÷
+	//åˆå§‹åŒ–å…¨éƒ¨å±žæ€§çš„æž„é€ å™¨
 	public AttendBean(int id , String dutyDay 
 		, String unType , Date time)
 	{
@@ -26,7 +26,7 @@ public class AttendBean implements Serializable
 		this.time = time;
 	}
 
-	//idÊôÐÔµÄsetterºÍgetter·½·¨
+	//idå±žæ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setId(int id)
 	{
 		this.id = id;
@@ -36,7 +36,7 @@ public class AttendBean implements Serializable
 		return this.id;
 	}
 
-	//dutyDayÊôÐÔµÄsetterºÍgetter·½·¨
+	//dutyDayå±žæ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setDutyDay(String dutyDay)
 	{
 		this.dutyDay = dutyDay;
@@ -46,7 +46,7 @@ public class AttendBean implements Serializable
 		return this.dutyDay;
 	}
 
-	//unTypeÊôÐÔµÄsetterºÍgetter·½·¨
+	//unTypeå±žæ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setUnType(String unType)
 	{
 		this.unType = unType;
@@ -56,7 +56,7 @@ public class AttendBean implements Serializable
 		return this.unType;
 	}
 
-	//timeÊôÐÔµÄsetterºÍgetter·½·¨
+	//timeå±žæ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setTime(Date time)
 	{
 		this.time = time;

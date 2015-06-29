@@ -8,19 +8,19 @@ public class Manager
 	extends Employee implements Serializable
 {
 	private static final long serialVersionUID = 48L;
-	//¸Ã¾­Àí¹ÜÀíµÄ²¿ÃÅ
+	//è¯¥ç»ç†ç®¡ç†çš„éƒ¨é—¨
 	private String dept;
-	//¸Ã¾­Àí¶ÔÓ¦µÄËùÓĞÔ±¹¤
+	//è¯¥ç»ç†å¯¹åº”çš„æ‰€æœ‰å‘˜å·¥
 	private Set<Employee> employees = new HashSet<Employee>();
-	//¸Ã¾­ÀíÇ©ÊğµÄËùÓĞÅú¸´
+	//è¯¥ç»ç†ç­¾ç½²çš„æ‰€æœ‰æ‰¹å¤
 	private Set<CheckBack> checks = new HashSet<CheckBack>();
 
 
-	//ÎŞ²ÎÊıµÄ¹¹ÔìÆ÷
+	//æ— å‚æ•°çš„æ„é€ å™¨
 	public Manager()
 	{
 	}
-	//³õÊ¼»¯È«²¿ÊôĞÔµÄ¹¹ÔìÆ÷
+	//åˆå§‹åŒ–å…¨éƒ¨å±æ€§çš„æ„é€ å™¨
 	public Manager(String dept , Set<Employee> employees 
 		, Set<CheckBack> checks)
 	{
@@ -29,7 +29,7 @@ public class Manager
 		this.checks = checks;
 	}
 
-	//deptÊôĞÔµÄsetterºÍgetter·½·¨
+	//deptå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setDept(String dept)
 	{
 		this.dept = dept;
@@ -39,7 +39,7 @@ public class Manager
 		return this.dept;
 	}
 
-	//employeesÊôĞÔµÄsetterºÍgetter·½·¨
+	//employeeså±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setEmployees(Set<Employee> employees)
 	{
 		this.employees = employees;
@@ -49,7 +49,7 @@ public class Manager
 		return this.employees;
 	}
 
-	//checksÊôĞÔµÄsetterºÍgetter·½·¨
+	//checkså±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setChecks(Set<CheckBack> checks)
 	{
 		this.checks = checks;

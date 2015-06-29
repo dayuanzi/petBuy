@@ -1,25 +1,23 @@
 package com.keemo.petstore.bean;
-
 import java.io.Serializable;
-
 
 public class AttendType
 	implements Serializable
 {
 	private static final long serialVersionUID = 48L;
 
-	//±êÊ¶ÊôĞÔ
+	//æ ‡è¯†å±æ€§
 	private Integer id;
-	//³öÇÚÀàĞÍµÄÃû³Æ
+	//å‡ºå‹¤ç±»å‹çš„åç§°
 	private String name;
-	//´ËÀà³öÇÚ¶ÔÓ¦µÄ·£¿î
+	//æ­¤ç±»å‡ºå‹¤å¯¹åº”çš„ç½šæ¬¾
 	private double amerce;
 	
-	//ÎŞ²ÎÊıµÄ¹¹ÔìÆ÷
+	//æ— å‚æ•°çš„æ„é€ å™¨
 	public AttendType()
 	{
 	}
-	//³õÊ¼»¯È«²¿ÊôĞÔµÄ¹¹ÔìÆ÷
+	//åˆå§‹åŒ–å…¨éƒ¨å±æ€§çš„æ„é€ å™¨
 	public AttendType(Integer id , String name , double amerce)
 	{
 		this.id = id;
@@ -27,7 +25,7 @@ public class AttendType
 		this.amerce = amerce;
 	}
 
-	//idÊôĞÔµÄsetterºÍgetter·½·¨
+	//idå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setId(Integer id)
 	{
 		this.id = id;
@@ -37,7 +35,7 @@ public class AttendType
 		return this.id;
 	}
 
-	//nameÊôĞÔµÄsetterºÍgetter·½·¨
+	//nameå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setName(String name)
 	{
 		this.name = name;
@@ -47,7 +45,7 @@ public class AttendType
 		return this.name;
 	}
 
-	//amerceÊôĞÔµÄsetterºÍgetter·½·¨
+	//amerceå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setAmerce(double amerce)
 	{
 		this.amerce = amerce;

@@ -8,73 +8,73 @@ import com.keemo.petstore.bean.*;
 public interface AttendDao
 {
 	/**
-	 * ¸ù¾İ±êÊ¶ÊôĞÔÀ´¼ÓÔØAttendÊµÀı
-	 * @param id ĞèÒª¼ÓÔØµÄAttendÊµÀıµÄ±êÊ¶ÊôĞÔÖµ
-	 * @return Ö¸¶¨±êÊ¶ÊôĞÔ¶ÔÓ¦µÄAttendÊµÀı
+	 * æ ¹æ®æ ‡è¯†å±æ€§æ¥åŠ è½½Attendå®ä¾‹
+	 * @param id éœ€è¦åŠ è½½çš„Attendå®ä¾‹çš„æ ‡è¯†å±æ€§å€¼
+	 * @return æŒ‡å®šæ ‡è¯†å±æ€§å¯¹åº”çš„Attendå®ä¾‹
 	 */
 	Attend get(Integer id);
 
 	/**
-	 * ³Ö¾Ã»¯Ö¸¶¨µÄAttendÊµÀı
-	 * @param attend ĞèÒª±»³Ö¾Ã»¯µÄAttendÊµÀı
-	 * @return AttendÊµÀı±»³Ö¾Ã»¯ºóµÄ±êÊ¶ÊôĞÔÖµ
+	 * æŒä¹…åŒ–æŒ‡å®šçš„Attendå®ä¾‹
+	 * @param attend éœ€è¦è¢«æŒä¹…åŒ–çš„Attendå®ä¾‹
+	 * @return Attendå®ä¾‹è¢«æŒä¹…åŒ–åçš„æ ‡è¯†å±æ€§å€¼
 	 */
 	Integer save(Attend attend);
 
 	/**
-	 * ĞŞ¸ÄÖ¸¶¨µÄAttendÊµÀı
-	 * @param attend ĞèÒª±»ĞŞ¸ÄµÄAttendÊµÀı
+	 * ä¿®æ”¹æŒ‡å®šçš„Attendå®ä¾‹
+	 * @param attend éœ€è¦è¢«ä¿®æ”¹çš„Attendå®ä¾‹
 	 */
 	void update(Attend attend);
 
 	/**
-	 * É¾³ıÖ¸¶¨µÄAttendÊµÀı
-	 * @param attend ĞèÒª±»É¾³ıµÄAttendÊµÀı
+	 * åˆ é™¤æŒ‡å®šçš„Attendå®ä¾‹
+	 * @param attend éœ€è¦è¢«åˆ é™¤çš„Attendå®ä¾‹
 	 */
 	void delete(Attend attend);
 
 	/**
-	 * ¸ù¾İ±êÊ¶ÊôĞÔÉ¾³ıAttendÊµÀı
-	 * @param id ĞèÒª±»É¾³ıµÄAttendÊµÀıµÄ±êÊ¶ÊôĞÔÖµ
+	 * æ ¹æ®æ ‡è¯†å±æ€§åˆ é™¤Attendå®ä¾‹
+	 * @param id éœ€è¦è¢«åˆ é™¤çš„Attendå®ä¾‹çš„æ ‡è¯†å±æ€§å€¼
 	 */
 	void delete(Integer id);
 
 	/**
-	 * ²éÑ¯È«²¿µÄAttendÊµÀı
-	 * @return Êı¾İ¿âÖĞÈ«²¿µÄAttendÊµÀı
+	 * æŸ¥è¯¢å…¨éƒ¨çš„Attendå®ä¾‹
+	 * @return æ•°æ®åº“ä¸­å…¨éƒ¨çš„Attendå®ä¾‹
 	 */
 	List<Attend> findAll();
 
 	/**
-	 * ¸ù¾İÔ±¹¤²éÑ¯¸ÃÔ±¹¤µÄ´ò¿¨¼ÇÂ¼
-	 * @param emp Ô±¹¤
-	 * @return ¸ÃÔ±¹¤µÄÈ«²¿³öÇÚ¼ÇÂ¼
+	 * æ ¹æ®å‘˜å·¥æŸ¥è¯¢è¯¥å‘˜å·¥çš„æ‰“å¡è®°å½•
+	 * @param emp å‘˜å·¥
+	 * @return è¯¥å‘˜å·¥çš„å…¨éƒ¨å‡ºå‹¤è®°å½•
 	 */ 
 	List<Attend> findByEmp(Employee emp);
 
 	/**
-	 * ¸ù¾İÔ±¹¤¡¢ÈÕÆÚ²éÑ¯¸ÃÔ±¹¤µÄ´ò¿¨¼ÇÂ¼¼¯ºÏ
-	 * @param emp Ô±¹¤
-	 * @param dutyDay  ÈÕÆÚ
-	 * @return ¸ÃÔ±¹¤µÄÄ³ÌìµÄ´ò¿¨¼ÇÂ¼¼¯ºÏ
+	 * æ ¹æ®å‘˜å·¥ã€æ—¥æœŸæŸ¥è¯¢è¯¥å‘˜å·¥çš„æ‰“å¡è®°å½•é›†åˆ
+	 * @param emp å‘˜å·¥
+	 * @param dutyDay  æ—¥æœŸ
+	 * @return è¯¥å‘˜å·¥çš„æŸå¤©çš„æ‰“å¡è®°å½•é›†åˆ
 	 */
 	List<Attend> findByEmpAndDutyDay(Employee emp 
 		, String dutyDay);
 
 	/**
-	 * ¸ù¾İÔ±¹¤¡¢ÈÕÆÚ ¡¢ÉÏÏÂ°à²éÑ¯¸ÃÔ±¹¤µÄ´ò¿¨¼ÇÂ¼¼¯ºÏ
-	 * @param emp Ô±¹¤
-	 * @param dutyDay  ÈÕÆÚ
-	 * @param isCome ÊÇ·ñÉÏ°à
-	 * @return ¸ÃÔ±¹¤µÄÄ³ÌìÉÏ°à»òÏÂ°àµÄ´ò¿¨¼ÇÂ¼
+	 * æ ¹æ®å‘˜å·¥ã€æ—¥æœŸ ã€ä¸Šä¸‹ç­æŸ¥è¯¢è¯¥å‘˜å·¥çš„æ‰“å¡è®°å½•é›†åˆ
+	 * @param emp å‘˜å·¥
+	 * @param dutyDay  æ—¥æœŸ
+	 * @param isCome æ˜¯å¦ä¸Šç­
+	 * @return è¯¥å‘˜å·¥çš„æŸå¤©ä¸Šç­æˆ–ä¸‹ç­çš„æ‰“å¡è®°å½•
 	 */
 	Attend findByEmpAndDutyDayAndCome(Employee emp , 
 		String dutyDay , boolean isCome);
 
 	/**
-	 * ²é¿´Ô±¹¤Ç°ÈıÌìµÄ·ÇÕı³£´ò¿¨
-	 * @param emp Ô±¹¤
-	 * @return ¸ÃÔ±¹¤µÄÇ°ÈıÌìµÄ·ÇÕı³£´ò¿¨
+	 * æŸ¥çœ‹å‘˜å·¥å‰ä¸‰å¤©çš„éæ­£å¸¸æ‰“å¡
+	 * @param emp å‘˜å·¥
+	 * @return è¯¥å‘˜å·¥çš„å‰ä¸‰å¤©çš„éæ­£å¸¸æ‰“å¡
 	 */
 	List<Attend> findByEmpUnAttend(Employee emp
 		, AttendType type);

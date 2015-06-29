@@ -8,24 +8,24 @@ public class Application
 	implements Serializable
 {
 	private static final long serialVersionUID = 48L;
-	//´ú±í±êÊ¶ÊôĞÔ
+	//ä»£è¡¨æ ‡è¯†å±æ€§
 	private Integer id;
-	//ÉêÇëÀíÓÉ
+	//ç”³è¯·ç†ç”±
 	private String reason;
-	//ÊÇ·ñ´¦Àí
+	//æ˜¯å¦å¤„ç†
 	private boolean result;
-	//¹ØÁªµÄ³öÇÚ
+	//å…³è”çš„å‡ºå‹¤
 	private Attend attend;
-	//Ï£Íû½«Ö¸¶¨³öÇÚ¸ÄÎªµÄtypeÀàĞÍ
+	//å¸Œæœ›å°†æŒ‡å®šå‡ºå‹¤æ”¹ä¸ºçš„typeç±»å‹
 	private AttendType type;
-	//ÉêÇëµÄ½á¹û
+	//ç”³è¯·çš„ç»“æœ
 	private CheckBack check;
 	
-	//ÎŞ²ÎÊıµÄ¹¹ÔìÆ÷
+	//æ— å‚æ•°çš„æ„é€ å™¨
 	public Application()
 	{
 	}
-	//³õÊ¼»¯È«²¿ÊôĞÔµÄ¹¹ÔìÆ÷
+	//åˆå§‹åŒ–å…¨éƒ¨å±æ€§çš„æ„é€ å™¨
 	public Application(Integer id , String reason , 
 		boolean result , Attend attend , 
 		AttendType type , CheckBack check)
@@ -38,7 +38,7 @@ public class Application
 		this.check = check;
 	}
 
-	//idÊôĞÔµÄsetterºÍgetter·½·¨
+	//idå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setId(Integer id)
 	{
 		this.id = id;
@@ -48,7 +48,7 @@ public class Application
 		return this.id;
 	}
 
-	//reasonÊôĞÔµÄsetterºÍgetter·½·¨
+	//reasonå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setReason(String reason)
 	{
 		this.reason = reason;
@@ -58,7 +58,7 @@ public class Application
 		return this.reason;
 	}
 
-	//resultÊôĞÔµÄsetterºÍgetter·½·¨
+	//resultå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setResult(boolean result)
 	{
 		this.result = result;
@@ -68,7 +68,7 @@ public class Application
 		return this.result;
 	}
 
-	//attendÊôĞÔµÄsetterºÍgetter·½·¨
+	//attendå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setAttend(Attend attend)
 	{
 		this.attend = attend;
@@ -78,7 +78,7 @@ public class Application
 		return this.attend;
 	}
 
-	//typeÊôĞÔµÄsetterºÍgetter·½·¨
+	//typeå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setType(AttendType type)
 	{
 		this.type = type;
@@ -88,7 +88,7 @@ public class Application
 		return this.type;
 	}
 
-	//checkÊôĞÔµÄsetterºÍgetter·½·¨
+	//checkå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setCheck(CheckBack check)
 	{
 		this.check = check;

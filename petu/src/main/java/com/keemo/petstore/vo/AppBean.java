@@ -13,11 +13,11 @@ public class AppBean implements Serializable
 	private String toAttend;
 	private String reason;
 
-	//ÎÞ²ÎÊýµÄ¹¹ÔìÆ÷
+	//æ— å‚æ•°çš„æž„é€ å™¨
 	public AppBean()
 	{
 	}
-	//³õÊ¼»¯È«²¿ÊôÐÔµÄ¹¹ÔìÆ÷
+	//åˆå§‹åŒ–å…¨éƒ¨å±žæ€§çš„æž„é€ å™¨
 	public AppBean(int id , String emp , String unAttend 
 		, String toAttend , String reason)
 	{
@@ -28,7 +28,7 @@ public class AppBean implements Serializable
 		this.reason = reason;
 	}
 
-	//idÊôÐÔµÄsetterºÍgetter·½·¨
+	//idå±žæ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setId(int id)
 	{
 		this.id = id;
@@ -38,7 +38,7 @@ public class AppBean implements Serializable
 		return this.id;
 	}
 
-	//empÊôÐÔµÄsetterºÍgetter·½·¨
+	//empå±žæ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setEmp(String emp)
 	{
 		this.emp = emp;
@@ -48,7 +48,7 @@ public class AppBean implements Serializable
 		return this.emp;
 	}
 
-	//unAttendÊôÐÔµÄsetterºÍgetter·½·¨
+	//unAttendå±žæ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setUnAttend(String unAttend)
 	{
 		this.unAttend = unAttend;
@@ -58,7 +58,7 @@ public class AppBean implements Serializable
 		return this.unAttend;
 	}
 
-	//toAttendÊôÐÔµÄsetterºÍgetter·½·¨
+	//toAttendå±žæ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setToAttend(String toAttend)
 	{
 		this.toAttend = toAttend;
@@ -68,7 +68,7 @@ public class AppBean implements Serializable
 		return this.toAttend;
 	}
 
-	//reasonÊôÐÔµÄsetterºÍgetter·½·¨
+	//reasonå±žæ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setReason(String reason)
 	{
 		this.reason = reason;

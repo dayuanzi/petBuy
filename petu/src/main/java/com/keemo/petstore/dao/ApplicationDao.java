@@ -8,47 +8,47 @@ import com.keemo.petstore.bean.*;
 public interface ApplicationDao
 {
 	/**
-	 * ¸ù¾İ±êÊ¶ÊôĞÔÀ´¼ÓÔØApplicationÊµÀı
-	 * @param id ĞèÒª¼ÓÔØµÄApplicationÊµÀıµÄ±êÊ¶ÊôĞÔÖµ
-	 * @return Ö¸¶¨±êÊ¶ÊôĞÔ¶ÔÓ¦µÄApplicationÊµÀı
+	 * æ ¹æ®æ ‡è¯†å±æ€§æ¥åŠ è½½Applicationå®ä¾‹
+	 * @param id éœ€è¦åŠ è½½çš„Applicationå®ä¾‹çš„æ ‡è¯†å±æ€§å€¼
+	 * @return æŒ‡å®šæ ‡è¯†å±æ€§å¯¹åº”çš„Applicationå®ä¾‹
 	 */
 	Application get(Integer id);
 
 	/**
-	 * ³Ö¾Ã»¯Ö¸¶¨µÄApplicationÊµÀı
-	 * @param application ĞèÒª±»³Ö¾Ã»¯µÄApplicationÊµÀı
-	 * @return ApplicationÊµÀı±»³Ö¾Ã»¯ºóµÄ±êÊ¶ÊôĞÔÖµ
+	 * æŒä¹…åŒ–æŒ‡å®šçš„Applicationå®ä¾‹
+	 * @param application éœ€è¦è¢«æŒä¹…åŒ–çš„Applicationå®ä¾‹
+	 * @return Applicationå®ä¾‹è¢«æŒä¹…åŒ–åçš„æ ‡è¯†å±æ€§å€¼
 	 */
 	Integer save(Application application);
 
 	/**
-	 * ĞŞ¸ÄÖ¸¶¨µÄApplicationÊµÀı
-	 * @param application ĞèÒª±»ĞŞ¸ÄµÄApplicationÊµÀı
+	 * ä¿®æ”¹æŒ‡å®šçš„Applicationå®ä¾‹
+	 * @param application éœ€è¦è¢«ä¿®æ”¹çš„Applicationå®ä¾‹
 	 */
 	void update(Application application);
 
 	/**
-	 * É¾³ıÖ¸¶¨µÄApplicationÊµÀı
-	 * @param application ĞèÒª±»É¾³ıµÄApplicationÊµÀı
+	 * åˆ é™¤æŒ‡å®šçš„Applicationå®ä¾‹
+	 * @param application éœ€è¦è¢«åˆ é™¤çš„Applicationå®ä¾‹
 	 */
 	void delete(Application application);
 
 	/**
-	 * ¸ù¾İ±êÊ¶ÊôĞÔÉ¾³ıApplicationÊµÀı
-	 * @param id ĞèÒª±»É¾³ıµÄApplicationÊµÀıµÄ±êÊ¶ÊôĞÔÖµ
+	 * æ ¹æ®æ ‡è¯†å±æ€§åˆ é™¤Applicationå®ä¾‹
+	 * @param id éœ€è¦è¢«åˆ é™¤çš„Applicationå®ä¾‹çš„æ ‡è¯†å±æ€§å€¼
 	 */
 	void delete(Integer id);
 
 	/**
-	 * ²éÑ¯È«²¿µÄApplicationÊµÀı
-	 * @return Êı¾İ¿âÖĞÈ«²¿µÄApplicationÊµÀı
+	 * æŸ¥è¯¢å…¨éƒ¨çš„Applicationå®ä¾‹
+	 * @return æ•°æ®åº“ä¸­å…¨éƒ¨çš„Applicationå®ä¾‹
 	 */
 	List<Application> findAll();
 
 	/**
-	 * ¸ù¾İÔ±¹¤²éÑ¯Î´´¦ÀíµÄÒì¶¯ÉêÇë
-	 * @param emp ĞèÒª²éÑ¯µÄÔ±¹¤
-	 * @return ¸ÃÔ±¹¤¶ÔÓ¦µÄÎ´´¦ÀíµÄÒì¶¯ÉêÇë
+	 * æ ¹æ®å‘˜å·¥æŸ¥è¯¢æœªå¤„ç†çš„å¼‚åŠ¨ç”³è¯·
+	 * @param emp éœ€è¦æŸ¥è¯¢çš„å‘˜å·¥
+	 * @return è¯¥å‘˜å·¥å¯¹åº”çš„æœªå¤„ç†çš„å¼‚åŠ¨ç”³è¯·
 	 */ 
 	List<Application> findByEmp(Employee emp);
 }

@@ -10,11 +10,11 @@ public class EmpBean implements Serializable
 	private String empPass;
 	private double amount;
 
- 	//ÎÞ²ÎÊýµÄ¹¹ÔìÆ÷
+ 	//æ— å‚æ•°çš„æž„é€ å™¨
 	public EmpBean()
 	{
 	}
-	//³õÊ¼»¯È«²¿ÊôÐÔµÄ¹¹ÔìÆ÷
+	//åˆå§‹åŒ–å…¨éƒ¨å±žæ€§çš„æž„é€ å™¨
 	public EmpBean(String empName , String empPass
 		, double amount)
 	{
@@ -23,7 +23,7 @@ public class EmpBean implements Serializable
 		this.amount = amount;
 	}
 
-	//empNameÊôÐÔµÄsetterºÍgetter·½·¨
+	//empNameå±žæ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setEmpName(String empName)
 	{
 		this.empName = empName;
@@ -33,7 +33,7 @@ public class EmpBean implements Serializable
 		return this.empName;
 	}
 
-	//empPassÊôÐÔµÄsetterºÍgetter·½·¨
+	//empPasså±žæ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setEmpPass(String empPass)
 	{
 		this.empPass = empPass;
@@ -43,7 +43,7 @@ public class EmpBean implements Serializable
 		return this.empPass;
 	}
 
-	//amountÊôÐÔµÄsetterºÍgetter·½·¨
+	//amountå±žæ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setAmount(double amount)
 	{
 		this.amount = amount;

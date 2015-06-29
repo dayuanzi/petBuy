@@ -5,29 +5,29 @@
 <validators>
 	<field name="manager.name">
 		<field-validator type="requiredstring">
-			<message>ÓÃ»§Ãû±ØÌî£¡</message>
+			<message>ç”¨æˆ·åå¿…å¡«ï¼</message>
 		</field-validator>
 		<field-validator type="regex">
 			<param name="expression"><![CDATA[(\w{4,25})]]></param>
-			<message>ÄúÊäÈëµÄÓÃ»§ÃûÖ»ÄÜÊÇ×ÖÄ¸ºÍÊý×Ö£¬ÇÒ³¤¶È±ØÐëÔÚ4µ½25Ö®¼ä</message>
+			<message>æ‚¨è¾“å…¥çš„ç”¨æˆ·ååªèƒ½æ˜¯å­—æ¯å’Œæ•°å­—ï¼Œä¸”é•¿åº¦å¿…é¡»åœ¨4åˆ°25ä¹‹é—´</message>
 		</field-validator>
 	</field>
 	<field name="manager.pass">
 		<field-validator type="requiredstring">
-			<message>ÃÜÂë±ØÌî£¡</message>
+			<message>å¯†ç å¿…å¡«ï¼</message>
 		</field-validator>
 		<field-validator type="regex">
 			<param name="expression"><![CDATA[(\w{4,25})]]></param>
-			<message>ÄúÊäÈëµÄÃÜÂëÖ»ÄÜÊÇ×ÖÄ¸ºÍÊý×Ö£¬ÇÒ³¤¶È±ØÐëÔÚ4µ½25Ö®¼ä</message>
+			<message>æ‚¨è¾“å…¥çš„å¯†ç åªèƒ½æ˜¯å­—æ¯å’Œæ•°å­—ï¼Œä¸”é•¿åº¦å¿…é¡»åœ¨4åˆ°25ä¹‹é—´</message>
 		</field-validator>
 	</field>
 	<!-- <field name="vercode">
 		<field-validator type="requiredstring">
-			<message>ÑéÖ¤Âë±ØÌî£¡</message>
+			<message>éªŒè¯ç å¿…å¡«ï¼</message>
 		</field-validator>
 		<field-validator type="regex">
 			<param name="expression"><![CDATA[(\w{6,6})]]></param>
-			<message>ÄúÊäÈëµÄÑéÖ¤ÂëÖ»ÄÜÊÇ×ÖÄ¸ºÍÊý×Ö£¬ÇÒ³¤¶È±ØÐëÔÚ6Î»</message>
+			<message>æ‚¨è¾“å…¥çš„éªŒè¯ç åªèƒ½æ˜¯å­—æ¯å’Œæ•°å­—ï¼Œä¸”é•¿åº¦å¿…é¡»åœ¨6ä½</message>
 		</field-validator>
 		 -->
 	</field>

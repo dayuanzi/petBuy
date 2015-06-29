@@ -9,24 +9,24 @@ public class Attend
 {
 	private static final long serialVersionUID = 48L;
 
-	//´ú±í±êÊ¶ÊôĞÔ
+	//ä»£è¡¨æ ‡è¯†å±æ€§
 	private Integer id;
-	//³öÇÚÈÕÆÚ
+	//å‡ºå‹¤æ—¥æœŸ
 	private String dutyDay;
-	//´ò¿¨Ê±¼ä
+	//æ‰“å¡æ—¶é—´
 	private Date punchTime;
-	//´ú±í±¾´Î´ò¿¨ÊÇ·ñÎªÉÏ°à´ò¿¨
+	//ä»£è¡¨æœ¬æ¬¡æ‰“å¡æ˜¯å¦ä¸ºä¸Šç­æ‰“å¡
 	private boolean isCome;
-	//±¾´Î³öÇÚµÄÀàĞÍ
+	//æœ¬æ¬¡å‡ºå‹¤çš„ç±»å‹
 	private AttendType type;
-	//±¾´Î³öÇÚ¹ØÁªµÄÔ±¹¤
+	//æœ¬æ¬¡å‡ºå‹¤å…³è”çš„å‘˜å·¥
 	private Employee employee;
 
-	//ÎŞ²ÎÊıµÄ¹¹ÔìÆ÷
+	//æ— å‚æ•°çš„æ„é€ å™¨
 	public Attend()
 	{
 	}
-	//³õÊ¼»¯È«²¿ÊôĞÔµÄ¹¹ÔìÆ÷
+	//åˆå§‹åŒ–å…¨éƒ¨å±æ€§çš„æ„é€ å™¨
 	public Attend(Integer id , String dutyDay ,
 		Date punchTime , boolean isCome ,
 		AttendType type , Employee employee)
@@ -39,7 +39,7 @@ public class Attend
 		this.employee = employee;
 	}
 
-	//idÊôĞÔµÄsetterºÍgetter·½·¨
+	//idå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setId(Integer id)
 	{
 		this.id = id;
@@ -49,7 +49,7 @@ public class Attend
 		return this.id;
 	}
 
-	//dutyDayÊôĞÔµÄsetterºÍgetter·½·¨
+	//dutyDayå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setDutyDay(String dutyDay)
 	{
 		this.dutyDay = dutyDay;
@@ -59,7 +59,7 @@ public class Attend
 		return this.dutyDay;
 	}
 
-	//punchTimeÊôĞÔµÄsetterºÍgetter·½·¨
+	//punchTimeå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setPunchTime(Date punchTime)
 	{
 		this.punchTime = punchTime;
@@ -69,7 +69,7 @@ public class Attend
 		return this.punchTime;
 	}
 
-	//isComeÊôĞÔµÄsetterºÍgetter·½·¨
+	//isComeå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setIsCome(boolean isCome)
 	{
 		this.isCome = isCome;
@@ -79,7 +79,7 @@ public class Attend
 		return this.isCome;
 	}
 
-	//typeÊôĞÔµÄsetterºÍgetter·½·¨
+	//typeå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setType(AttendType type)
 	{
 		this.type = type;
@@ -89,7 +89,7 @@ public class Attend
 		return this.type;
 	}
 
-	//employeeÊôĞÔµÄsetterºÍgetter·½·¨
+	//employeeå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setEmployee(Employee employee)
 	{
 		this.employee = employee;
@@ -99,7 +99,7 @@ public class Attend
 		return this.employee;
 	}
 
-	//¸ù¾İemployee¡¢isCome¡¢dutyDayÀ´ÖØĞ´equals·½·¨
+	//æ ¹æ®employeeã€isComeã€dutyDayæ¥é‡å†™equalsæ–¹æ³•
 	public boolean equals(Object obj)
 	{
 		if (this == obj)
@@ -116,7 +116,7 @@ public class Attend
 		}
 		return false;
 	}
-	//¸ù¾İemployee¡¢isCome¡¢dutyDayÀ´ÖØĞ´hashCode()·½·¨
+	//æ ¹æ®employeeã€isComeã€dutyDayæ¥é‡å†™hashCode()æ–¹æ³•
 	public int hashCode ()
 	{
 		if (getIsCome())

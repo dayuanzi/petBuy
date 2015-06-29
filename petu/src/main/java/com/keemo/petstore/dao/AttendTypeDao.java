@@ -8,40 +8,40 @@ import com.keemo.petstore.bean.*;
 public interface AttendTypeDao
 {
 	/**
-	 * ¸ù¾İ±êÊ¶ÊôĞÔÀ´¼ÓÔØAttendTypeÊµÀı
-	 * @param id ĞèÒª¼ÓÔØµÄAttendTypeÊµÀıµÄ±êÊ¶ÊôĞÔÖµ
-	 * @return Ö¸¶¨±êÊ¶ÊôĞÔ¶ÔÓ¦µÄAttendTypeÊµÀı
+	 * æ ¹æ®æ ‡è¯†å±æ€§æ¥åŠ è½½AttendTypeå®ä¾‹
+	 * @param id éœ€è¦åŠ è½½çš„AttendTypeå®ä¾‹çš„æ ‡è¯†å±æ€§å€¼
+	 * @return æŒ‡å®šæ ‡è¯†å±æ€§å¯¹åº”çš„AttendTypeå®ä¾‹
 	 */
 	AttendType get(Integer id);
 
 	/**
-	 * ³Ö¾Ã»¯Ö¸¶¨µÄAttendTypeÊµÀı
-	 * @param attendType ĞèÒª±»³Ö¾Ã»¯µÄAttendTypeÊµÀı
-	 * @return AttendTypeÊµÀı±»³Ö¾Ã»¯ºóµÄ±êÊ¶ÊôĞÔÖµ
+	 * æŒä¹…åŒ–æŒ‡å®šçš„AttendTypeå®ä¾‹
+	 * @param attendType éœ€è¦è¢«æŒä¹…åŒ–çš„AttendTypeå®ä¾‹
+	 * @return AttendTypeå®ä¾‹è¢«æŒä¹…åŒ–åçš„æ ‡è¯†å±æ€§å€¼
 	 */
 	Integer save(AttendType attendType);
 
 	/**
-	 * ĞŞ¸ÄÖ¸¶¨µÄAttendTypeÊµÀı
-	 * @param attendType ĞèÒª±»ĞŞ¸ÄµÄAttendTypeÊµÀı
+	 * ä¿®æ”¹æŒ‡å®šçš„AttendTypeå®ä¾‹
+	 * @param attendType éœ€è¦è¢«ä¿®æ”¹çš„AttendTypeå®ä¾‹
 	 */
 	void update(AttendType attendType);
 
 	/**
-	 * É¾³ıÖ¸¶¨µÄAttendTypeÊµÀı
-	 * @param attendType ĞèÒª±»É¾³ıµÄAttendTypeÊµÀı
+	 * åˆ é™¤æŒ‡å®šçš„AttendTypeå®ä¾‹
+	 * @param attendType éœ€è¦è¢«åˆ é™¤çš„AttendTypeå®ä¾‹
 	 */
 	void delete(AttendType attendType);
 
 	/**
-	 * ¸ù¾İ±êÊ¶ÊôĞÔÉ¾³ıAttendTypeÊµÀı
-	 * @param id ĞèÒª±»É¾³ıµÄAttendTypeÊµÀıµÄ±êÊ¶ÊôĞÔÖµ
+	 * æ ¹æ®æ ‡è¯†å±æ€§åˆ é™¤AttendTypeå®ä¾‹
+	 * @param id éœ€è¦è¢«åˆ é™¤çš„AttendTypeå®ä¾‹çš„æ ‡è¯†å±æ€§å€¼
 	 */
 	void delete(Integer id);
 
 	/**
-	 * ²éÑ¯È«²¿µÄAttendTypeÊµÀı
-	 * @return Êı¾İ¿âÖĞÈ«²¿µÄAttendTypeÊµÀı
+	 * æŸ¥è¯¢å…¨éƒ¨çš„AttendTypeå®ä¾‹
+	 * @return æ•°æ®åº“ä¸­å…¨éƒ¨çš„AttendTypeå®ä¾‹
 	 */
 	List<AttendType> findAll();
 }

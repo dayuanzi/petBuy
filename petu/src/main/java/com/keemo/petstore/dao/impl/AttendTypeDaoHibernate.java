@@ -15,9 +15,9 @@ public class AttendTypeDaoHibernate
 	implements AttendTypeDao
 {
 	/**
-	 * ¸ù¾İ±êÊ¶ÊôĞÔÀ´¼ÓÔØAttendTypeÊµÀı
-	 * @param id ĞèÒª¼ÓÔØµÄAttendTypeÊµÀıµÄ±êÊ¶ÊôĞÔÖµ
-	 * @return Ö¸¶¨±êÊ¶ÊôĞÔ¶ÔÓ¦µÄAttendTypeÊµÀı
+	 * æ ¹æ®æ ‡è¯†å±æ€§æ¥åŠ è½½AttendTypeå®ä¾‹
+	 * @param id éœ€è¦åŠ è½½çš„AttendTypeå®ä¾‹çš„æ ‡è¯†å±æ€§å€¼
+	 * @return æŒ‡å®šæ ‡è¯†å±æ€§å¯¹åº”çš„AttendTypeå®ä¾‹
 	 */
 	public AttendType get(Integer id)
 	{
@@ -26,9 +26,9 @@ public class AttendTypeDaoHibernate
 	}
 
 	/**
-	 * ³Ö¾Ã»¯Ö¸¶¨µÄAttendTypeÊµÀı
-	 * @param attendType ĞèÒª±»³Ö¾Ã»¯µÄAttendTypeÊµÀı
-	 * @return AttendTypeÊµÀı±»³Ö¾Ã»¯ºóµÄ±êÊ¶ÊôĞÔÖµ
+	 * æŒä¹…åŒ–æŒ‡å®šçš„AttendTypeå®ä¾‹
+	 * @param attendType éœ€è¦è¢«æŒä¹…åŒ–çš„AttendTypeå®ä¾‹
+	 * @return AttendTypeå®ä¾‹è¢«æŒä¹…åŒ–åçš„æ ‡è¯†å±æ€§å€¼
 	 */
 	public Integer save(AttendType attendType)
 	{
@@ -37,8 +37,8 @@ public class AttendTypeDaoHibernate
 	}
 
 	/**
-	 * ĞŞ¸ÄÖ¸¶¨µÄAttendTypeÊµÀı
-	 * @param attendType ĞèÒª±»ĞŞ¸ÄµÄAttendTypeÊµÀı
+	 * ä¿®æ”¹æŒ‡å®šçš„AttendTypeå®ä¾‹
+	 * @param attendType éœ€è¦è¢«ä¿®æ”¹çš„AttendTypeå®ä¾‹
 	 */
 	public void update(AttendType attendType)
 	{
@@ -47,8 +47,8 @@ public class AttendTypeDaoHibernate
 	}
 
 	/**
-	 * É¾³ıÖ¸¶¨µÄAttendTypeÊµÀı
-	 * @param attendType ĞèÒª±»É¾³ıµÄAttendTypeÊµÀı
+	 * åˆ é™¤æŒ‡å®šçš„AttendTypeå®ä¾‹
+	 * @param attendType éœ€è¦è¢«åˆ é™¤çš„AttendTypeå®ä¾‹
 	 */
 	public void delete(AttendType attendType)
 	{
@@ -57,8 +57,8 @@ public class AttendTypeDaoHibernate
 	}
 
 	/**
-	 * ¸ù¾İ±êÊ¶ÊôĞÔÉ¾³ıAttendTypeÊµÀı
-	 * @param id ĞèÒª±»É¾³ıµÄAttendTypeÊµÀıµÄ±êÊ¶ÊôĞÔÖµ
+	 * æ ¹æ®æ ‡è¯†å±æ€§åˆ é™¤AttendTypeå®ä¾‹
+	 * @param id éœ€è¦è¢«åˆ é™¤çš„AttendTypeå®ä¾‹çš„æ ‡è¯†å±æ€§å€¼
 	 */
 	public void delete(Integer id)
 	{
@@ -67,8 +67,8 @@ public class AttendTypeDaoHibernate
 	}
 
 	/**
-	 * ²éÑ¯È«²¿µÄAttendTypeÊµÀı
-	 * @return Êı¾İ¿âÖĞÈ«²¿µÄAttendTypeÊµÀı
+	 * æŸ¥è¯¢å…¨éƒ¨çš„AttendTypeå®ä¾‹
+	 * @return æ•°æ®åº“ä¸­å…¨éƒ¨çš„AttendTypeå®ä¾‹
 	 */
 	public List<AttendType> findAll()
 	{

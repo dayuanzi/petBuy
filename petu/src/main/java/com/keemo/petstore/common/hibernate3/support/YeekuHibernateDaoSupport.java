@@ -15,24 +15,24 @@ public class YeekuHibernateDaoSupport
 	extends HibernateDaoSupport
 {
 	/**
-	 * Ê¹ÓÃhqlÓï¾ä½øĞĞ·ÖÒ³²éÑ¯
-	 * @param hql ĞèÒª²éÑ¯µÄhqlÓï¾ä
-	 * @param offset µÚÒ»Ìõ¼ÇÂ¼Ë÷Òı
-	 * @param pageSize Ã¿Ò³ĞèÒªÏÔÊ¾µÄ¼ÇÂ¼Êı
-	 * @return µ±Ç°Ò³µÄËùÓĞ¼ÇÂ¼
+	 * ä½¿ç”¨hqlè¯­å¥è¿›è¡Œåˆ†é¡µæŸ¥è¯¢
+	 * @param hql éœ€è¦æŸ¥è¯¢çš„hqlè¯­å¥
+	 * @param offset ç¬¬ä¸€æ¡è®°å½•ç´¢å¼•
+	 * @param pageSize æ¯é¡µéœ€è¦æ˜¾ç¤ºçš„è®°å½•æ•°
+	 * @return å½“å‰é¡µçš„æ‰€æœ‰è®°å½•
 	 */
 	public List findByPage(final String hql, 
 		final int offset, final int pageSize)
 	{
-		//Í¨¹ıÒ»¸öHibernateCallback¶ÔÏóÀ´Ö´ĞĞ²éÑ¯
+		//é€šè¿‡ä¸€ä¸ªHibernateCallbackå¯¹è±¡æ¥æ‰§è¡ŒæŸ¥è¯¢
 		List list = getHibernateTemplate()
 			.executeFind(new HibernateCallback()
 		{
-			//ÊµÏÖHibernateCallback½Ó¿Ú±ØĞëÊµÏÖµÄ·½·¨
+			//å®ç°HibernateCallbackæ¥å£å¿…é¡»å®ç°çš„æ–¹æ³•
 			public Object doInHibernate(Session session)
 				throws HibernateException, SQLException
 			{
-				//Ö´ĞĞHibernate·ÖÒ³²éÑ¯
+				//æ‰§è¡ŒHibernateåˆ†é¡µæŸ¥è¯¢
 				List result = session.createQuery(hql)
 					.setFirstResult(offset)
 					.setMaxResults(pageSize)
@@ -44,27 +44,27 @@ public class YeekuHibernateDaoSupport
 	}
 
 	/**
-	 * Ê¹ÓÃhqlÓï¾ä½øĞĞ·ÖÒ³²éÑ¯
-	 * @param hql ĞèÒª²éÑ¯µÄhqlÓï¾ä
-	 * @param value Èç¹ûhqlÓĞÒ»¸ö²ÎÊıĞèÒª´«Èë£¬value¾ÍÊÇ´«ÈëhqlÓï¾äµÄ²ÎÊı
-	 * @param offset µÚÒ»Ìõ¼ÇÂ¼Ë÷Òı
-	 * @param pageSize Ã¿Ò³ĞèÒªÏÔÊ¾µÄ¼ÇÂ¼Êı
-	 * @return µ±Ç°Ò³µÄËùÓĞ¼ÇÂ¼
+	 * ä½¿ç”¨hqlè¯­å¥è¿›è¡Œåˆ†é¡µæŸ¥è¯¢
+	 * @param hql éœ€è¦æŸ¥è¯¢çš„hqlè¯­å¥
+	 * @param value å¦‚æœhqlæœ‰ä¸€ä¸ªå‚æ•°éœ€è¦ä¼ å…¥ï¼Œvalueå°±æ˜¯ä¼ å…¥hqlè¯­å¥çš„å‚æ•°
+	 * @param offset ç¬¬ä¸€æ¡è®°å½•ç´¢å¼•
+	 * @param pageSize æ¯é¡µéœ€è¦æ˜¾ç¤ºçš„è®°å½•æ•°
+	 * @return å½“å‰é¡µçš„æ‰€æœ‰è®°å½•
 	 */
 	public List findByPage(final String hql , final Object value ,
 		final int offset, final int pageSize)
 	{
-		//Í¨¹ıÒ»¸öHibernateCallback¶ÔÏóÀ´Ö´ĞĞ²éÑ¯
+		//é€šè¿‡ä¸€ä¸ªHibernateCallbackå¯¹è±¡æ¥æ‰§è¡ŒæŸ¥è¯¢
 		List list = getHibernateTemplate()
 			.executeFind(new HibernateCallback()
 		{
-			//ÊµÏÖHibernateCallback½Ó¿Ú±ØĞëÊµÏÖµÄ·½·¨
+			//å®ç°HibernateCallbackæ¥å£å¿…é¡»å®ç°çš„æ–¹æ³•
 			public Object doInHibernate(Session session)
 				throws HibernateException, SQLException
 			{
-				//Ö´ĞĞHibernate·ÖÒ³²éÑ¯
+				//æ‰§è¡ŒHibernateåˆ†é¡µæŸ¥è¯¢
 				List result = session.createQuery(hql)
-					//ÎªhqlÓï¾ä´«Èë²ÎÊı
+					//ä¸ºhqlè¯­å¥ä¼ å…¥å‚æ•°
 					.setParameter(0, value) 
 					.setFirstResult(offset)
 					.setMaxResults(pageSize)
@@ -76,27 +76,27 @@ public class YeekuHibernateDaoSupport
 	}
 
 	/**
-	 * Ê¹ÓÃhqlÓï¾ä½øĞĞ·ÖÒ³²éÑ¯
-	 * @param hql ĞèÒª²éÑ¯µÄhqlÓï¾ä
-	 * @param values Èç¹ûhqlÓĞ¶à¸ö¸ö²ÎÊıĞèÒª´«Èë£¬values¾ÍÊÇ´«ÈëhqlµÄ²ÎÊıÊı×é
-	 * @param offset µÚÒ»Ìõ¼ÇÂ¼Ë÷Òı
-	 * @param pageSize Ã¿Ò³ĞèÒªÏÔÊ¾µÄ¼ÇÂ¼Êı
-	 * @return µ±Ç°Ò³µÄËùÓĞ¼ÇÂ¼
+	 * ä½¿ç”¨hqlè¯­å¥è¿›è¡Œåˆ†é¡µæŸ¥è¯¢
+	 * @param hql éœ€è¦æŸ¥è¯¢çš„hqlè¯­å¥
+	 * @param values å¦‚æœhqlæœ‰å¤šä¸ªä¸ªå‚æ•°éœ€è¦ä¼ å…¥ï¼Œvalueså°±æ˜¯ä¼ å…¥hqlçš„å‚æ•°æ•°ç»„
+	 * @param offset ç¬¬ä¸€æ¡è®°å½•ç´¢å¼•
+	 * @param pageSize æ¯é¡µéœ€è¦æ˜¾ç¤ºçš„è®°å½•æ•°
+	 * @return å½“å‰é¡µçš„æ‰€æœ‰è®°å½•
 	 */
 	public List findByPage(final String hql, final Object[] values,
 		final int offset, final int pageSize)
 	{
-		//Í¨¹ıÒ»¸öHibernateCallback¶ÔÏóÀ´Ö´ĞĞ²éÑ¯
+		//é€šè¿‡ä¸€ä¸ªHibernateCallbackå¯¹è±¡æ¥æ‰§è¡ŒæŸ¥è¯¢
 		List list = getHibernateTemplate()
 			.executeFind(new HibernateCallback()
 		{
-			//ÊµÏÖHibernateCallback½Ó¿Ú±ØĞëÊµÏÖµÄ·½·¨
+			//å®ç°HibernateCallbackæ¥å£å¿…é¡»å®ç°çš„æ–¹æ³•
 			public Object doInHibernate(Session session)
 				throws HibernateException, SQLException
 			{
-				//Ö´ĞĞHibernate·ÖÒ³²éÑ¯
+				//æ‰§è¡ŒHibernateåˆ†é¡µæŸ¥è¯¢
 				Query query = session.createQuery(hql);
-				//ÎªhqlÓï¾ä´«Èë²ÎÊı
+				//ä¸ºhqlè¯­å¥ä¼ å…¥å‚æ•°
 				for (int i = 0 ; i < values.length ; i++)
 				{
 					query.setParameter( i, values[i]);

@@ -16,21 +16,20 @@ import com.keemo.petstore.bean.*;
 import static com.keemo.petstore.service.EmpManager.*;
 
 
-
 public class LoginAction
 	extends EmpBaseAction
 {
-	//¶¨ÒåÒ»¸ö³£Á¿×÷ÎªÔ±¹¤µÇÂ¼³É¹¦µÄResultÃû
+	//å®šä¹‰ä¸€ä¸ªå¸¸é‡ä½œä¸ºå‘˜å·¥ç™»å½•æˆåŠŸçš„Resultå
 	private final String EMP_RESULT = "emp";
-	//¶¨ÒåÒ»¸ö³£Á¿×÷Îª¾­ÀíµÇÂ¼³É¹¦µÄResultÃû
+	//å®šä¹‰ä¸€ä¸ªå¸¸é‡ä½œä¸ºç»ç†ç™»å½•æˆåŠŸçš„Resultå
 	private final String MGR_RESULT = "mgr";
-	//·â×°ÇëÇó²ÎÊı
+	//å°è£…è¯·æ±‚å‚æ•°
 	private Manager manager;
-	//µÇÂ¼µÄÑéÖ¤Âë
+	//ç™»å½•çš„éªŒè¯ç 
 	private String vercode;
-	//´¦ÀíµÇÂ¼ºóµÄÌáÊ¾ĞÅÏ¢
+	//å¤„ç†ç™»å½•åçš„æç¤ºä¿¡æ¯
 	private String tip;
-	//managerÊôĞÔµÄsetterºÍgetter·½·¨
+	//managerå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setManager(Manager manager)
 	{
 		this.manager = manager;
@@ -40,7 +39,7 @@ public class LoginAction
 		return this.manager;
 	}
 
-	//vercodeÊôĞÔµÄsetterºÍgetter·½·¨
+	//vercodeå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setVercode(String vercode)
 	{
 		this.vercode = vercode;
@@ -50,7 +49,7 @@ public class LoginAction
 		return this.vercode;
 	}
 
-	//tipÊôĞÔµÄsetterºÍgetter·½·¨
+	//tipå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setTip(String tip)
 	{
 		this.tip = tip;
@@ -59,49 +58,49 @@ public class LoginAction
 	{
 		return this.tip;
 	}
-	//´¦ÀíÓÃ»§ÇëÇó
+	//å¤„ç†ç”¨æˆ·è¯·æ±‚
 	public String execute()
 		throws Exception
 	{
-		//´´½¨ActionContextÊµÀı
+		//åˆ›å»ºActionContextå®ä¾‹
 		ActionContext ctx = ActionContext.getContext();
-		//»ñÈ¡HttpSessionÖĞµÄrandÊôĞÔ
+		//è·å–HttpSessionä¸­çš„randå±æ€§
 		String ver2 = (String)ctx.getSession().get("rand");
 		//if (vercode.equalsIgnoreCase(ver2))
 		//{
-			//µ÷ÓÃÒµÎñÂß¼­·½·¨À´´¦ÀíµÇÂ¼ÇëÇó
+			//è°ƒç”¨ä¸šåŠ¡é€»è¾‘æ–¹æ³•æ¥å¤„ç†ç™»å½•è¯·æ±‚
 			int result = mgr.validLogin(getManager());
-			//µÇÂ¼½á¹ûÎªÆÕÍ¨Ô±¹¤
+			//ç™»å½•ç»“æœä¸ºæ™®é€šå‘˜å·¥
 			if (result == LOGIN_EMP)
 			{
 				ctx.getSession().put(WebConstant.USER 
 					, manager.getName());
 				ctx.getSession().put(WebConstant.LEVEL
 					, WebConstant.EMP_LEVEL);
-				setTip("ÄúÒÑ¾­³É¹¦µÇÂ¼ÏµÍ³");
+				setTip("æ‚¨å·²ç»æˆåŠŸç™»å½•ç³»ç»Ÿ");
 				return EMP_RESULT;
 			}
-			//µÇÂ¼½á¹ûÎª¾­Àí
+			//ç™»å½•ç»“æœä¸ºç»ç†
 			else if (result == LOGIN_MGR)
 			{
 				ctx.getSession().put(WebConstant.USER 
 					, manager.getName());
 				ctx.getSession().put(WebConstant.LEVEL
 					, WebConstant.MGR_LEVEL);
-				setTip("ÄúÒÑ¾­³É¹¦µÇÂ¼ÏµÍ³");
+				setTip("æ‚¨å·²ç»æˆåŠŸç™»å½•ç³»ç»Ÿ");
 				return MGR_RESULT;
 			}
-			//ÓÃ»§ÃûºÍÃÜÂë²»Æ¥Åä
+			//ç”¨æˆ·åå’Œå¯†ç ä¸åŒ¹é…
 			else
 			{
-				setTip("ÓÃ»§Ãû/ÃÜÂë²»Æ¥Åä");
+				setTip("ç”¨æˆ·å/å¯†ç ä¸åŒ¹é…");
 				return ERROR;
 			}
 		}
-		//ÑéÖ¤Âë²»Æ¥Åä
+		//éªŒè¯ç ä¸åŒ¹é…
 	//	else
 	//	{
-	//		setTip("ÑéÖ¤Âë²»Æ¥Åä,ÇëÖØĞÂÊäÈë");
+	//		setTip("éªŒè¯ç ä¸åŒ¹é…,è¯·é‡æ–°è¾“å…¥");
 	//		return ERROR;
 	//	}
 	//}
