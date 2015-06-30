@@ -6,9 +6,13 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	<!-- 配置DAO组件的模板 -->
+
+		
 	<bean id="daoTemplate" abstract="true" lazy-init="true"
 		p:sessionFactory-ref="sessionFactory"/>
-
+	<bean id="adminDao"
+		class="com.keemo.petstore.dao.impl.AdminDaoHibernate"
+		parent="daoTemplate"/>
 	<bean id="employeeDao"
 		class="com.keemo.petstore.dao.impl.EmployeeDaoHibernate"
 		parent="daoTemplate"/>

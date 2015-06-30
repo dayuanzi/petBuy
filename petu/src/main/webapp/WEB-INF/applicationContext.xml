@@ -35,6 +35,7 @@
 		<property name="mappingResources">
 			<list>
 				<!-- 以下用来列出Hibernate映射文件 -->
+				<value>com/keemo/petstore/bean/Admin.hbm.xml</value>
 				<value>com/keemo/petstore/bean/Application.hbm.xml</value>
 				<value>com/keemo/petstore/bean/Attend.hbm.xml</value>
 				<value>com/keemo/petstore/bean/AttendType.hbm.xml</value>
@@ -88,6 +89,8 @@
 
 	<!-- 定义业务逻辑组件模板 -->
 	<!-- 为之注入DAO组件 -->
+	 <bean id="adminManagerTemplate" abstract="true" lazy-init="true"
+		p:adminDao-ref="adminDao"/>
 	<bean id="managerTemplate" abstract="true" lazy-init="true"
 		p:appDao-ref="appDao"
 		p:attendDao-ref="attendDao"
@@ -98,6 +101,9 @@
 		p:payDao-ref="payDao"/>
 
 	<!-- 定义两个业务逻辑组件，继承业务逻辑组件的模板 -->
+	<bean id="admManager" name="admManager"
+		class="com.keemo.petstore.service.impl.AdmManagerImpl"
+		parent="adminManagerTemplate"/>
 	<bean id="empManager"
 		class="com.keemo.petstore.service.impl.EmpManagerImpl"
 		parent="managerTemplate"/>

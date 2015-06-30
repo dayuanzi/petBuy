@@ -69,6 +69,8 @@ public class LoginAction
 		//if (vercode.equalsIgnoreCase(ver2))
 		//{
 			//调用业务逻辑方法来处理登录请求
+		
+		System.out.print(getManager().getName());
 			int result = mgr.validLogin(getManager());
 			//登录结果为普通员工
 			if (result == LOGIN_EMP)

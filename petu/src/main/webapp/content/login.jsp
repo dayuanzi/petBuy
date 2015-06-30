@@ -22,8 +22,8 @@
 <s:actionerror cssClass="error"/>
 <div align="center">
 <s:form action="processLogin">
-	<s:textfield name="manager.name" label="用户名"/>
-	<s:textfield name="manager.pass" label="密码"/>
+	<s:textfield name="admin.username" label="用户名"/>
+	<s:textfield name="admin.password" label="密码"/>
 	<s:textfield name="vercode" label="验证码"/>
 	<tr><td colspan="2">
 	<s:submit value="登录" theme="simple"/><s:reset theme="simple" value="重填"/>
