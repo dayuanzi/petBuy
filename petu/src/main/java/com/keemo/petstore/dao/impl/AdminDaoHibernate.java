@@ -3,7 +3,6 @@ package com.keemo.petstore.dao.impl;
 import java.util.List;
 
 import com.keemo.petstore.bean.Admin;
-import com.keemo.petstore.bean.Manager;
 import com.keemo.petstore.common.hibernate3.support.YeekuHibernateDaoSupport;
 import com.keemo.petstore.dao.AdminDao;
 

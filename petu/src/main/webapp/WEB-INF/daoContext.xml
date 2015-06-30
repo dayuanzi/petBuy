@@ -13,32 +13,5 @@
 	<bean id="adminDao"
 		class="com.keemo.petstore.dao.impl.AdminDaoHibernate"
 		parent="daoTemplate"/>
-	<bean id="employeeDao"
-		class="com.keemo.petstore.dao.impl.EmployeeDaoHibernate"
-		parent="daoTemplate"/>
-
-	<bean id="managerDao"
-		class="com.keemo.petstore.dao.impl.ManagerDaoHibernate"
-		parent="daoTemplate"/>
-
-	<bean id="attendDao"
-		class="com.keemo.petstore.dao.impl.AttendDaoHibernate"
-		parent="daoTemplate"/>
-
-	<bean id="attendTypeDao"
-		class="com.keemo.petstore.dao.impl.AttendTypeDaoHibernate"
-		parent="daoTemplate"/>
-
-	<bean id="appDao"
-		class="com.keemo.petstore.dao.impl.ApplicationDaoHibernate"
-		parent="daoTemplate"/>
-
-	<bean id="checkDao"
-		class="com.keemo.petstore.dao.impl.CheckBackDaoHibernate"
-		parent="daoTemplate"/>
-
-	<bean id="payDao"
-		class="com.keemo.petstore.dao.impl.PaymentDaoHibernate"
-		parent="daoTemplate"/>
-
+	
 </beans>

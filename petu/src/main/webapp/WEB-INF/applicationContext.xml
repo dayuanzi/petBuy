@@ -36,12 +36,6 @@
 			<list>
 				<!-- 以下用来列出Hibernate映射文件 -->
 				<value>com/keemo/petstore/bean/Admin.hbm.xml</value>
-				<value>com/keemo/petstore/bean/Application.hbm.xml</value>
-				<value>com/keemo/petstore/bean/Attend.hbm.xml</value>
-				<value>com/keemo/petstore/bean/AttendType.hbm.xml</value>
-				<value>com/keemo/petstore/bean/CheckBack.hbm.xml</value>
-				<value>com/keemo/petstore/bean/Employee.hbm.xml</value>
-				<value>com/keemo/petstore/bean/Payment.hbm.xml</value>
 			</list>
 		</property>
 		<!-- 定义Hibernate的SessionFactory的属性 -->
@@ -78,10 +72,10 @@
 		</tx:attributes>
 	</tx:advice>
 	<aop:config>
-		<!-- 配置一个切入点，匹配empManager和mgrManager
+		<!-- 配置一个切入点，匹配admManager
 			两个Bean的所有方法的执行 -->
 		<aop:pointcut id="leePointcut"
-			expression="bean(empManager)||bean(mgrManager)"/>
+			expression="bean(admManager)"/>
 		<!-- 指定在leePointcut切入点应用txAdvice事务增强处理 -->
 		<aop:advisor advice-ref="txAdvice" 
 			pointcut-ref="leePointcut"/>
@@ -89,27 +83,15 @@
 
 	<!-- 定义业务逻辑组件模板 -->
 	<!-- 为之注入DAO组件 -->
-	 <bean id="adminManagerTemplate" abstract="true" lazy-init="true"
+	<bean id="adminManagerTemplate" abstract="true" lazy-init="true"
 		p:adminDao-ref="adminDao"/>
-	<bean id="managerTemplate" abstract="true" lazy-init="true"
-		p:appDao-ref="appDao"
-		p:attendDao-ref="attendDao"
-		p:typeDao-ref="attendTypeDao"
-		p:checkDao-ref="checkDao"
-		p:empDao-ref="employeeDao"
-		p:mgrDao-ref="managerDao"
-		p:payDao-ref="payDao"/>
+	
 
 	<!-- 定义两个业务逻辑组件，继承业务逻辑组件的模板 -->
 	<bean id="admManager" name="admManager"
 		class="com.keemo.petstore.service.impl.AdmManagerImpl"
 		parent="adminManagerTemplate"/>
-	<bean id="empManager"
-		class="com.keemo.petstore.service.impl.EmpManagerImpl"
-		parent="managerTemplate"/>
-	<bean id="mgrManager"
-		class="com.keemo.petstore.service.impl.MgrManagerImpl"
-		parent="managerTemplate"/>
+
 
 <!-- 执行实际的调度调度 -->
 </beans>
