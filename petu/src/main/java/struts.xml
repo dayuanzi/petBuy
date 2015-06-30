@@ -35,7 +35,7 @@
 	<action name="processLogin"
 		class="com.keemo.petstore.action.AdminLogin">
 	<result name="input">/content/login.jsp</result>
-	<result name="adm">/content/manager/index.jsp</result>
+	<result name="adm">/content/manager/logined.jsp</result>
 	<result name="emp">/content/employee/index.jsp</result>
 	<result name="error">/content/login.jsp</result>
 	</action>
