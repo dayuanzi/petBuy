@@ -75,7 +75,9 @@
 		<!-- 配置一个切入点，匹配admManager
 			两个Bean的所有方法的执行 -->
 		<aop:pointcut id="leePointcut"
+
 			expression="bean(admManager)"/>
+
 		<!-- 指定在leePointcut切入点应用txAdvice事务增强处理 -->
 		<aop:advisor advice-ref="txAdvice" 
 			pointcut-ref="leePointcut"/>
@@ -83,14 +85,23 @@
 
 	<!-- 定义业务逻辑组件模板 -->
 	<!-- 为之注入DAO组件 -->
+
 	<bean id="adminManagerTemplate" abstract="true" lazy-init="true"
 		p:adminDao-ref="adminDao"/>
 	
 
+		
+
+		
+		
+
+
 	<!-- 定义两个业务逻辑组件，继承业务逻辑组件的模板 -->
+
 	<bean id="admManager" name="admManager"
 		class="com.keemo.petstore.service.impl.AdmManagerImpl"
 		parent="adminManagerTemplate"/>
+
 
 
 <!-- 执行实际的调度调度 -->

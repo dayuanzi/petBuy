@@ -3,6 +3,7 @@ package com.keemo.petstore.action;
 
 public interface WebConstant
 {
+	String USR_LEVEL = "usr";
 	//HttpSession里代表经理的level值
 	String MGR_LEVEL = "mgr";
 	//HttpSession里代表员工的level值

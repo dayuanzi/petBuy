@@ -1,12 +1,9 @@
 package com.keemo.petstore.dao.impl;
-
 import java.util.List;
 
 import com.keemo.petstore.bean.Admin;
 import com.keemo.petstore.common.hibernate3.support.YeekuHibernateDaoSupport;
 import com.keemo.petstore.dao.AdminDao;
-
-
 public class AdminDaoHibernate extends YeekuHibernateDaoSupport implements AdminDao
 {
 
@@ -62,15 +59,17 @@ public class AdminDaoHibernate extends YeekuHibernateDaoSupport implements Admin
 	}
 	
 	/**
-	 * 根据用户名和密码查询经理
-	 * @param emp 包含指定用户名、密码的经理
-	 * @return 符合指定用户名和密码的经理
+	 * 根据用户名和密码查询用户
+	 * @param  包含指定用户名、密码的用户
+	 * @return 符合指定用户名和密码的用户
 	 */ 
 	public List<Admin> findByNameAndPass(Admin admin)
 	{
+		System.out.print(admin.getUsername());
 		return (List<Admin>)getHibernateTemplate()
 			.find("from Admin admin where admin.username = ? and admin.password=?"
 			, admin.getUsername() , admin.getPassword());
 	}
 	
 }
+

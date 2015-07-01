@@ -10,8 +10,11 @@
 		
 	<bean id="daoTemplate" abstract="true" lazy-init="true"
 		p:sessionFactory-ref="sessionFactory"/>
-	<bean id="adminDao"
+
+    <bean id="adminDao"
 		class="com.keemo.petstore.dao.impl.AdminDaoHibernate"
 		parent="daoTemplate"/>
+
+
 	
 </beans>
