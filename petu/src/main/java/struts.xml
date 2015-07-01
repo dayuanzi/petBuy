@@ -35,13 +35,25 @@
 	<action name="processLogin"
 		class="com.keemo.petstore.action.AdminLogin">
 	<result name="input">/content/login.jsp</result>
-	<result name="adm">/content/manager/logined.jsp</result>
-	<result name="emp">/content/employee/index.jsp</result>
-	<result name="error">/content/login.jsp</result>
+	<result name="adm">/WEB-INF/content/manager/logined.jsp</result>
+	<result name="error">/WEB-INF/content/login.jsp</result>
 	</action>
 		<!-- 让用户直接访问该应用时列出所有视图页面 -->
 	<action name="*">
 			<result>/WEB-INF/content/{1}.jsp</result>
 	</action>
 	</package>
+	
+	
+	<package name="file" extends="struts-default" >  
+  
+       <action name="uploadList" class="com.keemo.petstore.action.UpLoadAction">  
+  
+           <result name="success">/content/success.jsp</result>  
+           <result name="input">/content/register.jsp</result>  
+  
+       </action>  
+    </package>  
+	
+	
 </struts>

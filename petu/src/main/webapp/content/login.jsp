@@ -3,12 +3,12 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>登录系统</title>
 <s:head/>
 </head>
 <body>
-<%@include file="header.jsp"%>
+
 <table width=780 align="center"
 	background="${pageContext.request.contextPath}/images/bodybg.jpg">
 <tr >
@@ -34,6 +34,5 @@
 </td>
 </tr>
 </table>
-<%@include file="footer.jsp"%>
 </body>
 </html>
