@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-6-30 13:34:09 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2015-7-1 16:19:55 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.keemo.petstore.bean.Admin" table="admin" catalog="petbuy">
         <id name="id" type="java.lang.Integer">
-            <column name="ID" />
+            <column name="id" />
             <generator class="identity" />
         </id>
         <property name="username" type="string">

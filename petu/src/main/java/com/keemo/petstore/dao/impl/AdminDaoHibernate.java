@@ -65,7 +65,7 @@ public class AdminDaoHibernate extends YeekuHibernateDaoSupport implements Admin
 	 */ 
 	public List<Admin> findByNameAndPass(Admin admin)
 	{
-		System.out.print(admin.getUsername());
+
 		return (List<Admin>)getHibernateTemplate()
 			.find("from Admin admin where admin.username = ? and admin.password=?"
 			, admin.getUsername() , admin.getPassword());
