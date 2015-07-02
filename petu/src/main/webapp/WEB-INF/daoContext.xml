@@ -14,7 +14,9 @@
     <bean id="adminDao"
 		class="com.keemo.petstore.dao.impl.AdminDaoHibernate"
 		parent="daoTemplate"/>
-
+    <bean id="catDao"
+		class="com.keemo.petstore.dao.impl.CatDaoHibernate"
+		parent="daoTemplate"/>
 
 	
 </beans>

@@ -36,6 +36,12 @@
 			<list>
 				<!-- 以下用来列出Hibernate映射文件 -->
 				<value>com/keemo/petstore/bean/Admin.hbm.xml</value>
+				<value>com/keemo/petstore/bean/Cat.hbm.xml</value>
+				<value>com/keemo/petstore/bean/Cattery.hbm.xml</value>
+				<value>com/keemo/petstore/bean/Catype.hbm.xml</value>
+				<value>com/keemo/petstore/bean/Rank.hbm.xml</value>
+				<value>com/keemo/petstore/bean/Region.hbm.xml</value>
+				<value>com/keemo/petstore/bean/Cattpetrank.hbm.xml</value>
 			</list>
 		</property>
 		<!-- 定义Hibernate的SessionFactory的属性 -->
@@ -87,9 +93,10 @@
 	<!-- 为之注入DAO组件 -->
 
 	<bean id="adminManagerTemplate" abstract="true" lazy-init="true"
-		p:adminDao-ref="adminDao"/>
+		p:adminDao-ref="adminDao"
+		p:catDao-ref="catDao"/>
 	
-
+	
 		
 
 		

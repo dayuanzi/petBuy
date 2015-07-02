@@ -21,5 +21,9 @@ public interface AdmManager
 	 * @return 登录后的身份确认:0为登录失败，1为登录成功
 	 */
 	int validLogin(Admin admin);
+	
+	List<Cat> getCatsbyPage(Integer pageNo,Integer pageSize);
+	
+	
 
 }

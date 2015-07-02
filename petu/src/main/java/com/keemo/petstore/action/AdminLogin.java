@@ -1,5 +1,7 @@
 package com.keemo.petstore.action;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -7,7 +9,7 @@ import com.keemo.petstore.action.base.*;
 import com.keemo.petstore.exception.*;
 import com.opensymphony.xwork2.*;
 import org.apache.struts2.interceptor.*;
-import com.keemo.petstore.bean.Admin;
+import com.keemo.petstore.bean.*;
 
 import static com.keemo.petstore.service.AdmManager.*;
 
@@ -26,6 +28,7 @@ public class AdminLogin
 	//处理登录后的提示信息
 	private String tip;
 	//manager属性的setter和getter方法
+	private List<Cat> catlist;
 	public void setAdmin(Admin admin)
 	{
 		this.admin = admin;
@@ -33,6 +36,14 @@ public class AdminLogin
 	public Admin getAdmin()
 	{
 		return this.admin;
+	}
+	public void setCatlist(List<Cat> catlist)
+	{
+		this.catlist = catlist;
+	}
+	public List<Cat> getCatlist()
+	{
+		return this.catlist;
 	}
 
 	//vercode属性的setter和getter方法
@@ -78,6 +89,8 @@ public class AdminLogin
 				ctx.getSession().put(WebConstant.LEVEL
 					, WebConstant.EMP_LEVEL);
 				setTip("您已经成功登录系统");
+				this.catlist = adm.getCatsbyPage(0, 10);
+				System.out.println(catlist.get(0).getName());
 				return ADM_RESULT;
 			}
 			//用户名和密码不匹配
