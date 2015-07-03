@@ -187,13 +187,13 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>transaction</artifactId>
 			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
+		</dependency>-->
+		<!-- <dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>text</artifactId>
+			<artifactId>spring-text</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		-->
+		 -->
 		<!-- <dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web-portlet</artifactId>

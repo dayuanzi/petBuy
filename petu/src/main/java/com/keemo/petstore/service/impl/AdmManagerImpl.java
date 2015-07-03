@@ -36,8 +36,7 @@ public class AdmManagerImpl
 	public int validLogin(Admin admin)
 	{
 		//如果找到一个经理，以经理登录
-		if (adminDao.findByNameAndPass(admin).size()
-			>= 1)
+		if (adminDao.findByNameAndPass(admin).size()>= 1)
 		{
 			return LOGIN_SUC;
 		}
@@ -47,13 +46,15 @@ public class AdmManagerImpl
 		}
 	}
 	
-	public List<Cat> getCatsbyPage(Integer pageNo,Integer pageSize)
+	public List<Cat> getCatsbyPage(Integer pageNo,Integer pageSize,Integer typeId,Integer rankId,Integer priceLow,Integer priceHigh)
 	{
 		
-		List<Cat> list = catDao.findByPage(pageNo, pageSize);
+		List<Cat> list = catDao.findByPage(pageNo, pageSize, typeId, rankId,priceLow,priceHigh);
 		return list;
 	
 	}
+	
+	
 	
 
 }

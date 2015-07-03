@@ -89,8 +89,8 @@ public class AdminLogin
 				ctx.getSession().put(WebConstant.LEVEL
 					, WebConstant.EMP_LEVEL);
 				setTip("您已经成功登录系统");
-				this.catlist = adm.getCatsbyPage(0, 10);
-				System.out.println(catlist.get(0).getName());
+				//this.catlist = adm.getCatsbyPage(0, 10);
+				this.catlist = adm.getCatsbyPage(0, 10,null,2,1,1000000);
 				return ADM_RESULT;
 			}
 			//用户名和密码不匹配
