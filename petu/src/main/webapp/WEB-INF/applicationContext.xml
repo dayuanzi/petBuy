@@ -94,7 +94,8 @@
 
 	<bean id="adminManagerTemplate" abstract="true" lazy-init="true"
 		p:adminDao-ref="adminDao"
-		p:catDao-ref="catDao"/>
+		p:catDao-ref="catDao"
+		p:catteryDao-ref="catteryDao"/>
 	
 	
 		

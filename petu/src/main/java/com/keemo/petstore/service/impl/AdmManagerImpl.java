@@ -2,11 +2,13 @@ package com.keemo.petstore.service.impl;
 
 import com.keemo.petstore.bean.Admin;
 import com.keemo.petstore.bean.Cat;
+import com.keemo.petstore.bean.Cattery;
 import com.keemo.petstore.vo.*;
 import com.keemo.petstore.exception.*;
 import com.keemo.petstore.service.AdmManager;
 import com.keemo.petstore.dao.AdminDao;
 import com.keemo.petstore.dao.CatDao;
+import com.keemo.petstore.dao.CatteryDao;
 
 import java.text.*;
 import java.util.*;
@@ -17,6 +19,7 @@ public class AdmManagerImpl
 {
 	private AdminDao adminDao;
 	private CatDao catDao;
+	private CatteryDao catteryDao;
 	public void setAdminDao(AdminDao adminDao)
 	{
 		this.adminDao = adminDao;
@@ -25,6 +28,10 @@ public class AdmManagerImpl
 	public void setCatDao(CatDao catDao)
 	{
 		this.catDao = catDao;
+	}
+	public void setCatteryDao(CatteryDao catteryDao)
+	{
+		this.catteryDao = catteryDao;
 	}
 
 	
@@ -46,6 +53,15 @@ public class AdmManagerImpl
 		}
 	}
 	
+	public Cat getCatById(Integer id){
+		return catDao.get(id);
+	}
+	
+	public Cattery getCatteryById(Integer id){
+		return catteryDao.get(id);
+	}
+
+	
 	public List<Cat> getCatsbyPage(Integer pageNo,Integer pageSize,Integer typeId,Integer rankId,Integer priceLow,Integer priceHigh)
 	{
 		
@@ -54,7 +70,11 @@ public class AdmManagerImpl
 	
 	}
 	
-	
+	public List<Cattery> getCatterybyPage(Integer pageNo,Integer pageSize){
+		
+		List<Cattery> list = catteryDao.findByPage(pageNo, pageSize);
+		return list;
+	}
 	
 
 }

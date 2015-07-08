@@ -35,7 +35,7 @@
 	<action name="processLogin"
 		class="com.keemo.petstore.action.AdminLogin">
 	<result name="input">/content/login.jsp</result>
-	<result name="adm">/WEB-INF/content/manager/logined.jsp</result>
+	<result name="adm">/WEB-INF/content/logined.jsp</result>
 	<result name="error">/WEB-INF/content/login.jsp</result>
 	</action>
 		<!-- 让用户直接访问该应用时列出所有视图页面 -->
@@ -49,9 +49,17 @@
   
        <action name="uploadList" class="com.keemo.petstore.action.UpLoadAction">  
   
-           <result name="success">/content/success.jsp</result>  
+           <result name="success">/WEB-INF/content/success.jsp</result>  
            <result name="input">/content/register.jsp</result>  
   
+       </action>  
+    </package>  
+    
+    <package name="see" extends="struts-default" >  
+       <action name="getCatteryList" class="com.keemo.petstore.action.AdminLogin" method="getCatteryList">  
+           <result name="catterylist">/content/catterylist.jsp</result>  
+           <result name="input">/content/catterylist.jsp</result>  
+ 
        </action>  
     </package>  
 	

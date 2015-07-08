@@ -19,6 +19,8 @@ public class AdminLogin
 {
 	//定义一个常量作为员工登录成功的Result名
 	private final String ADM_RESULT = "adm";
+	
+	private final String Catt_List = "catterylist";
 	//定义一个常量作为经理登录成功的Result名
 	//private final String MGR_RESULT = "mgr";
 	//封装请求参数
@@ -29,6 +31,7 @@ public class AdminLogin
 	private String tip;
 	//manager属性的setter和getter方法
 	private List<Cat> catlist;
+	private List<Cattery> catterylist;
 	public void setAdmin(Admin admin)
 	{
 		this.admin = admin;
@@ -45,7 +48,15 @@ public class AdminLogin
 	{
 		return this.catlist;
 	}
-
+	public void setCatterylist(List<Cattery> catterylist)
+	{
+		this.catterylist = catterylist;
+	}
+	public List<Cattery> getCatterylist()
+	{
+		return this.catterylist;
+	}
+	
 	//vercode属性的setter和getter方法
 	/*public void setVercode(String vercode)
 	{
@@ -108,4 +119,16 @@ public class AdminLogin
 	//}
 	
 }
+	
+	public String getCatteryList() throws Exception
+	{
+        ActionContext ctx = ActionContext.getContext();
+		
+    	this.catterylist = adm.getCatterybyPage(0,10);
+		
+    	return Catt_List;
+		
+		
+	}
+	
 }
