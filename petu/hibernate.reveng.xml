@@ -10,4 +10,5 @@
 	<table-filter match-name="rank" match-catalog="petbuy"></table-filter>
 	<table-filter match-name="region" match-catalog="petbuy"></table-filter>
 	<table-filter match-name="order" match-catalog="petbuy"></table-filter>
+	<table-filter match-name="cart" match-catalog="petbuy"></table-filter>
 </hibernate-reverse-engineering>
