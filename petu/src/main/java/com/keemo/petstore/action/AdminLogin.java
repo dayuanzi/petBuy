@@ -32,6 +32,10 @@ public class AdminLogin
 	//manager属性的setter和getter方法
 	private List<Cat> catlist;
 	private List<Cattery> catterylist;
+	
+	
+	private Integer pagenow = 0;
+	private Integer pagesize = 2;
 	public void setAdmin(Admin admin)
 	{
 		this.admin = admin;
@@ -101,7 +105,7 @@ public class AdminLogin
 					, WebConstant.EMP_LEVEL);
 				setTip("您已经成功登录系统");
 				//this.catlist = adm.getCatsbyPage(0, 10);
-				this.catlist = adm.getCatsbyPage(0, 10,null,2,1,1000000);
+				this.catlist = adm.getCatsbyPage(pagenow,pagesize,1,2,1,1000000);
 				return ADM_RESULT;
 			}
 			//用户名和密码不匹配

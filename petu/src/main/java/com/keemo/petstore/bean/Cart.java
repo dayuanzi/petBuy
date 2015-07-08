@@ -1,6 +1,6 @@
 package com.keemo.petstore.bean;
 
-// Generated 2015-7-8 13:33:08 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-7-8 16:44:07 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 
@@ -10,20 +10,19 @@ import java.util.Date;
 public class Cart implements java.io.Serializable {
 
 	private Integer id;
+	private Admin admin;
+	private Cat cat;
 	private Date time;
-	private Integer userid;
-	private Integer petid;
 	private Integer count;
 	private Byte ispay;
 
 	public Cart() {
 	}
 
-	public Cart(Date time, Integer userid, Integer petid, Integer count,
-			Byte ispay) {
+	public Cart(Admin admin, Cat cat, Date time, Integer count, Byte ispay) {
+		this.admin = admin;
+		this.cat = cat;
 		this.time = time;
-		this.userid = userid;
-		this.petid = petid;
 		this.count = count;
 		this.ispay = ispay;
 	}
@@ -36,28 +35,28 @@ public class Cart implements java.io.Serializable {
 		this.id = id;
 	}
 
+	public Admin getAdmin() {
+		return this.admin;
+	}
+
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
+	}
+
+	public Cat getCat() {
+		return this.cat;
+	}
+
+	public void setCat(Cat cat) {
+		this.cat = cat;
+	}
+
 	public Date getTime() {
 		return this.time;
 	}
 
 	public void setTime(Date time) {
 		this.time = time;
-	}
-
-	public Integer getUserid() {
-		return this.userid;
-	}
-
-	public void setUserid(Integer userid) {
-		this.userid = userid;
-	}
-
-	public Integer getPetid() {
-		return this.petid;
-	}
-
-	public void setPetid(Integer petid) {
-		this.petid = petid;
 	}
 
 	public Integer getCount() {

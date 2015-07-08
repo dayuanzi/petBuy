@@ -31,13 +31,31 @@
 		欢迎您使用宠物交易平台！</td>
   </tr>
   <tr height="60">
-	<td>&nbsp;</td>
+	<td><s:form action="processLogin" methid="">
+	<s:submit value="下一页" theme="simple"/>
+	</td>
+	</tr>
+</s:form>
+</td>
   </tr>
+  
   <tr height="60">
 	<td>&nbsp;
+<div>
 	 <s:iterator value="catlist" var="Cat">
-     <p>day is: <s:property value="#Cat.name"/></p>
+     <p><s:property value="#Cat.name"/></p>
+     <s:property value="#Cat.sex"/>
+     <s:property value="#Cat.getCatype().getCatype()"/>
+     <s:property value="#Cat.getRank().getRank()"/>
+     <s:property value="#Cat.pedigreeCertificate"/>
+     <s:property value="#Cat.immune"/>
+     <s:property value="#Cat.birthday"/>
+     <s:property value="#Cat.getCattery().getCattery()"/>
+     <s:property value="#Cat.price"/>
+     <s:property value="#Cat.oldprice"/>
+     <s:property value="#Cat.image"/>
      </s:iterator>
+ </div>
 	</td>
   </tr>
 </table>
