@@ -42,10 +42,29 @@ public interface OrderDao
 	
 
 	/**
-	 * 根据默认返回猫咪列表
+	 * 根据默认返回订单列表
 	 * @param pageNo pageSize 返回 Order List
 	 */
 	public List<Order> findByPage(Integer pageNo,Integer pageSize);
+	
+	
+	/**
+	 * 根据用户id返回订单列表
+	 * @param pageNo
+	 * @param pageSize 
+	 * @param userid
+	 * @param ispay
+	 */
+	public List<Order> findByUserid(Integer userid, Integer pageNo,Integer pageSize,Integer ispay);
+	
+	/**
+	 * 根据商铺id返回订单列表
+	 * @param pageNo
+	 * @param pageSize 
+	 * @param userid
+	 * @param ispay
+	 */
+	public List<Order> findByStoreid(Integer userid, Integer pageNo,Integer pageSize,Integer ispay);
 
 	
 }

@@ -83,6 +83,59 @@ public class OrderDaoHibernate extends YeekuHibernateDaoSupport implements Order
 		       }
 		  });
 	}
+	
+
+
+	/**
+	 * 根据用户id返回订单列表
+	 * @param pageNo
+	 * @param pageSize 
+	 * @param userid
+	 */
+	public List<Order> findByUserid(final Integer userid,final Integer pageNo,
+			final Integer pageSize,final Integer ispay) {
+		// TODO Auto-generated method stub
+		HibernateTemplate ht=getHibernateTemplate();
+		  return ht.executeFind(new HibernateCallback() {
+		       public Object doInHibernate(Session session)
+		             throws HibernateException {
+		    	   if(ispay!=null){
+		    		   
+		    	
+		    	   Query query = session.createQuery("from Order ord where userid = ? and ispay = ?"); 
+		    		 
+		    	   query.setParameter(0, userid);
+		    	   query.setParameter(1, ispay);
+	    		   query.setMaxResults(pageSize);
+			       query.setFirstResult(pageNo);
+			       return query.list();
+		    	   }
+		    	   else
+		    	   {
+		    		   Query query = session.createQuery("from Order ord where userid = ?"); 
+			    		 
+			    	   query.setParameter(0, userid);
+		    		   query.setMaxResults(pageSize);
+				       query.setFirstResult(pageNo);
+				       return query.list();
+		    		   
+		    	   }
+			         
+		       }
+		  });
+	}
+	/**
+	 * 根据商铺id返回订单列表
+	 * @param pageNo
+	 * @param pageSize 
+	 * @param userid
+	 */
+	public List<Order> findByStoreid(Integer userid, Integer pageNo,
+			Integer pageSize, Integer ispay) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 
 
 
