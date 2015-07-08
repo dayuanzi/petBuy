@@ -42,6 +42,8 @@
 				<value>com/keemo/petstore/bean/Rank.hbm.xml</value>
 				<value>com/keemo/petstore/bean/Region.hbm.xml</value>
 				<value>com/keemo/petstore/bean/Cattpetrank.hbm.xml</value>
+				<value>com/keemo/petstore/bean/Order.hbm.xml</value>
+				<value>com/keemo/petstore/bean/Cart.hbm.xml</value>
 			</list>
 		</property>
 		<!-- 定义Hibernate的SessionFactory的属性 -->
@@ -95,7 +97,9 @@
 	<bean id="adminManagerTemplate" abstract="true" lazy-init="true"
 		p:adminDao-ref="adminDao"
 		p:catDao-ref="catDao"
-		p:catteryDao-ref="catteryDao"/>
+		p:catteryDao-ref="catteryDao"
+		p:cartDao-ref="cartDao"
+		p:orderDao-ref="orderDao"/>
 	
 	
 		

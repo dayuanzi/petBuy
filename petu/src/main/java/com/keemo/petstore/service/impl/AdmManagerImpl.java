@@ -9,6 +9,8 @@ import com.keemo.petstore.service.AdmManager;
 import com.keemo.petstore.dao.AdminDao;
 import com.keemo.petstore.dao.CatDao;
 import com.keemo.petstore.dao.CatteryDao;
+import com.keemo.petstore.dao.CartDao;
+import com.keemo.petstore.dao.OrderDao;
 
 import java.text.*;
 import java.util.*;
@@ -20,11 +22,12 @@ public class AdmManagerImpl
 	private AdminDao adminDao;
 	private CatDao catDao;
 	private CatteryDao catteryDao;
+	private OrderDao orderDao;
+	private CartDao cartDao;
 	public void setAdminDao(AdminDao adminDao)
 	{
 		this.adminDao = adminDao;
 	}
-	
 	public void setCatDao(CatDao catDao)
 	{
 		this.catDao = catDao;
@@ -32,6 +35,14 @@ public class AdmManagerImpl
 	public void setCatteryDao(CatteryDao catteryDao)
 	{
 		this.catteryDao = catteryDao;
+	}
+	public void setCartDao(CartDao cartDao)
+	{
+		this.cartDao = cartDao;
+	}
+	public void setOrderDao(OrderDao orderDao)
+	{
+		this.orderDao = orderDao;
 	}
 
 	

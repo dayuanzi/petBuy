@@ -20,5 +20,11 @@
      <bean id="catteryDao"
 		class="com.keemo.petstore.dao.impl.CatteryDaoHibernate"
 		parent="daoTemplate"/>
+	 <bean id="orderDao"
+		class="com.keemo.petstore.dao.impl.OrderDaoHibernate"
+		parent="daoTemplate"/>
+	 <bean id="cartDao"
+		class="com.keemo.petstore.dao.impl.CartDaoHibernate"
+		parent="daoTemplate"/>
 	
 </beans>
