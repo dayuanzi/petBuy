@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-8 13:33:08 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.keemo.petstore.bean.Cat" table="cat" catalog="petbuy">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cattery" class="com.keemo.petstore.bean.Cattery" fetch="select">
+            <column name="catteryid" />
+        </many-to-one>
+        <many-to-one name="catype" class="com.keemo.petstore.bean.Catype" fetch="select">
+            <column name="typeid" />
+        </many-to-one>
+        <many-to-one name="rank" class="com.keemo.petstore.bean.Rank" fetch="select">
+            <column name="rankid" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="20" />
+        </property>
+        <property name="sex" type="java.lang.Boolean">
+            <column name="sex" />
+        </property>
+        <property name="pedigreeCertificate" type="java.lang.Byte">
+            <column name="pedigree_certificate" />
+        </property>
+        <property name="immune" type="java.lang.Byte">
+            <column name="immune" />
+        </property>
+        <property name="birthday" type="date">
+            <column name="birthday" length="10" />
+        </property>
+        <property name="price" type="java.lang.Integer">
+            <column name="price" />
+        </property>
+        <property name="oldprice" type="java.lang.Integer">
+            <column name="oldprice" />
+        </property>
+        <set name="orders" table="order" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="petid" />
+            </key>
+            <one-to-many class="com.keemo.petstore.bean.Order" />
+        </set>
+    </class>
+</hibernate-mapping>
