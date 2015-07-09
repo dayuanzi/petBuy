@@ -88,8 +88,9 @@ public class AdminLogin
 		ActionContext ctx = ActionContext.getContext();
 		
 		//System.out.print(getAdmin().getUsername());
-		
-		
+	//	Integer pageNo = Integer.valueOf( (String)ctx.getParameters().get("pageNo"));
+		System.out.println(((String[])ctx.getParameters().get("pageNo"))[0]);
+	//	System.out.println((String)ctx.getParameter("pageNo"));
 		//获取HttpSession中的rand属性
 	//	String ver2 = (String)ctx.getSession().get("rand");
 		//if (vercode.equalsIgnoreCase(ver2))

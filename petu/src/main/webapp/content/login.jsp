@@ -25,6 +25,7 @@
 	<s:textfield name="admin.username" label="用户名"/>
 	<s:textfield name="admin.password" label="密码"/>
 	<s:textfield name="vercode" label="验证码"/>
+	<!--<s:textfield name="pageNo" label="密码"/>-->
 	<tr><td colspan="2">
 	<s:submit value="登录" theme="simple"/><s:reset theme="simple" value="重填"/>
 	</td></tr>
