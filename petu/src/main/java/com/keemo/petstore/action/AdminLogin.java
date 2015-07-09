@@ -125,6 +125,8 @@ public class AdminLogin
 	
 }
 	
+	
+	
 	public String getCatteryList() throws Exception
 	{
         ActionContext ctx = ActionContext.getContext();
