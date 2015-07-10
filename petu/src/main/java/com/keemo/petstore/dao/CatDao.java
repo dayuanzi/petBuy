@@ -42,38 +42,21 @@ public interface CatDao
 
 	/**
 	 * 根据默认返回猫咪列表
-	 * @param pageNo pageSize 返回 Cat List
+	 * @param pageNo pageSize 
+	 * @return 返回 Cat List
 	 */
 	public List<Cat> findByPage(Integer pageNo,Integer pageSize, Integer typeId, Integer rankId,Integer priceLow,Integer priceHigh);
 	
 	
 	
-	
-	/**
-	 * 根据等级返回猫咪列表
-	 * @param pageNo pageSize 返回 Cat List
-	 */
-	public List<Cat> findByRank(Integer pageNo,Integer pageSize,Integer rankId);
-	
-	
-	/**
-	 * 根据品种返回猫咪列表
-	 * @param pageNo pageSize 返回 Cat List
-	 */
-	public List<Cat> findByType(Integer pageNo,Integer pageSize,Integer typeId);
-	
-	
 	/**
 	 * 根据搜索返回猫咪列表
-	 * @param pageNo pageSize queryStr返回 Cat List
+	 * @param pageNo pageSize queryStr
+	 * @return 返回 Cat List
 	 */
 	public List<Cat> findByQuery(Integer pageNo,Integer pageSize,String queryStr);
 	
 	
-	/**
-	 * 根据价格返回猫咪列表
-	 * @param pageNo pageSize Price返回 Cat List
-	 */
-	public List<Cat> findByPrice(Integer pageNo,Integer pageSize,Integer priceLow,Integer priceHigh);
+	
 	
 }

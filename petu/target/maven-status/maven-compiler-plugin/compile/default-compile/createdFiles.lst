@@ -21,9 +21,9 @@ com\keemo\petstore\common\hibernate3\support\YeekuHibernateDaoSupport.class
 com\keemo\petstore\service\AdmManager.class
 com\keemo\petstore\dao\impl\CatDaoHibernate$2.class
 com\keemo\petstore\action\AdminLogin.class
+com\keemo\petstore\action\CatListAction.class
 com\keemo\petstore\authority\EmpAuthorityInterceptor.class
 com\keemo\petstore\dao\impl\CatteryDaoHibernate.class
-com\keemo\petstore\dao\impl\CatDaoHibernate$3.class
 com\keemo\petstore\dao\impl\OrderDaoHibernate.class
 com\keemo\petstore\vo\AppBean.class
 com\keemo\petstore\bean\Cat.class

@@ -17,11 +17,67 @@ import static com.keemo.petstore.service.AdmManager.*;
 public class CatListAction
 	extends AdmBaseAction
 {
-
+	private List<Cat> catlist;
+	public void setCatlist(List<Cat> catlist)
+	{
+		this.catlist = catlist;
+	}
+	public List<Cat> getCatlist()
+	{
+		return this.catlist;
+	}
+	
 	public String execute()
 		throws Exception
 	{
-		return null;
-	}
+		
+		ActionContext ctx = ActionContext.getContext();
+		String pageNumberStr = ((String[])ctx.getParameters().get("pageNumner"))[0];
+		String typeIdStr = ((String[])ctx.getParameters().get("typeId"))[0];
+		String rankIdStr = ((String[])ctx.getParameters().get("rankId"))[0];
+		String priceLowStr = ((String[])ctx.getParameters().get("priceLow"))[0];
+		String priceHighStr = ((String[])ctx.getParameters().get("priceHigh"))[0];
+		Integer pageNumber = Integer.valueOf(pageNumberStr);
+		Integer typeId = null;
+		Integer rankId = null;
+		
+		if(typeIdStr!=""){
+			typeId = Integer.valueOf(typeIdStr);
+		}
+		else
+		{
+			typeId = null;
+		}
+		if(rankIdStr!="")
+		{
+			rankId = Integer.valueOf(rankIdStr);
+		}
+		else
+		{
+			rankId = null;
+		}
 
+		Integer priceLow = Integer.valueOf(priceLowStr);
+		Integer priceHigh = Integer.valueOf(priceHighStr);
+		Integer pageNo = (pageNumber-1) * WebConstant.admPageSize;
+		this.catlist = adm.getCatsbyPage(pageNo, WebConstant.admPageSize, typeId, rankId, priceLow, priceHigh);
+		return "catlist";
+	}
+	
+	public String CatsByQueryAction()
+	    throws Exception
+	    {
+		
+		ActionContext ctx = ActionContext.getContext();
+		String pageNumberStr = ((String[])ctx.getParameters().get("pageNumner"))[0];
+		String queryStr = ((String[])ctx.getParameters().get("query"))[0];
+		System.out.println("");
+		Integer pageNumber = Integer.valueOf(pageNumberStr);
+		Integer pageNo = (pageNumber-1) * WebConstant.admPageSize;
+		this.catlist = adm.getCatsbyQuery(pageNo, WebConstant.admPageSize, queryStr);
+		System.out.println(this.catlist.get(0).getName());
+		return "catsquery";
+	}
+	
+	
 }

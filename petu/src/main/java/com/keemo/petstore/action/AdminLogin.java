@@ -89,7 +89,9 @@ public class AdminLogin
 		
 		//System.out.print(getAdmin().getUsername());
 	//	Integer pageNo = Integer.valueOf( (String)ctx.getParameters().get("pageNo"));
-		System.out.println(((String[])ctx.getParameters().get("pageNo"))[0]);
+	//	System.out.println(((String[])ctx.getParameters().get("pageNo"))[0]);
+		
+	//	System.out.println(((Integer)ctx.getParameters().get("pageNo")));
 	//	System.out.println((String)ctx.getParameter("pageNo"));
 		//获取HttpSession中的rand属性
 	//	String ver2 = (String)ctx.getSession().get("rand");

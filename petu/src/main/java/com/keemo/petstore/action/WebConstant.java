@@ -3,6 +3,9 @@ package com.keemo.petstore.action;
 
 public interface WebConstant
 {
+	//未登录浏览页面单页显示单元的个数
+	Integer admPageSize = 2;
+	
 	String USR_LEVEL = "usr";
 	//HttpSession里代表经理的level值
 	String MGR_LEVEL = "mgr";

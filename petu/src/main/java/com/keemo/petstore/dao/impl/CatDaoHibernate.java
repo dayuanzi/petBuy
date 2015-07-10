@@ -64,9 +64,6 @@ public class CatDaoHibernate extends YeekuHibernateDaoSupport implements CatDao
 		.delete(get(id));
 	}
 
-
-	
-	
 	/**
 	 * 根据条件返回猫咪列表
 	 * @param pageNo 
@@ -125,64 +122,25 @@ public class CatDaoHibernate extends YeekuHibernateDaoSupport implements CatDao
 		 });
     }
 	
-	
-	
-	
 	/**
-	 * 根据等级返回猫咪列表
-	 * @param pageNo pageSize 返回 Cat List
+	 * 根据搜索返回猫咪列表
+	 * @param pageNo pageSize queryStr
+	 * @return 返回 Cat List
 	 */
-	public List<Cat> findByRank(final Integer pageNo, final Integer pageSize, final Integer rankId) {
-		// TODO Auto-generated method stub
+	public List<Cat> findByQuery(final Integer pageNo,final Integer pageSize,final String queryStr)
+    {
 		HibernateTemplate ht=getHibernateTemplate();
-		   return ht.executeFind(new HibernateCallback() {
-		             public Object doInHibernate(Session session)
-		             throws HibernateException {
-		                 Query query = session.createQuery("from Cat cat where cat.rankid = ?");
-		         query.setParameter(1, rankId);
-		         query.setMaxResults(pageSize);
-		         query.setFirstResult(pageNo);
-		         return query.list();
-		     }
+	return ht.executeFind(new HibernateCallback() {
+	   public Object doInHibernate(Session session)
+        throws HibernateException {
+	    		   Query query = session.createQuery("from Cat cat where name like ?"); 
+
+	    		   query.setParameter(0, "%xiao%");
+	    		   query.setMaxResults(pageSize);
+			       query.setFirstResult(pageNo);
+			       return query.list();
+	    	   	}
 		 });
-	}
-
-	/**
-	 * 根据品种返回猫咪列表
-	 * @param pageNo pageSize 返回 Cat List
-	 */
-	public List<Cat> findByType(final Integer pageNo, final Integer pageSize, final Integer typeId) {
-		// TODO Auto-generated method stub
-		// TODO Auto-generated method stub
-		HibernateTemplate ht=getHibernateTemplate();
-		   return ht.executeFind(new HibernateCallback() {
-		             public Object doInHibernate(Session session)
-		             throws HibernateException {
-		                 Query query = session.createQuery("from Cat cat where cat.typeId = ?");
-		         query.setParameter(1, typeId);
-		         query.setMaxResults(pageSize);
-		         query.setFirstResult(pageNo);
-		         return query.list();
-		     }
-		 });
-	}
-
-	/**
-	 * 根据搜索信息返回猫咪列表
-	 * @param pageNo pageSize 返回 Cat List
-	 */
-	public List<Cat> findByQuery(Integer pageNo, Integer pageSize,String queryStr) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/**
-	 * 根据价格区间返回猫咪列表
-	 * @param pageNo pageSize 返回 Cat List
-	 */
-	public List<Cat> findByPrice(Integer pageNo, Integer pageSize, Integer priceLow, Integer priceHigh) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+     }
 }
 

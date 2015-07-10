@@ -59,9 +59,24 @@
        <action name="getCatteryList" class="com.keemo.petstore.action.AdminLogin" method="getCatteryList">  
            <result name="catterylist">/content/catterylist.jsp</result>  
            <result name="input">/content/catterylist.jsp</result>  
- 
+       </action>  
+       
+       
+       <action name="getCatList" class="com.keemo.petstore.action.CatListAction">  
+           <result name="catlist">/content/catlist.jsp</result>
+           <result name="input">/content/catlist.jsp</result>
+       </action>  
+       
+       
+        <action name="CatsByQueryAction" class="com.keemo.petstore.action.CatListAction" method="CatsByQueryAction">  
+           <result name="catsquery">/content/catlist.jsp</result>
+           <result name="input">/content/catlist.jsp</result>
        </action>  
     </package>  
+    
+
+    
+    
 	
 	
 </struts>

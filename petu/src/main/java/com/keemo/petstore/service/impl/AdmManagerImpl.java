@@ -81,11 +81,21 @@ public class AdmManagerImpl
 	
 	}
 	
+	public List<Cat> getCatsbyQuery(Integer pageNo,Integer pageSize,String queryStr)
+	{
+		
+		List<Cat> list = catDao.findByQuery(pageNo, pageSize , queryStr);
+		return list;
+	}
+	
+	
 	public List<Cattery> getCatterybyPage(Integer pageNo,Integer pageSize){
 		
 		List<Cattery> list = catteryDao.findByPage(pageNo, pageSize);
 		return list;
 	}
+	
+	
 	
 
 }
