@@ -60,17 +60,19 @@
            <result name="catterylist">/content/catterylist.jsp</result>  
            <result name="input">/content/catterylist.jsp</result>  
        </action>  
-       
-       
+      
        <action name="getCatList" class="com.keemo.petstore.action.CatListAction">  
            <result name="catlist">/content/catlist.jsp</result>
            <result name="input">/content/catlist.jsp</result>
        </action>  
        
-       
         <action name="CatsByQueryAction" class="com.keemo.petstore.action.CatListAction" method="CatsByQueryAction">  
            <result name="catsquery">/content/catlist.jsp</result>
            <result name="input">/content/catlist.jsp</result>
+       </action>  
+       <action name="CatDetailAction" class="com.keemo.petstore.action.CatDetailAction" >  
+           <result name="catdetail">/content/catdetail.jsp</result>
+           <result name="input">/content/catdetail.jsp</result>
        </action>  
     </package>  
     
