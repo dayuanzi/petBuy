@@ -133,7 +133,7 @@ public class AdminLogin
 	{
         ActionContext ctx = ActionContext.getContext();
 		
-    	this.catterylist = adm.getCatterybyPage(0,10);
+    //	this.catterylist = adm.getCatterybyPage(0,10);
 		
     	return Catt_List;
 		

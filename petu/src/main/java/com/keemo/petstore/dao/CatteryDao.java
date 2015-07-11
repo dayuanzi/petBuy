@@ -44,8 +44,8 @@ public interface CatteryDao
 	 * 根据默认返回猫咪列表
 	 * @param pageNo pageSize 返回 Cattery List
 	 */
-	//public List<Cattery> findByPage(Integer pageNo,Integer pageSize, Integer typeId, Integer rankId,Integer priceLow,Integer priceHigh);
-	public List<Cattery> findByPage(Integer pageNo,Integer pageSize);
+	public List<Cattery> findByPage(Integer pageNo,Integer pageSize, Integer typeId, Integer rankId,Integer regionId,Integer priceLow,Integer priceHigh);
+	public List<Cattery> findByQuery(Integer pageNo,Integer pageSize,String catteryQuery);
 	
 	
 }

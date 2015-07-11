@@ -14,17 +14,17 @@ import com.keemo.petstore.bean.*;
 import static com.keemo.petstore.service.AdmManager.*;
 
 
-public class CatListAction
+public class CatteryListAction
 	extends AdmBaseAction
 {
-	private List<Cat> catlist;
-	public void setCatlist(List<Cat> catlist)
+	private List<Cattery> catterylist;
+	public void setCatterylist(List<Cattery> catterylist)
 	{
-		this.catlist = catlist;
+		this.catterylist = catterylist;
 	}
-	public List<Cat> getCatlist()
+	public List<Cattery> getCatterylist()
 	{
-		return this.catlist;
+		return this.catterylist;
 	}
 	
 	public String execute()
@@ -35,12 +35,13 @@ public class CatListAction
 		String pageNumberStr = ((String[])ctx.getParameters().get("pageNumner"))[0];
 		String typeIdStr = ((String[])ctx.getParameters().get("typeId"))[0];
 		String rankIdStr = ((String[])ctx.getParameters().get("rankId"))[0];
+		String regionIdStr = ((String[])ctx.getParameters().get("regionId"))[0];
 		String priceLowStr = ((String[])ctx.getParameters().get("priceLow"))[0];
 		String priceHighStr = ((String[])ctx.getParameters().get("priceHigh"))[0];
 		Integer pageNumber = Integer.valueOf(pageNumberStr);
 		Integer typeId = null;
 		Integer rankId = null;
-		
+		Integer regionId = null;
 		if(typeIdStr!=""){
 			typeId = Integer.valueOf(typeIdStr);
 		}
@@ -56,15 +57,23 @@ public class CatListAction
 		{
 			rankId = null;
 		}
+		if(regionIdStr!="")
+		{
+			regionId = Integer.valueOf(regionIdStr);
+		}
+		else
+		{
+			regionId = null;
+		}
 
 		Integer priceLow = Integer.valueOf(priceLowStr);
 		Integer priceHigh = Integer.valueOf(priceHighStr);
 		Integer pageNo = (pageNumber-1) * WebConstant.admPageSize;
-		this.catlist = adm.getCatsbyPage(pageNo, WebConstant.admPageSize, typeId, rankId, priceLow, priceHigh);
-		return "catlist";
+		this.catterylist = adm.getCatterybyPage(pageNo, WebConstant.admPageSize, typeId, rankId,regionId, priceLow, priceHigh);
+		return "catterylist";
 	}
 	
-	public String CatsByQueryAction()
+	public String CatterysByQueryAction()
 	    throws Exception
 	    {
 		
@@ -72,8 +81,9 @@ public class CatListAction
 		String pageNumberStr = ((String[])ctx.getParameters().get("pageNumner"))[0];
 		String queryStr = ((String[])ctx.getParameters().get("query"))[0];
 		Integer pageNumber = Integer.valueOf(pageNumberStr);
+		System.out.println(queryStr);
 		Integer pageNo = (pageNumber-1) * WebConstant.admPageSize;
-		this.catlist = adm.getCatsbyQuery(pageNo, WebConstant.admPageSize, queryStr);
+		this.catterylist = adm.getCatterybyQuery(pageNo, WebConstant.admPageSize, queryStr);
 		return "catsquery";
 	}
 	

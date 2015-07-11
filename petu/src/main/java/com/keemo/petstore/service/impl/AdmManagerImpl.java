@@ -89,9 +89,24 @@ public class AdmManagerImpl
 	}
 	
 	
-	public List<Cattery> getCatterybyPage(Integer pageNo,Integer pageSize){
+	
+	
+
+	
+	public List<Cattery> getCatterybyPage(Integer pageNo,Integer pageSize,Integer typeId,Integer rankId,Integer regionId,Integer priceLow,Integer priceHigh)
+	{
+	
+		List<Cattery> list = catteryDao.findByPage(pageNo,pageSize,typeId,rankId,regionId,priceLow,priceHigh);
 		
-		List<Cattery> list = catteryDao.findByPage(pageNo, pageSize);
+		return list;
+	}
+	
+	
+	public List<Cattery> getCatterybyQuery(Integer pageNo,Integer pageSize,String queryStr)
+	{
+	
+		List<Cattery> list = catteryDao.findByQuery(pageNo,pageSize,queryStr);
+		
 		return list;
 	}
 	

@@ -32,15 +32,9 @@ public class CatDetailAction
 	{
 
 		ActionContext ctx = ActionContext.getContext();
-
 		String catIdStr = ((String[])ctx.getParameters().get("catId"))[0];
-
-	
 		Integer catId = Integer.valueOf(catIdStr);
-	
 		this.cat = adm.getCatById(catId);
-
 		return "catdetail";
 	}
-	
 }

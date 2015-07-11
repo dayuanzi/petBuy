@@ -1,6 +1,6 @@
 package com.keemo.petstore.bean;
 
-// Generated 2015-7-8 16:44:07 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-7-10 14:31:16 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 

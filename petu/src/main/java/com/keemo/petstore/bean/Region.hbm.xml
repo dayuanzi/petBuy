@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-7-8 16:44:08 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2015-7-10 14:31:16 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.keemo.petstore.bean.Region" table="region" catalog="petbuy">
         <id name="id" type="java.lang.Integer">
