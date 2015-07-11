@@ -17,6 +17,10 @@ import static com.keemo.petstore.service.AdmManager.*;
 public class CatListAction
 	extends AdmBaseAction
 {
+	private final String ADM_CAT_LIST = "catlist";
+	private final String ADM_CAT_LIST_QUE = "catsquery";
+	
+	
 	private List<Cat> catlist;
 	public void setCatlist(List<Cat> catlist)
 	{
@@ -61,7 +65,7 @@ public class CatListAction
 		Integer priceHigh = Integer.valueOf(priceHighStr);
 		Integer pageNo = (pageNumber-1) * WebConstant.admPageSize;
 		this.catlist = adm.getCatsbyPage(pageNo, WebConstant.admPageSize, typeId, rankId, priceLow, priceHigh);
-		return "catlist";
+		return ADM_CAT_LIST;
 	}
 	
 	public String CatsByQueryAction()
@@ -74,7 +78,7 @@ public class CatListAction
 		Integer pageNumber = Integer.valueOf(pageNumberStr);
 		Integer pageNo = (pageNumber-1) * WebConstant.admPageSize;
 		this.catlist = adm.getCatsbyQuery(pageNo, WebConstant.admPageSize, queryStr);
-		return "catsquery";
+		return ADM_CAT_LIST_QUE;
 	}
 	
 	

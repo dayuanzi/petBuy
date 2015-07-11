@@ -81,9 +81,15 @@
        </action>
        
        <action name="CatterysByQueryAction" class="com.keemo.petstore.action.CatteryListAction" method="CatterysByQueryAction">  
-           <result name="catsquery">/content/catterylist.jsp</result>
+           <result name="catteryquery">/content/catterylist.jsp</result>
            <result name="input">/content/catterylist.jsp</result>
        </action>
+       
+       
+        <action name="CatteryDetailAction" class="com.keemo.petstore.action.CatteryDetailAction" >  
+           <result name="catterydetail">/content/catterydetail.jsp</result>
+           <result name="input">/content/catterydetail.jsp</result>
+        </action>  
        
     </package>  
     
