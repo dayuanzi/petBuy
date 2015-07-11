@@ -34,7 +34,7 @@
      </s:iterator>
      </div>
 	
-  
+  <div id="list"></div>
 
 
   

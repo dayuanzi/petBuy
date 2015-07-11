@@ -7,7 +7,8 @@ public interface WebConstant
 	Integer admPageSize = 2;
 	//未登录浏览猫舍列表页面单页显示单元的个数
 	Integer admCatteryPageSize = 2;
-	
+	//猫舍详情页面猫咪列表显示单元个数
+	Integer admCattDetCatPageSize = 2;
 	
 	
 	

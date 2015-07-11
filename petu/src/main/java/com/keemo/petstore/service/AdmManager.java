@@ -33,4 +33,6 @@ public interface AdmManager
 	List<Cattery> getCatterybyPage(Integer pageNo,Integer pageSize,Integer typeId,Integer rankId,Integer regionId,Integer priceLow,Integer priceHigh);
 	
 	List<Cattery> getCatterybyQuery(Integer pageNo,Integer pageSize,String queryStr);
+	
+	List<Cat> getCatsbyCatteryId(Integer pageNo,Integer pageSize,Integer catteryId);
 }

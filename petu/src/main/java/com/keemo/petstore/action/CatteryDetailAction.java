@@ -17,7 +17,10 @@ import static com.keemo.petstore.service.AdmManager.*;
 public class CatteryDetailAction
 	extends AdmBaseAction
 {
+	private final String ADM_CATT_DET_CAT_LIST = "catslist";
+	private final String ADM_CATT_DET = "catterydetail";
 	private Cattery cattery;
+	private List<Cat> catlist;
 	public void setCattery(Cattery cattery)
 	{
 		this.cattery = cattery;
@@ -25,6 +28,15 @@ public class CatteryDetailAction
 	public Cattery getCattery()
 	{
 		return this.cattery;
+	}
+	
+	public void setCatlist(List<Cat> catlist)
+	{
+		this.catlist = catlist;
+	}
+	public List<Cat> getCatlist()
+	{
+		return this.catlist;
 	}
 	
 	public String execute()
@@ -35,6 +47,24 @@ public class CatteryDetailAction
 		String catteryIdStr = ((String[])ctx.getParameters().get("catteryId"))[0];
 		Integer catteryId = Integer.valueOf(catteryIdStr);
 		this.cattery = adm.getCatteryById(catteryId);
-		return "catterydetail";
+		return ADM_CATT_DET;
 	}
+	
+	public String CatsByCatteryAction()
+	throws Exception
+{
+
+	ActionContext ctx = ActionContext.getContext();
+	String pageNumberStr = ((String[])ctx.getParameters().get("pageNumner"))[0];
+	String catteryIdStr = ((String[])ctx.getParameters().get("catteryId"))[0];
+	Integer catteryId = Integer.valueOf(catteryIdStr);
+	
+	Integer pageNumber = Integer.valueOf(pageNumberStr);
+	Integer pageNo = (pageNumber-1) * WebConstant.admCattDetCatPageSize;
+	
+	this.catlist = adm.getCatsbyCatteryId(pageNo, WebConstant.admCattDetCatPageSize, catteryId);
+	return ADM_CATT_DET_CAT_LIST;
+}
+	
+	
 }

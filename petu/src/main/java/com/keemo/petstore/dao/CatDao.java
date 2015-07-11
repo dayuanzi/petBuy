@@ -2,7 +2,8 @@ package com.keemo.petstore.dao;
 
 import java.util.*; 
 
-import com.keemo.petstore.bean.Cat;;
+import com.keemo.petstore.bean.Cat;
+import com.keemo.petstore.bean.Cattery;
 
 
 public interface CatDao
@@ -41,8 +42,8 @@ public interface CatDao
 	
 
 	/**
-	 * 根据默认返回猫咪列表
-	 * @param pageNo pageSize 
+	 * 根据页面、种类、等级、价格区间返回猫咪列表
+	 * @param pageNo pageSize typeId rankId priceLow priceHigh 
 	 * @return 返回 Cat List
 	 */
 	public List<Cat> findByPage(Integer pageNo,Integer pageSize, Integer typeId, Integer rankId,Integer priceLow,Integer priceHigh);
@@ -56,6 +57,13 @@ public interface CatDao
 	 */
 	public List<Cat> findByQuery(Integer pageNo,Integer pageSize,String queryStr);
 	
+	
+	/**
+	 * 根据猫舍id返回猫咪列表
+	 * @param pageNo pageSize catteryId
+	 * @return 返回 Cat List
+	 */
+	public List<Cat> findByCattery(Integer pageNo,Integer pageSize,Integer catteryId);
 	
 	
 	

@@ -17,6 +17,7 @@ import static com.keemo.petstore.service.AdmManager.*;
 public class CatDetailAction
 	extends AdmBaseAction
 {
+	private final String ADM_CAT_DET = "catdetail";
 	private Cat cat;
 	public void setCat(Cat cat)
 	{
@@ -35,6 +36,8 @@ public class CatDetailAction
 		String catIdStr = ((String[])ctx.getParameters().get("catId"))[0];
 		Integer catId = Integer.valueOf(catIdStr);
 		this.cat = adm.getCatById(catId);
-		return "catdetail";
+		return ADM_CAT_DET;
 	}
+	
+	
 }

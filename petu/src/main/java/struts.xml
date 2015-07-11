@@ -90,12 +90,14 @@
            <result name="catterydetail">/content/catterydetail.jsp</result>
            <result name="input">/content/catterydetail.jsp</result>
         </action>  
+        
+        <action name="CatsByCatteryAction" class="com.keemo.petstore.action.CatteryDetailAction" method="CatsByCatteryAction">  
+           <result name="catslist">/WEB-INF/content/catterylistdiv.jsp</result> 
+           <result name="input">/content/catterydetail.jsp</result>
+        </action>  
+       
        
     </package>  
     
-
-    
-    
-	
 	
 </struts>

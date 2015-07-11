@@ -265,6 +265,12 @@
              <artifactId>struts2-config-browser-plugin</artifactId>
              <version>${struts.version}</version>
          </dependency>
+         <dependency>
+             <groupId>org.apache.struts</groupId>
+             <artifactId>struts2-dojo-plugin</artifactId>
+             <version>${struts.version}</version>
+         </dependency>
+         
          <!-- dbcp连接池 -->
 		<dependency> 
     <groupId>c3p0</groupId> 

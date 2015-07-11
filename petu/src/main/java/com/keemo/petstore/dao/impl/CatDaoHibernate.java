@@ -8,6 +8,7 @@ import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import com.keemo.petstore.bean.Cat;
+import com.keemo.petstore.bean.Cattery;
 import com.keemo.petstore.common.hibernate3.support.YeekuHibernateDaoSupport;
 import com.keemo.petstore.dao.CatDao;
 public class CatDaoHibernate extends YeekuHibernateDaoSupport implements CatDao
@@ -142,5 +143,28 @@ public class CatDaoHibernate extends YeekuHibernateDaoSupport implements CatDao
 	    	   	}
 		 });
      }
+	
+	
+	/**
+	 * 根据猫舍id返回猫咪列表
+	 * @param pageNo pageSize catteryId
+	 * @return 返回 Cat List
+	 */
+	public List<Cat> findByCattery(final Integer pageNo,final Integer pageSize,final Integer catteryId)
+	{
+		
+		HibernateTemplate ht=getHibernateTemplate();
+		return ht.executeFind(new HibernateCallback() {
+		   public Object doInHibernate(Session session)
+	        throws HibernateException {
+		    		   Query query = session.createQuery("from Cat cat where catteryid=?"); 
+
+		    		   query.setParameter(0, catteryId);
+		    		   query.setMaxResults(pageSize);
+				       query.setFirstResult(pageNo);
+				       return query.list();
+		    	   	}
+			 });
+	}
 }
 

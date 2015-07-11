@@ -110,6 +110,13 @@ public class AdmManagerImpl
 		return list;
 	}
 	
+	public List<Cat> getCatsbyCatteryId(Integer pageNo,Integer pageSize,Integer catteryId)
+	{
+		List<Cat> list = catDao.findByCattery(pageNo, pageSize, catteryId);
+		return list;
+		
+	}
+	
 	
 	
 
