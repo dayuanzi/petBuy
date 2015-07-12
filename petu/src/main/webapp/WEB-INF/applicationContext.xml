@@ -84,7 +84,7 @@
 			两个Bean的所有方法的执行 -->
 		<aop:pointcut id="leePointcut"
 
-			expression="bean(admManager)"/>
+			expression="bean(admManager)||bean(memManager)"/>
 
 		<!-- 指定在leePointcut切入点应用txAdvice事务增强处理 -->
 		<aop:advisor advice-ref="txAdvice" 
@@ -98,10 +98,10 @@
 		p:adminDao-ref="adminDao"
 		p:catDao-ref="catDao"
 		p:catteryDao-ref="catteryDao"
-		p:cartDao-ref="cartDao"
+		p:cartDao-ref="cartDao"/>
+	
+	<bean id="memberManagerTemplate" abstract="true" lazy-init="true"
 		p:orderDao-ref="orderDao"/>
-	
-	
 		
 
 		
@@ -113,7 +113,10 @@
 	<bean id="admManager" name="admManager"
 		class="com.keemo.petstore.service.impl.AdmManagerImpl"
 		parent="adminManagerTemplate"/>
-
+		
+    <bean id="memManager" name="memManager"
+		class="com.keemo.petstore.service.impl.MemManagerImpl"
+		parent="memberManagerTemplate"/>
 
 
 <!-- 执行实际的调度调度 -->

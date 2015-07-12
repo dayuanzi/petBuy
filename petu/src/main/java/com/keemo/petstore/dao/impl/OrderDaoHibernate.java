@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
+import com.keemo.petstore.bean.Cat;
 import com.keemo.petstore.bean.Order;
 import com.keemo.petstore.common.hibernate3.support.YeekuHibernateDaoSupport;
 import com.keemo.petstore.dao.OrderDao;
@@ -130,14 +131,67 @@ public class OrderDaoHibernate extends YeekuHibernateDaoSupport implements Order
 	 * @param pageSize 
 	 * @param userid
 	 */
-	public List<Order> findByStoreid(Integer userid, Integer pageNo,
-			Integer pageSize, Integer ispay) {
+	public List<Order> findByStoreid(final Integer storeid, final Integer pageNo,
+			final Integer pageSize, final Integer ispay) {
 		// TODO Auto-generated method stub
+		HibernateTemplate ht=getHibernateTemplate();
+		  return ht.executeFind(new HibernateCallback() {
+		       public Object doInHibernate(Session session)
+		             throws HibernateException {
+		    	   if(ispay!=null){
+		    		   
+		    	
+		    	   Query query = session.createQuery("from Order ord where ord.cat.cattery.id=? and ispay=?"); 
+		    		 
+		    	   query.setParameter(0, storeid);
+		    	   query.setParameter(1, ispay);
+	    		   query.setMaxResults(pageSize);
+			       query.setFirstResult(pageNo);
+			       return query.list();
+		    	   }
+		    	   else
+		    	   {
+		    		   Query query = session.createQuery("from Order ord where ord.cat.cattery.id=?"); 
+			    		 
+			    	   query.setParameter(0, storeid);
+		    		   query.setMaxResults(pageSize);
+				       query.setFirstResult(pageNo);
+				       return query.list();
+		    		   
+		    	   }
+			         
+		       }
+		  });
+	}
+	
+	/**
+	 * 根据猫舍id返回猫咪列表
+	 * @param pageNo pageSize catteryId
+	 * @return 返回 Cat List
+	 */
+	
+	public List<Cat> findByOwnCats(Integer userid, Integer pageNo,Integer pageSize)
+	{
+		
+		HibernateTemplate ht=getHibernateTemplate();
+		  return ht.executeFind(new HibernateCallback() {
+		       public Object doInHibernate(Session session)
+		             throws HibernateException {
+		    	
+		    	
+		    	   Query query = session.createQuery("select ord.cat from Order ord where ord.admin.id=? and ispay=1"); 
+		    		 
+		    	   query.setParameter(0, userid);
+	    		   query.setMaxResults(pageSize);
+			       query.setFirstResult(pageNo);
+			       return query.list();
+		       }
+		  });
 		return null;
+		
 	}
 	
 
-
-
+	
 }
 

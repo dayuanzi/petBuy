@@ -9,7 +9,8 @@ public interface WebConstant
 	Integer admCatteryPageSize = 2;
 	//猫舍详情页面猫咪列表显示单元个数
 	Integer admCattDetCatPageSize = 2;
-	
+	//用户订单列表显示单元个数
+	Integer memOrderPageSize = 2;
 	
 	
 	String USR_LEVEL = "usr";

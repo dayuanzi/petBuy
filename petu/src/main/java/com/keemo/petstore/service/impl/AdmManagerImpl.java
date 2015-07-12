@@ -22,7 +22,6 @@ public class AdmManagerImpl
 	private AdminDao adminDao;
 	private CatDao catDao;
 	private CatteryDao catteryDao;
-	private OrderDao orderDao;
 	private CartDao cartDao;
 	public void setAdminDao(AdminDao adminDao)
 	{
@@ -40,10 +39,7 @@ public class AdmManagerImpl
 	{
 		this.cartDao = cartDao;
 	}
-	public void setOrderDao(OrderDao orderDao)
-	{
-		this.orderDao = orderDao;
-	}
+	
 
 	
 	/**
