@@ -94,7 +94,7 @@ public class OrderDaoHibernate extends YeekuHibernateDaoSupport implements Order
 	 * @param userid
 	 */
 	public List<Order> findByUserid(final Integer userid,final Integer pageNo,
-			final Integer pageSize,final Integer ispay) {
+			final Integer pageSize,final Byte ispay) {
 		// TODO Auto-generated method stub
 		HibernateTemplate ht=getHibernateTemplate();
 		  return ht.executeFind(new HibernateCallback() {
@@ -132,7 +132,7 @@ public class OrderDaoHibernate extends YeekuHibernateDaoSupport implements Order
 	 * @param userid
 	 */
 	public List<Order> findByStoreid(final Integer storeid, final Integer pageNo,
-			final Integer pageSize, final Integer ispay) {
+			final Integer pageSize, final Byte ispay) {
 		// TODO Auto-generated method stub
 		HibernateTemplate ht=getHibernateTemplate();
 		  return ht.executeFind(new HibernateCallback() {
@@ -170,7 +170,7 @@ public class OrderDaoHibernate extends YeekuHibernateDaoSupport implements Order
 	 * @return 返回 Cat List
 	 */
 	
-	public List<Cat> findByOwnCats(Integer userid, Integer pageNo,Integer pageSize)
+	public List<Cat> findByOwnCats(final Integer userid,final Integer pageNo,final Integer pageSize)
 	{
 		
 		HibernateTemplate ht=getHibernateTemplate();
@@ -187,8 +187,6 @@ public class OrderDaoHibernate extends YeekuHibernateDaoSupport implements Order
 			       return query.list();
 		       }
 		  });
-		return null;
-		
 	}
 	
 

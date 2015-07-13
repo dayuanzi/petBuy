@@ -11,7 +11,8 @@ public interface WebConstant
 	Integer admCattDetCatPageSize = 2;
 	//用户订单列表显示单元个数
 	Integer memOrderPageSize = 2;
-	
+	//用户拥有猫咪列表的单元个数
+	Integer memCatPageSize = 2;
 	
 	String USR_LEVEL = "usr";
 	//HttpSession里代表经理的level值

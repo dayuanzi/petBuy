@@ -94,9 +94,17 @@
         <action name="CatsByCatteryAction" class="com.keemo.petstore.action.CatteryDetailAction" method="CatsByCatteryAction">  
            <result name="catslist">/WEB-INF/content/catterylistdiv.jsp</result> 
            <result name="input">/content/catterydetail.jsp</result>
-        </action>  
+        </action>
+        
+         <action name="MemOwnCatsAction" class="com.keemo.petstore.action.MemberDetailAction" method="MemOwnCatsAction">  
+           <result name="memcatlist">/WEB-INF/content/memcatlistdiv.jsp</result>
+           <result name="input">/content/memdetaillist.jsp</result>
+        </action>
        
-       
+        <action name="MemOrderListAction" class="com.keemo.petstore.action.MemberDetailAction" method="MemOrderListAction">  
+           <result name="memordlist">/WEB-INF/content/memordlistdiv.jsp</result>
+           <result name="input">/content/memdetaillist.jsp</result>
+        </action>
     </package>  
     
 	

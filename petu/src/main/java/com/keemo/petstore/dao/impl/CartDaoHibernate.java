@@ -79,7 +79,7 @@ public class CartDaoHibernate extends YeekuHibernateDaoSupport implements CartDa
 		             throws HibernateException {
 		    	 
 		    	
-		    	   Query query = session.createQuery("from Cart cart where userid = ?"); 
+		    	   Query query = session.createQuery("from Cart cart where cart.admin.id=? order by cart.time"); 
 		    	
 		    	   query.setParameter(0, userid);
 	    		   query.setMaxResults(pageSize);

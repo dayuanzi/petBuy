@@ -55,7 +55,7 @@ public interface OrderDao
 	 * @param userid
 	 * @param ispay
 	 */
-	public List<Order> findByUserid(Integer userid, Integer pageNo,Integer pageSize,Integer ispay);
+	public List<Order> findByUserid(Integer userid, Integer pageNo,Integer pageSize,Byte ispay);
 	
 	/**
 	 * 根据商铺id返回订单列表
@@ -64,7 +64,7 @@ public interface OrderDao
 	 * @param userid
 	 * @param ispay
 	 */
-	public List<Order> findByStoreid(Integer userid, Integer pageNo,Integer pageSize,Integer ispay);
+	public List<Order> findByStoreid(Integer userid, Integer pageNo,Integer pageSize,Byte ispay);
 
 	/**
 	 * 根据用户id返回已经购买猫咪列表
