@@ -20,9 +20,14 @@ public class MemberDetailAction
 	private final String MEM_DET = "memdetail";
 	private final String MEM_ORD_LIST = "memordlist";
 	private final String MEM_CAT_LIST = "memcatlist";
+	private final String MEM_CART_LIST = "memcartlist";
+	private final String MEM_CATT_LIST = "memcatterylist";
+	
 	
 	private List<Order> orderlist;
 	private List<Cat> catlist;
+	private List<Cart> cartlist;
+	private List<Cattery> catterylist;
 	
 	public void setOrderlist(List<Order> orderlist)
 	{
@@ -43,7 +48,23 @@ public class MemberDetailAction
 		return this.catlist;
 	}
 	
+	public void setCartlist(List<Cart> cartlist)
+	{
+		this.cartlist = cartlist;
+	}
+	public List<Cart> getCartlist()
+	{
+		return this.cartlist;
+	}
 	
+	public void setCatterylist(List<Cattery> catterylist)
+	{
+		this.catterylist = catterylist;
+	}
+	public List<Cattery> getCatterylist()
+	{
+		return this.catterylist;
+	}
 	
 	
 	
@@ -87,6 +108,33 @@ public class MemberDetailAction
 		Integer pageNo = (pageNumber-1) * WebConstant.memCatPageSize;
 		catlist = mem.getOwnedCatsbyUserid(pageNo, WebConstant.memCatPageSize, userId);
 		return MEM_CAT_LIST;
+	}
+	
+    public String MemCartAction(){
+		
+		ActionContext ctx = ActionContext.getContext();
+		//String userIdStr = ((String[])ctx.getSession().get("userid"))[0];
+		String userIdStr = ((String[])ctx.getParameters().get("userid"))[0];
+		Integer userId = Integer.valueOf(userIdStr);
+		String pageNumberStr = ((String[])ctx.getParameters().get("pageNumber"))[0];
+		Integer pageNumber = Integer.valueOf(pageNumberStr);
+		Integer pageNo = (pageNumber-1) * WebConstant.memCartPageSize;
+		cartlist = mem.getCartbyUserid(pageNo, WebConstant.memCartPageSize, userId);
+		return MEM_CART_LIST;
+	}
+    
+    
+    public String MemFollowedAction(){
+		
+		ActionContext ctx = ActionContext.getContext();
+		//String userIdStr = ((String[])ctx.getSession().get("userid"))[0];
+		String userIdStr = ((String[])ctx.getParameters().get("userid"))[0];
+		Integer userId = Integer.valueOf(userIdStr);
+		String pageNumberStr = ((String[])ctx.getParameters().get("pageNumber"))[0];
+		Integer pageNumber = Integer.valueOf(pageNumberStr);
+		Integer pageNo = (pageNumber-1) * WebConstant.memFollowedCatteryPageSize;
+		catterylist = mem.getFollowedCatterybyUserid(pageNo,  WebConstant.memFollowedCatteryPageSize, userId);
+		return MEM_CATT_LIST;
 	}
 	
 	

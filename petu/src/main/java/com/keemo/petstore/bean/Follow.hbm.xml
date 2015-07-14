@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-13 13:41:38 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.keemo.petstore.bean.Follow" table="follow" catalog="petbuy">
+        <composite-id name="id" class="com.keemo.petstore.bean.FollowId">
+            <key-many-to-one name="admin" class="com.keemo.petstore.bean.Admin" lazy="false">
+                <column name="userid" />
+            </key-many-to-one>
+            <key-many-to-one name="cattery" class="com.keemo.petstore.bean.Cattery" lazy="false">
+                <column name="catteryid" />
+            </key-many-to-one>
+        </composite-id>
+    </class>
+</hibernate-mapping>

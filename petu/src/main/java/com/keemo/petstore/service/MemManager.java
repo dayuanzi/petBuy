@@ -16,4 +16,6 @@ public interface MemManager {
 	List<Order> getOrdersbyUserid(Integer pageNo,Integer pageSize,Integer userid,Byte ispay);
 	
 	List<Cat> getOwnedCatsbyUserid(Integer pageNo,Integer pageSize,Integer userid);
+	List<Cart>  getCartbyUserid(Integer pageNo,Integer pageSize,Integer userid);
+	List<Cattery> getFollowedCatterybyUserid(Integer pageNo,Integer pageSize,Integer userid);
 }

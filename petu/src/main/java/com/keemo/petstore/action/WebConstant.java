@@ -13,6 +13,12 @@ public interface WebConstant
 	Integer memOrderPageSize = 2;
 	//用户拥有猫咪列表的单元个数
 	Integer memCatPageSize = 2;
+	//用户拥有购物车列表的单元个数
+	Integer memCartPageSize = 2;
+	//用户拥有购物车列表的单元个数
+	Integer memFollowedCatteryPageSize = 2;
+	
+	
 	
 	String USR_LEVEL = "usr";
 	//HttpSession里代表经理的level值

@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-7-10 14:31:16 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2015-7-13 13:41:38 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.keemo.petstore.bean.Cart" table="cart" catalog="petbuy">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="admin" class="com.keemo.petstore.bean.Admin" fetch="select">
+        <many-to-one name="admin" class="com.keemo.petstore.bean.Admin" fetch="select" lazy="false">
             <column name="userid" />
         </many-to-one>
-        <many-to-one name="cat" class="com.keemo.petstore.bean.Cat" fetch="select">
+        <many-to-one name="cat" class="com.keemo.petstore.bean.Cat" fetch="select" lazy="false">
             <column name="petid" />
         </many-to-one>
         <property name="time" type="timestamp">
@@ -19,9 +19,6 @@
         </property>
         <property name="count" type="java.lang.Integer">
             <column name="count" />
-        </property>
-        <property name="ispay" type="java.lang.Byte">
-            <column name="ispay" />
         </property>
     </class>
 </hibernate-mapping>

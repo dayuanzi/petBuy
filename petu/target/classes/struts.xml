@@ -105,7 +105,17 @@
            <result name="memordlist">/WEB-INF/content/memordlistdiv.jsp</result>
            <result name="input">/content/memdetaillist.jsp</result>
         </action>
-    </package>  
+        
+        <action name="MemCartAction" class="com.keemo.petstore.action.MemberDetailAction" method="MemCartAction">  
+           <result name="memcartlist">/WEB-INF/content/memcartlistdiv.jsp</result>
+           <result name="input">/content/memdetaillist.jsp</result>
+        </action>
+          <action name="MemFollowedAction" class="com.keemo.petstore.action.MemberDetailAction" method="MemFollowedAction">
+           <result name="memcatterylist">/WEB-INF/content/memcatterylistdiv.jsp</result>
+           <result name="input">/content/memdetaillist.jsp</result>
+        </action>
+        
+    </package>
     
 	
 </struts>

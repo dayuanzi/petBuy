@@ -1,6 +1,6 @@
 package com.keemo.petstore.bean;
 
-// Generated 2015-7-10 14:31:16 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-7-13 13:41:38 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,6 +14,7 @@ public class Admin implements java.io.Serializable {
 	private String username;
 	private String password;
 	private String privileges;
+	private Set follows = new HashSet(0);
 	private Set carts = new HashSet(0);
 	private Set orders = new HashSet(0);
 
@@ -21,10 +22,11 @@ public class Admin implements java.io.Serializable {
 	}
 
 	public Admin(String username, String password, String privileges,
-			Set carts, Set orders) {
+			Set follows, Set carts, Set orders) {
 		this.username = username;
 		this.password = password;
 		this.privileges = privileges;
+		this.follows = follows;
 		this.carts = carts;
 		this.orders = orders;
 	}
@@ -59,6 +61,14 @@ public class Admin implements java.io.Serializable {
 
 	public void setPrivileges(String privileges) {
 		this.privileges = privileges;
+	}
+
+	public Set getFollows() {
+		return this.follows;
+	}
+
+	public void setFollows(Set follows) {
+		this.follows = follows;
 	}
 
 	public Set getCarts() {

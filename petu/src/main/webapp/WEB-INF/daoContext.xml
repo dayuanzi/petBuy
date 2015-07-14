@@ -26,5 +26,8 @@
 	 <bean id="cartDao"
 		class="com.keemo.petstore.dao.impl.CartDaoHibernate"
 		parent="daoTemplate"/>
+	 <bean id="followDao"
+		class="com.keemo.petstore.dao.impl.FollowDaoHibernate"
+		parent="daoTemplate"/>
 	
 </beans>

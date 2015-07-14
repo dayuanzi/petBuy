@@ -1,6 +1,6 @@
 package com.keemo.petstore.bean;
 
-// Generated 2015-7-10 14:31:16 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-7-13 13:41:38 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -16,18 +16,20 @@ public class Cattery implements java.io.Serializable {
 	private String name;
 	private String mainvariety;
 	private Integer experience;
+	private Set follows = new HashSet(0);
 	private Set cats = new HashSet(0);
 
 	public Cattery() {
 	}
 
 	public Cattery(Region region, Cattpetrank cattpetrank, String name,
-			String mainvariety, Integer experience, Set cats) {
+			String mainvariety, Integer experience, Set follows, Set cats) {
 		this.region = region;
 		this.cattpetrank = cattpetrank;
 		this.name = name;
 		this.mainvariety = mainvariety;
 		this.experience = experience;
+		this.follows = follows;
 		this.cats = cats;
 	}
 
@@ -77,6 +79,14 @@ public class Cattery implements java.io.Serializable {
 
 	public void setExperience(Integer experience) {
 		this.experience = experience;
+	}
+
+	public Set getFollows() {
+		return this.follows;
+	}
+
+	public void setFollows(Set follows) {
+		this.follows = follows;
 	}
 
 	public Set getCats() {

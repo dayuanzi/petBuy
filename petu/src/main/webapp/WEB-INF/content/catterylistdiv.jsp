@@ -24,5 +24,7 @@
      <s:property value="#Cat.image"/>
      </s:iterator>
 
+
+
 </body>
 </html>
