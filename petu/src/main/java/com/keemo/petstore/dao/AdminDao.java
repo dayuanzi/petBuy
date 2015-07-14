@@ -44,4 +44,12 @@ public interface AdminDao
 	 * @param id 需要被删除的Admin实例的标识属性值
 	 */
 	public List<Admin> findByNameAndPass(Admin admin);
+	
+	
+	/**
+	 * 根据用户名查询用户
+	 * @param  包含指定用户名的用户
+	 * @return 符合指定用户名和密码的用户
+	 */ 
+	public List<Admin> findByName(String username);
 }

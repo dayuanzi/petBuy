@@ -136,7 +136,7 @@ public class CatDaoHibernate extends YeekuHibernateDaoSupport implements CatDao
         throws HibernateException {
 	    		   Query query = session.createQuery("from Cat cat where name like ?"); 
 
-	    		   query.setParameter(0, "%queryStr%");
+	    		   query.setParameter(0, "%"+queryStr+"%");
 	    		   query.setMaxResults(pageSize);
 			       query.setFirstResult(pageNo);
 			       return query.list();

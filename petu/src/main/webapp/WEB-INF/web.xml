@@ -4,22 +4,24 @@
 	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
 
-	<!-- ����Spring�����ļ���λ�� -->
+
+	<!-- 使用ContextLoaderListener初始化Spring容器 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+	<!-- 配置Spring配置文件的位置 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/applicationContext.xml,
-			/WEB-INF/daoContext.xml</param-value>
+		<param-value>classpath:applicationContext.xml,classpath:daoContext.xml,
+			classpath:spring-security.xml</param-value>
 	</context-param>
 
 
-	<!-- ʹ��ContextLoaderListener��ʼ��Spring���� -->
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
 
-	<!-- �����ñ����ʽ������ǿ��ת�� -->
+	<!-- Spring字符编码过滤器 -->
 	<filter>
-		<filter-name>Set Character Encoding</filter-name>
+		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
 		<init-param>
 			<param-name>encoding</param-name>
@@ -27,38 +29,64 @@
 		</init-param>
 		<init-param>
 			<param-name>forceEncoding</param-name>
-			<param-value>true</param-value><!-- ǿ�ƽ���ת�� -->
+			<param-value>true</param-value><!-- 强制进行转码 -->
 		</init-param>
 	</filter>
 	<filter-mapping>
-		<filter-name>Set Character Encoding</filter-name>
+		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
-	<!--����SpringSecurity filter����SpringSecurity�ȼ��أ���ֹSpringSecurity����ʧЧ -->
-<!-- 	<filter>
+	<!--配置SpringSecurity filter，让SpringSecurity先加载，防止SpringSecurity拦截失效 -->
+	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 	</filter>
-	 -->
-	<!--  <filter-mapping>
+	<filter-mapping>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
--->
-	<!-- ����Struts 2�ĺ���Filter -->
+	
+	<!-- 防止spring内存溢出监听器 -->
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+
+    <!-- remember me过滤器 -->
+	<filter>
+		<filter-name>authenticationFilter</filter-name>
+		<filter-class>com.keemo.petstore.filter</filter-class>
+		<init-param>
+			<param-name>loginStr</param-name><!-- 对登录页面不进行过滤 -->
+			<param-value>/index.jsp;login.do;/success.jsp</param-value>
+		</init-param>
+		<init-param>
+			<param-name>filterStr</param-name><!-- 只对指定过滤参数后缀进行过滤 -->
+			<param-value>.do;.jsp</param-value>
+		</init-param>
+		<init-param>
+			<param-name>redirectPath</param-name><!-- 未通过跳转到登录界面 -->
+			<param-value>/login.jsp</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>authenticationFilter</filter-name>
+		<url-pattern>/order/*</url-pattern>
+	</filter-mapping>
+
+	<!-- 定义Struts 2的核心Filter -->
 	<filter>
 		<filter-name>struts2</filter-name>
 		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
 	</filter>
+	<!-- 让Struts 2的核心Filter拦截所有请求 -->
 	<filter-mapping>
 		<filter-name>struts2</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
 
-
-	<!-- ����WebӦ�õ���ҳ -->
+	<!-- 定义Web应用的首页 -->
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>

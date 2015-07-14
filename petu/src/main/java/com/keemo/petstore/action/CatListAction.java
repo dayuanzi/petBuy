@@ -1,5 +1,6 @@
 package com.keemo.petstore.action;
 
+import java.net.URLEncoder;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -75,9 +76,13 @@ public class CatListAction
 		ActionContext ctx = ActionContext.getContext();
 		String pageNumberStr = ((String[])ctx.getParameters().get("pageNumner"))[0];
 		String queryStr = ((String[])ctx.getParameters().get("query"))[0];
+		System.out.println(queryStr);
+		//queryStr = URLEncoder.encode(queryStr, "GBK");
+		
 		Integer pageNumber = Integer.valueOf(pageNumberStr);
 		Integer pageNo = (pageNumber-1) * WebConstant.admPageSize;
 		this.catlist = adm.getCatsbyQuery(pageNo, WebConstant.admPageSize, queryStr);
+		//System.out.println(this.catlist.get(0).getName());
 		return ADM_CAT_LIST_QUE;
 	}
 	

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
+    http://www.springframework.org/schema/security 
+    http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	<!-- 放行页面 IS_AUTHENTICATED_ANONYMOUSLY isAuthenticated() -->
+	<http pattern="/login.jsp*" security="none" />
+	<http pattern="/register.jsp" security="none" />
+	<http pattern="/generatCode.do" security="none" />
+	<http pattern="/*.css" security="none" />
+
+	<!-- 自动配置 开启表达式 -->
+	<http auto-config='true' use-expressions="true">
+		<intercept-url pattern="/login.jsp" access="permitAll()" />
+		<intercept-url pattern="/register.jsp" access="permitAll()" />
+		<intercept-url pattern="/user-register.do" access="permitAll()" />
+		<intercept-url pattern="/**" access="isAuthenticated()" />
+
+
+		<!-- 默认登录界面 -->
+		<form-login login-page="/login.jsp" default-target-url="/success.jsp"
+			username-parameter="username" password-parameter="password"
+			authentication-failure-url="/login.jsp?error=1" />
+
+		<!-- 记住我功能(自动登录) -->
+		<remember-me key="REMEMBERME" token-validity-seconds="604800"
+			use-secure-cookie="false" user-service-ref="loginManager" />
+
+		<!-- 安全退出后的页面 删除cookie -->
+		<logout delete-cookies="JSESSIONID" logout-success-url="/login.jsp" />
+	</http>
+
+	<!-- 认证管理器 -->
+	<authentication-manager erase-credentials="false"
+		alias="authenticationManager">
+		<authentication-provider user-service-ref="loginManager">
+			<!-- 设置加密方法 md5-->
+			<password-encoder hash="md5" base64="true">
+				<salt-source user-property="username" />
+			</password-encoder>
+		</authentication-provider>
+	</authentication-manager>
+
+
+	<!-- <beans:bean id="myUserDetailsService"
+		class="com.petu.webapp.service.impl.UserLoginServiceImpl">
+	</beans:bean>
+	 -->
+</beans:beans>
+	<!-- 设置登录入口
+	<beans:bean id="authenticationEntryPoint"
+		class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+		<beans:property name="loginFormUrl" value="/login.jsp" />
+	</beans:bean>
+ -->
+
+
+
+	<!-- 验证码框架jcaptcha 暂时还没有使用
+	<beans:bean id="captchaService"
+		class="com.octo.captcha.service.image.DefaultManageableImageCaptchaService">
+		<beans:constructor-arg
+			type="com.octo.captcha.service.captchastore.CaptchaStore" index="0">
+			<beans:ref bean="fastHashMapCaptchaStore" />
+		</beans:constructor-arg>
+		 -->
+		<!--which captcha Engine you use
+		<beans:constructor-arg type="com.octo.captcha.engine.CaptchaEngine"
+			index="1">
+			<beans:ref bean="captchaEngineEx" />
+		</beans:constructor-arg>
+		<beans:constructor-arg index="2">
+			<beans:value>180</beans:value>
+		</beans:constructor-arg>
+		<beans:constructor-arg index="3">
+			<beans:value>100000</beans:value>
+		</beans:constructor-arg>
+		<beans:constructor-arg index="4">
+			<beans:value>75000</beans:value>
+		</beans:constructor-arg>
+	</beans:bean>
+	<beans:bean id="fastHashMapCaptchaStore"
+		class="com.octo.captcha.service.captchastore.FastHashMapCaptchaStore" />
+		 -->
+	<!--you can define more than one captcha engine here
+	<beans:bean id="captchaEngineEx"
+		class="com.petu.webapp.jcaptcha.ImageCaptchaEngineEx" />
+</beans:beans>
+ -->

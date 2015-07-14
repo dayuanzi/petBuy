@@ -18,7 +18,7 @@
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close"
 		p:driverClass="com.mysql.jdbc.Driver"
-		p:jdbcUrl="jdbc:mysql://localhost:3306/petbuy"
+		p:jdbcUrl="jdbc:mysql://localhost:3306/petbuy?useUnicode=true&amp;characterEncoding=utf8"
 		p:user="root"
 		p:password="zsy"
 		p:maxPoolSize="40"
@@ -85,7 +85,7 @@
 			两个Bean的所有方法的执行 -->
 		<aop:pointcut id="leePointcut"
 
-			expression="bean(admManager)||bean(memManager)"/>
+			expression="bean(admManager)||bean(memManager)||bean(loginManager)"/>
 
 		<!-- 指定在leePointcut切入点应用txAdvice事务增强处理 -->
 		<aop:advisor advice-ref="txAdvice" 
@@ -106,8 +106,10 @@
 		p:cartDao-ref="cartDao"
 		p:followDao-ref="followDao"/>
 		
-
-		
+	<bean id="loginManagerTemplate" abstract="true" lazy-init="true"
+		p:adminDao-ref="adminDao"
+	/>
+	 
 		
 
 
@@ -116,11 +118,39 @@
 	<bean id="admManager" name="admManager"
 		class="com.keemo.petstore.service.impl.AdmManagerImpl"
 		parent="adminManagerTemplate"/>
-		
+
     <bean id="memManager" name="memManager"
 		class="com.keemo.petstore.service.impl.MemManagerImpl"
 		parent="memberManagerTemplate"/>
 
+    <bean id="loginManager" name="loginManager"
+		class="com.keemo.petstore.service.impl.UserLoginServiceImpl"
+		parent="loginManagerTemplate"/>
+ 
 
-<!-- 执行实际的调度调度 -->
+	<!--定义Spring的事务拦截器TransactionInterceptor -->
+	<!-- <bean id="transactionInterceptor"
+		class="org.springframework.transaction.interceptor.TransactionInterceptor"> -->
+		<!-- 依赖注入上面定义的事务管理器transactionManager 
+		<property name="transactionManager" ref="transactionManager" />-->
+		<!-- 定义需要进行事务拦截的方法及所采用的事务控制类型
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="update*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="execute*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+
+
+
+	<aop:config>
+		<aop:pointcut id="bussinessService"
+			expression="execution(public 
+		* com.petu.webapp.service..*.*(..))" />
+		<aop:advisor pointcut-ref="bussinessService" advice-ref="transactionInterceptor" />
+	</aop:config> -->
 </beans>
