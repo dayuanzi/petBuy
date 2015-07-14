@@ -55,7 +55,7 @@
     <!-- remember me过滤器 -->
 	<filter>
 		<filter-name>authenticationFilter</filter-name>
-		<filter-class>com.keemo.petstore.filter</filter-class>
+		<filter-class>com.keemo.petstore.security.filter.authenticationFilter</filter-class>
 		<init-param>
 			<param-name>loginStr</param-name><!-- 对登录页面不进行过滤 -->
 			<param-value>/index.jsp;login.do;/success.jsp</param-value>

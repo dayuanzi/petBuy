@@ -6,33 +6,32 @@
 <!-- Struts2配置文件的根元素 -->
 <struts>
 	<!-- 配置了系列常量 -->
-	<constant name="struts.custom.i18n.resources" value="resource"/>
-	
-	<constant name="struts.action.extension" value="do" />
+    <constant name="struts.custom.i18n.resources" value="resource"/>  
+    <constant name="struts.action.extension" value="do" />
 
 	<!-- 设置Web应用的默认编码集为UTF-8 -->
 	<constant name="struts.i18n.encoding" value="UTF-8" />
 
 	<!-- 设置Struts2默认的ObjectFactory为spring -->
-	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.objectFactory" value="spring" /> 
 
 	<!-- 设置Struts2应用是否处于开发模式，通常在开发调试阶段设为true,正式上线后可设为false -->
 	<constant name="struts.devMode" value="true" />
 
 	<!-- 当struts.xml改动后，是否重新加载。默认值为false(生产环境下使用),开发阶段最好打开 -->
-	<constant name="struts.configuration.xml.reload" value="true" />
+    <constant name="struts.configuration.xml.reload" value="true" /> 
 
 	<!-- 指定每次请求到达，重新加载资源文件 -->
-	<constant name="struts.i18n.reload" value="false" />
+	<constant name="struts.i18n.reload" value="true" />
 
 	<!-- 设置浏览器是否缓存静态内容。默认值为true(生产环境下使用),开发阶段最好关闭 -->
 	<constant name="struts.serve.static.browserCache" value="false" />
 
 	<!-- 是否开启动态方法调用 -->
-	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
 
-	<!-- 设置上传临时文件的文件夹为upload -->
-	<constant name="struts.multipart.saveDir" value="/upload"></constant>
+	<!-- 设置上传临时文件的文件夹为upload-->
+	<constant name="struts.multipart.saveDir" value="/upload"></constant> 
 
 	<!-- 设置Struts2的默认主题为simple -->
 	<constant name="struts.ui.theme" value="simple" />
@@ -165,6 +164,4 @@
         </action>
         
     </package>
-    
-	
 </struts>
