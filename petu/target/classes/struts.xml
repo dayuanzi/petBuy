@@ -7,6 +7,8 @@
 <struts>
 	<!-- 配置了系列常量 -->
     <constant name="struts.custom.i18n.resources" value="resource"/>  
+    
+    <!-- action后缀 -->
     <constant name="struts.action.extension" value="do" />
 
 	<!-- 设置Web应用的默认编码集为UTF-8 -->
@@ -37,7 +39,6 @@
 	<constant name="struts.ui.theme" value="simple" />
 
 	<package name="basePackage" extends="struts-default">
-
 
 		<!-- 定义全局result -->
 		<global-results>
