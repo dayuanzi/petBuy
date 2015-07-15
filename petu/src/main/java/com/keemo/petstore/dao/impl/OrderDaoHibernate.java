@@ -31,9 +31,9 @@ public class OrderDaoHibernate extends YeekuHibernateDaoSupport implements Order
 	 * @param Order 需要被持久化的Order实例
 	 * @return Order实例被持久化后的标识属性值
 	 */
-	public String save(Order Order) {
+	public Integer save(Order Order) {
 		
-		return (String)getHibernateTemplate()
+		return (Integer)getHibernateTemplate()
 		.save(Order);
 	}
 

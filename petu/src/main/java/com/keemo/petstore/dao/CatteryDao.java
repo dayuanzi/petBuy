@@ -19,7 +19,7 @@ public interface CatteryDao
 	 * @param Cattery 需要被持久化的Cattery实例
 	 * @return Cattery实例被持久化后的标识属性值
 	 */
-	String save(Cattery Cattery);
+	Integer save(Cattery Cattery);
 
 	/**
 	 * 修改指定的Cattery实例

@@ -20,7 +20,7 @@ public interface CartDao
 	 * @param Cart 需要被持久化的Cart实例
 	 * @return Cart实例被持久化后的标识属性值
 	 */
-	String save(Cart Cart);
+	Integer save(Cart Cart);
 
 	/**
 	 * 修改指定的Cart实例

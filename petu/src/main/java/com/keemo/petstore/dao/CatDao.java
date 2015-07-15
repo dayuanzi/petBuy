@@ -20,7 +20,7 @@ public interface CatDao
 	 * @param Cat 需要被持久化的Cat实例
 	 * @return Cat实例被持久化后的标识属性值
 	 */
-	String save(Cat Cat);
+	Integer save(Cat Cat);
 
 	/**
 	 * 修改指定的Cat实例

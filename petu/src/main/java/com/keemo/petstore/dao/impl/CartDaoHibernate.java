@@ -30,9 +30,9 @@ public class CartDaoHibernate extends YeekuHibernateDaoSupport implements CartDa
 	 * @param Cart 需要被持久化的Cart实例
 	 * @return Cart实例被持久化后的标识属性值
 	 */
-	public String save(Cart Cart) {
+	public Integer save(Cart Cart) {
 		
-		return (String)getHibernateTemplate()
+		return (Integer)getHibernateTemplate()
 		.save(Cart);
 	}
 

@@ -31,9 +31,9 @@ public class CatDaoHibernate extends YeekuHibernateDaoSupport implements CatDao
 	 * @param Cat 需要被持久化的Cat实例
 	 * @return Cat实例被持久化后的标识属性值
 	 */
-	public String save(Cat Cat) {
+	public Integer save(Cat Cat) {
 		
-		return (String)getHibernateTemplate()
+		return (Integer)getHibernateTemplate()
 		.save(Cat);
 	}
 

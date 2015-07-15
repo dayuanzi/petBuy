@@ -25,9 +25,9 @@ public class AdminDaoHibernate extends YeekuHibernateDaoSupport implements Admin
 	 * @param Admin 需要被持久化的Admin实例
 	 * @return Admin实例被持久化后的标识属性值
 	 */
-	public String save(Admin Admin) {
+	public Integer save(Admin Admin) {
 		
-		return (String)getHibernateTemplate()
+		return (Integer)getHibernateTemplate()
 		.save(Admin);
 	}
 

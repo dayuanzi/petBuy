@@ -86,30 +86,17 @@ public class UserAction extends ActionSupport {
 			return "toregist";
 		}
 
-		Admin user = new Admin();
-		//user.setUsername(userName);
+		Admin user = new Admin(userName,Util.encodePassword(password, userName),"ROLE_USER",email,(byte)0);
 		
-	    //user.setEmail(email);
-		//user.setPassword(Util.encodePassword(password, userName));
-		//user.setPrivileges("ROLE_USER");
-		//user.setActive((byte)0);
 
-		
-		
-		
 	    ema.save(user);
-			
 
-	
-		
-		System.out.println(email);
-		
 		//Admin userTemp = ema.getByEmailAndPassword(userName, Util.encodePassword(password, userName));
      //   System.out.println(userTemp.getUsername());
 		String content = "hello,请点击此处进行邮箱激活，" + "localhost:8080/login.jsp" + "?username=" + userName
 				+ "&email=" + getEmail() + "&password=" + getPassword() + "&active=1";
-		System.out.println(email);
-		//ema.sendEmail(email, EmailVerificationCodeService.SUBJECT_MAIL_ACTIVE, content);
+	
+		ema.sendEmail(email, EmailVerificationCodeService.SUBJECT_MAIL_ACTIVE, content);
 		
 		return "success";
 

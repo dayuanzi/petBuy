@@ -30,9 +30,9 @@ public class CatteryDaoHibernate extends YeekuHibernateDaoSupport implements Cat
 	 * @param Cattery 需要被持久化的Cattery实例
 	 * @return Cattery实例被持久化后的标识属性值
 	 */
-	public String save(Cattery Cattery) {
+	public Integer save(Cattery Cattery) {
 		
-		return (String)getHibernateTemplate()
+		return (Integer)getHibernateTemplate()
 		.save(Cattery);
 	}
 

@@ -21,7 +21,7 @@ public interface FollowDao
 	 * @param Follow 需要被持久化的Follow实例
 	 * @return Follow实例被持久化后的标识属性值
 	 */
-	String save(Follow follow);
+	Integer save(Follow follow);
 
 
 	/**

@@ -22,9 +22,9 @@ public class FollowDaoHibernate extends YeekuHibernateDaoSupport implements Foll
 		.get(Follow.class , id);
 	}
 
-	public String save(Follow follow) {
+	public Integer save(Follow follow) {
 		// TODO Auto-generated method stub
-		return (String)getHibernateTemplate()
+		return (Integer)getHibernateTemplate()
 		.save(follow);
 	}
 

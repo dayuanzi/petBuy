@@ -20,7 +20,7 @@ public interface OrderDao
 	 * @param Order 需要被持久化的Order实例
 	 * @return Order实例被持久化后的标识属性值
 	 */
-	String save(Order order);
+	Integer save(Order order);
 
 	/**
 	 * 修改指定的Order实例
