@@ -20,7 +20,7 @@ public interface EmailVerificationCodeService {
 	// 登陆邮箱的用户名
 	static final String USER_MAIL = "keemo_miao@163.com";
 	// 登陆邮箱的密码
-	static final String PASSWORD_MAIL = "keemo123";
+	static final String PASSWORD_MAIL = "zlnsokaahsybkdki";
 
 	/**
 	 * 保存一条记录
