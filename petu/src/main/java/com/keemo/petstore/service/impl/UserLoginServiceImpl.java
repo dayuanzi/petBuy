@@ -76,10 +76,12 @@ public class UserLoginServiceImpl implements UserDetailsService {
 			org.springframework.security.core.userdetails.User myUser = new org.springframework.security.core.userdetails.User(
 					user.getUsername(), user.getPassword(), true, true, true, true, getAuthorities(user.getPrivileges()));
 			
-			
+		
 			for (GrantedAuthority grantedAuthority : myUser.getAuthorities()) {
 				System.out.println(grantedAuthority);
 			}
+			
+			
 			return myUser;
 
 		} else {

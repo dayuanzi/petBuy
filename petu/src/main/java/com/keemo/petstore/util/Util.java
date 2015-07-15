@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.petu.webapp.util;
+package com.keemo.petstore.util;
 
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 

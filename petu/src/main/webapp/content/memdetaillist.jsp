@@ -11,11 +11,13 @@
 </head>
 <body>
 
+
 <s:property value="cattery.name"/>
 <s:property value="cattery.cattpetrank.cattpetrank"/>
 <s:property value="cattery.experience"/>
 <s:property value="cattery.mainvariety"/>
 <s:property value="cattery.region.region"/>
+<security:authentication property="principal.username"></security:authentication>
 
 <ss:a href="MemFollowedAction.do?userid=1&pageNumber=1" targets="divCatList" >我的猫舍</ss:a>
 <ss:a href="MemCartAction.do?userid=1&pageNumber=1" targets="divCatList" >我的购物车</ss:a>

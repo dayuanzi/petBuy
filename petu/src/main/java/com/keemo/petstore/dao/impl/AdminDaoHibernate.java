@@ -4,6 +4,7 @@ import java.util.List;
 import com.keemo.petstore.bean.Admin;
 import com.keemo.petstore.common.hibernate3.support.YeekuHibernateDaoSupport;
 import com.keemo.petstore.dao.AdminDao;
+
 public class AdminDaoHibernate extends YeekuHibernateDaoSupport implements AdminDao
 {
 
@@ -83,6 +84,26 @@ public class AdminDaoHibernate extends YeekuHibernateDaoSupport implements Admin
 			.find("from Admin admin where admin.username = ?"
 			,username);
 	}
+	
+	
+
+
+	public Admin getByEmailAndPassword(String email, String password, int active) {
+		return (Admin) getHibernateTemplate().find("from Admin admin where admin.email=? and admin.password=? and admin.active=?",
+				new Object[] { email, password, active });
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public Admin getByEmailAndPassword(String email, String password) {
+		List<Admin> user = (List<Admin>) getHibernateTemplate().find("from Admin admin where admin.email=? and admin.password=?", email,
+				password);
+		if (user != null && user.size() >= 1) {
+			return user.get(user.size() - 1);
+		}
+		return null;
+	}
+	
 	
 }
 

@@ -5,6 +5,7 @@ import java.util.*;
 import com.keemo.petstore.bean.*;
 
 
+
 public interface AdminDao
 {
 	/**
@@ -52,4 +53,29 @@ public interface AdminDao
 	 * @return 符合指定用户名和密码的用户
 	 */ 
 	public List<Admin> findByName(String username);
+	
+	/**
+	 * 根据email，password获取一条记录
+	 * 
+	 * @param email
+	 *            电子邮箱
+	 * @param password
+	 *            密码
+	 * @return 根据email，password返回相应值的一条记录
+	 */
+	public Admin getByEmailAndPassword(String email, String password);
+
+	/**
+	 * 根据email，password，active获取一条记录
+	 * 
+	 * @param email
+	 *            电子邮箱
+	 * @param password
+	 *            密码
+	 * @param active
+	 * @return 根据email，password，active返回相应值的一条记录
+	 */
+	public Admin getByEmailAndPassword(String email, String password, int active);
+
+
 }

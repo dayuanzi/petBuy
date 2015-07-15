@@ -127,7 +127,21 @@
 		class="com.keemo.petstore.service.impl.UserLoginServiceImpl"
 		parent="loginManagerTemplate"/>
  
-
+     <bean id="emailManager" name="emailManager"
+		class="com.keemo.petstore.service.impl.EmailVerificationCodeServiceImpl" >
+		<property name="adminDao" ref="adminDao"/>
+		<property name="sendEmail" ref="sendEmail"/>
+    </bean>
+  
+  
+  
+  
+     <bean id="sendEmail" name="sendEmail"
+		class="com.keemo.petstore.util.SendEmail" >
+    </bean>
+    
+    
+    
 	<!--定义Spring的事务拦截器TransactionInterceptor -->
 	<!-- <bean id="transactionInterceptor"
 		class="org.springframework.transaction.interceptor.TransactionInterceptor"> -->

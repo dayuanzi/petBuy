@@ -24,6 +24,7 @@
 		<!-- 默认登录界面 -->
 		<form-login login-page="/login.jsp" default-target-url="/success.jsp"
 			username-parameter="username" password-parameter="password"
+			authentication-success-handler-ref="authenticationHandler"
 			authentication-failure-url="/login.jsp?error=1" />
 
 		<!-- 记住我功能(自动登录) -->
@@ -45,7 +46,11 @@
 		</authentication-provider>
 	</authentication-manager>
 
-
+   <beans:bean id="authenticationHandler"
+		class="com.keemo.petstore.security.filter.CustomLoginHandler">
+		<beans:property name="adminDao" ref="adminDao"/>
+	</beans:bean>
+	
 	<!-- <beans:bean id="myUserDetailsService"
 		class="com.petu.webapp.service.impl.UserLoginServiceImpl">
 	</beans:bean>
