@@ -1,6 +1,6 @@
 package com.keemo.petstore.bean;
 
-// Generated 2015-7-13 13:41:38 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-7-17 19:12:45 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,13 +12,15 @@ public class Catype implements java.io.Serializable {
 
 	private Integer id;
 	private String catype;
+	private Set parentcats = new HashSet(0);
 	private Set cats = new HashSet(0);
 
 	public Catype() {
 	}
 
-	public Catype(String catype, Set cats) {
+	public Catype(String catype, Set parentcats, Set cats) {
 		this.catype = catype;
+		this.parentcats = parentcats;
 		this.cats = cats;
 	}
 
@@ -36,6 +38,14 @@ public class Catype implements java.io.Serializable {
 
 	public void setCatype(String catype) {
 		this.catype = catype;
+	}
+
+	public Set getParentcats() {
+		return this.parentcats;
+	}
+
+	public void setParentcats(Set parentcats) {
+		this.parentcats = parentcats;
 	}
 
 	public Set getCats() {

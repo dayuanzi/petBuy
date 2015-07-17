@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.keemo.petstore.util.MailMessage;
 import com.keemo.petstore.util.SendEmail;
 import com.keemo.petstore.dao.AdminDao;
+import com.keemo.petstore.bean.Activericode;
 import com.keemo.petstore.bean.Admin;
 import com.keemo.petstore.service.EmailVerificationCodeService;
 
@@ -41,8 +42,8 @@ public class EmailVerificationCodeServiceImpl implements EmailVerificationCodeSe
 		return sendEmail;
 	}
 
-	public void save(Admin admin) {
-		getAdminDao().save(admin);
+	public Integer save(Admin admin) {
+		return getAdminDao().save(admin);
 	}
 
 	public void setEmailVerificationCodeDAO(AdminDao adminDao) {
@@ -117,6 +118,24 @@ public class EmailVerificationCodeServiceImpl implements EmailVerificationCodeSe
 			return itmp + "";
 		}
 	}
+	
+	
+	// 定义获取随机字符串方法
+	public String getRandomString() {
+	
+		String random = "";
+		for(int i=0;i<5;i++){
+			
+			random+=getRandomChar();
+			
+		}
+		return random;
+		
+	}
+	
+	
+	
+	
 
 	public AdminDao getAdminDao() {
 		return adminDao;

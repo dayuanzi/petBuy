@@ -2,5 +2,18 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
 
 <hibernate-reverse-engineering>
+	<table-filter match-name="activericode" match-catalog="petbuy"></table-filter>
 	<table-filter match-name="admin" match-catalog="petbuy"></table-filter>
+	<table-filter match-name="breedingplan" match-catalog="petbuy"></table-filter>
+	<table-filter match-name="cart" match-catalog="petbuy"></table-filter>
+	<table-filter match-name="cat" match-catalog="petbuy"></table-filter>
+	<table-filter match-name="cattery" match-catalog="petbuy"></table-filter>
+	<table-filter match-name="cattpetrank" match-catalog="petbuy"></table-filter>
+	<table-filter match-name="catype" match-catalog="petbuy"></table-filter>
+	<table-filter match-name="follow" match-catalog="petbuy"></table-filter>
+	<table-filter match-name="order" match-catalog="petbuy"></table-filter>
+	<table-filter match-name="parentcat" match-catalog="petbuy"></table-filter>
+	<table-filter match-name="planvideo" match-catalog="petbuy"></table-filter>
+	<table-filter match-name="rank" match-catalog="petbuy"></table-filter>
+	<table-filter match-name="region" match-catalog="petbuy"></table-filter>
 </hibernate-reverse-engineering>

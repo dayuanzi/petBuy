@@ -45,6 +45,10 @@
 				<value>com/keemo/petstore/bean/Order.hbm.xml</value>
 				<value>com/keemo/petstore/bean/Cart.hbm.xml</value>
 				<value>com/keemo/petstore/bean/Follow.hbm.xml</value>
+				<value>com/keemo/petstore/bean/Activericode.hbm.xml</value>
+				<value>com/keemo/petstore/bean/Parentcat.hbm.xml</value>
+				<value>com/keemo/petstore/bean/Planvideo.hbm.xml</value>
+				<value>com/keemo/petstore/bean/Breedingplan.hbm.xml</value>
 			</list>
 		</property>
 		<!-- 定义Hibernate的SessionFactory的属性 -->
@@ -96,13 +100,13 @@
 	<!-- 为之注入DAO组件 -->
 
 	<bean id="adminManagerTemplate" abstract="true" lazy-init="true"
-		p:adminDao-ref="adminDao"
 		p:catDao-ref="catDao"
 		p:catteryDao-ref="catteryDao"
 		p:cartDao-ref="cartDao"/>
 	
 	<bean id="memberManagerTemplate" abstract="true" lazy-init="true"
-		p:orderDao-ref="orderDao"
+	    p:adminDao-ref="adminDao"
+	  	p:orderDao-ref="orderDao"
 		p:cartDao-ref="cartDao"
 		p:followDao-ref="followDao"/>
 		

@@ -20,7 +20,7 @@
 				<td colspan="3"><font size="3" color="red">${msg}</font></td>
 			</tr>
 			<tr>
-				<td>用户名: <input name="userName" /></td>
+				<td>邮箱： <input name="userName" /></td>
 			</tr>
 			<tr>
 				<td>密码: <input name="password" type="password" /></td>
@@ -30,7 +30,7 @@
 			</tr>
 
 			<tr>
-				<td>邮箱: <input name="email" /></td>
+				<td>昵称: <input name="nickName" /></td>
 			</tr>
 
 			<tr>

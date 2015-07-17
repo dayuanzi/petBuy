@@ -75,4 +75,15 @@ public interface OrderDao
 	 */
 	public List<Cat> findByOwnCats(Integer userid, Integer pageNo,Integer pageSize);
 	
+	
+	
+	/**
+	 * 根据订单id返回已经购买猫咪列表
+	 * @param pageNo
+	 * @param pageSize 
+	 * @param userid
+	 * @param ispay
+	 */
+	public List<Cat> findByOrderId(Integer userid, Integer pageNo,Integer pageSize);
+	
 }

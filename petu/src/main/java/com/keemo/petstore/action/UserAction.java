@@ -1,5 +1,7 @@
 package com.keemo.petstore.action;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -18,11 +20,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Controller;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.keemo.petstore.action.common.RandomCodeAction;
+import com.keemo.petstore.bean.Activericode;
 import com.keemo.petstore.bean.Admin;
-//import com.keemo.petstore.model.User;
+import com.keemo.petstore.service.AdmManager;
 import com.keemo.petstore.service.EmailVerificationCodeService;
+import com.keemo.petstore.service.MemManager;
 import com.keemo.petstore.service.UserService;
 import com.keemo.petstore.util.Util;
 
@@ -38,7 +43,7 @@ public class UserAction extends ActionSupport {
 	private String code;// 验证码
 	private String repassword;
 	private AuthenticationManager authenticationManager;
-	private String email;
+	private String nickName;
 
 
 	private UserService userService;
@@ -56,20 +61,26 @@ public class UserAction extends ActionSupport {
 		this.ema = ema;
 		
 	}
+
+	private MemManager mem;
+	public void setMemManager(MemManager mem)
+	{
+		this.mem = mem;
+		
+	}
+	
 	/**
 	 * 
 	* @Description: 用户注册 
 	* @return
 	* @throws
 	 */
-	@Action(value = "user-register", results = { @Result(name = "success", params = { "actionName", "AutoLogin" }, type = "chain") })
+	@Action(value = "user-register", results = { @Result(name = "success", location = "/login.jsp") })
 	public String register() {
 
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		String radomcode = (String) session.getAttribute(RandomCodeAction.RANDOMCODEKEY);
 
-		
-	
 			if (!radomcode.equalsIgnoreCase(this.getCode())) {
 				ServletActionContext.getRequest().setAttribute("msg", "验证码不正确");
 				session.removeAttribute(RandomCodeAction.RANDOMCODEKEY);
@@ -77,64 +88,67 @@ public class UserAction extends ActionSupport {
 				return "toregist";
 			}
 		
-			
-		
-		
 
 		if (!password.equals(repassword)) {
 			ServletActionContext.getRequest().setAttribute("msg", "密码不一致");
 			return "toregist";
 		}
 
-		Admin user = new Admin(userName,Util.encodePassword(password, userName),"ROLE_USER",email,(byte)0);
 		
-
-	    ema.save(user);
-
-		//Admin userTemp = ema.getByEmailAndPassword(userName, Util.encodePassword(password, userName));
-     //   System.out.println(userTemp.getUsername());
-		String content = "hello,请点击此处进行邮箱激活，" + "localhost:8080/login.jsp" + "?username=" + userName
-				+ "&email=" + getEmail() + "&password=" + getPassword() + "&active=1";
-	
-		ema.sendEmail(email, EmailVerificationCodeService.SUBJECT_MAIL_ACTIVE, content);
-		
-		return "success";
-
-	}
-
-	/**
-	 * 
-	* @Description: 注册后自动登录，action chain链式action 
-	* @return
-	* @throws
-	 */
-	@Action(value = "AutoLogin", results = { @Result(name = "success", type = "redirect", location = "/index.jsp") })
-	public String AutoLogin() {
-	/*	UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(userName, password);
-
-		HttpServletRequest request = ServletActionContext.getRequest();
-		// generate session if one doesn't exist
-		request.getSession();
-
-		token.setDetails(new WebAuthenticationDetails(request));
-		Authentication authenticatedUser = authenticationManager.authenticate(token);
-
-		SecurityContextHolder.getContext().setAuthentication(authenticatedUser);
-
-		System.out.println("autologin终于被执行到了");
-
-		// 用于获取登录用户的信息，一旦用户登录成功可以在代码的任意位置使用
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		if (principal instanceof UserDetails) {
-			String username = ((UserDetails) principal).getUsername();
-			System.out.println(username);
-		} else {
-			String username = principal.toString();
+		if (!mem.checkUsername(userName)){
+			ServletActionContext.getRequest().setAttribute("msg", "邮箱已注册");
+			return "toregist";
 		}
-*/
-		return "success";
 		
+		
+		Admin user = new Admin();
+		user.setUsername(userName);
+		user.setPassword(Util.encodePassword(password, userName));
+		user.setPrivileges("ROLE_USER");
+		user.setNickname(nickName);
+		user.setActive((byte)0);
+	    Integer userid=ema.save(user);
+	    
+	    String vericode = ema.getRandomString();
+
+		String content = "hello,请点击此处进行邮箱激活，" + "http://localhost:8080/ActiveAction.do" + "?userid=" + String.valueOf(userid)
+				+ "&vericode=" + vericode;
+		ema.sendEmail(userName, EmailVerificationCodeService.SUBJECT_MAIL_ACTIVE, content);
+		
+	    mem.saveVericode(userid, vericode);
+	    
+		return "success";
+
 	}
+	
+	
+	@Action(value = "user-activate", results = { @Result(name = "success", location = "/login.jsp"),@Result(name = "failed", location = "/activefailed.jsp") })
+	public String  activate() {
+
+		
+		ActionContext ctx = ActionContext.getContext();
+		String useridStr = ((String[])ctx.getParameters().get("userid"))[0];
+		String vericodeStr = ((String[])ctx.getParameters().get("vericode"))[0];
+		Integer userid  = Integer.valueOf(useridStr);
+		System.out.println(userid);
+		System.out.println(vericodeStr);
+		List<Activericode> list = mem.checkVericode(userid, vericodeStr);
+		
+		if(list.size() > 0)
+		{
+			
+			Admin admin = mem.getAdmin(list.get(0).getUserid());
+			admin.setActive((byte)0);
+			mem.updateAdmin(admin);
+			return "success";
+		}
+		
+		
+		return "failed";
+
+	}
+	
+	
 
 	public String getUserName() {
 		return userName;
@@ -176,12 +190,12 @@ public class UserAction extends ActionSupport {
 		this.authenticationManager = authenticationManager;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getNickname() {
+		return nickName;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
 
 	}
 }

@@ -13,6 +13,19 @@
         <property name="hibernate.default_catalog">petBuy</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.search.autoregister_listeners">false</property>
+        <mapping resource="com/keemo/petstore/bean/Follow.hbm.xml" />
+        <mapping resource="com/keemo/petstore/bean/Parentcat.hbm.xml" />
+        <mapping resource="com/keemo/petstore/bean/Planvideo.hbm.xml" />
+        <mapping resource="com/keemo/petstore/bean/Rank.hbm.xml" />
+        <mapping resource="com/keemo/petstore/bean/Activericode.hbm.xml" />
+        <mapping resource="com/keemo/petstore/bean/Order.hbm.xml" />
+        <mapping resource="com/keemo/petstore/bean/Cattpetrank.hbm.xml" />
+        <mapping resource="com/keemo/petstore/bean/Cart.hbm.xml" />
         <mapping resource="com/keemo/petstore/bean/Admin.hbm.xml" />
+        <mapping resource="com/keemo/petstore/bean/Cattery.hbm.xml" />
+        <mapping resource="com/keemo/petstore/bean/Breedingplan.hbm.xml" />
+        <mapping resource="com/keemo/petstore/bean/Cat.hbm.xml" />
+        <mapping resource="com/keemo/petstore/bean/Catype.hbm.xml" />
+        <mapping resource="com/keemo/petstore/bean/Region.hbm.xml" />
     </session-factory>
 </hibernate-configuration>

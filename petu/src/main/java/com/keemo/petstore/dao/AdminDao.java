@@ -8,6 +8,9 @@ import com.keemo.petstore.bean.*;
 
 public interface AdminDao
 {
+	
+	
+	
 	/**
 	 * 根据标识属性来加载Admin实例
 	 * @param id 需要加载的Admin实例的标识属性值
@@ -76,6 +79,44 @@ public interface AdminDao
 	 * @return 根据email，password，active返回相应值的一条记录
 	 */
 	public Admin getByEmailAndPassword(String email, String password, int active);
+	
+	
+	
+	
+	
+	/**
+	 * 根据标识属性来加载Activericode实例
+	 * @param id 需要加载的Activericode实例的标识属性值
+	 * @return 指定标识属性对应的Activericode实例
+	 */
+	Activericode getActivericodeById(Integer id);
+
+	/**
+	 * 持久化指定的Activericode实例
+	 * @param Activericode 需要被持久化的Activericode实例
+	 * @return Activericode实例被持久化后的标识属性值
+	 */
+	Integer save(Activericode Activericode);
 
 
+	/**
+	 * 删除指定的Activericode实例
+	 * @param Activericode 需要被删除的Activericode实例
+	 */
+	void delete(Activericode Activericode);
+
+	/**
+	 * 根据标识属性删除Activericode实例
+	 * @param id 需要被删除的Activericode实例的标识属性值
+	 */
+	void deleteActivericodeById(Integer id);
+	
+	/**
+	 * 根据标识属性查找实例
+	 * @param username 需要被删除的Activericode实例的标识属性值
+	 * @param vericode 
+	 */
+	List<Activericode> findActivericodeByUsernameandPass(Integer userid,String vericode);
+
+	
 }

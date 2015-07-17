@@ -10,7 +10,7 @@
 
 <div>
 
-<s:form action="getCatteryList">
+<s:form action="getCatteryList.do">
 	<tr><td colspan="2">
 	<s:submit value="登录" theme="simple"/><s:reset theme="simple" value="重填"/>
 	</td></tr>
@@ -22,6 +22,9 @@
 	<div align="center">
 	 <s:iterator value="catterylist" var="Cattery">
      商铺：<s:property value="#Cattery.name"/></p>
+     
+     
+     
      </s:iterator>
      </div>
 	</td>

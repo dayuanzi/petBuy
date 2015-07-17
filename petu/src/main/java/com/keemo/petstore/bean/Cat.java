@@ -1,6 +1,6 @@
 package com.keemo.petstore.bean;
 
-// Generated 2015-7-13 13:41:38 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-7-17 19:12:45 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import java.util.HashSet;
@@ -13,6 +13,7 @@ public class Cat implements java.io.Serializable {
 
 	private Integer id;
 	private Cattery cattery;
+	private Order order;
 	private Catype catype;
 	private Rank rank;
 	private String name;
@@ -23,16 +24,17 @@ public class Cat implements java.io.Serializable {
 	private Integer price;
 	private Integer oldprice;
 	private String image;
-	private Set orders = new HashSet(0);
 	private Set carts = new HashSet(0);
 
 	public Cat() {
 	}
 
-	public Cat(Cattery cattery, Catype catype, Rank rank, String name,
-			Boolean sex, Byte pedigreeCertificate, Byte immune, Date birthday,
-			Integer price, Integer oldprice, String image, Set orders, Set carts) {
+	public Cat(Cattery cattery, Order order, Catype catype, Rank rank,
+			String name, Boolean sex, Byte pedigreeCertificate, Byte immune,
+			Date birthday, Integer price, Integer oldprice, String image,
+			Set carts) {
 		this.cattery = cattery;
+		this.order = order;
 		this.catype = catype;
 		this.rank = rank;
 		this.name = name;
@@ -43,7 +45,6 @@ public class Cat implements java.io.Serializable {
 		this.price = price;
 		this.oldprice = oldprice;
 		this.image = image;
-		this.orders = orders;
 		this.carts = carts;
 	}
 
@@ -61,6 +62,14 @@ public class Cat implements java.io.Serializable {
 
 	public void setCattery(Cattery cattery) {
 		this.cattery = cattery;
+	}
+
+	public Order getOrder() {
+		return this.order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 
 	public Catype getCatype() {
@@ -141,14 +150,6 @@ public class Cat implements java.io.Serializable {
 
 	public void setImage(String image) {
 		this.image = image;
-	}
-
-	public Set getOrders() {
-		return this.orders;
-	}
-
-	public void setOrders(Set orders) {
-		this.orders = orders;
 	}
 
 	public Set getCarts() {

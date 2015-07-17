@@ -26,9 +26,10 @@ public interface EmailVerificationCodeService {
 	 * 保存一条记录
 	 * 
 	 * @param user  需要被持久化的user实例
+	 * @return 
 	 *           
 	 */
-	public void save(Admin user);
+	public Integer save(Admin user);
 
 	/**
 	 * 根据id值获取一条记录
@@ -84,7 +85,20 @@ public interface EmailVerificationCodeService {
 	/**
 	 * 定义获取随机字符串方法
 	 * 
-	 * @return 返回一个随机字符串
+	 * @return 返回一个随机字符
 	 */
 	public String getRandomChar();
+	
+	
+	/**
+	 * 定义获取随机字符串方法
+	 * 
+	 * @return 返回一个随机字符串
+	 */
+	public String getRandomString();
+	
+	
+
+	
+	
 }

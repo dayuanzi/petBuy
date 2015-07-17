@@ -2,11 +2,14 @@ package com.keemo.petstore.service.impl;
 
 import java.util.List;
 
+import com.keemo.petstore.bean.Activericode;
+import com.keemo.petstore.bean.Admin;
 import com.keemo.petstore.bean.Cart;
 import com.keemo.petstore.bean.Cat;
 import com.keemo.petstore.bean.Cattery;
 import com.keemo.petstore.bean.Order;
 
+import com.keemo.petstore.dao.AdminDao;
 import com.keemo.petstore.dao.CartDao;
 import com.keemo.petstore.dao.FollowDao;
 import com.keemo.petstore.dao.OrderDao;
@@ -18,6 +21,12 @@ public class MemManagerImpl
     private OrderDao orderDao;
     private CartDao cartDao;
     private FollowDao followDao;
+    private AdminDao adminDao;
+    
+	public void setAdminDao(AdminDao adminDao)
+	{
+		this.adminDao = adminDao;
+	}
     public void setOrderDao(OrderDao orderDao)
 	{
 		this.orderDao = orderDao;
@@ -50,4 +59,78 @@ public class MemManagerImpl
 	{
 		return followDao.findByUserId(pageNo, pageSize, userid);
 	}
+	
+
+	/**
+	 * 保存验证码
+	 * @param username
+	 * @return 返回一个随机字符串
+	 */
+	
+	public String saveVericode(Integer userid  , String vericode){
+		
+		Activericode activericode = new Activericode();
+		
+		activericode.setUserid(userid);
+		activericode.setVericode(vericode);
+		
+		adminDao.save(activericode);
+		
+		
+		
+		return vericode;		
+	}
+	
+	
+	
+	/**
+	 * 保存验证码
+	 * @param username
+	 * @return 返回一个随机字符串
+	 */
+	
+	public List<Activericode> checkVericode(Integer userid , String vericode){
+		
+
+		
+		List<Activericode> list = adminDao.findActivericodeByUsernameandPass(userid,vericode);
+		
+		if(list.size()>0){
+			adminDao.delete(list.get(0));
+			
+		}
+		return list;
+	
+	
 }
+	
+	
+	public Admin getAdmin(Integer id){
+		
+		return adminDao.get(id);
+		
+		
+	}
+	
+    public void updateAdmin(Admin admin){
+		
+		adminDao.update(admin);
+		
+		
+	}
+    
+    public  boolean  checkUsername(String username){
+    	
+    	
+    	if(adminDao.findByName(username).size()>0){
+
+    		return false;
+
+    	}
+    	
+    		return true;
+    
+    }
+    
+}
+

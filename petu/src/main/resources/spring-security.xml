@@ -18,6 +18,7 @@
 		<intercept-url pattern="/login.jsp" access="permitAll()" />
 		<intercept-url pattern="/register.jsp" access="permitAll()" />
 		<intercept-url pattern="/user-register.do" access="permitAll()" />
+		<intercept-url pattern="/user-activate.do" access="permitAll()" />
 		<intercept-url pattern="/**" access="isAuthenticated()" />
 
 

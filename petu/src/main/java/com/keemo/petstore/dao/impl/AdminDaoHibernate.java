@@ -1,6 +1,7 @@
 package com.keemo.petstore.dao.impl;
 import java.util.List;
 
+import com.keemo.petstore.bean.Activericode;
 import com.keemo.petstore.bean.Admin;
 import com.keemo.petstore.common.hibernate3.support.YeekuHibernateDaoSupport;
 import com.keemo.petstore.dao.AdminDao;
@@ -102,6 +103,58 @@ public class AdminDaoHibernate extends YeekuHibernateDaoSupport implements Admin
 			return user.get(user.size() - 1);
 		}
 		return null;
+	}
+	
+	
+
+	/**
+	 * 根据标识属性来加载Activericode实例
+	 * @param id 需要加载的Activericode实例的标识属性值
+	 * @return 指定标识属性对应的Activericode实例
+	 */
+	public Activericode getActivericodeById(Integer id){
+		return getHibernateTemplate()
+		.get(Activericode.class , id);
+	}
+
+	/**
+	 * 持久化指定的Activericode实例
+	 * @param Activericode 需要被持久化的Activericode实例
+	 * @return Activericode实例被持久化后的标识属性值
+	 */
+	public Integer save(Activericode Activericode){
+		return (Integer) getHibernateTemplate().save(Activericode);
+	}
+
+
+	/**
+	 * 删除指定的Activericode实例
+	 * @param Activericode 需要被删除的Activericode实例
+	 */
+	public void delete(Activericode Activericode){
+		
+		 getHibernateTemplate().delete(Activericode);
+		
+		
+	}
+
+	/**
+	 * 根据标识属性删除Activericode实例
+	 * @param id 需要被删除的Activericode实例的标识属性值
+	 */
+	public void deleteActivericodeById(Integer id){
+		 getHibernateTemplate().delete(get(id));
+	}
+	
+	
+	
+	public List<Activericode> findActivericodeByUsernameandPass(Integer userid,String password){
+		
+		List<Activericode> activericode = (List<Activericode>) getHibernateTemplate().find("from Activericode activericode where activericode.userid=? and activericode.vericode=?", userid,
+				password);
+
+			return activericode;
+		
 	}
 	
 	

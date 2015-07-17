@@ -14,13 +14,6 @@ public interface AdmManager
 	//登陆成功
 	public static final int LOGIN_SUC = 1;
 	
-
-	/**
-	 * 以买家身份来验证登录
-	 * @param admin 登录的实例信息
-	 * @return 登录后的身份确认:0为登录失败，1为登录成功
-	 */
-	int validLogin(Admin admin);
 	
 	Cat getCatById(Integer id);
 	
@@ -35,4 +28,9 @@ public interface AdmManager
 	List<Cattery> getCatterybyQuery(Integer pageNo,Integer pageSize,String queryStr);
 	
 	List<Cat> getCatsbyCatteryId(Integer pageNo,Integer pageSize,Integer catteryId);
+	
+
+    
+
+
 }

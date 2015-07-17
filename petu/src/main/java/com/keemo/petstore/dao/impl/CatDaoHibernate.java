@@ -85,7 +85,7 @@ public class CatDaoHibernate extends YeekuHibernateDaoSupport implements CatDao
 		       public Object doInHibernate(Session session)
 		             throws HibernateException {
 		    	   if(typeId==null&&rankId==null){
-		    		   Query query = session.createQuery("from Cat cat where price >= ? and price <= ?"); 
+		    		   Query query = session.createQuery("from Cat cat where price >= ? and price <= ? and order = null"); 
 		    		   query.setParameter(1, priceHigh);
 		    		   query.setParameter(0, priceLow);
 		    		   query.setMaxResults(pageSize);
@@ -93,7 +93,7 @@ public class CatDaoHibernate extends YeekuHibernateDaoSupport implements CatDao
 				         return query.list();
 		    	   }
 		    	   else if(typeId!=null&&rankId==null){
-		    		   Query  query = session.createQuery("from Cat cat where typeId = ? and  price >= ? and price <= ?");
+		    		   Query  query = session.createQuery("from Cat cat where typeId = ? and  price >= ? and price <= ? and order = null");
 		    		   query.setParameter(0, typeId);
 		    		   query.setParameter(1, priceLow);
 		    		   query.setParameter(2, priceHigh);
@@ -102,7 +102,7 @@ public class CatDaoHibernate extends YeekuHibernateDaoSupport implements CatDao
 				         return query.list();
 		    	   }
 		    	   else if(typeId==null&&rankId!=null){
-		    		   Query query = session.createQuery("from Cat cat where rankId = ? and price >= ? and price <= ?");
+		    		   Query query = session.createQuery("from Cat cat where rankId = ? and price >= ? and price <= ? and order = null");
 		    		   query.setParameter(0, rankId);
 		    		   query.setParameter(1, priceLow);
 		    		   query.setParameter(2, priceHigh);
@@ -110,7 +110,7 @@ public class CatDaoHibernate extends YeekuHibernateDaoSupport implements CatDao
 				         query.setFirstResult(pageNo);
 				         return query.list();
 		    	   }
-		    	   Query query = session.createQuery("from Cat cat where typeId = ? and rankId = ? and price >= ? and price <= ?");
+		    	   Query query = session.createQuery("from Cat cat where typeId = ? and rankId = ? and price >= ? and price <= ? and order = null");
 		    		   query.setParameter(0, typeId);
 		    		   query.setParameter(1, rankId);
 		    		   query.setParameter(2, priceLow);
@@ -134,7 +134,7 @@ public class CatDaoHibernate extends YeekuHibernateDaoSupport implements CatDao
 	return ht.executeFind(new HibernateCallback() {
 	   public Object doInHibernate(Session session)
         throws HibernateException {
-	    		   Query query = session.createQuery("from Cat cat where name like ?"); 
+	    		   Query query = session.createQuery("from Cat cat where name like ? and order = null"); 
 
 	    		   query.setParameter(0, "%"+queryStr+"%");
 	    		   query.setMaxResults(pageSize);
@@ -157,8 +157,7 @@ public class CatDaoHibernate extends YeekuHibernateDaoSupport implements CatDao
 		return ht.executeFind(new HibernateCallback() {
 		   public Object doInHibernate(Session session)
 	        throws HibernateException {
-		    		   Query query = session.createQuery("from Cat cat where catteryid=?"); 
-
+		    		   Query query = session.createQuery("from Cat cat where catteryid=? and order = null"); 
 		    		   query.setParameter(0, catteryId);
 		    		   query.setMaxResults(pageSize);
 				       query.setFirstResult(pageNo);

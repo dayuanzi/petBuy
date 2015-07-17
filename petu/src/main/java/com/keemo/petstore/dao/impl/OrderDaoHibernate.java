@@ -101,10 +101,9 @@ public class OrderDaoHibernate extends YeekuHibernateDaoSupport implements Order
 		       public Object doInHibernate(Session session)
 		             throws HibernateException {
 		    	   if(ispay!=null){
-		    		   
-		    	
+
 		    	   Query query = session.createQuery("from Order ord where userid = ? and ispay = ?"); 
-		    		 
+
 		    	   query.setParameter(0, userid);
 		    	   query.setParameter(1, ispay);
 	    		   query.setMaxResults(pageSize);
@@ -141,7 +140,7 @@ public class OrderDaoHibernate extends YeekuHibernateDaoSupport implements Order
 		    	   if(ispay!=null){
 		    		   
 		    	
-		    	   Query query = session.createQuery("from Order ord where ord.cat.cattery.id=? and ispay=?"); 
+		    	   Query query = session.createQuery("select ord from Order ord ,Cat cat where ord.id=cat.order.id and cat.cattery.id=? and ispay=? group by ord"); 
 		    		 
 		    	   query.setParameter(0, storeid);
 		    	   query.setParameter(1, ispay);
@@ -151,7 +150,7 @@ public class OrderDaoHibernate extends YeekuHibernateDaoSupport implements Order
 		    	   }
 		    	   else
 		    	   {
-		    		   Query query = session.createQuery("from Order ord where ord.cat.cattery.id=?"); 
+		    		   Query query = session.createQuery("select ord from Order ord ,Cat cat where ord.id=cat.order.id and cat.cattery.id=? and group by ord"); 
 			    		 
 			    	   query.setParameter(0, storeid);
 		    		   query.setMaxResults(pageSize);
@@ -179,7 +178,7 @@ public class OrderDaoHibernate extends YeekuHibernateDaoSupport implements Order
 		             throws HibernateException {
 		    	
 		    	
-		    	   Query query = session.createQuery("select ord.cat from Order ord where ord.admin.id=? and ispay=1"); 
+		    	   Query query = session.createQuery("select cat from Order ord ,Cat cat where ord.id=cat.order.id and ord.admin.id=? and ord.ispay=1 group by cat"); 
 		    		 
 		    	   query.setParameter(0, userid);
 	    		   query.setMaxResults(pageSize);
@@ -190,6 +189,34 @@ public class OrderDaoHibernate extends YeekuHibernateDaoSupport implements Order
 	}
 	
 
+	/**
+	 * 根据订单id返回已经购买猫咪列表
+	 * @param pageNo
+	 * @param pageSize 
+	 * @param userid
+	 * @param ispay
+	 */
+	public List<Cat> findByOrderId(final Integer orderid, final Integer pageNo,final Integer pageSize){
+		
+		
+		HibernateTemplate ht=getHibernateTemplate();
+		  return ht.executeFind(new HibernateCallback() {
+		       public Object doInHibernate(Session session)
+		             throws HibernateException {
+		    	
+		    	
+		    	   Query query = session.createQuery("select cat from Cat cat where cat.order.id=?"); 
+		    		 
+		    	   query.setParameter(0, orderid);
+	    		   query.setMaxResults(pageSize);
+			       query.setFirstResult(pageNo);
+			       return query.list();
+		       }
+		  });
+		
+	}
+	
+	
 	
 }
 
