@@ -62,7 +62,7 @@ public class authenticationFilter implements Filter {
 			return;
 		}
 
-				
+
 		if (isRememberMeAuthenticated()) {
 			wrapper.sendRedirect(redirectPath);
 			return;

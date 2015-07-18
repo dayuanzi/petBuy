@@ -7,7 +7,7 @@ import com.opensymphony.xwork2.interceptor.*;
 
 
 
-public class EmpAuthorityInterceptor
+public class CheckParamInterceptor
 	extends AbstractInterceptor
 {
 	public String intercept(ActionInvocation invocation) 
@@ -21,4 +21,27 @@ public class EmpAuthorityInterceptor
 		return invocation.invoke();
 	
 	}
+
+
+/**
+ * 
+ * @Title: isContain
+ * @Description: TODO
+ * @param container
+ * @param str
+ * @return boolean
+ * @throws
+ */
+public boolean isContain(String container, String[] str) {
+
+	for (int i = 0; i < str.length; i++) {
+		if (container.indexOf(str[i]) != -1) {
+
+			return true;
+		}
+	}
+	return false;
+}
+
+
 }

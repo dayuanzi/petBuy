@@ -1,5 +1,6 @@
 package com.keemo.petstore.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import com.keemo.petstore.bean.Activericode;
@@ -73,7 +74,9 @@ public class MemManagerImpl
 		
 		activericode.setUserid(userid);
 		activericode.setVericode(vericode);
+		Date dt=new Date();
 		
+		activericode.setTime(dt);
 		adminDao.save(activericode);
 		
 		

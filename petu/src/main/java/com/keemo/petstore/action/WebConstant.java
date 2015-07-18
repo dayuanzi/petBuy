@@ -3,6 +3,8 @@ package com.keemo.petstore.action;
 
 public interface WebConstant
 {
+	//首页页面单页显示单元的个数
+	Integer admIndexPageSize = 10;
 	//未登录浏览页面单页显示单元的个数
 	Integer admPageSize = 2;
 	//未登录浏览猫舍列表页面单页显示单元的个数
@@ -17,7 +19,6 @@ public interface WebConstant
 	Integer memCartPageSize = 2;
 	//用户拥有购物车列表的单元个数
 	Integer memFollowedCatteryPageSize = 2;
-	
 	
 	
 	String USR_LEVEL = "usr";

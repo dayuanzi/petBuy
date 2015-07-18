@@ -9,17 +9,11 @@
 </head>
 <body>
 
-<tr height="60">
-	<td><s:form action="getCatList?pageNumner=1&typeId=1&rankId=1&priceLow=1&priceHigh=100000">
-	<s:submit value="下一页" theme="simple"/>
-	</td>
-	</tr>
-</s:form>
-</td>
-  </tr>
 
-	<div align="center">
+
+
 	  <s:iterator value="catlist" var="Cat">
+	  
      <p><s:property value="#Cat.name"/></p>
      <s:property value="#Cat.sex"/>
      <s:property value="#Cat.getCatype().getCatype()"/>
@@ -32,9 +26,9 @@
      <s:property value="#Cat.oldprice"/>
      <s:property value="#Cat.image"/>
      </s:iterator>
-     </div>
-	
-  <div id="list"></div>
+  
+
+
 
 
   

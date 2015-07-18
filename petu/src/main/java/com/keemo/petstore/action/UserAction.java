@@ -125,7 +125,6 @@ public class UserAction extends ActionSupport {
 	@Action(value = "user-activate", results = { @Result(name = "success", location = "/login.jsp"),@Result(name = "failed", location = "/activefailed.jsp") })
 	public String  activate() {
 
-		
 		ActionContext ctx = ActionContext.getContext();
 		String useridStr = ((String[])ctx.getParameters().get("userid"))[0];
 		String vericodeStr = ((String[])ctx.getParameters().get("vericode"))[0];
@@ -138,7 +137,7 @@ public class UserAction extends ActionSupport {
 		{
 			
 			Admin admin = mem.getAdmin(list.get(0).getUserid());
-			admin.setActive((byte)0);
+			admin.setActive((byte)1);
 			mem.updateAdmin(admin);
 			return "success";
 		}

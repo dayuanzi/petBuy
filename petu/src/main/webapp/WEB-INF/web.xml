@@ -73,6 +73,8 @@
 		<filter-name>authenticationFilter</filter-name>
 		<url-pattern>/order/*</url-pattern>
 	</filter-mapping>
+	
+
 
 	<!-- 定义Struts 2的核心Filter -->
 	<filter>

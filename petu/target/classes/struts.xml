@@ -58,7 +58,7 @@
 		</global-exception-mappings>
 	</package>
 	
-	<package name="lee" extends="struts-default">
+	<package name="default" extends="struts-default">
     <interceptors>
 			<!-- 配置普通员工角色的权限检查拦截器 -->
 			<interceptor name="empAuth"	class=
@@ -67,6 +67,14 @@
 			<interceptor name="mgrAuth"	class=
 			"com.keemo.petstore.action.authority.MgrAuthorityInterceptor"/>
 			<!-- 配置普通员工的默认的拦截器栈 -->
+			
+
+			<interceptor name="parAuth" class=
+			"com.keemo.petstore.action.authority.CheckParamInterceptor"/>
+			<interceptor-stack name="parStack">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="parAuth"/>
+			</interceptor-stack>
 			<interceptor-stack name="empStack">
 				<interceptor-ref name="defaultStack"/>
 				<interceptor-ref name="empAuth"/>
@@ -108,11 +116,6 @@
        <action name="getCatteryList" class="com.keemo.petstore.action.AdminLogin" method="getCatteryList">  
            <result name="catterylist">/content/catterylist.jsp</result>  
            <result name="input">/content/catterylist.jsp</result>  
-       </action>  
-      
-       <action name="getCatList" class="com.keemo.petstore.action.CatListAction">  
-           <result name="catlist">/content/catlist.jsp</result>
-           <result name="input">/content/catlist.jsp</result>
        </action>  
        
         <action name="CatsByQueryAction" class="com.keemo.petstore.action.CatListAction" method="CatsByQueryAction">  
