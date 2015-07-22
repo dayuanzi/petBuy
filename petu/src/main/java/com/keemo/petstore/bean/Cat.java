@@ -1,6 +1,6 @@
 package com.keemo.petstore.bean;
 
-// Generated 2015-7-17 19:12:45 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-7-22 14:51:42 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import java.util.HashSet;
@@ -16,35 +16,37 @@ public class Cat implements java.io.Serializable {
 	private Order order;
 	private Catype catype;
 	private Rank rank;
+	private PedigreeCertificate pedigreeCertificate;
 	private String name;
-	private Boolean sex;
-	private Byte pedigreeCertificate;
 	private Byte immune;
 	private Date birthday;
 	private Integer price;
 	private Integer oldprice;
-	private String image;
+	private Byte stalen;
+	private Byte sex;
+	private Set orders = new HashSet(0);
 	private Set carts = new HashSet(0);
 
 	public Cat() {
 	}
 
 	public Cat(Cattery cattery, Order order, Catype catype, Rank rank,
-			String name, Boolean sex, Byte pedigreeCertificate, Byte immune,
-			Date birthday, Integer price, Integer oldprice, String image,
-			Set carts) {
+			PedigreeCertificate pedigreeCertificate, String name, Byte immune,
+			Date birthday, Integer price, Integer oldprice, Byte stalen,
+			Byte sex, Set orders, Set carts) {
 		this.cattery = cattery;
 		this.order = order;
 		this.catype = catype;
 		this.rank = rank;
-		this.name = name;
-		this.sex = sex;
 		this.pedigreeCertificate = pedigreeCertificate;
+		this.name = name;
 		this.immune = immune;
 		this.birthday = birthday;
 		this.price = price;
 		this.oldprice = oldprice;
-		this.image = image;
+		this.stalen = stalen;
+		this.sex = sex;
+		this.orders = orders;
 		this.carts = carts;
 	}
 
@@ -88,28 +90,20 @@ public class Cat implements java.io.Serializable {
 		this.rank = rank;
 	}
 
+	public PedigreeCertificate getPedigreeCertificate() {
+		return this.pedigreeCertificate;
+	}
+
+	public void setPedigreeCertificate(PedigreeCertificate pedigreeCertificate) {
+		this.pedigreeCertificate = pedigreeCertificate;
+	}
+
 	public String getName() {
 		return this.name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public Boolean getSex() {
-		return this.sex;
-	}
-
-	public void setSex(Boolean sex) {
-		this.sex = sex;
-	}
-
-	public Byte getPedigreeCertificate() {
-		return this.pedigreeCertificate;
-	}
-
-	public void setPedigreeCertificate(Byte pedigreeCertificate) {
-		this.pedigreeCertificate = pedigreeCertificate;
 	}
 
 	public Byte getImmune() {
@@ -144,12 +138,28 @@ public class Cat implements java.io.Serializable {
 		this.oldprice = oldprice;
 	}
 
-	public String getImage() {
-		return this.image;
+	public Byte getStalen() {
+		return this.stalen;
 	}
 
-	public void setImage(String image) {
-		this.image = image;
+	public void setStalen(Byte stalen) {
+		this.stalen = stalen;
+	}
+
+	public Byte getSex() {
+		return this.sex;
+	}
+
+	public void setSex(Byte sex) {
+		this.sex = sex;
+	}
+
+	public Set getOrders() {
+		return this.orders;
+	}
+
+	public void setOrders(Set orders) {
+		this.orders = orders;
 	}
 
 	public Set getCarts() {

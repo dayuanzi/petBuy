@@ -39,11 +39,12 @@
     </head>  
     <body>  
       <h3>多个文件上传实例</h3>  
-       <s:form action="uploadList.action" enctype="multipart/form-data" method="post">  
-           <s:textfield label="上传名称" name="name"></s:textfield>  
+       <s:form action="uploadList.do" enctype="multipart/form-data" method="post">  
+           <s:textfield label="图片类别" name="imageType" value="1"></s:textfield>  
            <s:file label="上传文件" name="upload"></s:file>  
+       <!--     <s:file label="上传文件" name="upload"></s:file>  
            <s:file label="上传文件" name="upload"></s:file>  
-           <s:file label="上传文件" name="upload"></s:file>  
+            -->
            <s:submit value="上传" />  
        </s:form>  
     </body>  

@@ -2,16 +2,21 @@ package com.keemo.petstore.service.impl;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import com.keemo.petstore.bean.Activericode;
 import com.keemo.petstore.bean.Admin;
 import com.keemo.petstore.bean.Cart;
 import com.keemo.petstore.bean.Cat;
 import com.keemo.petstore.bean.Cattery;
+import com.keemo.petstore.bean.Catype;
 import com.keemo.petstore.bean.Order;
+import com.keemo.petstore.bean.PedigreeCertificate;
+import com.keemo.petstore.bean.Rank;
 
 import com.keemo.petstore.dao.AdminDao;
 import com.keemo.petstore.dao.CartDao;
+import com.keemo.petstore.dao.CatDao;
 import com.keemo.petstore.dao.FollowDao;
 import com.keemo.petstore.dao.OrderDao;
 import com.keemo.petstore.service.MemManager;
@@ -23,7 +28,12 @@ public class MemManagerImpl
     private CartDao cartDao;
     private FollowDao followDao;
     private AdminDao adminDao;
+    private CatDao catDao;
     
+    public void setCatDao(CatDao catDao)
+	{
+		this.catDao = catDao;
+	}
 	public void setAdminDao(AdminDao adminDao)
 	{
 		this.adminDao = adminDao;
@@ -124,7 +134,6 @@ public class MemManagerImpl
     
     public  boolean  checkUsername(String username){
     	
-    	
     	if(adminDao.findByName(username).size()>0){
 
     		return false;
@@ -134,6 +143,55 @@ public class MemManagerImpl
     		return true;
     
     }
+    
+    
+    
+       public Integer saveCat(String name ,Byte sex ,Integer typeid ,Date birthday,
+    		   Integer rankid ,Integer pedigree_certificateid, Byte immune, Integer price, Byte stalen,Integer catteryId){
+    	
+    	   
+
+   		Cattery cattery = new Cattery();
+   		cattery.setId(catteryId);
+   		Catype catype = new Catype(); 
+   		catype.setId(typeid);
+   		Rank rank =  new Rank();
+   		rank.setId(rankid);
+   		PedigreeCertificate pedigree_certificate = new PedigreeCertificate();
+   		pedigree_certificate.setId(pedigree_certificateid);
+   		/*public Cat(Cattery cattery, Order order, Catype catype, Rank rank,
+			PedigreeCertificate pedigreeCertificate, String name, Byte immune,
+			Date birthday, Integer price, Integer oldprice, Byte stalen,
+			Byte sex, Set orders, Set carts)*/
+   		Cat cat = new Cat(cattery,null,catype,rank,pedigree_certificate,
+   				name,immune,birthday,price,null,stalen,sex,null,null);
+   		
+   		
+    	return catDao.save(cat);
+    
+    }
+       
+       public void updateCat(Integer Id, String name ,Byte sex ,Integer typeid ,Date birthday,
+	  		   Integer rankid ,Integer pedigree_certificateid, Byte immune, Integer price, Byte stalen,Integer catteryId){
+    	
+    	
+    	Cattery cattery = new Cattery();
+      	cattery.setId(catteryId);
+      	Catype catype = new Catype(); 
+      	catype.setId(typeid);
+      	Rank rank =  new Rank();
+      	rank.setId(rankid);
+      	
+ 		PedigreeCertificate pedigree_certificate = new PedigreeCertificate();
+   		pedigree_certificate.setId(pedigree_certificateid);
+      	
+   		Cat cat = new Cat(cattery,null,catype,rank,pedigree_certificate,
+   				name,immune,birthday,price,null,stalen,sex,null,null);
+      	cat.setId(Id);
+       	
+       	catDao.update(cat);
+       
+       }
     
 }
 

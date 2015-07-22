@@ -2,28 +2,37 @@ package com.keemo.petstore.action;
 
 import java.io.File;  
 import java.io.IOException;  
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;  
 import org.apache.commons.io.FileUtils;  
 import org.apache.struts2.ServletActionContext;  
+
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;  
 public class UpLoadAction extends ActionSupport {  
-    private static final long serialVersionUID = 1L;  
-    private String name;  
-    
+private static final long serialVersionUID = 1L;
     // 上传多个文件的集合文本  
+    private String imageType;
     private List<File> upload;  
     // /多个上传文件的类型集合  
-    private List<String> uploadContextType;  
+    private List<String> uploadContentType;  
    // 多个上传文件的文件名集合  
     private List<String> uploadFileName;  
   
-    public String getName() {  
-            return name;  
+    private String userid;
+    
+    
+    
+    
+    public String getImageType() {
+            return imageType;  
      }  
   
-    public void setName(String name) {  
+    public void setImageType(String imageType) {  
   
-       this.name = name;  
+       this.imageType = imageType;  
     }  
   
     public List<File> getUpload() {  
@@ -36,14 +45,14 @@ public class UpLoadAction extends ActionSupport {
        this.upload = upload;  
     }  
   
-    public List<String> getUploadContextType() {  
+    public List<String> getUploadContentType() {  
   
-       return uploadContextType;  
+       return uploadContentType;  
     }  
   
-    public void setUploadContextType(List<String> uploadContextType) {  
+    public void setUploadContentType(List<String> uploadContentType) {  
   
-       this.uploadContextType = uploadContextType;  
+       this.uploadContentType = uploadContentType;  
     }  
   
     public List<String> getUploadFileName() {  
@@ -59,11 +68,16 @@ public class UpLoadAction extends ActionSupport {
     public String execute() {  
   
        // 把上传的文件放到指定的路径下  
-  
-       String path = ServletActionContext.getServletContext().getRealPath(  
-  
-              "/WEB-INF/uploadList");  
-  
+    	
+    	System.out.println(upload.size());
+
+       String path =null;
+       switch(Integer.valueOf(imageType)){
+       
+           case 1: path = ServletActionContext.getServletContext().getRealPath("/WEB-INF/uploadList");
+             
+       }
+    	
        // 写到指定的路径中  
   
        File file = new File(path);  
@@ -71,27 +85,38 @@ public class UpLoadAction extends ActionSupport {
        // 如果指定的路径没有就创建  
   
        if (!file.exists()) {  
-  
            file.mkdirs();  
        }  
   
        // 把得到的文件的集合通过循环的方式读取并放在指定的路径下  
   
        for (int i = 0; i < upload.size(); i++) {  
-           try {
-  
-              //list集合通过get(i)的方式来获取索引  
-  
-              FileUtils.copyFile(upload.get(i), new File(file, uploadFileName.get(i)));  
-  
-           } catch (IOException e) {  
-  
-              // TODO Auto-generated catch block  
-  
-              e.printStackTrace();  
-           }  
+
+            
+            
+            try {
+				FileUtils.copyFile(upload.get(i), new File(file,reName(uploadFileName.get(i),i)));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}  
+      
        }  
   
        return SUCCESS;  
     }  
+    
+    
+    String reName(String oldName,Integer index){
+    	
+    	ActionContext ctx = ActionContext.getContext();
+    	userid = (String) ctx.getSession().get("userid");
+    	DateFormat formatDate = new SimpleDateFormat("yyyyMMddhhmmss");
+        String  formatDateStr = formatDate.format(new Date());
+    	String[] picfo = oldName.split("\\.");
+    	return userid+formatDateStr+String.valueOf(index)+"."+picfo[picfo.length-1];
+    	
+    
+    	
+    }
 }  

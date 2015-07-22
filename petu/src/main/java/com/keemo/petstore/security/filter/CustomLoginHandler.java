@@ -40,7 +40,7 @@ public class CustomLoginHandler  extends SavedRequestAwareAuthenticationSuccessH
 		HttpSession session = request.getSession();
 		String username = authentication.getName();
 		Admin admin = adminDao.findByName(username).get(0);
-		session.putValue("userid", admin.getId());
+		session.putValue("userid", String.valueOf(admin.getId()));
 		
 	}
 	

@@ -53,7 +53,7 @@ public class CatListAction
 		
 		ActionContext ctx = ActionContext.getContext();
 		
-		String pageNumberStr = ((String[])ctx.getParameters().get("pageNumner"))[0];
+		String pageNumberStr = ((String[])ctx.getParameters().get("pageNumber"))[0];
 		String typeIdStr = ((String[])ctx.getParameters().get("typeId"))[0];
 		String rankIdStr = ((String[])ctx.getParameters().get("rankId"))[0];
 		String priceLowStr = ((String[])ctx.getParameters().get("priceLow"))[0];
@@ -109,7 +109,7 @@ public class CatListAction
 	    {
 		
 		ActionContext ctx = ActionContext.getContext();
-		String pageNumberStr = ((String[])ctx.getParameters().get("pageNumner"))[0];
+		String pageNumberStr = ((String[])ctx.getParameters().get("pageNumber"))[0];
 		String queryStr = ((String[])ctx.getParameters().get("query"))[0];
 		String pageIdStr = ((String[])ctx.getParameters().get("pageId"))[0];
 		Integer pageId = Integer.valueOf(pageIdStr);

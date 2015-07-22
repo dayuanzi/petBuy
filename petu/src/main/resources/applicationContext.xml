@@ -49,6 +49,9 @@
 				<value>com/keemo/petstore/bean/Parentcat.hbm.xml</value>
 				<value>com/keemo/petstore/bean/Planvideo.hbm.xml</value>
 				<value>com/keemo/petstore/bean/Breedingplan.hbm.xml</value>
+				<value>com/keemo/petstore/bean/Breedingorder.hbm.xml</value>
+			    <value>com/keemo/petstore/bean/PedigreeCertificate.hbm.xml</value>
+			    <value>com/keemo/petstore/bean/Imagmsg.hbm.xml</value>
 			</list>
 		</property>
 		<!-- 定义Hibernate的SessionFactory的属性 -->
@@ -89,7 +92,7 @@
 			两个Bean的所有方法的执行 -->
 		<aop:pointcut id="leePointcut"
 
-			expression="bean(admManager)||bean(memManager)||bean(loginManager)"/>
+			expression="bean(admManager)||bean(memManager)||bean(loginManager)||bean(cattManager)||bean(uploadManager)"/>
 
 		<!-- 指定在leePointcut切入点应用txAdvice事务增强处理 -->
 		<aop:advisor advice-ref="txAdvice" 
@@ -108,7 +111,15 @@
 	    p:adminDao-ref="adminDao"
 	  	p:orderDao-ref="orderDao"
 		p:cartDao-ref="cartDao"
-		p:followDao-ref="followDao"/>
+		p:followDao-ref="followDao"
+		p:catDao-ref="catDao"/>
+		
+		
+	<bean id="cattManagerTemplate" abstract="true" lazy-init="true"
+		p:catDao-ref="catDao"
+	/>
+		
+		
 		
 	<bean id="loginManagerTemplate" abstract="true" lazy-init="true"
 		p:adminDao-ref="adminDao"
@@ -126,6 +137,12 @@
     <bean id="memManager" name="memManager"
 		class="com.keemo.petstore.service.impl.MemManagerImpl"
 		parent="memberManagerTemplate"/>
+		 <bean id="cattManager" name="cattManager"
+		class="com.keemo.petstore.service.impl.CattManagerImpl" 
+		parent="cattManagerTemplate">
+    </bean>
+    
+    
 
     <bean id="loginManager" name="loginManager"
 		class="com.keemo.petstore.service.impl.UserLoginServiceImpl"
@@ -136,6 +153,12 @@
 		<property name="adminDao" ref="adminDao"/>
 		<property name="sendEmail" ref="sendEmail"/>
     </bean>
+     <bean id="uploadManager" name="uploadManager"
+		class="com.keemo.petstore.service.impl.UploadManagerImpl" >
+		<property name="imageDao" ref="imageDao"/>
+    </bean>
+    
+    
   
   
   

@@ -1,5 +1,9 @@
 package com.keemo.petstore.authority;
 
+import java.util.Enumeration;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.keemo.petstore.action.WebConstant;
 import com.opensymphony.xwork2.*;
 
@@ -17,9 +21,15 @@ public class CheckParamInterceptor
 		//创建ActionContext实例
 		ActionContext ctx = ActionContext.getContext();
 		//获取HttpSession中的level属性
-		System.out.println(invocation.getAction().toString());
+	    
+	    System.out.println("执行了拦截器");
 		return invocation.invoke();
 	
+		
+		
+		
+		
+
 	}
 
 
@@ -32,13 +42,12 @@ public class CheckParamInterceptor
  * @return boolean
  * @throws
  */
-public boolean isContain(String container, String[] str) {
+public boolean isContain(String container, String str) {
 
-	for (int i = 0; i < str.length; i++) {
-		if (container.indexOf(str[i]) != -1) {
+		if (container.indexOf(str) != -1) {
 
 			return true;
-		}
+
 	}
 	return false;
 }

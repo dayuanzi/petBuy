@@ -65,12 +65,12 @@
 			"com.keemo.petstore.authority.EmpAuthorityInterceptor"/>
 			<!-- 配置经理角色的权限检查拦截器 -->
 			<interceptor name="mgrAuth"	class=
-			"com.keemo.petstore.action.authority.MgrAuthorityInterceptor"/>
+			"com.keemo.petstore.authority.MgrAuthorityInterceptor"/>
 			<!-- 配置普通员工的默认的拦截器栈 -->
 			
-
 			<interceptor name="parAuth" class=
-			"com.keemo.petstore.action.authority.CheckParamInterceptor"/>
+			"com.keemo.petstore.authority.CheckParamInterceptor"/>
+			
 			<interceptor-stack name="parStack">
 				<interceptor-ref name="defaultStack"/>
 				<interceptor-ref name="parAuth"/>
@@ -104,12 +104,17 @@
 	
 	<package name="file" extends="struts-default" >  
   
-       <action name="uploadList" class="com.keemo.petstore.action.UpLoadAction">  
-  
+      <action name="uploadList" class="com.keemo.petstore.action.UpLoadAction">  
+     <interceptor-ref name="fileUpload">
+             <param name="maximumSize">409600</param>
+             <param name="allowedTypesSet">image/jpeg,image/jpg,image/bmp</param>
+     </interceptor-ref>
+     <interceptor-ref name="defaultStack"/>
            <result name="success">/WEB-INF/content/success.jsp</result>  
-           <result name="input">/content/register.jsp</result>  
-  
-       </action>  
+           <!-- <result name="input">/content/register.jsp</result>  -->
+           <result name="input">/uploaderror.jsp</result>
+
+       </action>
     </package>  
     
     <package name="see" extends="struts-default" >  

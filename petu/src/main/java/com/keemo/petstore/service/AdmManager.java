@@ -9,11 +9,7 @@ import java.util.*;
 
 public interface AdmManager
 {
-	//登录失败
-	public static final int LOGIN_FAIL = 0;
-	//登陆成功
-	public static final int LOGIN_SUC = 1;
-	
+
 	
 	Cat getCatById(Integer id);
 	

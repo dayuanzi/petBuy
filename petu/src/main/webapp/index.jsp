@@ -14,14 +14,14 @@
 
 
 
-<s:form action="CatsByQueryAction.do?pageNumner=1&pageId=1">
+<s:form action="CatsByQueryAction.do?pageNumber=1&pageId=1">
 	<s:textfield name="query"/>
 	<ss:submit targets="divCatList" label="搜索"/>
 </s:form>
 
 
 
-<ss:div id="divCatList" href="CatListAction.do?pageNumner=1&typeId=1&rankId=1&priceLow=1&priceHigh=100000&pageId=1"/>
+<ss:div id="divCatList" href="CatListAction.do?pageNumber=1&typeId=1&rankId=1&priceLow=1&priceHigh=100000&pageId=1"/>
 
 </body>
 </html>
