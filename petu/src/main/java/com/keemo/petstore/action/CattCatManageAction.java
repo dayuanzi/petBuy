@@ -37,15 +37,16 @@ import com.opensymphony.xwork2.ActionSupport;
 public class CattCatManageAction
 	extends CattBaseAction
 {
-	private final String MEM_ADD_CAT = "memaddcat";
+	private final String CATT_ADD_CAT = "cattaddcat";
 	
-	private final String MEM_ADD_CAT_ERROR = "caterror";
+	private final String CATT_ADD_CAT_ERROR = "caterror";
 	
-	private final String MEM_ADD_IMAG_ERROR = "imagerror";
+	private final String CATT_ADD_IMAG_ERROR = "imagerror";
 
+	private final String CATT_UPD_CAT = "cattupdcat";
 	
 	
-	private List<Integer> Id;
+	private List<Integer> id;
 	private List<String> name;
 	private List<Byte> sex;
 	private List<Integer> typeid;
@@ -57,7 +58,10 @@ public class CattCatManageAction
 	private List<Byte> stalen;
     
 	
-	
+	public void setId(List<Integer> id)
+	{
+		this.id = id;
+	}
     
 	public void setName(List<String> name)
 	{
@@ -148,7 +152,7 @@ public class CattCatManageAction
     		
     @Action(value = "CatRegisterAction", 
 			results = { 
-			     @Result(name = "memaddcat", 
+			     @Result(name = "cattaddcat", 
 			    		 location = "/login.jsp")},
 			interceptorRefs = {  
 			     @InterceptorRef(value = "fileUpload", 
@@ -159,17 +163,6 @@ public class CattCatManageAction
 	public String execute()
 		throws Exception
 	{
-    	
-    /*	System.out.println(name);
-    	System.out.println(sex);
-    	System.out.println(typeid);
-    	System.out.println(rankid);
-    	System.out.println(pedigree_certificate);
-    	System.out.println(immune);
-    	System.out.println(birthday);
-    	System.out.println(price);
-    	System.out.println(stalen);*/
-    //	System.out.println(uploadfile.toString());
     	ActionContext ctx = ActionContext.getContext();
   
     	
@@ -177,19 +170,14 @@ public class CattCatManageAction
     	
     	String catteryId = "1";
     	
-
-    		
     	boolean result = catt.saveCat(name, sex, typeid, birthday, rankid, pedigree_certificate, immune, price, stalen, Integer.valueOf(catteryId)) ;
          if (result==false){
       
     		ServletActionContext.getRequest().setAttribute("msg", "保存失败");
-			return MEM_ADD_CAT_ERROR;
+			return CATT_ADD_CAT_ERROR;
         	
         
     	}
-    	
-       
-       
         	  if(uploadfile!=null){
               	try{
           
@@ -198,13 +186,13 @@ public class CattCatManageAction
               	catch(Exception e)
               	{
               		e.printStackTrace();
-              		return MEM_ADD_IMAG_ERROR;
+              		return CATT_ADD_IMAG_ERROR;
               	}
               	
               	
               }
               
-      		return MEM_ADD_CAT;
+      		return CATT_ADD_CAT;
         	
         
      
@@ -212,22 +200,54 @@ public class CattCatManageAction
       
 	}
 	
-    
-    
-    @Action(value = "CatUpdateAction", results = { @Result(name = "memupdcat", location = "/login.jsp") })
+    @Action(value = "CatUpdateAction", 
+    		results = { 
+    		         @Result(name = "cattupdcat", 
+    		        		 location = "/login.jsp") },
+    		interceptorRefs = {  
+		             @InterceptorRef(
+		            		 value = "fileUpload", 
+		    		         params={"maximumSize","409600",
+		    		                 "allowedTypesSet", "image/jpeg,image/jpg,image/bmp"}),
+		             @InterceptorRef(
+		            		 value = "defaultStack")})
 	
 	public String CatUpdateAction()
 		throws Exception
 	{
 
-	/*	ActionContext ctx = ActionContext.getContext();
-    	//HttpSession catterysession = (HttpSession) ctx.getSession();
-    	//String catteryId = (String) catterysession.getAttribute("catteryid");
-
-     	String catteryId = "1";
-		catt.updateCat(Id, name, sex, typeid, birthday, rankid, pedigree_certificate, immune, price, stalen,  Integer.valueOf(catteryId));*/
-		return MEM_ADD_CAT;
-	}
+    	
+	ActionContext ctx = ActionContext.getContext();
+  
+    	
+    	//String catteryId = ((String[])ctx.getSession().get("u"))[0];
+    	
+    String catteryId = "1";
+    try{
+    	catt.updateCat(id.get(0),name.get(0), sex.get(0), typeid.get(0), birthday.get(0), 
+    			rankid.get(0), pedigree_certificate.get(0), immune.get(0), price.get(0), stalen.get(0), Integer.valueOf(catteryId)) ;
+    }
+    catch (Exception e)
+    {
+    	e.printStackTrace();
+    }
+       
+      
+  if(uploadfile!=null){
+    try{
+          
+       upload.upLoadImage(imageType, uploadfile, uploadfileFileName, catteryId);
+       
+       }
+       catch(Exception e)
+       {
+          e.printStackTrace();
+          return CATT_ADD_IMAG_ERROR;
+       }
+  }
+       return CATT_UPD_CAT;
+    	
+}
 	
 	
 }

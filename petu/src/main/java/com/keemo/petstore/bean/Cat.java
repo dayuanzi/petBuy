@@ -1,6 +1,6 @@
 package com.keemo.petstore.bean;
 
-// Generated 2015-7-22 14:51:42 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-7-25 14:00:42 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import java.util.HashSet;
@@ -24,7 +24,6 @@ public class Cat implements java.io.Serializable {
 	private Integer oldprice;
 	private Byte stalen;
 	private Byte sex;
-	private Set orders = new HashSet(0);
 	private Set carts = new HashSet(0);
 
 	public Cat() {
@@ -33,7 +32,7 @@ public class Cat implements java.io.Serializable {
 	public Cat(Cattery cattery, Order order, Catype catype, Rank rank,
 			PedigreeCertificate pedigreeCertificate, String name, Byte immune,
 			Date birthday, Integer price, Integer oldprice, Byte stalen,
-			Byte sex, Set orders, Set carts) {
+			Byte sex, Set carts) {
 		this.cattery = cattery;
 		this.order = order;
 		this.catype = catype;
@@ -46,7 +45,6 @@ public class Cat implements java.io.Serializable {
 		this.oldprice = oldprice;
 		this.stalen = stalen;
 		this.sex = sex;
-		this.orders = orders;
 		this.carts = carts;
 	}
 
@@ -152,14 +150,6 @@ public class Cat implements java.io.Serializable {
 
 	public void setSex(Byte sex) {
 		this.sex = sex;
-	}
-
-	public Set getOrders() {
-		return this.orders;
-	}
-
-	public void setOrders(Set orders) {
-		this.orders = orders;
 	}
 
 	public Set getCarts() {

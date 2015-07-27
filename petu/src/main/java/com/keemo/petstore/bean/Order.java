@@ -1,6 +1,6 @@
 package com.keemo.petstore.bean;
 
-// Generated 2015-7-22 14:51:42 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-7-25 14:00:42 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import java.util.HashSet;
@@ -12,23 +12,23 @@ import java.util.Set;
 public class Order implements java.io.Serializable {
 
 	private Integer id;
-	private Cat cat;
+	private Cattery cattery;
 	private Admin admin;
 	private Date time;
-	private Integer count;
 	private Byte ispay;
+	private Integer price;
 	private Set cats = new HashSet(0);
 
 	public Order() {
 	}
 
-	public Order(Cat cat, Admin admin, Date time, Integer count, Byte ispay,
-			Set cats) {
-		this.cat = cat;
+	public Order(Cattery cattery, Admin admin, Date time, Byte ispay,
+			Integer price, Set cats) {
+		this.cattery = cattery;
 		this.admin = admin;
 		this.time = time;
-		this.count = count;
 		this.ispay = ispay;
+		this.price = price;
 		this.cats = cats;
 	}
 
@@ -40,12 +40,12 @@ public class Order implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public Cat getCat() {
-		return this.cat;
+	public Cattery getCattery() {
+		return this.cattery;
 	}
 
-	public void setCat(Cat cat) {
-		this.cat = cat;
+	public void setCattery(Cattery cattery) {
+		this.cattery = cattery;
 	}
 
 	public Admin getAdmin() {
@@ -64,20 +64,20 @@ public class Order implements java.io.Serializable {
 		this.time = time;
 	}
 
-	public Integer getCount() {
-		return this.count;
-	}
-
-	public void setCount(Integer count) {
-		this.count = count;
-	}
-
 	public Byte getIspay() {
 		return this.ispay;
 	}
 
 	public void setIspay(Byte ispay) {
 		this.ispay = ispay;
+	}
+
+	public Integer getPrice() {
+		return this.price;
+	}
+
+	public void setPrice(Integer price) {
+		this.price = price;
 	}
 
 	public Set getCats() {

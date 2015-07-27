@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 import com.keemo.petstore.bean.Activericode;
+import com.keemo.petstore.bean.Address;
 import com.keemo.petstore.bean.Admin;
 import com.keemo.petstore.bean.Cart;
 import com.keemo.petstore.bean.Cat;
@@ -14,6 +15,7 @@ import com.keemo.petstore.bean.Order;
 import com.keemo.petstore.bean.PedigreeCertificate;
 import com.keemo.petstore.bean.Rank;
 
+import com.keemo.petstore.dao.AddressDao;
 import com.keemo.petstore.dao.AdminDao;
 import com.keemo.petstore.dao.CartDao;
 import com.keemo.petstore.dao.CatDao;
@@ -29,6 +31,12 @@ public class MemManagerImpl
     private FollowDao followDao;
     private AdminDao adminDao;
     private CatDao catDao;
+    private AddressDao addressDao;
+    public void setAddressDao(AddressDao addressDao){
+    	
+    	this.addressDao = addressDao;
+    	
+    }
     
     public void setCatDao(CatDao catDao)
 	{
@@ -94,8 +102,6 @@ public class MemManagerImpl
 		return vericode;		
 	}
 	
-	
-	
 	/**
 	 * 保存验证码
 	 * @param username
@@ -145,53 +151,82 @@ public class MemManagerImpl
     }
     
     
-    
-       public Integer saveCat(String name ,Byte sex ,Integer typeid ,Date birthday,
-    		   Integer rankid ,Integer pedigree_certificateid, Byte immune, Integer price, Byte stalen,Integer catteryId){
-    	
-    	   
-
-   		Cattery cattery = new Cattery();
-   		cattery.setId(catteryId);
-   		Catype catype = new Catype(); 
-   		catype.setId(typeid);
-   		Rank rank =  new Rank();
-   		rank.setId(rankid);
-   		PedigreeCertificate pedigree_certificate = new PedigreeCertificate();
-   		pedigree_certificate.setId(pedigree_certificateid);
-   		/*public Cat(Cattery cattery, Order order, Catype catype, Rank rank,
-			PedigreeCertificate pedigreeCertificate, String name, Byte immune,
-			Date birthday, Integer price, Integer oldprice, Byte stalen,
-			Byte sex, Set orders, Set carts)*/
-   		Cat cat = new Cat(cattery,null,catype,rank,pedigree_certificate,
-   				name,immune,birthday,price,null,stalen,sex,null,null);
-   		
-   		
-    	return catDao.save(cat);
-    
-    }
-       
-       public void updateCat(Integer Id, String name ,Byte sex ,Integer typeid ,Date birthday,
-	  		   Integer rankid ,Integer pedigree_certificateid, Byte immune, Integer price, Byte stalen,Integer catteryId){
-    	
-    	
-    	Cattery cattery = new Cattery();
-      	cattery.setId(catteryId);
-      	Catype catype = new Catype(); 
-      	catype.setId(typeid);
-      	Rank rank =  new Rank();
-      	rank.setId(rankid);
-      	
- 		PedigreeCertificate pedigree_certificate = new PedigreeCertificate();
-   		pedigree_certificate.setId(pedigree_certificateid);
-      	
-   		Cat cat = new Cat(cattery,null,catype,rank,pedigree_certificate,
-   				name,immune,birthday,price,null,stalen,sex,null,null);
-      	cat.setId(Id);
-       	
-       	catDao.update(cat);
-       
+      public Integer saveAddress(Address address){
+    	  
+    	   return addressDao.save(address);
        }
-    
+      
+      public Address getAddress(Integer addressid){
+    	 return  addressDao.get(addressid);
+      }
+      
+      
+      public List<Address> getAddressByUser(Integer userid){
+    	   
+    	  return  addressDao.findByUser(userid,null);
+    	   
+       }
+      
+  	public void setAddressDefault(Integer userid,Integer addressid) throws Exception{
+  	
+  		
+  	    List<Address> addresslist;
+  	    try
+  	    {
+  		addresslist = addressDao.findByUser(userid,(byte)1);
+  	    }
+  		catch (Exception e){
+  			throw e;
+  		}
+  		for(int i=0;i<addresslist.size();i++){
+  			
+  			try{
+  				Address addressUpd = addresslist.get(i);
+  				addressUpd.setDefaultMain((byte)0);
+  				addressDao.update(addressUpd);
+  			}
+  			catch (Exception e){
+  				throw e;
+  			}
+  	  	
+  		}
+  		Address address =  new Address();
+  		address = addressDao.get(addressid);
+  		try{
+  			address = addressDao.get(addressid);
+  			address.setDefaultMain((byte)1);
+  			addressDao.save(address);
+  		}
+  		catch(Exception e){
+  			throw e;
+  		}
+  		
+  	}
+  	
+	public void saveCart(Cart cart) throws Exception{
+		
+		try{
+			cartDao.save(cart);
+		}
+		catch(Exception e){
+			
+			throw e;
+		}
+		
+	}
+	
+	public void saveOrder(Order order) throws Exception{
+		
+		try{
+			orderDao.save(order);
+		}
+		catch(Exception e){
+			
+			throw e;
+		}
+		
+	}
+      
+
 }
 

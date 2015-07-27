@@ -48,7 +48,7 @@ public class CattManagerImpl
 			Date birthday, Integer price, Integer oldprice, Byte stalen,
 			Byte sex, Set orders, Set carts)*/
    		Cat cat = new Cat(cattery,null,catype,rank,pedigree_certificate,
-   				name.get(i),immune.get(i),birthday.get(i),price.get(i),null,stalen.get(i),sex.get(i),null,null);
+   				name.get(i),immune.get(i),birthday.get(i),price.get(i),null,stalen.get(i),sex.get(i),null);
    		
     	Integer catid = catDao.save(cat);
     	if (String.valueOf(catid)==null){
@@ -73,7 +73,7 @@ public class CattManagerImpl
  		PedigreeCertificate pedigree_certificate = new PedigreeCertificate();
    		pedigree_certificate.setId(pedigree_certificateid);
    		Cat cat = new Cat(cattery,null,catype,rank,pedigree_certificate,
-   				name,immune,birthday,price,null,stalen,sex,null,null);
+   				name,immune,birthday,price,null,stalen,sex,null);
       	cat.setId(Id);
        	
        	catDao.update(cat);

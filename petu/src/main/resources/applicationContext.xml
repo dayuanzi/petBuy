@@ -52,6 +52,7 @@
 				<value>com/keemo/petstore/bean/Breedingorder.hbm.xml</value>
 			    <value>com/keemo/petstore/bean/PedigreeCertificate.hbm.xml</value>
 			    <value>com/keemo/petstore/bean/Imagmsg.hbm.xml</value>
+			    <value>com/keemo/petstore/bean/Address.hbm.xml</value>
 			</list>
 		</property>
 		<!-- 定义Hibernate的SessionFactory的属性 -->
@@ -112,7 +113,8 @@
 	  	p:orderDao-ref="orderDao"
 		p:cartDao-ref="cartDao"
 		p:followDao-ref="followDao"
-		p:catDao-ref="catDao"/>
+		p:catDao-ref="catDao"
+		p:addressDao-ref="addressDao"/>
 		
 		
 	<bean id="cattManagerTemplate" abstract="true" lazy-init="true"

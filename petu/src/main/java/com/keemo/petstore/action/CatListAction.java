@@ -30,8 +30,6 @@ public class CatListAction
 	
 	private List<Cat> catlist;
 	
-	
-	
 	public void setCatlist(List<Cat> catlist)
 	{
 		this.catlist = catlist;
