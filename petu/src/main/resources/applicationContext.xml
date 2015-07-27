@@ -172,11 +172,11 @@
     
     
 	<!--定义Spring的事务拦截器TransactionInterceptor -->
-	<!-- <bean id="transactionInterceptor"
-		class="org.springframework.transaction.interceptor.TransactionInterceptor"> -->
-		<!-- 依赖注入上面定义的事务管理器transactionManager 
-		<property name="transactionManager" ref="transactionManager" />-->
-		<!-- 定义需要进行事务拦截的方法及所采用的事务控制类型
+	 <bean id="transactionInterceptor"
+		class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<!-- 依赖注入上面定义的事务管理器transactionManager -->
+		<property name="transactionManager" ref="transactionManager" />
+		<!-- 定义需要进行事务拦截的方法及所采用的事务控制类型-->
 		<property name="transactionAttributes">
 			<props>
 				<prop key="save*">PROPAGATION_REQUIRED,-Exception</prop>
@@ -195,5 +195,5 @@
 			expression="execution(public 
 		* com.petu.webapp.service..*.*(..))" />
 		<aop:advisor pointcut-ref="bussinessService" advice-ref="transactionInterceptor" />
-	</aop:config> -->
+	</aop:config> 
 </beans>

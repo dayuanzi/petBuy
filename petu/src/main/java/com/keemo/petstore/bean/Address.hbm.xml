@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-25 14:00:44 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.keemo.petstore.bean.Address" table="address" catalog="petbuy">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="province" type="string">
+            <column name="province" />
+        </property>
+        <property name="city" type="string">
+            <column name="city" />
+        </property>
+        <property name="district" type="string">
+            <column name="district" />
+        </property>
+        <property name="content" type="string">
+            <column name="content" />
+        </property>
+        <property name="userid" type="java.lang.Integer">
+            <column name="userid" />
+        </property>
+        <property name="phone" type="string">
+            <column name="phone" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" />
+        </property>
+        <property name="street" type="string">
+            <column name="street" />
+        </property>
+        <property name="zipCode" type="string">
+            <column name="zip_code" />
+        </property>
+        <property name="defaultMain" type="java.lang.Byte">
+            <column name="default_main" />
+        </property>
+    </class>
+</hibernate-mapping>

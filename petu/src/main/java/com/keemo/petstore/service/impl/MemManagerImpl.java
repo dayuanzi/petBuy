@@ -183,7 +183,7 @@ public class MemManagerImpl
   			try{
   				Address addressUpd = addresslist.get(i);
   				addressUpd.setDefaultMain((byte)0);
-  				addressDao.update(addressUpd);
+  				//addressDao.update(addressUpd);
   			}
   			catch (Exception e){
   				throw e;
@@ -195,7 +195,7 @@ public class MemManagerImpl
   		try{
   			address = addressDao.get(addressid);
   			address.setDefaultMain((byte)1);
-  			addressDao.save(address);
+  			//addressDao.save(address);
   		}
   		catch(Exception e){
   			throw e;
