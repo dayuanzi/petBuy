@@ -23,5 +23,7 @@
 
 <ss:div id="divCatList" href="CatListAction.do?pageNumber=1&typeId=1&rankId=1&priceLow=1&priceHigh=100000&pageId=1"/>
 
+
+
 </body>
 </html>

@@ -165,5 +165,6 @@ public class CatDaoHibernate extends YeekuHibernateDaoSupport implements CatDao
 		    	   	}
 			 });
 	}
+
 }
 

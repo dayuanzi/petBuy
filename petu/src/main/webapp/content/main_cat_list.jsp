@@ -9,11 +9,7 @@
 </head>
 <body>
 
-
-
-
-	  <s:iterator value="catlist" var="Cat">
-	  
+	 <s:iterator value="catlist" var="Cat">
      <p><s:property value="#Cat.name"/></p>
      <s:property value="#Cat.sex"/>
      <s:property value="#Cat.getCatype().getCatype()"/>
@@ -26,7 +22,6 @@
      <s:property value="#Cat.oldprice"/>
      <s:property value="#Cat.image"/>
      </s:iterator>
-  
 
 
 

@@ -53,6 +53,7 @@ public interface CatteryDao
 	 */
 	public List<Cattery> findByQuery(Integer pageNo,Integer pageSize,String catteryQuery);
 	
+	
 
 	
 	

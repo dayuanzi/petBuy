@@ -26,7 +26,7 @@ public class MemberDetailAction
 	
 	private List<Order> orderlist;
 	private List<Cat> catlist;
-	private List<Cart> cartlist;
+	private List<List<Cart>> cartlist;
 	private List<Cattery> catterylist;
 	
 	public void setOrderlist(List<Order> orderlist)
@@ -48,11 +48,11 @@ public class MemberDetailAction
 		return this.catlist;
 	}
 	
-	public void setCartlist(List<Cart> cartlist)
+	public void setCartlist(List<List<Cart>> cartlist)
 	{
 		this.cartlist = cartlist;
 	}
-	public List<Cart> getCartlist()
+	public List<List<Cart>> getCartlist()
 	{
 		return this.cartlist;
 	}
@@ -110,7 +110,8 @@ public class MemberDetailAction
 		return MEM_CAT_LIST;
 	}
 	
-    public String MemCartAction(){
+    public String MemCartAction() throws Exception
+    {
 		
 		ActionContext ctx = ActionContext.getContext();
 		//String userIdStr = ((String[])ctx.getSession().get("userid"))[0];
@@ -119,7 +120,14 @@ public class MemberDetailAction
 		String pageNumberStr = ((String[])ctx.getParameters().get("pageNumber"))[0];
 		Integer pageNumber = Integer.valueOf(pageNumberStr);
 		Integer pageNo = (pageNumber-1) * WebConstant.memCartPageSize;
-		cartlist = mem.getCartbyUserid(pageNo, WebConstant.memCartPageSize, userId);
+		try{
+			cartlist = mem.getCartbyUserid(pageNo, WebConstant.memCartPageSize, userId);
+		}
+		catch (Exception e){
+			e.printStackTrace();
+			throw e;
+		}
+		
 		return MEM_CART_LIST;
 	}
     

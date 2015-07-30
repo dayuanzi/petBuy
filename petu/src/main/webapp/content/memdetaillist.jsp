@@ -20,7 +20,7 @@
 <security:authentication property="principal.username"></security:authentication>
 
 <ss:a href="MemFollowedAction.do?userid=1&pageNumber=1" targets="divCatList" >我的猫舍</ss:a>
-<ss:a href="MemCartAction.do?userid=1&pageNumber=1" targets="divCatList" >我的购物车</ss:a>
+<ss:a href="MemCartAction.do?userid=33&pageNumber=1" targets="divCatList" >我的购物车</ss:a>
 <ss:a href="MemOrderListAction.do?userid=1&pageNumber=1&ispay=0" targets="divCatList" >我的订单</ss:a>
 <ss:a href="MemOwnCatsAction.do?userid=1&pageNumber=1" targets="divCatList" >我的猫咪</ss:a>
 <ss:div id="divCatList" href="MemOwnCatsAction.do?userid=1&pageNumber=1" />

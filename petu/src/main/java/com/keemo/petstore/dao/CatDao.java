@@ -2,6 +2,7 @@ package com.keemo.petstore.dao;
 
 import java.util.*; 
 
+import com.keemo.petstore.bean.Cart;
 import com.keemo.petstore.bean.Cat;
 import com.keemo.petstore.bean.Cattery;
 
@@ -66,5 +67,6 @@ public interface CatDao
 	public List<Cat> findByCattery(Integer pageNo,Integer pageSize,Integer catteryId);
 	
 	
+
 	
 }

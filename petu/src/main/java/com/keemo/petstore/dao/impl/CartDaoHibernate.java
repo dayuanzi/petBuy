@@ -8,6 +8,7 @@ import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import com.keemo.petstore.bean.Cart;
+import com.keemo.petstore.bean.Cattery;
 import com.keemo.petstore.common.hibernate3.support.YeekuHibernateDaoSupport;
 import com.keemo.petstore.dao.CartDao;
 public class CartDaoHibernate extends YeekuHibernateDaoSupport implements CartDao
@@ -70,18 +71,16 @@ public class CartDaoHibernate extends YeekuHibernateDaoSupport implements CartDa
 	 * @param pageSize 
 	 * @param userid
 	 */
-	public List<Cart> findByUserid(final Integer userid,final Integer pageNo,
+	public List<Cart> findByUserid(final Integer userid,final Integer catteryid,final Integer pageNo,
 			final Integer pageSize) {
 		// TODO Auto-generated method stub
 		HibernateTemplate ht=getHibernateTemplate();
 		  return ht.executeFind(new HibernateCallback() {
 		       public Object doInHibernate(Session session)
 		             throws HibernateException {
-		    	 
-		    	
-		    	   Query query = session.createQuery("from Cart cart where cart.admin.id=? order by cart.time"); 
-		    	
+		    	   Query query = session.createQuery("from Cart cart where cart.admin.id=? and cart.cat.cattery.id=?"); 
 		    	   query.setParameter(0, userid);
+		    	   query.setParameter(1, catteryid);
 	    		   query.setMaxResults(pageSize);
 			       query.setFirstResult(pageNo);
 			       return query.list();
@@ -89,9 +88,27 @@ public class CartDaoHibernate extends YeekuHibernateDaoSupport implements CartDa
 		    	
 		  });
 	}
+	
+	
+	public List<Cattery> findCatteryAtCart(final Integer pageNo,final Integer pageSize,final Integer userId){
+		
+		// TODO Auto-generated method stub
+		HibernateTemplate ht=getHibernateTemplate();
+		  return ht.executeFind(new HibernateCallback() {
+		       public Object doInHibernate(Session session)
+		             throws HibernateException {
+		    	   Query query = session.createQuery("select cart.cat.cattery from Cart cart where cart.admin.id=? group by cart.cat.cattery.id"); 
+		    	   query.setParameter(0, userId);
+	    		   query.setMaxResults(pageSize);
+			       query.setFirstResult(pageNo);
+			       return query.list();
+		    	   }
+		    	
+		  });
+		
+	}
 
 	
-
 
 
 }

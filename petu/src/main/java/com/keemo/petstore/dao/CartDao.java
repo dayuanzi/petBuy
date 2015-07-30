@@ -4,8 +4,21 @@ import java.util.*;
 
 
 import com.keemo.petstore.bean.Cart;
+import com.keemo.petstore.bean.Cattery;
 
 
+/**
+ * @author 打水的
+ *
+ */
+/**
+ * @author 打水的
+ *
+ */
+/**
+ * @author 打水的
+ *
+ */
 public interface CartDao
 {
 	/**
@@ -47,9 +60,20 @@ public interface CartDao
 	 * @param userid
 	 * @param ispay
 	 */
-	public List<Cart> findByUserid(Integer userid, Integer pageNo,Integer pageSize);
+	public List<Cart> findByUserid(Integer userid,Integer catteryid, Integer pageNo,Integer pageSize);
 	
 
-
+	/**
+	 * 根据猫舍id返回猫咪列表
+	 * @param pageNo pageSize catteryId
+	 * @return 返回 Cat List
+	 */
+	public List<Cattery> findCatteryAtCart(Integer pageNo,Integer pageSize,Integer userId);
+	
+	
+	
+	
+	
+	
 	
 }

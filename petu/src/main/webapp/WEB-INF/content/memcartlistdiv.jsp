@@ -8,14 +8,29 @@
 </head>
 <body>
 
-	 <s:iterator value="cartlist" var="Cart">
-    
-      <s:property value="#Cart.admin.name"/>
-      <s:property value="#Cart.time"/>
-      <s:property value="#Cart.cat.id"/>
-      <s:property value="#Cart.count"/>
+	 <s:iterator value="cartlist" var="Order">
+	     <s:property value="#Order.get(0).cat.cattery.name"/>
+     <s:iterator value="#Order" var="Cart"> 
+         <s:property value="#Cart.admin.id"/>
+         <s:property value="#Cart.time"/>
+         <s:property value="#Cart.cat.name"/>
+       </s:iterator> 
+      </s:iterator>
       
+     
+     <s:form action="OrderRegisterAction.do"  method="post">
+     <s:iterator value="cartlist" var="Order">
+     <s:iterator value="#Order" var="Cart" status="status">
+     <s:property value="#status.index"/>
+     <s:textfield name="cartlist.id" type="Integer" value="1"/> 
      </s:iterator>
-
+     </s:iterator>  
+     <s:textfield name="addressid" type="Integer" value="1"/> 
+     <s:submit label="新增猫咪"/>
+     </s:form>
+      
+    
+     
+     
 </body>
 </html>

@@ -1,6 +1,6 @@
 package com.keemo.petstore.bean;
 
-// Generated 2015-7-25 14:00:42 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-7-30 14:00:37 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 
@@ -13,18 +13,14 @@ public class Cart implements java.io.Serializable {
 	private Admin admin;
 	private Cat cat;
 	private Date time;
-	private Integer count;
-	private Integer position;
 
 	public Cart() {
 	}
 
-	public Cart(Admin admin, Cat cat, Date time, Integer count, Integer position) {
+	public Cart(Admin admin, Cat cat, Date time) {
 		this.admin = admin;
 		this.cat = cat;
 		this.time = time;
-		this.count = count;
-		this.position = position;
 	}
 
 	public Integer getId() {
@@ -57,22 +53,6 @@ public class Cart implements java.io.Serializable {
 
 	public void setTime(Date time) {
 		this.time = time;
-	}
-
-	public Integer getCount() {
-		return this.count;
-	}
-
-	public void setCount(Integer count) {
-		this.count = count;
-	}
-
-	public Integer getPosition() {
-		return this.position;
-	}
-
-	public void setPosition(Integer position) {
-		this.position = position;
 	}
 
 }

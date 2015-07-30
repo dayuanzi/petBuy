@@ -1,6 +1,6 @@
 package com.keemo.petstore.bean;
 
-// Generated 2015-7-25 14:00:42 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-7-30 14:00:37 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import java.util.HashSet;
@@ -12,6 +12,7 @@ import java.util.Set;
 public class Order implements java.io.Serializable {
 
 	private Integer id;
+	private Address address;
 	private Cattery cattery;
 	private Admin admin;
 	private Date time;
@@ -22,8 +23,9 @@ public class Order implements java.io.Serializable {
 	public Order() {
 	}
 
-	public Order(Cattery cattery, Admin admin, Date time, Byte ispay,
-			Integer price, Set cats) {
+	public Order(Address address, Cattery cattery, Admin admin, Date time,
+			Byte ispay, Integer price, Set cats) {
+		this.address = address;
 		this.cattery = cattery;
 		this.admin = admin;
 		this.time = time;
@@ -38,6 +40,14 @@ public class Order implements java.io.Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Address getAddress() {
+		return this.address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	public Cattery getCattery() {

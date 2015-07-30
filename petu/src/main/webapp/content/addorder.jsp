@@ -11,16 +11,23 @@
 </head>
 <body>
 
-
-<s:form action="CartRegisterAction.do"  method="post">
-
-	
-    <s:textfield name="cart.cat.id" type="Integer" label="猫咪"/>
-    
-    
+<!--<s:form action="OrderRegisterAction.do"  method="post">
+	<s:textfield name="cartlist.id" type="Integer"/>
+    <s:textfield name="cartlist.id" type="Integer"/>
 	<s:submit label="新增猫咪"/>
-</s:form>
+    </s:form>
+-->
 
-	
+     
+     <s:form action="OrderRegisterAction.do"  method="post">
+     
+     <s:iterator value="catlist" var="Cat" status="status">
+     <s:textfield name="cartlist[%{#status.index}].id" type="Integer" value="1"/>
+     </s:iterator>
+     
+     <s:submit label="新增猫咪"/>
+     
+     </s:form>
+
 </body>
 </html>

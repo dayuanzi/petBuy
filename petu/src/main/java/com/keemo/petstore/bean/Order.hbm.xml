@@ -1,13 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-7-25 14:00:44 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2015-7-30 14:00:37 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.keemo.petstore.bean.Order" table="order" catalog="petbuy">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
         </id>
+        <many-to-one name="address" class="com.keemo.petstore.bean.Address" fetch="select">
+            <column name="addressid" />
+        </many-to-one>
         <many-to-one name="cattery" class="com.keemo.petstore.bean.Cattery" fetch="select">
             <column name="catteryid" />
         </many-to-one>
