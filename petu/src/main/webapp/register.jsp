@@ -13,7 +13,7 @@
 </head>
 <body>
 	<h2>注册</h2>
-	<form method="post" action="user-register.do">
+	<form method="post" action="UserRegisterAction.do">
 
 		<table>
 			<tr>
@@ -29,16 +29,13 @@
 				<td>重复密码: <input name="repassword" type="password" /></td>
 			</tr>
 
-			<tr>
-				<td>昵称: <input name="nickName" /></td>
-			</tr>
 
-			<tr>
+		<!--<tr>
 				<td>验证码</td>
 				<td><input name="code" type="password" /></td>
 				<td><img src="generatCode.do" width=50 height=30 id="image"
 					onclick="changImage(this)"></td>
-			</tr>
+			</tr>  -->	
 			<tr>
 				<td><input type="submit" name="submit" value="注册" /></td>
 			</tr>
@@ -47,11 +44,11 @@
 	</form>
 </body>
 
-<script type="text/javascript">
+<!--  <script type="text/javascript">
 	function changImage(img) {
 		img.src = img.src + "?" + new Date().getDate();
 	}
-</script>
+</script>-->
 </html>
 
 

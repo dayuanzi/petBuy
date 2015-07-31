@@ -11,6 +11,8 @@ import com.keemo.petstore.action.WebConstant;
 import com.keemo.petstore.bean.Activericode;
 import com.keemo.petstore.bean.Address;
 import com.keemo.petstore.bean.Admin;
+import com.keemo.petstore.bean.Breedingorder;
+import com.keemo.petstore.bean.Breedingplan;
 import com.keemo.petstore.bean.Cart;
 import com.keemo.petstore.bean.Cat;
 import com.keemo.petstore.bean.Cattery;
@@ -21,6 +23,7 @@ import com.keemo.petstore.bean.Rank;
 
 import com.keemo.petstore.dao.AddressDao;
 import com.keemo.petstore.dao.AdminDao;
+import com.keemo.petstore.dao.BreedingPlanDao;
 import com.keemo.petstore.dao.CartDao;
 import com.keemo.petstore.dao.CatDao;
 import com.keemo.petstore.dao.FollowDao;
@@ -38,6 +41,7 @@ public class MemManagerImpl
     private AdminDao adminDao;
     private CatDao catDao;
     private AddressDao addressDao;
+    private BreedingPlanDao breedingPlanDao;
     public void setAddressDao(AddressDao addressDao){
     	
     	this.addressDao = addressDao;
@@ -64,6 +68,13 @@ public class MemManagerImpl
 	{
 		this.followDao = followDao;
 	}
+    public void setBreedingPlanDao(BreedingPlanDao breedingPlanDao)
+	{
+		this.breedingPlanDao = breedingPlanDao;
+	}
+
+    
+    
 	public List<Order> getOrdersbyUserid(Integer pageNo, Integer pageSize,
 			Integer userid ,Byte ispay) {
 		// TODO Auto-generated method stub
@@ -248,7 +259,7 @@ public class MemManagerImpl
 	    if (catlists == null)
 	    	return false;
 	    for(int k=0;k<catlists.size();k++){
-	      System.out.println("一个");
+	      
 	      Order order = new Order();
 	      Address address = new Address();
 	      address.setId(addressid);
@@ -258,16 +269,20 @@ public class MemManagerImpl
 	      order.setTime(date);
 	      order.setAdmin(admin);
 	      order.setAddress(address);
-		  orderDao.save(order);
+		  order.setCattery(catlists.get(k).get(0).getCattery());
+		  order.setIspay((byte)0);
+		  Integer price = 0;
 		  
 	      for(int o=0;o<catlists.get(k).size();o++){
 	      
 	      Cat cat = catlists.get(k).get(o);
+	      price = price + cat.getPrice();
 	      cat.setOrder(order);
 	      catDao.save(cat);
-
-		  
+	      
 	      }
+	      order.setPrice(price);
+		  orderDao.save(order);
 	
 	    }
 	    return true;
@@ -317,6 +332,32 @@ public class MemManagerImpl
         }
         catlists.add(catlistsub);
         return catlists;
+      
+      }
+      
+      public boolean addPlanOrder(Breedingorder breedingorder) throws Exception{
+    	  
+    	try {
+    		
+    		  Breedingplan breedingplan = breedingPlanDao.get(breedingorder.getBreedingplan().getId());
+    		  Integer ordercount = breedingplan.getOrdercount();
+    		  Integer catcount = breedingplan.getCatcount();
+    		  if(catcount<=ordercount) {
+    			  return false;
+    		  }
+    		  Date date = new Date();
+    		  breedingorder.setStatus((byte)0);
+    		  breedingorder.setTime(date);
+    		  breedingPlanDao.saveOrder(breedingorder);
+    		  return true;
+    	}
+    	catch(Exception e){
+    		
+    		e.printStackTrace();
+    		throw e;
+    	
+    	}
+    	  
       }
 
 }

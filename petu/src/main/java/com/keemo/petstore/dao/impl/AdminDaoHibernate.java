@@ -143,7 +143,7 @@ public class AdminDaoHibernate extends YeekuHibernateDaoSupport implements Admin
 	 * @param id 需要被删除的Activericode实例的标识属性值
 	 */
 	public void deleteActivericodeById(Integer id){
-		 getHibernateTemplate().delete(get(id));
+		 getHibernateTemplate().delete(getActivericodeById(id));
 	}
 	
 	

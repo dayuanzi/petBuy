@@ -1,6 +1,6 @@
 package com.keemo.petstore.bean;
 
-// Generated 2015-7-30 14:00:37 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-7-31 11:09:51 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 
@@ -13,14 +13,17 @@ public class Breedingorder implements java.io.Serializable {
 	private Breedingplan breedingplan;
 	private Integer userid;
 	private Date time;
+	private Byte status;
 
 	public Breedingorder() {
 	}
 
-	public Breedingorder(Breedingplan breedingplan, Integer userid, Date time) {
+	public Breedingorder(Breedingplan breedingplan, Integer userid, Date time,
+			Byte status) {
 		this.breedingplan = breedingplan;
 		this.userid = userid;
 		this.time = time;
+		this.status = status;
 	}
 
 	public Integer getId() {
@@ -53,6 +56,14 @@ public class Breedingorder implements java.io.Serializable {
 
 	public void setTime(Date time) {
 		this.time = time;
+	}
+
+	public Byte getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(Byte status) {
+		this.status = status;
 	}
 
 }

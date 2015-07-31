@@ -5,6 +5,7 @@ import java.util.*;
 import com.keemo.petstore.bean.Cart;
 import com.keemo.petstore.bean.Cat;
 import com.keemo.petstore.bean.Cattery;
+import com.keemo.petstore.bean.Parentcat;
 
 
 public interface CatDao
@@ -67,6 +68,46 @@ public interface CatDao
 	public List<Cat> findByCattery(Integer pageNo,Integer pageSize,Integer catteryId);
 	
 	
+	
+	/*******************ParentCat**************************/
+	
+	/**
+	 * 持久化指定的Parentcat实例
+	 * @param Parentcat 需要被持久化的Parentcat实例
+	 * @return Parentcat实例被持久化后的标识属性值
+	 */
+	public Integer saveParentcat(Parentcat parentcat);
+	
+
+	/**
+	 * 修改指定的Parentcat实例
+	 * @param Parentcat 需要被修改的Parentcat实例
+	 */
+	public void updateParentcat(Parentcat parentcat);
+
+	/**
+	 * 删除指定的Parentcat实例
+	 * @param Parentcat 需要被删除的Parentcat实例
+	 */
+	public void deleteParentcat(Parentcat parentcat);
+
+	/**
+	 * 根据标识属性删除Parentcat实例
+	 * @param id 需要被删除的Parentcat实例的标识属性值
+	 */
+	public void deleteParentcat(Integer id);
+	
+	
+	/**
+	 * 2015-7-31
+	 * 打水的
+	 * @param pageNo
+	 * @param pageSize
+	 * @param catteryId
+	 * @return
+	 * List<Parentcat>
+	 */
+	public List<Parentcat> findByStoreId(Integer pageNo,Integer pageSize,Integer catteryId);
 
 	
 }

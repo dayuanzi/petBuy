@@ -31,16 +31,21 @@ import com.keemo.petstore.service.MemManager;
 import com.keemo.petstore.service.UserService;
 import com.keemo.petstore.util.Util;
 
+/**
+ * @author 打水的
+ *
+ */
 @Controller
 @ParentPackage("basePackage")
 @Namespace("/")
+
 public class UserAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 
 	private String userName;
 	private String password;
-	private String code;// 验证码
+//	private String code;// 验证码
 	private String repassword;
 	private AuthenticationManager authenticationManager;
 	private String nickName;
@@ -75,11 +80,11 @@ public class UserAction extends ActionSupport {
 	* @return
 	* @throws
 	 */
-	@Action(value = "user-register", results = { @Result(name = "success", location = "/login.jsp") })
+	@Action(value = "UserRegisterAction", results = { @Result(name = "success", location = "/login.jsp") })
 	public String register() {
 
-		HttpSession session = ServletActionContext.getRequest().getSession();
-		String radomcode = (String) session.getAttribute(RandomCodeAction.RANDOMCODEKEY);
+		/*	HttpSession session = ServletActionContext.getRequest().getSession();
+	String radomcode = (String) session.getAttribute(RandomCodeAction.RANDOMCODEKEY);
 
 			if (!radomcode.equalsIgnoreCase(this.getCode())) {
 				ServletActionContext.getRequest().setAttribute("msg", "验证码不正确");
@@ -87,20 +92,20 @@ public class UserAction extends ActionSupport {
 
 				return "toregist";
 			}
-		
+	*/
 
 		if (!password.equals(repassword)) {
 			ServletActionContext.getRequest().setAttribute("msg", "密码不一致");
 			return "toregist";
 		}
 
-		
+
 		if (!mem.checkUsername(userName)){
 			ServletActionContext.getRequest().setAttribute("msg", "邮箱已注册");
 			return "toregist";
 		}
 		
-		
+
 		Admin user = new Admin();
 		user.setUsername(userName);
 		user.setPassword(Util.encodePassword(password, userName));
@@ -108,21 +113,18 @@ public class UserAction extends ActionSupport {
 		user.setNickname(nickName);
 		user.setActive((byte)0);
 	    Integer userid=ema.save(user);
-	    
 	    String vericode = ema.getRandomString();
-
+	    mem.saveVericode(userid, vericode);
 		String content = "hello,请点击此处进行邮箱激活，" + "http://localhost:8080/ActiveAction.do" + "?userid=" + String.valueOf(userid)
 				+ "&vericode=" + vericode;
 		ema.sendEmail(userName, EmailVerificationCodeService.SUBJECT_MAIL_ACTIVE, content);
-		
-	    mem.saveVericode(userid, vericode);
 	    
 		return "success";
 
 	}
 	
 	
-	@Action(value = "user-activate", results = { @Result(name = "success", location = "/login.jsp"),@Result(name = "failed", location = "/activefailed.jsp") })
+	@Action(value = "UserActiveAction", results = { @Result(name = "success", location = "/login.jsp"),@Result(name = "failed", location = "/activefailed.jsp") })
 	public String  activate() {
 
 		ActionContext ctx = ActionContext.getContext();
@@ -173,13 +175,13 @@ public class UserAction extends ActionSupport {
 		this.repassword = repassword;
 	}
 
-	public String getCode() {
+	/*public String getCode() {
 		return code;
 	}
 
 	public void setCode(String code) {
 		this.code = code;
-	}
+	}*/
 
 	public AuthenticationManager getAuthenticationManager() {
 		return authenticationManager;
@@ -189,12 +191,4 @@ public class UserAction extends ActionSupport {
 		this.authenticationManager = authenticationManager;
 	}
 
-	public String getNickname() {
-		return nickName;
-	}
-
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
-
-	}
 }

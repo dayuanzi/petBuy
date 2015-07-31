@@ -1,6 +1,6 @@
 package com.keemo.petstore.bean;
 
-// Generated 2015-7-30 14:00:37 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-7-31 11:09:51 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import java.util.HashSet;
@@ -18,6 +18,8 @@ public class Breedingplan implements java.io.Serializable {
 	private Admin admin;
 	private Date time;
 	private String video;
+	private Integer catcount;
+	private Integer ordercount;
 	private Set breedingorders = new HashSet(0);
 
 	public Breedingplan() {
@@ -29,7 +31,7 @@ public class Breedingplan implements java.io.Serializable {
 
 	public Breedingplan(int id, Parentcat parentcatByMother, Cattery cattery,
 			Parentcat parentcatByFather, Admin admin, Date time, String video,
-			Set breedingorders) {
+			Integer catcount, Integer ordercount, Set breedingorders) {
 		this.id = id;
 		this.parentcatByMother = parentcatByMother;
 		this.cattery = cattery;
@@ -37,6 +39,8 @@ public class Breedingplan implements java.io.Serializable {
 		this.admin = admin;
 		this.time = time;
 		this.video = video;
+		this.catcount = catcount;
+		this.ordercount = ordercount;
 		this.breedingorders = breedingorders;
 	}
 
@@ -94,6 +98,22 @@ public class Breedingplan implements java.io.Serializable {
 
 	public void setVideo(String video) {
 		this.video = video;
+	}
+
+	public Integer getCatcount() {
+		return this.catcount;
+	}
+
+	public void setCatcount(Integer catcount) {
+		this.catcount = catcount;
+	}
+
+	public Integer getOrdercount() {
+		return this.ordercount;
+	}
+
+	public void setOrdercount(Integer ordercount) {
+		this.ordercount = ordercount;
 	}
 
 	public Set getBreedingorders() {

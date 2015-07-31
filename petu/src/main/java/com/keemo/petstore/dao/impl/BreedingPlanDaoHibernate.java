@@ -117,6 +117,56 @@ public class BreedingPlanDaoHibernate extends YeekuHibernateDaoSupport implement
 	
 	
 	
+	/**
+	 * 根据标识属性来加载Breedingorder实例
+	 * @param id 需要加载的Breedingorder实例的标识属性值
+	 * @return 指定标识属性对应的Breedingorder实例
+	 */
+	public Breedingorder getOrder(Integer id)
+	{
+		return getHibernateTemplate()
+		.get(Breedingorder.class , id);
+	}
+
+	/**
+	 * 持久化指定的Breedingorder实例
+	 * @param Breedingorder 需要被持久化的Breedingorder实例
+	 * @return Breedingorder实例被持久化后的标识属性值
+	 */
+	public Integer saveOrder(Breedingorder Breedingorder) {
+		
+		return (Integer)getHibernateTemplate()
+		.save(Breedingorder);
+	}
+
+	/**
+	 * 修改指定的Breedingorder实例
+	 * @param Breedingorder 需要被修改的Breedingorder实例
+	 */
+	public void updateOrder(Breedingorder Breedingorder) {
+		
+		getHibernateTemplate()
+		.update(Breedingorder);
+	}
+
+	/**
+	 * 删除指定的Breedingorder实例
+	 * @param Breedingorder 需要被删除的Breedingorder实例
+	 */
+	public void deleteOrder(Breedingorder Breedingorder) {
+		getHibernateTemplate()
+		.delete(Breedingorder);
+	}
+	
+	
+	/**
+	 * 根据标识属性删除Breedingorder实例
+	 * @param id 需要被删除的Breedingorder实例的标识属性值
+	 */
+	public void deleteOrder(Integer id) {
+		getHibernateTemplate()
+		.delete(this.getOrder(id));
+	}
 	
 	
 }

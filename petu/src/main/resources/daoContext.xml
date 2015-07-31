@@ -35,6 +35,11 @@
      <bean id="addressDao"
 		class="com.keemo.petstore.dao.impl.AddressDaoHibernate"
 		parent="daoTemplate"/>
+     <bean id="breedingPlanDao"
+		class="com.keemo.petstore.dao.impl.BreedingPlanDaoHibernate"
+		parent="daoTemplate"/>
+		
+		
 	
 </beans>
 

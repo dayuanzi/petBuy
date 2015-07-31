@@ -93,7 +93,7 @@
 			两个Bean的所有方法的执行 -->
 		<aop:pointcut id="leePointcut"
 
-			expression="bean(admManager)||bean(memManager)||bean(loginManager)||bean(cattManager)||bean(uploadManager)"/>
+			expression="bean(admManager)||bean(memManager)||bean(loginManager)||bean(cattManager)||bean(uploadManager)||bean(emailManager)"/>
 
 		<!-- 指定在leePointcut切入点应用txAdvice事务增强处理 -->
 		<aop:advisor advice-ref="txAdvice" 
@@ -114,7 +114,8 @@
 		p:cartDao-ref="cartDao"
 		p:followDao-ref="followDao"
 		p:catDao-ref="catDao"
-		p:addressDao-ref="addressDao"/>
+		p:addressDao-ref="addressDao"
+		p:breedingPlanDao-ref="breedingPlanDao"/>
 		
 		
 	<bean id="cattManagerTemplate" abstract="true" lazy-init="true"

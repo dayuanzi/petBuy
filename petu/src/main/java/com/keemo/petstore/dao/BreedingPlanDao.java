@@ -58,6 +58,43 @@ public interface BreedingPlanDao {
 	
 	
 	
+	/**------------ BreedingOrder--------------*/
+	
+	
+	
+	/**
+	 * 根据标识属性来加载Breedingorder实例
+	 * @param id 需要加载的Breedingorder实例的标识属性值
+	 * @return 指定标识属性对应的Breedingorder实例
+	 */
+	Breedingorder getOrder(Integer id);
+
+	/**
+	 * 持久化指定的Breedingorder实例
+	 * @param Breedingorder 需要被持久化的Breedingorder实例
+	 * @return Breedingorder实例被持久化后的标识属性值
+	 */
+	Integer saveOrder(Breedingorder Breedingorder);
+
+	/**
+	 * 修改指定的Breedingorder实例
+	 * @param Breedingorder 需要被修改的Breedingorder实例
+	 */
+	void updateOrder(Breedingorder Breedingorder);
+
+	/**
+	 * 删除指定的Breedingorder实例
+	 * @param Breedingorder 需要被删除的Breedingorder实例
+	 */
+	void deleteOrder(Breedingorder Breedingorder);
+
+	/**
+	 * 根据标识属性删除Breedingplan实例
+	 * @param id 需要被删除的Breedingplan实例的标识属性值
+	 */
+	void deleteOrder(Integer id);
+	
+	
 
 }
 

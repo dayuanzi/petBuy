@@ -159,4 +159,15 @@ public interface MemManager {
 	public void setAddressDefault(Integer userid,Integer addressid) throws Exception;
 	
 	
+	
+	/**
+	 * 2015-7-31
+	 * 打水的
+	 * @param breedingorder
+	 * @return
+	 * @throws Exception
+	 * boolean
+	 */
+	public boolean addPlanOrder(Breedingorder breedingorder) throws Exception;
+	
 }
