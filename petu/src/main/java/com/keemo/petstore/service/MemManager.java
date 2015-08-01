@@ -170,4 +170,14 @@ public interface MemManager {
 	 */
 	public boolean addPlanOrder(Breedingorder breedingorder) throws Exception;
 	
+	/**
+	 * 2015-7-31
+	 * 打水的
+	 * @param cartlist
+	 * @return
+	 * @throws Exception
+	 * List<List<Cat>>
+	 */
+	public List<List<Cat>> getCatsByCart(List<Cart> cartlist) throws Exception;
+	
 }

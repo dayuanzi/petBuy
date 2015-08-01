@@ -4,6 +4,7 @@ import com.keemo.petstore.vo.*;
 import com.keemo.petstore.bean.*;
 import com.keemo.petstore.exception.*;
 
+import java.io.File;
 import java.util.*;
 
 
@@ -20,6 +21,22 @@ public interface CattManager
 	  		   Integer rankid ,Integer pedigree_certificate, Byte immune, Integer price, Byte stalen,Integer catteryId);
 	
 	
+	
+	/**
+	 * 2015-7-31
+	 * 打水的
+	 * @param parentcatlist
+	 * @param upload
+	 * @param imagetypelist
+	 * @param catsimagelist
+	 * @param uploadFileName
+	 * @param userid
+	 * @return
+	 * @throws Exception
+	 * boolean
+	 */
+	public boolean saveParentcat(List<Parentcat> parentcatlist,List<File> upload,List<Integer> imagetypelist,
+ 		   List<Integer> catsimagelist,List<String> uploadFileName,String userid) throws Exception;
 
     
 

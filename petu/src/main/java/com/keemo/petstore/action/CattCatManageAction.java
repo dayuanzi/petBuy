@@ -146,9 +146,6 @@ public class CattCatManageAction
 		return this.stalen ;
 	}
     
-    
-
-    		
     		
     @Action(value = "CatRegisterAction", 
 			results = { 
@@ -168,7 +165,7 @@ public class CattCatManageAction
     	
     	//String catteryId = ((String[])ctx.getSession().get("u"))[0];
     	
-    	String catteryId = "1";
+    /*	String catteryId = "1";
     	
     	boolean result = catt.saveCat(name, sex, typeid, birthday, rankid, pedigree_certificate, immune, price, stalen, Integer.valueOf(catteryId)) ;
          if (result==false){
@@ -191,7 +188,7 @@ public class CattCatManageAction
               	
               	
               }
-              
+              */
       		return CATT_ADD_CAT;
         	
         
@@ -221,7 +218,7 @@ public class CattCatManageAction
   
     	
     	//String catteryId = ((String[])ctx.getSession().get("u"))[0];
-    	
+    	/*
     String catteryId = "1";
     try{
     	catt.updateCat(id.get(0),name.get(0), sex.get(0), typeid.get(0), birthday.get(0), 
@@ -244,7 +241,7 @@ public class CattCatManageAction
           e.printStackTrace();
           return CATT_ADD_IMAG_ERROR;
        }
-  }
+  }*/
        return CATT_UPD_CAT;
     	
 }

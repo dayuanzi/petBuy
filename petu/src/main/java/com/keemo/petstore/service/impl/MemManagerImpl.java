@@ -42,6 +42,9 @@ public class MemManagerImpl
     private CatDao catDao;
     private AddressDao addressDao;
     private BreedingPlanDao breedingPlanDao;
+   
+    
+    
     public void setAddressDao(AddressDao addressDao){
     	
     	this.addressDao = addressDao;
@@ -72,6 +75,7 @@ public class MemManagerImpl
 	{
 		this.breedingPlanDao = breedingPlanDao;
 	}
+
 
     
     
@@ -272,36 +276,53 @@ public class MemManagerImpl
 		  order.setCattery(catlists.get(k).get(0).getCattery());
 		  order.setIspay((byte)0);
 		  Integer price = 0;
-		  
-	      for(int o=0;o<catlists.get(k).size();o++){
-	      
-	      Cat cat = catlists.get(k).get(o);
-	      price = price + cat.getPrice();
-	      cat.setOrder(order);
-	      catDao.save(cat);
-	      
-	      }
-	      order.setPrice(price);
-		  orderDao.save(order);
+		  try {
+			  
+			  
+			  for(int o=0;o<catlists.get(k).size();o++){
+			      
+			      Cat cat = catlists.get(k).get(o);
+			      price = price + cat.getPrice();
+			      cat.setOrder(order);
+			      catDao.save(cat);
+			      
+			      }
+			      order.setPrice(price);
+				  orderDao.save(order);
+		  }
+		  catch(Exception e)
+		  {
+			  e.printStackTrace();
+			  throw e;
+		  }
+	    
 	
 	    }
 	    return true;
 	}
-      public List<List<Cat>> getCatsByCart(List<Cart> cartlist){
+      public List<List<Cat>> getCatsByCart(List<Cart> cartlist) throws Exception{
     	  
     	  List<Cat> catlist = new ArrayList<Cat>();
           List<List<Cat>> catlists = new ArrayList<List<Cat>>();
-          
-          for(int i=0;i<cartlist.size();i++){
+          try{
         	  
-    	     Cart cart = cartDao.get(cartlist.get(i).getId());
-    	     Cat cat = cart.getCat();
-    	    
-    	     if (cat.getOrder()!=null)
-    	    	 return null;
-             catlist.add(cat);
-             
+        	  for(int i=0;i<cartlist.size();i++){
+            	  
+         	     Cart cart = cartDao.get(cartlist.get(i).getId());
+         	     Cat cat = cart.getCat();
+         	    
+         	     if (cat.getOrder()!=null)
+         	    	 return null;
+                  catlist.add(cat);
+                  
+               }
+        	  
+          }catch(Exception e){
+        	  e.printStackTrace();
+        	  throw e;
+        	  
           }
+         
           
         Collections.sort(catlist,new Comparator<Cat>(){
               public int compare(Cat arg0, Cat arg1) {

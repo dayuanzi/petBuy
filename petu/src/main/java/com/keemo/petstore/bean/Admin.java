@@ -1,7 +1,8 @@
 package com.keemo.petstore.bean;
 
-// Generated 2015-7-31 11:09:51 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-7-31 20:39:05 by Hibernate Tools 3.4.0.CR1
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,6 +17,15 @@ public class Admin implements java.io.Serializable {
 	private String privileges;
 	private Byte active;
 	private String nickname;
+	private Byte sex;
+	private Date birthday;
+	private String phone;
+	private String address;
+	private String salary;
+	private String education;
+	private String company;
+	private String experience;
+	private Byte marriage;
 	private Set follows = new HashSet(0);
 	private Set carts = new HashSet(0);
 	private Set orders = new HashSet(0);
@@ -25,13 +35,24 @@ public class Admin implements java.io.Serializable {
 	}
 
 	public Admin(String username, String password, String privileges,
-			Byte active, String nickname, Set follows, Set carts, Set orders,
-			Set breedingplans) {
+			Byte active, String nickname, Byte sex, Date birthday,
+			String phone, String address, String salary, String education,
+			String company, String experience, Byte marriage, Set follows,
+			Set carts, Set orders, Set breedingplans) {
 		this.username = username;
 		this.password = password;
 		this.privileges = privileges;
 		this.active = active;
 		this.nickname = nickname;
+		this.sex = sex;
+		this.birthday = birthday;
+		this.phone = phone;
+		this.address = address;
+		this.salary = salary;
+		this.education = education;
+		this.company = company;
+		this.experience = experience;
+		this.marriage = marriage;
 		this.follows = follows;
 		this.carts = carts;
 		this.orders = orders;
@@ -84,6 +105,78 @@ public class Admin implements java.io.Serializable {
 
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
+	}
+
+	public Byte getSex() {
+		return this.sex;
+	}
+
+	public void setSex(Byte sex) {
+		this.sex = sex;
+	}
+
+	public Date getBirthday() {
+		return this.birthday;
+	}
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+
+	public String getPhone() {
+		return this.phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getAddress() {
+		return this.address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getSalary() {
+		return this.salary;
+	}
+
+	public void setSalary(String salary) {
+		this.salary = salary;
+	}
+
+	public String getEducation() {
+		return this.education;
+	}
+
+	public void setEducation(String education) {
+		this.education = education;
+	}
+
+	public String getCompany() {
+		return this.company;
+	}
+
+	public void setCompany(String company) {
+		this.company = company;
+	}
+
+	public String getExperience() {
+		return this.experience;
+	}
+
+	public void setExperience(String experience) {
+		this.experience = experience;
+	}
+
+	public Byte getMarriage() {
+		return this.marriage;
+	}
+
+	public void setMarriage(Byte marriage) {
+		this.marriage = marriage;
 	}
 
 	public Set getFollows() {

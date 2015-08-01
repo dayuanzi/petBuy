@@ -1,6 +1,6 @@
 package com.keemo.petstore.bean;
 
-// Generated 2015-7-31 11:09:51 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-7-31 20:39:05 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -19,7 +19,6 @@ public class Cattery implements java.io.Serializable {
 	private Set parentcats = new HashSet(0);
 	private Set follows = new HashSet(0);
 	private Set orders = new HashSet(0);
-	private Set imagmsgs = new HashSet(0);
 	private Set cats = new HashSet(0);
 	private Set breedingplans = new HashSet(0);
 
@@ -28,7 +27,7 @@ public class Cattery implements java.io.Serializable {
 
 	public Cattery(Region region, Cattpetrank cattpetrank, String name,
 			String mainvariety, Integer experience, Set parentcats,
-			Set follows, Set orders, Set imagmsgs, Set cats, Set breedingplans) {
+			Set follows, Set orders, Set cats, Set breedingplans) {
 		this.region = region;
 		this.cattpetrank = cattpetrank;
 		this.name = name;
@@ -37,7 +36,6 @@ public class Cattery implements java.io.Serializable {
 		this.parentcats = parentcats;
 		this.follows = follows;
 		this.orders = orders;
-		this.imagmsgs = imagmsgs;
 		this.cats = cats;
 		this.breedingplans = breedingplans;
 	}
@@ -112,14 +110,6 @@ public class Cattery implements java.io.Serializable {
 
 	public void setOrders(Set orders) {
 		this.orders = orders;
-	}
-
-	public Set getImagmsgs() {
-		return this.imagmsgs;
-	}
-
-	public void setImagmsgs(Set imagmsgs) {
-		this.imagmsgs = imagmsgs;
 	}
 
 	public Set getCats() {
