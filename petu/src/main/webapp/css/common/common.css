@@ -1,0 +1,88 @@
+
+.mt5 {
+	margin-top: 5px;
+}
+.mt10 {
+	margin-top: 10px;
+}
+.mt15 {
+	margin-top: 15px;
+}
+.mt20 {
+	margin-top: 20px;
+}
+.mt30 {
+	margin-top: 30px;
+}
+.ml8 {
+	margin-left: 8px;
+}
+.ml10 {
+	margin-left: 10px;
+}
+.ml15 {
+	margin-left: 15px;
+}
+.ml20 {
+	margin-left: 20px;
+}
+.ml25 {
+	margin-left: 25px;
+}
+.ml30 {
+	margin-left: 30px;
+}
+.mr10 {
+	margin-right: 10px;
+}
+.mr30 {
+	margin-right: 30px;
+}
+.mb5 {
+	margin-bottom: 5px;
+}
+.mb10 {
+	margin-bottom: 10px;
+}
+.mb20 {
+	margin-bottom: 20px;
+}
+.mb30 {
+	margin-bottom: 30px;
+}
+.mb25 {
+	margin-bottom: 25px;
+}
+.pb8 {
+	padding-bottom: 8px;
+}
+.pt5 {
+	padding-top: 3px;
+}
+.color-theme {
+	color: #45B7A5;
+}
+.color-999 {
+	color: #999;
+}
+.color-white {
+	color: #FFFFFF;
+}
+.color-blank {
+	color: #000000;
+}
+.font-common {
+	font-family: "microsoft yahei", simsun, simhei, helvetica, arial, tahoma, verdana, sans-serif;
+}
+.font13 {
+	font-size: 13px;
+}
+.font14 {
+	font-size: 14px;
+}
+.font16 {
+	font-size: 16px;
+}
+.font18 {
+	font-size: 18px;
+}
