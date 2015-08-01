@@ -24,15 +24,15 @@ public class CattBaseAction
 	   // 多个上传文件的文件名集合  
 	  protected List<String> uploadfileFileName;  
 	  
-	  protected List<String> imageType;
+	  protected List<Integer> imageType;
 	    
 	    
 	    
-	    public List<String> getImageType() {
+	    public List<Integer> getImageType() {
 	            return imageType;  
 	     }  
 	  
-	    public void setImageType(List<String> imageType) {  
+	    public void setImageType(List<Integer> imageType) {  
 	  
 	       this.imageType = imageType;  
 	    }  

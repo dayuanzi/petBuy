@@ -10,6 +10,7 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
+import com.keemo.petstore.bean.Cat;
 import com.keemo.petstore.bean.Cattery;
 import com.keemo.petstore.bean.Imagmsg;
 import com.keemo.petstore.dao.ImageDao;
@@ -25,12 +26,12 @@ public class UploadManagerImpl implements UploadManager{
 	}
 
 	
-	public boolean upLoadImage(List<String> imageType,List<File> upload,List<String> uploadFileName,String userid){
+	public boolean upLoadImage(List<Integer> imageType,List<File> upload,List<String> uploadFileName,String userid,Integer catid) throws Exception{
 
 	    // 把得到的文件的集合通过循环的方式读取并放在指定的路径下  
 
 	    for (int i = 0; i < upload.size(); i++) {  
-	    	 switch(Integer.valueOf(imageType.get(i))){
+	    	 switch(imageType.get(i)){
 	 	    
 		        case 1: path = ServletActionContext.getServletContext().getRealPath("/WEB-INF/uploadList");
 		        
@@ -49,7 +50,15 @@ public class UploadManagerImpl implements UploadManager{
 	    try {
 	    	String rename =reName(userid,uploadFileName.get(i),i);
 			FileUtils.copyFile(upload.get(i), new File(file,rename));
-		 	saveImage(rename,imageType.get(i),Integer.valueOf(userid));
+			try{
+				saveImage(rename,imageType.get(i),catid);
+			}
+			catch (Exception e){
+				
+				e.printStackTrace();
+				throw e;
+			}
+		 
 	    } 
 	    catch (IOException e) 
 		{
@@ -64,15 +73,25 @@ public class UploadManagerImpl implements UploadManager{
 	    return true; 
 		
 	}
-	public boolean saveImage(String path,String imagetype,Integer userid){
+	public boolean saveImage(String path,Integer imagetype,Integer catid) throws Exception{
 		
-		Cattery cattery= new Cattery();
-		cattery.setId(userid);
-		Imagmsg imagmsg= new Imagmsg(cattery,path,Integer.valueOf(imagetype));
-		Integer result = imageDao.save(imagmsg);
-		if(String.valueOf(result).length()==0){
-			return false;
+		Cat cat= new Cat();
+		cat.setId(catid);
+		Imagmsg imagmsg= new Imagmsg(cat,path,imagetype);
+		try{
+			Integer result = imageDao.save(imagmsg);
+			
+			if(String.valueOf(result).length()==0){
+				return false;
+			}
 		}
+		catch (Exception e){
+			
+			e.printStackTrace();
+			throw e;
+			
+		}
+	
 		
 		return true;
 	}

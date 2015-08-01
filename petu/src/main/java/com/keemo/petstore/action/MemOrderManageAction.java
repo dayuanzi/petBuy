@@ -51,7 +51,7 @@ public class MemOrderManageAction extends MemBaseAction{
 		this.breedingorder = breedingorder;
 	}
 	
-	public Breedingorder getBreedingplanid(){
+	public Breedingorder getBreedingorder(){
 		
 		return this.breedingorder;
 		

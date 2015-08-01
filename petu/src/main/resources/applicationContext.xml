@@ -140,9 +140,10 @@
     <bean id="memManager" name="memManager"
 		class="com.keemo.petstore.service.impl.MemManagerImpl"
 		parent="memberManagerTemplate"/>
-		 <bean id="cattManager" name="cattManager"
+    <bean id="cattManager" name="cattManager"
 		class="com.keemo.petstore.service.impl.CattManagerImpl" 
 		parent="cattManagerTemplate">
+		<property name="uploadManager" ref="uploadManager"/>
     </bean>
     
     
