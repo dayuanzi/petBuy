@@ -29,6 +29,9 @@ public class CatListAction
 	
 	
 	private List<Cat> catlist;
+	private List<Cat> catlist_pet;
+	private List<Cat> catlist_breed;
+	private List<Cat> catlist_match;
 	
 	public void setCatlist(List<Cat> catlist)
 	{
@@ -37,6 +40,30 @@ public class CatListAction
 	public List<Cat> getCatlist()
 	{
 		return this.catlist;
+	}
+	public void setCatlist_pet(List<Cat> catlist_pet)
+	{
+		this.catlist_pet = catlist_pet;
+	}
+	public List<Cat> getCatlist_pet()
+	{
+		return this.catlist_pet;
+	}
+	public void setCatlist_breed(List<Cat> catlist_breed)
+	{
+		this.catlist_breed = catlist_breed;
+	}
+	public List<Cat> getCatlist_breed()
+	{
+		return this.catlist_breed;
+	}
+	public void setCatlist_match(List<Cat> catlist_match)
+	{
+		this.catlist_match = catlist_match;
+	}
+	public List<Cat> getCatlist_match()
+	{
+		return this.catlist_match;
 	}
 	@Action(value = "CatListAction", 
 			results = { 
@@ -83,7 +110,9 @@ public class CatListAction
 		if(pageId==1)
 		{
 	    Integer pageNo = (pageNumber-1) * WebConstant.admIndexPageSize;
-		this.catlist = adm.getCatsbyPage(pageNo, WebConstant.admIndexPageSize, typeId, rankId, priceLow, priceHigh);
+		this.catlist_pet = adm.getCatsbyPage(pageNo, WebConstant.admIndexPageSize, typeId, 1, priceLow, priceHigh);
+		this.catlist_breed = adm.getCatsbyPage(pageNo, WebConstant.admIndexPageSize, typeId, 2, priceLow, priceHigh);
+		this.catlist_match = adm.getCatsbyPage(pageNo, WebConstant.admIndexPageSize, typeId, 3, priceLow, priceHigh);
 		return ADM_CAT_LIST_INDEX;
 		}
 		

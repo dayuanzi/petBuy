@@ -120,6 +120,8 @@
 		
 	<bean id="cattManagerTemplate" abstract="true" lazy-init="true"
 		p:catDao-ref="catDao"
+		p:breedingPlanDao-ref="breedingPlanDao"
+		p:catteryDao-ref="catteryDao"
 	/>
 		
 		

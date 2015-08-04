@@ -140,8 +140,6 @@ public class MemManagerImpl
 		activericode.setTime(dt);
 		adminDao.save(activericode);
 		
-		
-		
 		return vericode;		
 	}
 	
@@ -170,14 +168,12 @@ public class MemManagerImpl
 	public Admin getAdmin(Integer id){
 		
 		return adminDao.get(id);
-		
-		
+
 	}
 	
     public void updateAdmin(Admin admin){
 		
 		adminDao.update(admin);
-		
 		
 	}
     
@@ -241,6 +237,19 @@ public class MemManagerImpl
   		catch(Exception e){
   			throw e;
   		}
+  		
+  	}
+  	
+  	public void deleteAddress(Integer addressid) throws Exception{
+  		
+  		try{
+  			addressDao.delete(addressid);
+  		}
+  		catch(Exception e){
+  			e.printStackTrace();
+  			throw e;
+  		}
+  	
   		
   	}
   	
@@ -380,6 +389,8 @@ public class MemManagerImpl
     	}
     	  
       }
+      
+      
 
 }
 

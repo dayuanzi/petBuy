@@ -26,7 +26,7 @@ public class UploadManagerImpl implements UploadManager{
 	}
 
 	
-	public boolean upLoadImage(List<Integer> imageType,List<File> upload,List<String> uploadFileName,String userid,Integer catid) throws Exception{
+	public boolean upLoadImage(List<Integer> imageType,List<File> upload,List<String> uploadFileName,String userid,Integer catid,Integer pid) throws Exception{
 
 	    // 把得到的文件的集合通过循环的方式读取并放在指定的路径下  
 
@@ -46,19 +46,19 @@ public class UploadManagerImpl implements UploadManager{
 		    if (!file.exists()) {  
 		        file.mkdirs();  
 		    }  
-	         
+
 	    try {
 	    	String rename =reName(userid,uploadFileName.get(i),i);
 			FileUtils.copyFile(upload.get(i), new File(file,rename));
 			try{
-				saveImage(rename,imageType.get(i),catid);
+				saveImage(rename,imageType.get(i),catid,pid);
 			}
 			catch (Exception e){
 				
 				e.printStackTrace();
 				throw e;
 			}
-		 
+			
 	    } 
 	    catch (IOException e) 
 		{
@@ -73,11 +73,11 @@ public class UploadManagerImpl implements UploadManager{
 	    return true; 
 		
 	}
-	public boolean saveImage(String path,Integer imagetype,Integer catid) throws Exception{
+	public boolean saveImage(String path,Integer imagetype,Integer catid,Integer pid) throws Exception{
 		
 		Cat cat= new Cat();
 		cat.setId(catid);
-		Imagmsg imagmsg= new Imagmsg(cat,path,imagetype);
+		Imagmsg imagmsg= new Imagmsg(path,imagetype,catid,pid);
 		try{
 			Integer result = imageDao.save(imagmsg);
 			

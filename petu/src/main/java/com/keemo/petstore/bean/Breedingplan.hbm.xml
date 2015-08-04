@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-7-31 20:39:05 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2015-8-4 12:37:58 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.keemo.petstore.bean.Breedingplan" table="breedingplan" catalog="petbuy">
-        <id name="id" type="int">
+        <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="parentcatByMother" class="com.keemo.petstore.bean.Parentcat" fetch="select">
             <column name="mother" />
@@ -31,6 +31,12 @@
         </property>
         <property name="ordercount" type="java.lang.Integer">
             <column name="ordercount" />
+        </property>
+        <property name="fatherColor" type="string">
+            <column name="father_color" length="30" />
+        </property>
+        <property name="motherColor" type="string">
+            <column name="mother_color" length="30" />
         </property>
         <set name="breedingorders" table="breedingorder" inverse="true" lazy="true" fetch="select">
             <key>

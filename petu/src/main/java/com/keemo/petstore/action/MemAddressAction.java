@@ -13,12 +13,11 @@ import com.opensymphony.xwork2.ActionContext;
 
 public class MemAddressAction extends MemBaseAction{
 	
-	
-	
 private final String MEM_ADD_ADDR = "memaddaddress";
 private final String ADD_ADDR_ERROR = "memaddaddresserror";
 private final String MEM_DEF_ADDR = "memdefaultaddr";
 private final String MEM_ADDR_LIST = "memaddresslist";
+private final String MEM_DEL_ADDR = "memaddressdelete";
 
 	
 private Address address;
@@ -104,7 +103,8 @@ public String execute()
      String addressIdStr = ((String[]) ctx.getParameters().get("addressid"))[0];
      Integer addressId = Integer.valueOf(addressIdStr);
      try{
-    	 mem.setAddressDefault(userId, addressId);
+     	 mem.setAddressDefault(userId, addressId);
+    
      }
      catch(Exception e)
      {
@@ -115,6 +115,36 @@ public String execute()
      return MEM_DEF_ADDR;	
 
    }
+     
+     
+     
+     @Action(value = "DeleteAddressAction", 
+				results = { 
+				     @Result(name = "memaddressdelete", 
+				    		 location = "memaddress.jsp")})
+
+     public String DeleteAddressAction()
+            throws Exception
+{
+
+ 	 
+  ActionContext ctx = ActionContext.getContext();
+
+  String userIdStr = ((String)ctx.getSession().get("userid"));
+  Integer userId = Integer.valueOf(userIdStr);
+  String addressIdStr = ((String[]) ctx.getParameters().get("addressid"))[0];
+  Integer addressId = Integer.valueOf(addressIdStr);
+  try{
+		 mem.deleteAddress(addressId);
+  }
+  catch(Exception e)
+  {
+ 	 throw e;
+  }
+  
+  return MEM_DEL_ADDR;	
+
+  }
 
 }
 

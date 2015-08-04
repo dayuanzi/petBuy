@@ -1,6 +1,7 @@
 package com.keemo.petstore.service.impl;
 
 
+import com.keemo.petstore.bean.Breedingplan;
 import com.keemo.petstore.bean.Cat;
 import com.keemo.petstore.bean.Cattery;
 import com.keemo.petstore.bean.Catype;
@@ -14,7 +15,9 @@ import com.keemo.petstore.vo.*;
 import com.keemo.petstore.exception.*;
 
 
+import com.keemo.petstore.dao.BreedingPlanDao;
 import com.keemo.petstore.dao.CatDao;
+import com.keemo.petstore.dao.CatteryDao;
 
 
 import java.io.File;
@@ -27,8 +30,14 @@ public class CattManagerImpl
 {
 
 	private CatDao catDao;
+	private BreedingPlanDao breedingPlanDao;
     private UploadManager uploadManager;
-    private List<Parentcat> parentcatlist;
+    private CatteryDao catteryDao;
+
+    private List<List<File>> uploads;
+    private List<List<Integer>> imagetypelists;
+    private List<List<Integer>> catsimagelists;
+    private List<List<String>> uploadFileNames;
     
     
     
@@ -36,57 +45,60 @@ public class CattManagerImpl
 	{
 		this.catDao = catDao;
 	}
+	public void setCatteryDao(CatteryDao catteryDao)
+	{
+		this.catteryDao = catteryDao;
+	}
+
+	public void setBreedingPlanDao(BreedingPlanDao breedingPlanDao)
+	{
+		this.breedingPlanDao = breedingPlanDao;
+	}
 	
     public void setUploadManager(UploadManager uploadManager){
     	
     	this.uploadManager = uploadManager;
     }
-
-
-	
-	public boolean saveCat(List<String> name ,List<Byte> sex ,List<Integer> typeid ,List<Date> birthday,
-	  		   List<Integer> rankid ,List<Integer> pedigree_certificateid, List<Byte> immune, List<Integer> price, List<Byte> stalen,Integer catteryId){
+    
+    
+	public boolean saveCat(List<Cat> catlist,List<File> upload,List<Integer> imagetypelist,
+ 		   List<Integer> catsimagelist,List<String> uploadFileName,String userid) throws Exception{
     	
-	/*	for(int i = 0;i<name.size();i++){
-   		Cattery cattery = new Cattery();
-   		cattery.setId(catteryId);
-   		Catype catype = new Catype(); 
-   		catype.setId(typeid.get(i));
-   		Rank rank =  new Rank();
-   		rank.setId(rankid.get(i));
-   		PedigreeCertificate pedigree_certificate = new PedigreeCertificate();
-   		pedigree_certificate.setId(pedigree_certificateid.get(i));
-   	
-   		Cat cat = new Cat(cattery,null,catype,rank,pedigree_certificate,
-   				name.get(i),immune.get(i),birthday.get(i),price.get(i),null,stalen.get(i),sex.get(i),null);
-   		
-    	Integer catid = catDao.save(cat);
-    	if (String.valueOf(catid)==null){
-    		return false;
-    	}
-		}*/
-		return true;
+           this.getCatsImageList(catsimagelist, upload, imagetypelist, uploadFileName);
+    	   
+    	   for(int i=0;i<catlist.size();i++){
+    		   
+    		   try{
+    			   Integer catId = catDao.save(catlist.get(i));
+            	   uploadManager.upLoadImage(imagetypelists.get(i), uploads.get(i), uploadFileNames.get(i), userid, catId , 1);
+    		   }
+        	   catch (Exception e){
+        		   
+        		   e.printStackTrace();
+        		   throw e;
+        		   
+        	   }
+        	 
+    	   }
+    	   return true;
+
     
     }
        
-       public void updateCat(Integer Id, String name ,Byte sex ,Integer typeid ,Date birthday,
-	  		   Integer rankid ,Integer pedigree_certificateid, Byte immune, Integer price, Byte stalen,Integer catteryId){
+       public void updateCat(List<Cat> catlist,List<File> upload,List<Integer> imagetypelist,
+    		   List<String> uploadFileName,String userid) throws Exception{
     	
     	
-    /*	Cattery cattery = new Cattery();
-      	cattery.setId(catteryId);
-      	Catype catype = new Catype(); 
-      	catype.setId(typeid);
-      	Rank rank =  new Rank();
-      	rank.setId(rankid);
-      	
- 		PedigreeCertificate pedigree_certificate = new PedigreeCertificate();
-   		pedigree_certificate.setId(pedigree_certificateid);
-   		Cat cat = new Cat(cattery,null,catype,rank,pedigree_certificate,
-   				name,immune,birthday,price,null,stalen,sex,null);
-      	cat.setId(Id);
-       	
-       	catDao.update(cat);*/
+    	   try{
+			   catDao.update(catlist.get(0));
+        	   uploadManager.upLoadImage(imagetypelist, upload, uploadFileName, userid, catlist.get(0).getId() , 1);
+		   }
+    	   catch (Exception e){
+    		   
+    		   e.printStackTrace();
+    		   throw e;
+    		   
+    	   }
        
        }
        
@@ -96,126 +108,136 @@ public class CattManagerImpl
     		   List<Integer> catsimagelist,List<String> uploadFileName,String userid) throws Exception{
     	   
     	   
-    	   
-    	   List<List<Integer>> catsimagelists = this.getCatsImageList(catsimagelist);
-    	   
+    	   this.getCatsImageList(catsimagelist, upload, imagetypelist, uploadFileName);
     	   
     	   for(int i=0;i<parentcatlist.size();i++){
     		   
-    		   List<Integer> imagelist = catsimagelists.get(i);
-        	   Integer catId = catDao.saveParentcat(parentcatlist.get(i));
-        	   
-        	   uploadManager.upLoadImage(imagetypelist, upload, uploadFileName, userid, catId);
-        	   
-        	   for (int j=0;j<imagelist.size();j++){
-        		   Imagmsg imagmsg = new Imagmsg();
-        		   Cat cat = new Cat();
-        		   cat.setId(catId);
-        		   imagmsg.setCat(cat);
+    		   try{
+    			   Integer catId = catDao.saveParentcat(parentcatlist.get(i));
+            	   uploadManager.upLoadImage(imagetypelists.get(i), uploads.get(i), uploadFileNames.get(i), userid, catId , 2);
+    		   }
+        	   catch (Exception e){
         		   
-        		   
+        		   e.printStackTrace();
+        		   throw e;
         		   
         	   }
-        	   
-    	   
+        	 
     	   }
-             return true;
+
+          return true;
     	   
        }
        
-	public List<List<Integer>> getCatsImageList(List<Integer> catsimagelist){
-		
-		  Integer midid = 0;
-		   int i = 0;
-		   List<Integer> catsimagelistsub = new ArrayList<Integer>();
-		   List<List<Integer>> catsimagelists = new ArrayList<List<Integer>>();
-		   
-		   for(;i < catsimagelist.size();i++){
-	       	
-	       	if(catsimagelist.get(i)!=midid){
-	       		
-	       		catsimagelists.add(catsimagelistsub);
-	       		midid = catsimagelist.get(i);
-	       		catsimagelistsub = new ArrayList<Integer>();
-	       		catsimagelistsub.add(catsimagelist.get(i));
-	       		continue;
-
-	       	}
-	       	else{
-	       		catsimagelistsub.add(catsimagelist.get(i));
-	       	}
-	       	
-	       }
-		   
-		   
-		   catsimagelists.add(catsimagelistsub);
-		   return catsimagelists;
-		
-	}
-	
-	
-	
-	public List<List<Parentcat>> getParentcatList(List<Integer> catsimagelist){
+       
+       public void updateParentcat(List<Parentcat> parentcatlist,List<File> upload,List<Integer> imagetypelist,
+    		   List<String> uploadFileName,String userid) throws Exception{
+    	
+    	
+    	   try{
+			   catDao.updateParentcat(parentcatlist.get(0));
+        	   uploadManager.upLoadImage(imagetypelist, upload, uploadFileName, userid, parentcatlist.get(0).getId() , 2);
+		   }
+    	   catch (Exception e){
+    		   
+    		   e.printStackTrace();
+    		   throw e;
+    		   
+    	   }
+       
+       }
+       
+       
+	public void getCatsImageList(List<Integer> catsimagelist,List<File> upload,
+			List<Integer> imagetypelist,List<String> uploadFileName){
 		
 		   Integer midid = 0;
 		   int i = 0;
-		   List<Parentcat> parentcatlistsub = new ArrayList<Parentcat>();
-		   List<List<Parentcat>> parentcatlists = new ArrayList<List<Parentcat>>();
 		   
+		   uploads = new ArrayList<List<File>>();
+		   imagetypelists = new ArrayList<List<Integer>>();
+		   uploadFileNames = new ArrayList<List<String>>();
+		   
+		   List<File> uploadsub = new ArrayList<File>();
+		   List<Integer> imagetypelistsub = new ArrayList<Integer>();
+		   List<String> uploadFileNamesub = new ArrayList<String>();
+
+
+
 		   for(;i < catsimagelist.size();i++){
-	       	
+
 	       	if(catsimagelist.get(i)!=midid){
-	       		
-	       		parentcatlists.add(parentcatlistsub);
+
+	       	    uploads.add(uploadsub);
+	            imagetypelists.add(imagetypelistsub);
+	       	    uploadFileNames.add(uploadFileNamesub);
+
 	       		midid = catsimagelist.get(i);
-	       		parentcatlistsub = new ArrayList<Parentcat>();
-	       		parentcatlistsub.add(parentcatlist.get(i));
+	       		
+	       	    uploadsub = new ArrayList<File>();
+			    imagetypelistsub = new ArrayList<Integer>();
+			    uploadFileNamesub = new ArrayList<String>();
+	   
+	       		uploadsub.add(upload.get(i));
+	       		imagetypelistsub.add(imagetypelist.get(i));
+	       		uploadFileNamesub.add(uploadFileName.get(i));
 	       		continue;
 
 	       	}
 	       	else{
-	       		parentcatlistsub.add(parentcatlist.get(i));
-	       	}
-	       	
-	       }
-		   
-		   
-		   parentcatlists.add(parentcatlistsub);
-		   return parentcatlists;
-		
-	}
-	
-	
-	public List<List<Integer>> getCatsImageList(List<Integer> catsimagelist){
-		
-		  Integer midid = 0;
-		   int i = 0;
-		   List<Integer> catsimagelistsub = new ArrayList<Integer>();
-		   List<List<Integer>> catsimagelists = new ArrayList<List<Integer>>();
-		   
-		   for(;i < catsimagelist.size();i++){
-	       	
-	       	if(catsimagelist.get(i)!=midid){
-	       		
-	       		catsimagelists.add(catsimagelistsub);
-	       		midid = catsimagelist.get(i);
-	       		catsimagelistsub = new ArrayList<Integer>();
-	       		catsimagelistsub.add(catsimagelist.get(i));
-	       		continue;
 
-	       	}
-	       	else{
-	       		catsimagelistsub.add(catsimagelist.get(i));
+	       		uploadsub.add(upload.get(i));
+	       		imagetypelistsub.add(imagetypelist.get(i));
+	       		uploadFileNamesub.add(uploadFileName.get(i));
 	       	}
 	       	
 	       }
-		   
-		   
-		   catsimagelists.add(catsimagelistsub);
-		   return catsimagelists;
+
+		   uploads.add(uploadsub);
+           imagetypelists.add(imagetypelistsub);
+      	   uploadFileNames.add(uploadFileNamesub);
+
 		
 	}
-       
-       
+	
+	public void savePlan(Breedingplan breedingplan) throws Exception{
+		try{
+			
+			breedingPlanDao.save(breedingplan);
+			
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			throw e;
+		}
+	}
+	
+	public void saveCattery(Cattery cattery,List<File> upload,List<Integer> imagetypelist,
+	 		   List<String> uploadFileName,String userid) throws Exception{
+		
+		try{
+			
+			catteryDao.save(cattery);
+		//	uploadManager.upLoadImage(imagetypelist, upload, uploadFileName, userid, Integer.valueOf(userid) , 3);
+		}
+		catch (Exception e){
+			e.printStackTrace();
+			throw e;
+		}
+	}
+   public void updateCattery(Cattery cattery) throws Exception{
+		
+		try{
+			
+			catteryDao.update(cattery);
+			
+		}
+		catch (Exception e){
+			e.printStackTrace();
+			throw e;
+		}
+	}
+	
+	
 
 }

@@ -8,17 +8,49 @@ import java.io.File;
 import java.util.*;
 
 
+/**
+ * @author 打水的
+ *
+ */
+/**
+ * @author 打水的
+ *
+ */
 public interface CattManager
 {
 
 	
 	//注册猫咪信息
-	boolean saveCat(List<String> name ,List<Byte> sex ,List<Integer> typeid ,List<Date> birthday,
-  		   List<Integer> rankid ,List<Integer> pedigree_certificate, List<Byte> immune, List<Integer> price, List<Byte> stalen,Integer catteryId);
+	/**
+	 * 2015-8-3
+	 * 打水的
+	 * @param catlist
+	 * @param upload
+	 * @param imagetypelist
+	 * @param catsimagelist
+	 * @param uploadFileName
+	 * @param userid
+	 * @return
+	 * @throws Exception
+	 * boolean
+	 */
+	boolean saveCat(List<Cat> catlist,List<File> upload,List<Integer> imagetypelist,
+	 		   List<Integer> catsimagelist,List<String> uploadFileName,String userid) throws Exception;
   	
   	//更新猫咪信息
-	void updateCat(Integer Id, String name ,Byte sex ,Integer typeid ,Date birthday,
-	  		   Integer rankid ,Integer pedigree_certificate, Byte immune, Integer price, Byte stalen,Integer catteryId);
+	/**
+	 * 2015-8-3
+	 * 打水的
+	 * @param catlist
+	 * @param upload
+	 * @param imagetypelist
+	 * @param uploadFileName
+	 * @param userid
+	 * @throws Exception
+	 * void
+	 */
+	void updateCat(List<Cat> catlist,List<File> upload,List<Integer> imagetypelist,
+ 		   List<String> uploadFileName,String userid) throws Exception;
 	
 	
 	
@@ -35,10 +67,54 @@ public interface CattManager
 	 * @throws Exception
 	 * boolean
 	 */
-	public boolean saveParentcat(List<Parentcat> parentcatlist,List<File> upload,List<Integer> imagetypelist,
+	boolean saveParentcat(List<Parentcat> parentcatlist,List<File> upload,List<Integer> imagetypelist,
  		   List<Integer> catsimagelist,List<String> uploadFileName,String userid) throws Exception;
 
-    
+ 
+	/**
+	 * 2015-8-3
+	 * 打水的
+	 * @param parentcatlist
+	 * @param upload
+	 * @param imagetypelist
+	 * @param uploadFileName
+	 * @param userid
+	 * @throws Exception
+	 * void
+	 */
+	void updateParentcat(List<Parentcat> parentcatlist,List<File> upload,List<Integer> imagetypelist,
+ 		   List<String> uploadFileName,String userid) throws Exception;
+	
+	/**
+	 * 2015-8-3
+	 * 打水的
+	 * @param breedingplan
+	 * @throws Exception
+	 * void
+	 */
+	void savePlan(Breedingplan breedingplan) throws Exception;
 
+	
+	/**
+	 * 2015-8-3
+	 * 打水的
+	 * @param cattery
+	 * @param upload
+	 * @param imagetypelist
+	 * @param uploadFileName
+	 * @throws Exception
+	 * void
+	 */
+	void saveCattery(Cattery cattery,List<File> upload,List<Integer> imagetypelist,
+	 		   List<String> uploadFileName, String userid) throws Exception;
+	
+	/**
+	 * 2015-8-3
+	 * 打水的
+	 * @param cattery
+	 * @throws Exception
+	 * void
+	 */
+	void updateCattery(Cattery cattery) throws Exception;
 
 }

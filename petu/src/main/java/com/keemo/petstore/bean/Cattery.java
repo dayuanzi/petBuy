@@ -1,6 +1,6 @@
 package com.keemo.petstore.bean;
 
-// Generated 2015-7-31 20:39:05 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-8-4 12:37:58 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -16,6 +16,10 @@ public class Cattery implements java.io.Serializable {
 	private String name;
 	private String mainvariety;
 	private Integer experience;
+	private Byte pass;
+	private String address;
+	private String phone;
+	private String leadername;
 	private Set parentcats = new HashSet(0);
 	private Set follows = new HashSet(0);
 	private Set orders = new HashSet(0);
@@ -26,13 +30,18 @@ public class Cattery implements java.io.Serializable {
 	}
 
 	public Cattery(Region region, Cattpetrank cattpetrank, String name,
-			String mainvariety, Integer experience, Set parentcats,
-			Set follows, Set orders, Set cats, Set breedingplans) {
+			String mainvariety, Integer experience, Byte pass, String address,
+			String phone, String leadername, Set parentcats, Set follows,
+			Set orders, Set cats, Set breedingplans) {
 		this.region = region;
 		this.cattpetrank = cattpetrank;
 		this.name = name;
 		this.mainvariety = mainvariety;
 		this.experience = experience;
+		this.pass = pass;
+		this.address = address;
+		this.phone = phone;
+		this.leadername = leadername;
 		this.parentcats = parentcats;
 		this.follows = follows;
 		this.orders = orders;
@@ -86,6 +95,38 @@ public class Cattery implements java.io.Serializable {
 
 	public void setExperience(Integer experience) {
 		this.experience = experience;
+	}
+
+	public Byte getPass() {
+		return this.pass;
+	}
+
+	public void setPass(Byte pass) {
+		this.pass = pass;
+	}
+
+	public String getAddress() {
+		return this.address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getPhone() {
+		return this.phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getLeadername() {
+		return this.leadername;
+	}
+
+	public void setLeadername(String leadername) {
+		this.leadername = leadername;
 	}
 
 	public Set getParentcats() {

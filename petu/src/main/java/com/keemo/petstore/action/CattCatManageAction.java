@@ -46,106 +46,32 @@ public class CattCatManageAction
 	private final String CATT_UPD_CAT = "cattupdcat";
 	
 	
-	private List<Integer> id;
-	private List<String> name;
-	private List<Byte> sex;
-	private List<Integer> typeid;
-	private List<Integer> rankid;
-	private List<Integer> pedigree_certificate;
-	private List<Byte> immune;
-	private List<Date> birthday;
-    private List<Integer> price ;
-	private List<Byte> stalen;
-    
+	public List<Cat> catlist;
 	
-	public void setId(List<Integer> id)
-	{
-		this.id = id;
-	}
-    
-	public void setName(List<String> name)
-	{
-		this.name = name;
-	}
-	public List<String> getName()
-	{
-		return this.name ;
-	}
+		
+	List<Integer> catsimagelist;
 	
-	public void setSex(List<Byte> sex)
-	{
-		this.sex = sex;
+	public void setCatsimagelist(List<Integer> catsimagelist){
+		
+	     this.catsimagelist = catsimagelist;
+	     
 	}
-	public List<Byte> getSex()
-	{
-		return this.sex ;
+	public List<Integer> getCatsimagelist(){
+		
+		return this.catsimagelist;
+			
+	}
+	public void setCatlist(List<Cat> catlist){
+		
+	     this.catlist = catlist;
+	     
+	}
+	public List<Cat> getCatlist(){
+		
+		return this.catlist;
+			
 	}
 	
-	public void setTypeid(List<Integer> typeid)
-	{
-		this.typeid = typeid;
-	}
-	public List<Integer> getTypeid()
-	{
-		return this.typeid ;
-	}
-	
-	public void setRankid(List<Integer> rankid)
-	{
-		this.rankid = rankid;
-	}
-	public List<Integer> getRankid()
-	{
-		return this.rankid ;
-	}
-	
-	
-	public void setPedigree_certificate(List<Integer> pedigree_certificate)
-	{
-		this.pedigree_certificate = pedigree_certificate;
-	}
-	public List<Integer> getPedigree_certificate()
-	{
-		return this.pedigree_certificate ;
-	}
-	
-	
-	public void setImmune(List<Byte> immune)
-	{
-		this.immune = immune;
-	}
-	public List<Byte> getImmune()
-	{
-		return this.immune ;
-	}
-
-	public void setBirthday(List<Date> birthday)
-	{
-		this.birthday = birthday;
-	}
-	public List<Date> getBirthday()
-	{
-		return this.birthday ;
-	}
-
-	public void setPrice(List<Integer> price)
-	{
-		this.price = price;
-	}
-	public List<Integer> getPrice()
-	{
-		return this.price ;
-	}
-	
-	public void setStalen(List<Byte> stalen)
-	{
-		this.stalen = stalen;
-	}
-	public List<Byte> getStalen()
-	{
-		return this.stalen ;
-	}
-    
     		
     @Action(value = "CatRegisterAction", 
 			results = { 
@@ -161,40 +87,12 @@ public class CattCatManageAction
 		throws Exception
 	{
     	ActionContext ctx = ActionContext.getContext();
-  
-    	
-    	//String catteryId = ((String[])ctx.getSession().get("u"))[0];
-    	
-    /*	String catteryId = "1";
-    	
-    	boolean result = catt.saveCat(name, sex, typeid, birthday, rankid, pedigree_certificate, immune, price, stalen, Integer.valueOf(catteryId)) ;
-         if (result==false){
-      
-    		ServletActionContext.getRequest().setAttribute("msg", "保存失败");
-			return CATT_ADD_CAT_ERROR;
-        	
+    	 
+    	String userid = (String)ctx.getSession().get("userid");
+		 
+		catt.saveCat(catlist, uploadfile, imageType, catsimagelist, uploadfileFileName, userid);
+      	return CATT_ADD_CAT;
         
-    	}
-        	  if(uploadfile!=null){
-              	try{
-          
-              		upload.upLoadImage(imageType, uploadfile, uploadfileFileName, catteryId);
-              	}
-              	catch(Exception e)
-              	{
-              		e.printStackTrace();
-              		return CATT_ADD_IMAG_ERROR;
-              	}
-              	
-              	
-              }
-              */
-      		return CATT_ADD_CAT;
-        	
-        
-     
-        
-      
 	}
 	
     @Action(value = "CatUpdateAction", 
@@ -215,34 +113,10 @@ public class CattCatManageAction
 
     	
 	ActionContext ctx = ActionContext.getContext();
-  
-    	
-    	//String catteryId = ((String[])ctx.getSession().get("u"))[0];
-    	/*
-    String catteryId = "1";
-    try{
-    	catt.updateCat(id.get(0),name.get(0), sex.get(0), typeid.get(0), birthday.get(0), 
-    			rankid.get(0), pedigree_certificate.get(0), immune.get(0), price.get(0), stalen.get(0), Integer.valueOf(catteryId)) ;
-    }
-    catch (Exception e)
-    {
-    	e.printStackTrace();
-    }
-       
-      
-  if(uploadfile!=null){
-    try{
-          
-       upload.upLoadImage(imageType, uploadfile, uploadfileFileName, catteryId);
-       
-       }
-       catch(Exception e)
-       {
-          e.printStackTrace();
-          return CATT_ADD_IMAG_ERROR;
-       }
-  }*/
-       return CATT_UPD_CAT;
+	String userid = (String)ctx.getSession().get("userid");
+	
+    catt.updateCat(catlist, uploadfile, imageType, uploadfileFileName, userid);
+    return CATT_UPD_CAT;
     	
 }
 	

@@ -36,5 +36,11 @@
 </s:form>
 
 
+<s:form action="DeleteAddressAction.do"  method="post">
+    
+    <s:textfield name="addressid" type="Integer" label="地址id"/>
+	<s:submit label="新增猫咪"/>
+</s:form>
+
 </body>
 </html>

@@ -156,8 +156,17 @@ public interface MemManager {
 	 * @param userid 需要被返回的Address列表的实例的用户id属性值
 	 * @param addressid 需要被返回的Address列表的实例的地址id属性值
 	 */
-	public void setAddressDefault(Integer userid,Integer addressid) throws Exception;
+	void setAddressDefault(Integer userid,Integer addressid) throws Exception;
 	
+	
+	/**
+	 * 2015-8-3
+	 * 打水的
+	 * @param addressid
+	 * @throws Exception
+	 * void
+	 */
+	void deleteAddress(Integer addressid) throws Exception;
 	
 	
 	/**
@@ -179,5 +188,7 @@ public interface MemManager {
 	 * List<List<Cat>>
 	 */
 	public List<List<Cat>> getCatsByCart(List<Cart> cartlist) throws Exception;
+	
+
 	
 }

@@ -12,33 +12,37 @@ public interface UploadManager
 {
 	//上传图片
   	 	
+	
 	/**
-	 * 2015-7-31
+	 * 2015-8-1
 	 * 打水的
 	 * @param imageType
 	 * @param upload
 	 * @param uploadFileName
 	 * @param userid
 	 * @param catid
+	 * @param pid
 	 * @return
 	 * @throws Exception
 	 * boolean
 	 */
-	boolean upLoadImage(List<Integer> imageType,List<File> upload,List<String> uploadFileName,String userid,Integer catid) throws Exception;
+	boolean upLoadImage(List<Integer> imageType,List<File> upload,List<String> uploadFileName,String userid,Integer catid, Integer pid) throws Exception;
 	
 	//保存图片信息
  
+
     /**
-     * 2015-7-31
+     * 2015-8-1
      * 打水的
      * @param path
      * @param imagetype
      * @param catid
+     * @param pid
      * @return
      * @throws Exception
      * boolean
      */
-    boolean saveImage(String path,Integer imagetype,Integer catid) throws Exception;
+    boolean saveImage(String path,Integer imagetype,Integer catid,Integer pid) throws Exception;
     
     //重命名
     /**

@@ -8,6 +8,9 @@ import javax.servlet.http.HttpSession;
 import com.keemo.petstore.action.base.*;
 import com.keemo.petstore.exception.*;
 import com.opensymphony.xwork2.*;
+
+import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.interceptor.*;
 import com.keemo.petstore.bean.*;
 
@@ -22,6 +25,7 @@ public class MemberDetailAction
 	private final String MEM_CAT_LIST = "memcatlist";
 	private final String MEM_CART_LIST = "memcartlist";
 	private final String MEM_CATT_LIST = "memcatterylist";
+	private final String MEM_REGIS_CATT= "memregiscattery";
 	
 	
 	private List<Order> orderlist;
@@ -144,6 +148,9 @@ public class MemberDetailAction
 		catterylist = mem.getFollowedCatterybyUserid(pageNo,  WebConstant.memFollowedCatteryPageSize, userId);
 		return MEM_CATT_LIST;
 	}
+    
+    
+
 	
 	
 }

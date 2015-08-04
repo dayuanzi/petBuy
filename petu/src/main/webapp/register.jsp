@@ -13,7 +13,6 @@
 </head>
 <body>
 	<h2>注册</h2>
-	
 	<form method="post" action="UserRegisterAction.do">
 
 		<table>

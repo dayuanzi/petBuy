@@ -8,6 +8,9 @@ import javax.servlet.http.HttpSession;
 import com.keemo.petstore.action.base.*;
 import com.keemo.petstore.exception.*;
 import com.opensymphony.xwork2.*;
+
+import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.interceptor.*;
 import com.keemo.petstore.bean.*;
 
@@ -66,5 +69,5 @@ public class CatteryDetailAction
 	return ADM_CATT_DET_CAT_LIST;
 }
 	
-	
+    
 }

@@ -1,6 +1,6 @@
 package com.keemo.petstore.bean;
 
-// Generated 2015-7-31 20:39:05 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-8-4 12:37:58 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.Set;
  */
 public class Breedingplan implements java.io.Serializable {
 
-	private int id;
+	private Integer id;
 	private Parentcat parentcatByMother;
 	private Cattery cattery;
 	private Parentcat parentcatByFather;
@@ -20,19 +20,17 @@ public class Breedingplan implements java.io.Serializable {
 	private String video;
 	private Integer catcount;
 	private Integer ordercount;
+	private String fatherColor;
+	private String motherColor;
 	private Set breedingorders = new HashSet(0);
 
 	public Breedingplan() {
 	}
 
-	public Breedingplan(int id) {
-		this.id = id;
-	}
-
-	public Breedingplan(int id, Parentcat parentcatByMother, Cattery cattery,
+	public Breedingplan(Parentcat parentcatByMother, Cattery cattery,
 			Parentcat parentcatByFather, Admin admin, Date time, String video,
-			Integer catcount, Integer ordercount, Set breedingorders) {
-		this.id = id;
+			Integer catcount, Integer ordercount, String fatherColor,
+			String motherColor, Set breedingorders) {
 		this.parentcatByMother = parentcatByMother;
 		this.cattery = cattery;
 		this.parentcatByFather = parentcatByFather;
@@ -41,14 +39,16 @@ public class Breedingplan implements java.io.Serializable {
 		this.video = video;
 		this.catcount = catcount;
 		this.ordercount = ordercount;
+		this.fatherColor = fatherColor;
+		this.motherColor = motherColor;
 		this.breedingorders = breedingorders;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -114,6 +114,22 @@ public class Breedingplan implements java.io.Serializable {
 
 	public void setOrdercount(Integer ordercount) {
 		this.ordercount = ordercount;
+	}
+
+	public String getFatherColor() {
+		return this.fatherColor;
+	}
+
+	public void setFatherColor(String fatherColor) {
+		this.fatherColor = fatherColor;
+	}
+
+	public String getMotherColor() {
+		return this.motherColor;
+	}
+
+	public void setMotherColor(String motherColor) {
+		this.motherColor = motherColor;
 	}
 
 	public Set getBreedingorders() {
