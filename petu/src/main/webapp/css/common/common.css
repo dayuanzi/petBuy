@@ -1,4 +1,15 @@
-
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.8) inset;
+}
+.center {
+	margin: 0 auto;
+}
+.fr {
+	float: right;
+}
+.fl {
+	float: left;
+}
 .mt5 {
 	margin-top: 5px;
 }
@@ -59,8 +70,20 @@
 .pt5 {
 	padding-top: 3px;
 }
+.lh20 {
+	line-height: 20px;
+}
+.lh25 {
+	line-height: 25px;
+}
+.lh30 {
+	line-height: 30px;
+}
+.lh40 {
+	line-height: 40px;
+}
 .color-theme {
-	color: #45B7A5;
+	color: #45b9a6;
 }
 .color-999 {
 	color: #999;
@@ -70,6 +93,18 @@
 }
 .color-blank {
 	color: #000000;
+}
+.orange_1 {
+	color: #ff9324;
+}
+.gray_1 {
+	color: #444;
+}
+.gray_2 {
+	color: #999;
+}
+.gray_3 {
+	color: #aaa;
 }
 .font-common {
 	font-family: "microsoft yahei", simsun, simhei, helvetica, arial, tahoma, verdana, sans-serif;

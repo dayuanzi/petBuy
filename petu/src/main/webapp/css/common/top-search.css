@@ -1,17 +1,13 @@
-.top{
-	width: 1190px;
+.top_search {
+	width: 1120px;
 	margin: 0 auto;
-	height: 88px;
+	height: 100px;
 }
 .logo {
 	float: left;
-	width: 180px;
-	height: 59px;
-	margin-top: 15px;
-}
-.top_search {
-	width: 590px;
-	margin: 25px 0 0 75px;
+	width: 200px;
+	height: 60px;
+	margin-top: 20px;
 }
 .left {
 	float: left;
@@ -19,55 +15,74 @@
 .right {
 	float: right;
 }
-@media screen and (max-width: 1190px) .top_search {
-	width: 450px;
+.search {
+	float: left;
+	height: 40px;
 }
-@media screen and (max-width: 1190px) .top_auto,
-.nav_auto,
-.toolbar_auto {
-	width: 990px;
-}
-.top_ad {
-	width: 300px;
+.search_link {
 	height: auto;
-	margin-top: 32px;
 	margin-left: 35px;
 }
 .search_btn {
-	background: #45B7A5;
-	height: 38px;
-	width: 92px;
-	cursor: pointer;
 	float: left;
-	font: 18px/34px "Microsoft YaHei";
+	background: #45B7A5;
+	height: 42px;
+	width: 60px;
+	cursor: pointer;
+	font: 14px "Microsoft YaHei";
 	color: #fff;
 	border: none;
 }
+
 .search_edit {
 	float: left;
-	width: 496px;
-	height: 34px;
-	border: 2px solid #45B7A5;
-	border-right: none;
-	background: url("/Images/sitenew/input_bj.jpg") repeat-x;
-}
-.search {
-	float: left;
 	border: 0;
-	width: 496px;
-	height: 20px;
-	padding: 7px 10px;
+	width: 440px;
+	height: 40px;
+	padding: 0px 0px 0px 10px;
 	outline: none;
 	font: 14px/20px "Microsoft YaHei";
+	border: 1px solid #45B7A5;
 	color: #666;
 	background: none;
 	box-sizing: content-box;
 }
-.top_ad a {
+
+.search_link ul {
+	float: right;
+	margin-top: 10px;
+}
+.search_link ul li {
+	float: left;
+	margin-left: 15px;
+}
+.search_link ul li a {
+	color: #aaa;
+	border-bottom: solid #aaa 1px;
+}
+.search_link ul li a:hover {
+	color: #45b9a6;
+	border-bottom: solid #45b9a6 1px;
+}
+/*.search_link a {
 	color: #AAAAAA;
-	margin-right: 10px;
+	
 	font-size: 14px;
 }
-.top_ad a:hover {
+.search_link a:hover {
 	color: #45B7A5;
 }
+.top_auto,
+.nav_auto,
+.toolbar_auto {
+	width: 990px;
+}
+.search {
+	float: left;
+	width: 450px;
+	height: 40px;
+	border: 1px solid #45B7A5;
+	border-right: none;
+	background: url("/Images/sitenew/input_bj.jpg") repeat-x;
+}
+* */

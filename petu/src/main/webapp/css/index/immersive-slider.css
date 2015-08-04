@@ -6,7 +6,8 @@ Class Definitions
   background: #161923;
   
   height: 320px;
-  width:100%;
+  width:1120px;
+  margin: 0 auto;
   opacity: .9;
   box-sizing: border-box;
   -moz-box-sizing: border-box;

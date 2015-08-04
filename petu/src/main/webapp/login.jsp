@@ -197,26 +197,26 @@ input:-webkit-autofill {
 
 						</form>
 
-						<form id="tab-register" class="tab-page hide ">
+						<form id="tab-register" class="tab-page hide " method="post" action="UserRegisterAction.do">
 
 							<div class="input-wrapper">
 								<div class="textbox-border textbox-wide">
-									<span class="user"></span> <input id="email" name="email"
+									<span class="user"></span> <input id="userName" name="userName"
 										class="textbox" style="margin-left: 8px" type="text"
 										placeholder="输入您的邮箱/您可以使用此邮箱登陆" value="">
 								</div>
 							</div>
 							<div class="input-wrapper " style="margin-top: 30px">
 								<div class="textbox-border textbox-wide">
-									<span class="password"></span> <input id="r_password"
-										name="r_password" class="textbox" style="margin-left: 8px"
+									<span class="password"></span> <input id="password"
+										name="password" class="textbox" style="margin-left: 8px"
 										type="password" placeholder="输入密码" />
 								</div>
 							</div>
 							<div class="input-wrapper" style="margin-top: 30px">
 								<div class="textbox-border textbox-wide">
-									<span class="password"></span> <input id="r_repassword"
-										name="r_repassword" class="textbox" style="margin-left: 8px"
+									<span class="password"></span> <input id="repassword"
+										name="repassword" class="textbox" style="margin-left: 8px"
 										type="password" placeholder="重新输入密码以确认" />
 								</div>
 							</div>
@@ -251,63 +251,63 @@ input:-webkit-autofill {
 					timely : 1,
 					//debug:false;
 					fields : {
-						"email" : {
+						"userName" : {
 							rule : "required;email;",
 							msg : {
 								required : "对不起，用户名不能为空 ",
 								email : "你的邮箱格式不对哦(。・＿・。)ﾉ",
 							},
 							invalid : function() {
-								$("#email").parent().css("border-bottom-color",
+								$("#userName").parent().css("border-bottom-color",
 										"#e66359");
 								//$("#username").prev().css("background-image", "url(img/user_erro.png)");
-								$("#email").siblings(".user").css(
+								$("#userName").siblings(".user").css(
 										"background-image",
 										"url(img/User_error.png)");
 							},
 							valid : function() {
 								//$("#username").prev().css("background-image","url(img/User_pass.png)");
-								$("#email").parent().css("border-bottom-color",
+								$("#userName").parent().css("border-bottom-color",
 										"#52B529");
-								$("#email").siblings(".user").css(
+								$("#userName").siblings(".user").css(
 										"background-image",
 										"url(img/User_pass.png)");
 
 							}
 						},
-						"r_password" : {
+						"password" : {
 							rule : "required;password",
 							msg : {
 								required : "密码不能为空哦(๑•ᴗ•๑)"
 							},
 							invalid : function() {
-								$("#r_password").parent().css(
+								$("#password").parent().css(
 										"border-bottom-color", "#e66359");
-								$("#r_password").siblings(".password").css(
+								$("#password").siblings(".password").css(
 										"background-image",
 										"url(img/Lock_error.png)");
 							},
 							valid : function() {
-								$("#r_password").parent().css(
+								$("#password").parent().css(
 										"border-bottom-color", "#52B529");
-								$("#r_password").siblings(".password").css(
+								$("#password").siblings(".password").css(
 										"background-image",
 										"url(img/Lock_pass.png)");
 							}
 						},
-						"r_repassword" : {
+						"repassword" : {
 							rule : "required;match(password);",
 							invalid : function() {
-								$("#r_repassword").parent().css(
+								$("#repassword").parent().css(
 										"border-bottom-color", "#e66359");
-								$("#r_repassword").siblings(".password").css(
+								$("#repassword").siblings(".password").css(
 										"background-image",
 										"url(img/Lock_error.png)");
 							},
 							valid : function() {
-								$("#r_repassword").parent().css(
+								$("#repassword").parent().css(
 										"border-bottom-color", "#52B529");
-								$("#r_repassword").siblings(".password").css(
+								$("#repassword").siblings(".password").css(
 										"background-image",
 										"url(img/Lock_pass.png)");
 							}
@@ -331,9 +331,6 @@ input:-webkit-autofill {
 						}, 100).animate({
 							left : 0
 						}, 100);
-					},
-					valid : function(form) {
-						$('#btn_register').css("background ", "#111222");
 					}
 				});
 	</script>

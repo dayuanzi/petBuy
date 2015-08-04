@@ -1,21 +1,17 @@
 /*==================顶部导航栏=======================*/
 /*导航栏左边登录及个人信息*/
-
 .clear {
 	clear: both;
 	overflow: hidden;
 	height: 0
 }
 .nav-bar {
-	width: 100%;
-	margin: 0 auto;
 	background: #f0f0f0;
 	height: 40px;
 }
 .header-login {
 	float: left;
 	width: 40%;
-	margin-left: 79px;
 	text-align: center;
 	padding-top: 10px;
 }
@@ -46,20 +42,19 @@
 	padding: 0;
 	float: right;
 	background: #f0f0f0;
-	padding-top: 8px;
-	padding-right: 64px;
+	height: 40px;
 }
 .header-menu li {
 	float: left;
 	list-style: none;
-	font: 13px "microsoft yahei", Tahoma, Arial, sans-serif;
-	margin-left: 30px;
+	font: 14px "microsoft yahei", Tahoma, Arial, sans-serif;
+	
 }
 .header-menu li a {
 	text-align: center;
 	display: block;
 	background: #f0f0f0;
-	padding: 5px 12px;
+	line-height: 40px;
 	text-decoration: none;
 	color: rgb(68, 68, 68);
 	white-space: nowrap;
@@ -70,10 +65,9 @@
 .header-menu li ul {
 	overflow: hidden;
 	border: 1px solid #dddddd;
-	margin: 0;
-	padding: 0;
 	padding-bottom: 5px;
 	position: absolute;
+	z-index: 1;
 	visibility: hidden;
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -84,13 +78,13 @@
 .header-menu li ul li {
 	float: none;
 	display: block;
-	margin: 0;
-	padding: 0;
+	margin-left: 0;
 }
 .header-menu li ul li a {
-	width: auto;
 	background: #fff;
 	color: #24313C;
+	text-align: center;
+	padding: 0 5px 0 5px;
 }
 .header-menu li ul li a:hover {
 	background: #f0f0f0;
