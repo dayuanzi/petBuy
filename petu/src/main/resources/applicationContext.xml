@@ -159,10 +159,17 @@
 		<property name="adminDao" ref="adminDao"/>
 		<property name="sendEmail" ref="sendEmail"/>
     </bean>
+    
      <bean id="uploadManager" name="uploadManager"
 		class="com.keemo.petstore.service.impl.UploadManagerImpl" >
 		<property name="imageDao" ref="imageDao"/>
     </bean>
+    
+    <bean id="imgManager" name="imgManager"
+		class="com.keemo.petstore.service.impl.ImgManagerImpl" >
+		<property name="imageDao" ref="imageDao"/>
+    </bean>
+    
   
      <bean id="sendEmail" name="sendEmail"
 		class="com.keemo.petstore.util.SendEmail" >
