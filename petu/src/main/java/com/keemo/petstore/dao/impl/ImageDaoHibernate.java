@@ -66,6 +66,27 @@ public class ImageDaoHibernate extends YeekuHibernateDaoSupport implements Image
 		.delete(get(id));
 	}
 
+	
+	public Imagmsg findByImageId(final Integer imageId,final Integer pid , final Integer imagetype){
+		
+		HibernateTemplate ht=getHibernateTemplate();
+		
+		return (Imagmsg)ht.find("select imagmsg from Imagmsg imagmsg where imagmsg.catid = ? and imagmsg.pid = ? and imagmsg.imagetype = ?"
+				               ,imageId,pid,imagetype).get(0);
+		 
+	   
+	}
+	
+	
+public List<Imagmsg> findByImageList(final Integer catId,final Integer pid , final Integer imagetype){
+		
+		HibernateTemplate ht=getHibernateTemplate();
+		
+		return ht.find("select imagmsg from Imagmsg imagmsg where imagmsg.catid = ? and imagmsg.pid = ? and imagmsg.imagetype = ?");
+		 
+	   
+	}
+	
 	/**
 	 * 根据条件返回猫咪列表
 	 * @param pageNo 

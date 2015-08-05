@@ -5,6 +5,14 @@ import java.util.*;
 import com.keemo.petstore.bean.Imagmsg;
 
 
+/**
+ * @author 打水的
+ *
+ */
+/**
+ * @author 打水的
+ *
+ */
 public interface ImageDao
 {
 	/**
@@ -38,9 +46,27 @@ public interface ImageDao
 	 * @param id 需要被删除的Image实例的标识属性值
 	 */
 	void delete(Integer id);
-	
 
-	
+	/**
+	 * 2015-8-4
+	 * 打水的
+	 * @param catId
+	 * @param pid
+	 * @param imagetype
+	 * @return
+	 * Imagmsg
+	 */
+	Imagmsg findByImageId(Integer catId,Integer pid , Integer imagetype);
+	/**
+	 * 2015-8-5
+	 * 打水的
+	 * @param catId
+	 * @param pid
+	 * @param imagetype
+	 * @return
+	 * List<Imagmsg>
+	 */
+	List<Imagmsg> findByImageList(final Integer catId,final Integer pid , final Integer imagetype);
 	
 	
 	/**
@@ -48,9 +74,11 @@ public interface ImageDao
 	 * @param pageNo pageSize typeId
 	 * @return 返回 Imagmsg List
 	 */
-	public List<Imagmsg> findByStoreId(Integer pageNo,Integer pageSize, Integer typeId ,  Integer storeId);
+	List<Imagmsg> findByStoreId(Integer pageNo,Integer pageSize, Integer typeId ,  Integer storeId);
 	
 	
+	
+
 	
 
 	

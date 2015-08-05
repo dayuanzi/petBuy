@@ -218,7 +218,7 @@ public class CattManagerImpl
 		try{
 			
 			catteryDao.save(cattery);
-		//	uploadManager.upLoadImage(imagetypelist, upload, uploadFileName, userid, Integer.valueOf(userid) , 3);
+			uploadManager.upLoadImage(imagetypelist, upload, uploadFileName, userid, Integer.valueOf(userid) , 3);
 		}
 		catch (Exception e){
 			e.printStackTrace();

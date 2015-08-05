@@ -141,7 +141,6 @@ public class CatListAction
 		String pageIdStr = ((String[])ctx.getParameters().get("pageId"))[0];
 		Integer pageId = Integer.valueOf(pageIdStr);
 
-		
 		Integer pageNumber = Integer.valueOf(pageNumberStr);
 		if(pageId==1)
 		{
@@ -155,6 +154,5 @@ public class CatListAction
 		return ADM_CAT_LIST;
 		
 	}
-	
-	
+
 }
