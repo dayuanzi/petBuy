@@ -82,7 +82,7 @@ public class CatListAction
 			     @Result(name = "catlist", 
 			    		 location = "/content/main_cat_list.jsp"),
 			     @Result(name = "catlistindex", 
-			    		 location = "/WEB-INF/divPages/ind_catlist_div.jsp") },
+			    		 location = "/index.jsp") },
 			interceptorRefs = {  @InterceptorRef(value = "parStack")})
 	public String execute()
 		throws Exception
