@@ -1,0 +1,88 @@
+.top_search {
+	width: 1120px;
+	margin: 0 auto;
+	height: 100px;
+}
+.logo {
+	float: left;
+	width: 200px;
+	height: 60px;
+	margin-top: 20px;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.search {
+	float: left;
+	height: 40px;
+}
+.search_link {
+	height: auto;
+	margin-left: 35px;
+}
+.search_btn {
+	float: left;
+	background: #45B7A5;
+	height: 42px;
+	width: 60px;
+	cursor: pointer;
+	font: 14px "Microsoft YaHei";
+	color: #fff;
+	border: none;
+}
+
+.search_edit {
+	float: left;
+	border: 0;
+	width: 440px;
+	height: 40px;
+	padding: 0px 0px 0px 10px;
+	outline: none;
+	font: 14px/20px "Microsoft YaHei";
+	border: 1px solid #45B7A5;
+	color: #666;
+	background: none;
+	box-sizing: content-box;
+}
+
+.search_link ul {
+	float: right;
+	margin-top: 10px;
+}
+.search_link ul li {
+	float: left;
+	margin-left: 15px;
+}
+.search_link ul li a {
+	color: #aaa;
+	border-bottom: solid #aaa 1px;
+}
+.search_link ul li a:hover {
+	color: #45b9a6;
+	border-bottom: solid #45b9a6 1px;
+}
+/*.search_link a {
+	color: #AAAAAA;
+	
+	font-size: 14px;
+}
+.search_link a:hover {
+	color: #45B7A5;
+}
+.top_auto,
+.nav_auto,
+.toolbar_auto {
+	width: 990px;
+}
+.search {
+	float: left;
+	width: 450px;
+	height: 40px;
+	border: 1px solid #45B7A5;
+	border-right: none;
+	background: url("/Images/sitenew/input_bj.jpg") repeat-x;
+}
+* */

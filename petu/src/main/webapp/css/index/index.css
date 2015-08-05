@@ -1,0 +1,207 @@
+
+/*=============主要内容部分 ===================*/
+
+.sap_tabs {
+	clear: both;
+	padding-bottom: 1em;
+	padding-top: 1em;
+	height: auto;
+	overflow: hidden;
+}
+/*.tab_box {
+	background: #fd926d;
+	padding: 2em;
+}
+.top1 {
+	margin-top: 2%;
+}*/
+.resp-tabs-list {
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+}
+.resp-tab-item:first-child {
+	border-left: none;
+}
+.resp-tab-item {
+	color: #AAAAAA;
+	font-size: 16px;
+	cursor: pointer;
+	padding: 10px 25px 10px 0;
+	display: inline-block;
+	margin: 0;
+	text-align: center;
+	list-style: none;
+	outline: none;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+	text-transform: uppercase;
+}
+.resp-tab-item:hover {
+	text-shadow: none;
+	color: #33CCCC;
+}
+.resp-tab-active {
+	
+	text-shadow: none;
+	color: #33CCCC;
+}
+.resp-tabs-container {
+	padding: 0px;
+	background-color: #fff;
+	clear: left;
+}
+h2.resp-accordion {
+	display: none;
+}
+.resp-tab-content {
+	display: none;
+}
+
+.more {
+	float: right;
+}
+.more a {
+	color: #AAAAAA;
+}
+.more a:hover{
+	
+	color: #45B9A6;
+}
+/*@media only screen and (max-width: 480px) {
+	.sap_tabs {
+		padding-top: 0;
+	}
+	.resp-tabs-container {
+		padding: 10px;
+	}
+	ul.resp-tabs-list {
+		display: none;
+	}
+	h2.resp-accordion {
+		display: block;
+		font-size: 1em;
+		text-transform: uppercase;
+		padding: 10px;
+	}
+	.resp-vtabs .resp-tab-content {
+		border: 1px solid #C1C1C1;
+	}
+	.resp-vtabs .resp-tabs-container {
+		border: none;
+		float: none;
+		width: 100%;
+		min-height: initial;
+		clear: none;
+	}
+	.resp-accordion-closed {
+		display: none !important;
+	}
+}
+ul.tab_img {
+	padding: 0;
+	list-style: none;
+	position: relative;
+}
+ul.tab_img li {
+	float: left;
+	width: 15.92%;
+	margin-right: 5%;
+}
+ul.tab_img li.last {
+	margin-right: 0;
+}
+ul.tab_img1 {
+	margin-top: 3em;
+}
+.tab_desc {
+	background: #f7f7f7;
+	padding: 1em 0;
+	list-style: none;
+	text-align: center;
+}
+.tab_desc h3,
+.tab_desc1 h3 {
+	font-size: 0.85em;
+	text-transform: uppercase;
+	font-weight: 600;
+	margin-bottom: 3px;
+}
+.tab_desc h3 a,
+.tab_desc1 h3 a {
+	color: #555;
+}
+.tab_desc p,
+.tab_desc1 p {
+	font-size: 1.5em;
+	color: #000;
+	margin-bottom: 10px;
+}
+.client_box1 {
+	background: none;
+	border: 0;
+	/*border-top:1px solid #000;
+	width: 200px;
+	padding-bottom: 12px;
+	border-bottom: 1px solid rgba(69, 183, 165, 0.4);
+}
+.client_box1 h4 {
+	color: #000;
+	text-transform: uppercase;
+	font-size: 1.1em;
+	margin-top: 1em;
+}
+.container1 {
+	padding: 0 10px;
+}
+.grid_1 {
+	margin-bottom: 0em;
+}
+.col-md-12 {
+	padding: 0;
+}*/
+.cattery {
+	color: #C1C1C1;
+	display: block;
+	font-size: 13px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	text-align: center;
+	max-width: 120px;
+	float: left;
+}
+.cat-name {
+	font-size: 14px;
+	color: #000;
+	float: left;
+}
+.cat-price {
+	color: #FF9224;
+	font-size: 16px;
+}
+
+/*============================================================================*/
+
+
+
+.middle_2{margin-top:20px;}
+.middle_2 .title{width:1120px;height:40px;line-height:30px;font-size:16px;}
+.middle_2 .title a:hover{color: #45B9A6;}
+.middle_2 .title ul li{float:left;margin-right:30px;}
+.middle_2 .title ul li a:hover{color:#45b9a6;}
+.middle_2 .smallpic{width:1120px;}
+.middle_2 .smallpic ul{width:1150px;margin-top:10px;}
+.middle_2 .smallpic ul li{float:left;width:200px; margin:0 30px 30px 0;border-bottom:solid rgba(69, 183, 165, 0.4) 1px;padding-bottom:5px;}
+.middle_2 .smallpic .title{width:200px;height:40px;line-height:40px;background-color:#f0f0f0;text-align:center;}
+
+
+/*=======================================================================*/
+
+ .smallpic{width:1120px;}
+ .smallpic ul{width:1150px;margin-top:10px;}
+ .smallpic ul li{float:left;width:200px; margin:0 30px 30px 0;border-bottom:solid rgba(69, 183, 165, 0.4) 1px;padding-bottom:5px;}
+ .smallpic .title{width:200px;height:40px;line-height:40px;background-color:#f0f0f0;text-align:center;}
