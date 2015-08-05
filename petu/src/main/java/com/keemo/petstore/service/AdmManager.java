@@ -25,6 +25,8 @@ public interface AdmManager
 	
 	List<Cat> getCatsbyCatteryId(Integer pageNo,Integer pageSize,Integer catteryId);
 	
+	List<Breedingplan> getPlanList(Integer pageNo,Integer pageSize);
+	
 
     
 

@@ -2,12 +2,14 @@ package com.keemo.petstore.service.impl;
 
 import com.keemo.petstore.bean.Activericode;
 import com.keemo.petstore.bean.Admin;
+import com.keemo.petstore.bean.Breedingplan;
 import com.keemo.petstore.bean.Cat;
 import com.keemo.petstore.bean.Cattery;
 import com.keemo.petstore.vo.*;
 import com.keemo.petstore.exception.*;
 import com.keemo.petstore.service.AdmManager;
 
+import com.keemo.petstore.dao.BreedingPlanDao;
 import com.keemo.petstore.dao.CatDao;
 import com.keemo.petstore.dao.CatteryDao;
 import com.keemo.petstore.dao.CartDao;
@@ -24,6 +26,7 @@ public class AdmManagerImpl
 	private CatDao catDao;
 	private CatteryDao catteryDao;
 	private CartDao cartDao;
+	private BreedingPlanDao breedingPlanDao;
 
 	public void setCatDao(CatDao catDao)
 	{
@@ -36,6 +39,10 @@ public class AdmManagerImpl
 	public void setCartDao(CartDao cartDao)
 	{
 		this.cartDao = cartDao;
+	}
+	public void setBreedingPlanDao(BreedingPlanDao breedingPlanDao)
+	{
+		this.breedingPlanDao = breedingPlanDao;
 	}
 	
 	
@@ -63,11 +70,6 @@ public class AdmManagerImpl
 		return list;
 	}
 	
-	
-	
-	
-
-	
 	public List<Cattery> getCatterybyPage(Integer pageNo,Integer pageSize,Integer typeId,Integer rankId,Integer regionId,Integer priceLow,Integer priceHigh)
 	{
 	
@@ -92,13 +94,10 @@ public class AdmManagerImpl
 		
 	}
 	
+	public List<Breedingplan> getPlanList(Integer pageNo,Integer pageSize){
+		
+		return breedingPlanDao.findByIndex(pageNo, pageSize);
+		
+	}
 	
-
-	
-	
-
-	
-	
-	
-
 }

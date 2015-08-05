@@ -3,6 +3,8 @@
  */
 package com.keemo.petstore.service.impl;
 
+import java.util.List;
+
 import com.keemo.petstore.bean.Imagmsg;
 import com.keemo.petstore.dao.ImageDao;
 import com.keemo.petstore.service.ImgManager;
@@ -12,15 +14,86 @@ import com.keemo.petstore.service.ImgManager;
  * 
  */
 public class ImgManagerImpl implements ImgManager{
+	
 	    private ImageDao imageDao;
 	    
-		public void setImageDao(ImageDao imageDao){
-			this.imageDao = imageDao;
+		public void setImageDao(ImageDao imageDao) throws Exception{
+			
+			try{
+				this.imageDao = imageDao;
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+				throw e;
+			}
+
 		}
 
-		public Imagmsg getCatImagebyId(Integer catid){
+		public Imagmsg getCatImagebyId(Integer catid) throws Exception{
 			
-			return imageDao.findByImageId(catid, 1, 1);
+			try{
+				return imageDao.findByImageId(catid, 1, 1);
+			}
+			catch (Exception e){
+				e.printStackTrace();
+				throw e;
+			}
 			
 		}
+		
+        public Imagmsg getParentcatImagebyId(Integer catid) throws Exception{
+			
+        	try{
+        		
+        		return imageDao.findByImageId(catid, 2, 1);
+        	}
+		catch(Exception e){
+			
+			e.printStackTrace();
+			throw e;
+			
+		}
+			
+		}
+        
+        
+        public List<Imagmsg> getCatImagebyList(Integer catid,Integer imageType) throws Exception{
+			
+        	try{
+        		return imageDao.findByImageList(catid, 1, imageType);
+        	}
+        	catch(Exception e){
+        		e.printStackTrace();
+        		throw e;
+        	}
+			
+		}
+        
+        public List<Imagmsg> getParentcatImageList(Integer catid,Integer imageType) throws Exception{
+			
+        	try{
+        		return imageDao.findByImageList(catid, 2, imageType);
+        	}
+        	catch(Exception e){
+        		e.printStackTrace();
+        		throw e;
+        	}
+			
+		}
+        
+        public List<Imagmsg> getCatteryImageList(Integer userid,Integer imageType) throws Exception{
+			
+        	try{
+        		
+        		return imageDao.findByImageList(userid, 3, imageType);
+        	
+        	}
+        	catch(Exception e){
+        		e.printStackTrace();
+        		throw e;
+        	}
+		}
+        
+        
+		
 }

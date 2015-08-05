@@ -32,6 +32,7 @@ public class CatListAction
 	private List<Cat> catlist_pet;
 	private List<Cat> catlist_breed;
 	private List<Cat> catlist_match;
+	private List<Breedingplan> planlist;
 	
 	public void setCatlist(List<Cat> catlist)
 	{
@@ -65,6 +66,17 @@ public class CatListAction
 	{
 		return this.catlist_match;
 	}
+    public void setPlanlist(List<Breedingplan> planlist){
+    	
+		this.planlist = planlist;
+		
+	}
+	public List<Breedingplan> getPlanlist(){
+		
+		return this.planlist;
+		
+	}
+	
 	@Action(value = "CatListAction", 
 			results = { 
 			     @Result(name = "catlist", 
@@ -113,6 +125,8 @@ public class CatListAction
 		this.catlist_pet = adm.getCatsbyPage(pageNo, WebConstant.admIndexPageSize, typeId, 1, priceLow, priceHigh);
 		this.catlist_breed = adm.getCatsbyPage(pageNo, WebConstant.admIndexPageSize, typeId, 2, priceLow, priceHigh);
 		this.catlist_match = adm.getCatsbyPage(pageNo, WebConstant.admIndexPageSize, typeId, 3, priceLow, priceHigh);
+		this.planlist = adm.getPlanList(pageNo, WebConstant.admIndexPlanPageSize);
+
 		return ADM_CAT_LIST_INDEX;
 		}
 		
