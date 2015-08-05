@@ -5,6 +5,8 @@ public interface WebConstant
 {
 	//首页页面单页显示单元的个数
 	Integer admIndexPageSize = 10;
+	//首页页面单页显示凡与计划单元的个数
+	Integer admIndexPlanPageSize = 5;
 	//未登录浏览页面单页显示单元的个数
 	Integer admPageSize = 2;
 	//未登录浏览猫舍列表页面单页显示单元的个数

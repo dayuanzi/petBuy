@@ -115,6 +115,27 @@ public class BreedingPlanDaoHibernate extends YeekuHibernateDaoSupport implement
 		
 	}
 	
+
+	
+	
+	
+	public List<Breedingplan> findByIndex(final Integer pageNo,final Integer pageSize){
+
+		HibernateTemplate ht=getHibernateTemplate();
+		return ht.executeFind(new HibernateCallback() {
+		   public Object doInHibernate(Session session)
+	        throws HibernateException {
+		    		   Query query = session.createQuery("from Breedingplan breedingplan"); 
+		    		   query.setMaxResults(pageSize);
+				       query.setFirstResult(pageNo);
+				       return query.list();
+		    	   	}
+			 });
+
+	}
+	
+	
+	
 	
 	
 	/**
