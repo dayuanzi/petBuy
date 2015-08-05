@@ -25,7 +25,7 @@ public class ImgDetailAction
     final private String PAR_CAT_IMG = "parentcatimage";
     final private String CAT_LIST_IMG = "catlistimage";
     final private String PAR_CAT_LIST_IMG = "parentcatlistimage";
-    final private String CARR_LIST_IMG = "catimage";
+    final private String CATT_LIST_IMG = "cattlistimage";
 
     
     
@@ -63,7 +63,7 @@ public class ImgDetailAction
 	@Action(value = "CatImageAction", 
 			results = { 
 			     @Result(name = "catimage", 
-			    		 location = "/catimagedetail")})
+			    		 location = "/getimage.jsp")})
 	public String execute()
 		throws Exception
 	{
@@ -79,7 +79,7 @@ public class ImgDetailAction
 	
 	@Action(value = "ParentcatImageAction", 
 			results = { 
-			     @Result(name = "catimage", 
+			     @Result(name = "parentcatimage", 
 			    		 location = "/catimagedetail")})
 	public String ParentcatImageAction()
 		throws Exception
@@ -90,13 +90,13 @@ public class ImgDetailAction
 		
 		this.imagmsg = img.getParentcatImagebyId(catid);
 		
-		return CAT_IMG;
+		return PAR_CAT_IMG;
 	
 	}
 	
 	@Action(value = "CatImageListAction", 
 			results = { 
-			     @Result(name = "catimage", 
+			     @Result(name = "catlistimage", 
 			    		 location = "/catimagedetail")})
 	public String CatImageListAction()
 		throws Exception
@@ -107,13 +107,13 @@ public class ImgDetailAction
 		Integer imageType = (Integer)ctx.getParameters().get("imagetype");
 		this.imagmsglist = img.getCatImagebyList(catid, imageType);
 		
-		return CAT_IMG;
+		return CAT_LIST_IMG;
 	
 	}
 	
 	@Action(value = "ParentcatImageListAction", 
 			results = { 
-			     @Result(name = "catimage", 
+			     @Result(name = "parentcatlistimage", 
 			    		 location = "/catimagedetail")})
 	public String ParentcatImageListAction()
 		throws Exception
@@ -124,14 +124,14 @@ public class ImgDetailAction
 		Integer imageType = (Integer)ctx.getParameters().get("imagetype");
 		this.imagmsglist = img.getParentcatImageList(catid, imageType);
 		
-		return CAT_IMG;
+		return PAR_CAT_LIST_IMG;
 	
 	}
 	
 	
 	@Action(value = "CatteryImageListAction", 
 			results = { 
-			     @Result(name = "catimage", 
+			     @Result(name = "cattlistimage", 
 			    		 location = "/catimagedetail")})
 	public String CatteryImageListAction()
 		throws Exception
@@ -142,7 +142,7 @@ public class ImgDetailAction
 		Integer imageType = (Integer)ctx.getParameters().get("imagetype");
 		this.imagmsglist = img.getCatteryImageList(userid, imageType);
 		
-		return CAT_IMG;
+		return CATT_LIST_IMG;
 	
 	}
 	
