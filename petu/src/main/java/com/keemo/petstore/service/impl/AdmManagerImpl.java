@@ -63,11 +63,6 @@ public class AdmManagerImpl
 		return list;
 	}
 	
-	
-	
-	
-
-	
 	public List<Cattery> getCatterybyPage(Integer pageNo,Integer pageSize,Integer typeId,Integer rankId,Integer regionId,Integer priceLow,Integer priceHigh)
 	{
 	
