@@ -1,0 +1,100 @@
+/*==================顶部导航栏=======================*/
+/*导航栏左边登录及个人信息*/
+.clear {
+	clear: both;
+	overflow: hidden;
+	height: 0
+}
+.nav-bar {
+	background: #f0f0f0;
+	height: 40px;
+}
+.header-login {
+	float: left;
+	width: 40%;
+	text-align: center;
+	padding-top: 10px;
+}
+.header-grid {
+	float: left;
+	padding-top: 0em;
+}
+.header-grid li {
+	display: inline-block;
+	font-family: "microsoft yahei", "times new roman", Arial, sans-serif;
+}
+.header-grid li a {
+	margin-left: 25px;
+	text-decoration: none;
+	color: #7a7a7a;
+	font-size: 13px;
+	color: rgb(68, 68, 68);
+	font-weight: 300;
+	font-family: "microsoft yahei", "times new roman", Arial, sans-serif;
+}
+.header-grid li a:hover {
+	color: #45B7A5;
+}
+/*导航栏右边菜单选择*/
+
+.header-menu {
+	margin: 0;
+	padding: 0;
+	float: right;
+	background: #f0f0f0;
+	height: 40px;
+}
+.header-menu li {
+	float: left;
+	list-style: none;
+	font: 14px "microsoft yahei", Tahoma, Arial, sans-serif;
+	
+}
+.header-menu li a {
+	text-align: center;
+	display: block;
+	background: #f0f0f0;
+	line-height: 40px;
+	text-decoration: none;
+	color: rgb(68, 68, 68);
+	white-space: nowrap;
+}
+.header-menu li a:hover {
+	color: #45b4a7;
+}
+.header-menu li ul {
+	overflow: hidden;
+	border: 1px solid #dddddd;
+	padding-bottom: 5px;
+	position: absolute;
+	z-index: 1;
+	visibility: hidden;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-top: 1px solid white;
+	background: #fff;
+}
+.header-menu li ul li {
+	float: none;
+	display: block;
+	margin-left: 0;
+}
+.header-menu li ul li a {
+	background: #fff;
+	color: #24313C;
+	text-align: center;
+	padding: 0 5px 0 5px;
+}
+.header-menu li ul li a:hover {
+	background: #f0f0f0;
+	color: rgb(68, 68, 68);
+}
+.clearfix:before,
+.clearfix:after {
+	display: table;
+	content: " ";
+}
+.clearfix:after {
+	clear: both;
+}

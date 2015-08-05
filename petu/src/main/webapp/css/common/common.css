@@ -1,0 +1,123 @@
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.8) inset;
+}
+.center {
+	margin: 0 auto;
+}
+.fr {
+	float: right;
+}
+.fl {
+	float: left;
+}
+.mt5 {
+	margin-top: 5px;
+}
+.mt10 {
+	margin-top: 10px;
+}
+.mt15 {
+	margin-top: 15px;
+}
+.mt20 {
+	margin-top: 20px;
+}
+.mt30 {
+	margin-top: 30px;
+}
+.ml8 {
+	margin-left: 8px;
+}
+.ml10 {
+	margin-left: 10px;
+}
+.ml15 {
+	margin-left: 15px;
+}
+.ml20 {
+	margin-left: 20px;
+}
+.ml25 {
+	margin-left: 25px;
+}
+.ml30 {
+	margin-left: 30px;
+}
+.mr10 {
+	margin-right: 10px;
+}
+.mr30 {
+	margin-right: 30px;
+}
+.mb5 {
+	margin-bottom: 5px;
+}
+.mb10 {
+	margin-bottom: 10px;
+}
+.mb20 {
+	margin-bottom: 20px;
+}
+.mb30 {
+	margin-bottom: 30px;
+}
+.mb25 {
+	margin-bottom: 25px;
+}
+.pb8 {
+	padding-bottom: 8px;
+}
+.pt5 {
+	padding-top: 3px;
+}
+.lh20 {
+	line-height: 20px;
+}
+.lh25 {
+	line-height: 25px;
+}
+.lh30 {
+	line-height: 30px;
+}
+.lh40 {
+	line-height: 40px;
+}
+.color-theme {
+	color: #45b9a6;
+}
+.color-999 {
+	color: #999;
+}
+.color-white {
+	color: #FFFFFF;
+}
+.color-blank {
+	color: #000000;
+}
+.orange_1 {
+	color: #ff9324;
+}
+.gray_1 {
+	color: #444;
+}
+.gray_2 {
+	color: #999;
+}
+.gray_3 {
+	color: #aaa;
+}
+.font-common {
+	font-family: "microsoft yahei", simsun, simhei, helvetica, arial, tahoma, verdana, sans-serif;
+}
+.font13 {
+	font-size: 13px;
+}
+.font14 {
+	font-size: 14px;
+}
+.font16 {
+	font-size: 16px;
+}
+.font18 {
+	font-size: 18px;
+}
