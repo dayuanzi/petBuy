@@ -13,7 +13,7 @@
      <s:property value="#Cat.name"/>
      
      </s:iterator></p>
-     ----------------------
+     ================================
      <p> <s:iterator value="catlist_breed" var="Cat">
      <s:property value="#Cat.name"/>
    

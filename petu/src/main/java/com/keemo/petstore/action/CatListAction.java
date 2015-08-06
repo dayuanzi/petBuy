@@ -20,6 +20,7 @@ import com.keemo.petstore.bean.*;
 import static com.keemo.petstore.service.AdmManager.*;
 
 @ParentPackage(value = "default")
+
 public class CatListAction
 	extends AdmBaseAction
 {
@@ -27,13 +28,56 @@ public class CatListAction
 	private final String ADM_CAT_LIST_INDEX = "catlistindex";
 	private final String ADM_CAT_LIST_QUE = "catsquery";
 	
-	
+	//private String pageNumber;
 	private List<Cat> catlist;
 	private List<Cat> catlist_pet;
 	private List<Cat> catlist_breed;
 	private List<Cat> catlist_match;
 	private List<Breedingplan> planlist;
+	private String pageNumberStr;
+	private String typeIdStr;
+	private String rankIdStr;
+	private String priceLowStr;
+	private String priceHighStr;
+	private String pageIdStr;
 	
+
+	public String getPageNumberStr() {
+		return pageNumberStr;
+	}
+	public void setPageNumberStr(String pageNumberStr) {
+		this.pageNumberStr = pageNumberStr;
+	}
+	public String getTypeIdStr() {
+		return typeIdStr;
+	}
+	public void setTypeIdStr(String typeIdStr) {
+		this.typeIdStr = typeIdStr;
+	}
+	public String getRankIdStr() {
+		return rankIdStr;
+	}
+	public void setRankIdStr(String rankIdStr) {
+		this.rankIdStr = rankIdStr;
+	}
+	public String getPriceLowStr() {
+		return priceLowStr;
+	}
+	public void setPriceLowStr(String priceLowStr) {
+		this.priceLowStr = priceLowStr;
+	}
+	public String getPriceHighStr() {
+		return priceHighStr;
+	}
+	public void setPriceHighStr(String priceHighStr) {
+		this.priceHighStr = priceHighStr;
+	}
+	public String getPageIdStr() {
+		return pageIdStr;
+	}
+	public void setPageIdStr(String pageIdStr) {
+		this.pageIdStr = pageIdStr;
+	}
 	public void setCatlist(List<Cat> catlist)
 	{
 		this.catlist = catlist;
@@ -76,26 +120,21 @@ public class CatListAction
 		return this.planlist;
 		
 	}
-	
+
 	@Action(value = "CatListAction", 
 			results = { 
 			     @Result(name = "catlist", 
 			    		 location = "/content/main_cat_list.jsp"),
-			     @Result(name = "catlistindex", 
-			    		 location = "/WEB-INF/divPages/ind_catlist_div.jsp") },
+			     @Result(name = "catlistindex",
+			             location = "/index.jsp") },
 			interceptorRefs = {  @InterceptorRef(value = "parStack")})
+
 	public String execute()
 		throws Exception
 	{
 		
 		ActionContext ctx = ActionContext.getContext();
-		
-		String pageNumberStr = ((String[])ctx.getParameters().get("pageNumber"))[0];
-		String typeIdStr = ((String[])ctx.getParameters().get("typeId"))[0];
-		String rankIdStr = ((String[])ctx.getParameters().get("rankId"))[0];
-		String priceLowStr = ((String[])ctx.getParameters().get("priceLow"))[0];
-		String priceHighStr = ((String[])ctx.getParameters().get("priceHigh"))[0];
-		String pageIdStr = ((String[])ctx.getParameters().get("pageId"))[0];
+
 		Integer pageId = Integer.valueOf(pageIdStr);
 		Integer pageNumber = Integer.valueOf(pageNumberStr);
 		Integer typeId = null;
@@ -119,9 +158,11 @@ public class CatListAction
 
 		Integer priceLow = Integer.valueOf(priceLowStr);
 		Integer priceHigh = Integer.valueOf(priceHighStr);
+		
 		if(pageId==1)
 		{
 	    Integer pageNo = (pageNumber-1) * WebConstant.admIndexPageSize;
+	    System.out.println(pageNo);
 		this.catlist_pet = adm.getCatsbyPage(pageNo, WebConstant.admIndexPageSize, typeId, 1, priceLow, priceHigh);
 		this.catlist_breed = adm.getCatsbyPage(pageNo, WebConstant.admIndexPageSize, typeId, 2, priceLow, priceHigh);
 		this.catlist_match = adm.getCatsbyPage(pageNo, WebConstant.admIndexPageSize, typeId, 3, priceLow, priceHigh);

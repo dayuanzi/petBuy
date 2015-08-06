@@ -77,6 +77,41 @@
 <body>
 
 
+<s:action name="CatListAction" id="meth" executeResult="true" namespace="/" >
+<s:property value="#meth.excute"/>
+<s:param name="pageNumberStr" value="1" ></s:param>
+<s:param name="typeIdStr" value="1" ></s:param>
+<s:param name="rankIdStr" value="1"></s:param>
+<s:param name="priceLowStr" value="1" ></s:param>
+<s:param name="priceHighStr" value="100000"></s:param>
+<s:param name="pageIdStr" value="1" ></s:param>
+</s:action> 
+
+
+
+<%-- <s:a href="CatListAction.do?pageNumber=1&typeId=1&rankId=1&priceLow=1&priceHigh=100000&pageId=1"></s:a> --%>
+<%-- <ss:div id="divCatList" href="CatListAction.do?pageNumber=1&typeId=1&rankId=1&priceLow=1&priceHigh=100000&pageId=1"/> --%>
+
+ <p><s:iterator value="catlist_pet" var="Cat">
+     <s:property value="#Cat.name"/>
+     
+     </s:iterator></p>
+     ++++++++++++++++++++++
+     <p> <s:iterator value="catlist_breed" var="Cat">
+     <s:property value="#Cat.name"/>
+   
+     </s:iterator></p>
+    ++++++++++++++++++++++++
+      <p><s:iterator value="catlist_match" var="Cat">
+      <s:property value="#Cat.name"/>
+   
+     </s:iterator></p>
+     
+    ++++++++++++++++++
+     <p>
+     <s:iterator value="planlist" var="Plan">
+     <s:property value="#Plan.parentcatByMother.name"/>  <s:property value="#Plan.parentcatByFather.name"/> 
+     </s:iterator></p> 
 
 
 <%-- <s:form action="CatsByQueryAction.do?pageNumber=1&pageId=1">
@@ -87,22 +122,7 @@
 
 
 <ss:div id="divCatList" href="CatListAction.do?pageNumber=1&typeId=1&rankId=1&priceLow=1&priceHigh=100000&pageId=1"/>
-
-<s:iterator value="catlist" var="Cat">
-		<p>
-			<s:property value="#Cat.name" />
-		</p>
-		<s:property value="#Cat.sex" />
-		<s:property value="#Cat.Catype.Catype" />
-		<s:property value="#Cat.Rank.Rank" />
-		<s:property value="#Cat.pedigreeCertificate" />
-		<s:property value="#Cat.immune" />
-		<s:property value="#Cat.birthday" />
-		<s:property value="#Cat.getCattery().getCattery()" />
-		<s:property value="#Cat.price" />
-		<s:property value="#Cat.oldprice" />
-		<s:property value="#Cat.image" />
-	</s:iterator> --%>
+ --%>
 	<!--顶部导航栏-->
 		<div class="nav-bar">
 			<div style="margin: 0 auto; width: 1120px; ">
