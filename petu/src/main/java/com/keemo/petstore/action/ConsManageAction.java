@@ -88,7 +88,6 @@ public class ConsManageAction extends ConsBaseAction{
 		{
 			Integer pageNo = (pageNumber-1) * WebConstant.userlistPageSize;
 			this.adminlist = cons.getAdminList(pageNo, WebConstant.userlistPageSize);
-			System.out.println(adminlist.size());
 			return ADM_LIST;
 		}
 		else {

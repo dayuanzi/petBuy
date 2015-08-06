@@ -9,7 +9,8 @@
 </head>
 <body>
 
-	 <p><s:iterator value="adminlist" var="#Admin">
+	 <p><s:iterator value="adminlist" var="Admin">
+
      <s:property value="#Admin.username"/>
      
      </s:iterator></p>
