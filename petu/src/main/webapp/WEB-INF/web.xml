@@ -17,6 +17,10 @@
 			classpath:spring-security.xml</param-value>
 	</context-param>
 
+<context-param>
+<param-name>fileHost</param-name>
+<param-value>ftp://192.168.1.101</param-value>
+</context-param>
 
 
 	<!-- Spring字符编码过滤器 -->
@@ -108,8 +112,10 @@
 	</filter-mapping>
 
 
+
 	<!-- 定义Web应用的首页 -->
 	<welcome-file-list>
+
 		<welcome-file>first.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>
