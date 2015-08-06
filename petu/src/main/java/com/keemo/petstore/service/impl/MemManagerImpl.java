@@ -284,7 +284,7 @@ public class MemManagerImpl
 	      order.setAddress(address);
 		  order.setCattery(catlists.get(k).get(0).getCattery());
 		  order.setIspay((byte)0);
-		  Integer price = 0;
+		  Double price = 0.00;
 		  try {
 			  
 			  

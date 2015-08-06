@@ -25,8 +25,8 @@ public class CatListAction
 	extends AdmBaseAction
 {
 	private final String ADM_CAT_LIST = "catlist";
-	private final String ADM_CAT_LIST_INDEX = "catlistindex";
 	private final String ADM_CAT_LIST_QUE = "catsquery";
+	private final String INDEX_LIST = "indexlist";
 	
 	//private String pageNumber;
 	private List<Cat> catlist;
@@ -39,7 +39,6 @@ public class CatListAction
 	private String rankIdStr;
 	private String priceLowStr;
 	private String priceHighStr;
-	private String pageIdStr;
 	
 
 	public String getPageNumberStr() {
@@ -72,12 +71,7 @@ public class CatListAction
 	public void setPriceHighStr(String priceHighStr) {
 		this.priceHighStr = priceHighStr;
 	}
-	public String getPageIdStr() {
-		return pageIdStr;
-	}
-	public void setPageIdStr(String pageIdStr) {
-		this.pageIdStr = pageIdStr;
-	}
+	
 	public void setCatlist(List<Cat> catlist)
 	{
 		this.catlist = catlist;
@@ -124,9 +118,7 @@ public class CatListAction
 	@Action(value = "CatListAction", 
 			results = { 
 			     @Result(name = "catlist", 
-			    		 location = "/content/main_cat_list.jsp"),
-			     @Result(name = "catlistindex",
-			             location = "/index.jsp") },
+			    		 location = "/content/main_cat_list.jsp")},
 			interceptorRefs = {  @InterceptorRef(value = "parStack")})
 
 	public String execute()
@@ -135,7 +127,7 @@ public class CatListAction
 		
 		ActionContext ctx = ActionContext.getContext();
 
-		Integer pageId = Integer.valueOf(pageIdStr);
+
 		Integer pageNumber = Integer.valueOf(pageNumberStr);
 		Integer typeId = null;
 		Integer rankId = null;
@@ -156,25 +148,35 @@ public class CatListAction
 			rankId = null;
 		}
 
-		Integer priceLow = Integer.valueOf(priceLowStr);
-		Integer priceHigh = Integer.valueOf(priceHighStr);
-		
-		if(pageId==1)
-		{
-	    Integer pageNo = (pageNumber-1) * WebConstant.admIndexPageSize;
-	    System.out.println(pageNo);
-		this.catlist_pet = adm.getCatsbyPage(pageNo, WebConstant.admIndexPageSize, typeId, 1, priceLow, priceHigh);
-		this.catlist_breed = adm.getCatsbyPage(pageNo, WebConstant.admIndexPageSize, typeId, 2, priceLow, priceHigh);
-		this.catlist_match = adm.getCatsbyPage(pageNo, WebConstant.admIndexPageSize, typeId, 3, priceLow, priceHigh);
-		this.planlist = adm.getPlanList(pageNo, WebConstant.admIndexPlanPageSize);
-
-		return ADM_CAT_LIST_INDEX;
-		}
+		Double priceLow = Double.valueOf(priceLowStr);
+		Double priceHigh = Double.valueOf(priceHighStr);
 		
 	    Integer pageNo = (pageNumber-1) * WebConstant.admPageSize;
 		this.catlist = adm.getCatsbyPage(pageNo, WebConstant.admPageSize, typeId, rankId, priceLow, priceHigh);
 		return ADM_CAT_LIST;
 	
+	}
+	
+	
+	@Action(value = "IndexAction",
+			results = { @Result(name = "catlist", 
+					            location = "/content/main_cat_list.jsp"),
+					    @Result(name = "indexlist",
+					    		location = "/index.jsp")},
+			interceptorRefs = { @InterceptorRef(value = "parStack")})
+	
+	public String IndexAction()
+	    throws Exception
+	    {
+	
+
+		this.catlist_pet = adm.getCatsbyPage(0, WebConstant.admIndexPageSize, null, 1, WebConstant.priceLow, WebConstant.priceHigh);
+		this.catlist_breed = adm.getCatsbyPage(0, WebConstant.admIndexPageSize, null, 2, WebConstant.priceLow, WebConstant.priceHigh);
+		this.catlist_match = adm.getCatsbyPage(0, WebConstant.admIndexPageSize, null, 3, WebConstant.priceLow, WebConstant.priceHigh);
+		this.planlist = adm.getPlanList(0, WebConstant.admIndexPlanPageSize);
+
+		return INDEX_LIST;
+		
 	}
 	
 	
@@ -193,16 +195,8 @@ public class CatListAction
 		ActionContext ctx = ActionContext.getContext();
 		String pageNumberStr = ((String[])ctx.getParameters().get("pageNumber"))[0];
 		String queryStr = ((String[])ctx.getParameters().get("query"))[0];
-		String pageIdStr = ((String[])ctx.getParameters().get("pageId"))[0];
-		Integer pageId = Integer.valueOf(pageIdStr);
 
 		Integer pageNumber = Integer.valueOf(pageNumberStr);
-		if(pageId==1)
-		{
-		Integer pageNo = (pageNumber-1) * WebConstant.admIndexPageSize;
-		this.catlist = adm.getCatsbyQuery(pageNo, WebConstant.admIndexPageSize, queryStr);
-		return ADM_CAT_LIST_INDEX;
-		}
 		
 		Integer pageNo = (pageNumber-1) * WebConstant.admPageSize;
 		this.catlist = adm.getCatsbyQuery(pageNo, WebConstant.admPageSize, queryStr);

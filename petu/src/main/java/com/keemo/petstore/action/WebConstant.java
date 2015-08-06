@@ -21,6 +21,12 @@ public interface WebConstant
 	Integer memCartPageSize = 2;
 	//用户拥有购物车列表的单元个数
 	Integer memFollowedCatteryPageSize = 2;
+	//默认价格区间最小值
+    Double priceLow = 0.00;
+    //默认价格区间最大值
+	Double priceHigh = 1000000.00;
+	
+	
 	
 	
 	String USR_LEVEL = "usr";
