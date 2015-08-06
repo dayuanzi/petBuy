@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-08-05 15:49:05
+Date: 2015-08-06 11:01:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -188,8 +188,8 @@ CREATE TABLE `cat` (
   `immune` tinyint(2) DEFAULT NULL,
   `birthday` date DEFAULT NULL,
   `catteryid` int(11) DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
-  `oldprice` int(11) DEFAULT NULL,
+  `price` double(11,0) DEFAULT NULL,
+  `oldprice` double(11,0) DEFAULT NULL,
   `stalen` tinyint(11) DEFAULT NULL,
   `orderid` int(11) DEFAULT NULL,
   `sex` tinyint(2) DEFAULT NULL,
@@ -389,7 +389,7 @@ CREATE TABLE `order` (
   `userid` int(11) DEFAULT NULL,
   `ispay` tinyint(4) DEFAULT NULL,
   `catteryid` int(11) DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
+  `price` double(11,0) DEFAULT NULL,
   `addressid` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `userid` (`userid`),
