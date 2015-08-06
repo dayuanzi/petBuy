@@ -226,7 +226,7 @@
 					<li><a href=" "><img src="${initParam.fileHost}/image/cat5.png "></a><img src="image/index/female.png " style="margin:0 5px -2px 0 "><span class="gray_1 lh30 "><s:property value="#Plan.parentcatByMother.name"/>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30 "><s:property value="#Plan.motherColor"/></span></li>
 					<li style="margin-bottom:0; "><a href=" "><img src="${initParam.fileHost}/image/cat4.png "></a><img src="image/index/male.png " style="margin:0 5px -2px 0 "><span class="gray_1 lh30 "><s:property value="#Plan.parentcatByFather.name"/>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30 "><s:property value="#Plan.fatherColor"/></span></li>
 					</ul>
-					<span class="f14 gray_1 lh40 ">繁育开始时间</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="f14 gray_3 lh40 "><s:property value="#Plan.time"/></span>
+					<span class="f14 gray_1 lh40 ">繁育开始时间</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="f14 gray_3 lh40 "><s:date name="#Plan.time" format="yyyy-MM-dd" /></span>
 				</li>
 			</s:iterator>
 					
