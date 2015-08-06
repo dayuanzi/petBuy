@@ -110,7 +110,7 @@
 
 	<!-- 定义Web应用的首页 -->
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>first.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>
 

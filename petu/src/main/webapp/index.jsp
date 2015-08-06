@@ -77,15 +77,7 @@
 <body>
 
 
-<s:action name="CatListAction" id="meth" executeResult="true" namespace="/" >
-<s:property value="#meth.excute"/>
-<s:param name="pageNumberStr" value="1" ></s:param>
-<s:param name="typeIdStr" value="1" ></s:param>
-<s:param name="rankIdStr" value="1"></s:param>
-<s:param name="priceLowStr" value="1" ></s:param>
-<s:param name="priceHighStr" value="100000"></s:param>
-<s:param name="pageIdStr" value="1" ></s:param>
-</s:action> 
+
 
 
 
