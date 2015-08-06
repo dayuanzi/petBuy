@@ -55,7 +55,7 @@ public class AdmManagerImpl
 	}
 
 	
-	public List<Cat> getCatsbyPage(Integer pageNo,Integer pageSize,Integer typeId,Integer rankId,Integer priceLow,Integer priceHigh)
+	public List<Cat> getCatsbyPage(Integer pageNo,Integer pageSize,Integer typeId,Integer rankId,Double priceLow,Double priceHigh)
 	{
 		
 		List<Cat> list = catDao.findByPage(pageNo, pageSize, typeId, rankId,priceLow,priceHigh);

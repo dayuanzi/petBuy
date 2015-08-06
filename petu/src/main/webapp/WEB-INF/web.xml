@@ -17,6 +17,10 @@
 			classpath:spring-security.xml</param-value>
 	</context-param>
 
+<context-param>
+<param-name>fileHost</param-name>
+<param-value>ftp://192.168.1.101</param-value>
+</context-param>
 
 
 	<!-- Spring字符编码过滤器 -->
@@ -56,7 +60,7 @@
 	<!-- Spring托管session的过滤器 -->
 	<filter>     
 	<filter-name>hibernateFilter</filter-name> 
-	<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class> -->
+	<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class> 
 	<!-- singleSession默认为true,若设为false则等于没用OpenSessionInView --> 
    <init-param> 
 	<param-name>singleSession</param-name>  
@@ -106,6 +110,7 @@
 		<filter-name>struts2</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+
 
 
 	<!-- 定义Web应用的首页 -->

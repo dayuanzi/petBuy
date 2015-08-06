@@ -3,6 +3,7 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib uri="/struts-dojo-tags"  prefix="ss"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -76,45 +77,15 @@
 </head>
 <body>
 
-
-
-
-
-
 <%-- <s:a href="CatListAction.do?pageNumber=1&typeId=1&rankId=1&priceLow=1&priceHigh=100000&pageId=1"></s:a> --%>
 <%-- <ss:div id="divCatList" href="CatListAction.do?pageNumber=1&typeId=1&rankId=1&priceLow=1&priceHigh=100000&pageId=1"/> --%>
-
- <p><s:iterator value="catlist_pet" var="Cat">
-     <s:property value="#Cat.name"/>
-     
-     </s:iterator></p>
-     ++++++++++++++++++++++
-     <p> <s:iterator value="catlist_breed" var="Cat">
-     <s:property value="#Cat.name"/>
-   
-     </s:iterator></p>
-    ++++++++++++++++++++++++
-      <p><s:iterator value="catlist_match" var="Cat">
-      <s:property value="#Cat.name"/>
-   
-     </s:iterator></p>
-     
-    ++++++++++++++++++
-     <p>
-     <s:iterator value="planlist" var="Plan">
-     <s:property value="#Plan.parentcatByMother.name"/>  <s:property value="#Plan.parentcatByFather.name"/> 
-     </s:iterator></p> 
 
 
 <%-- <s:form action="CatsByQueryAction.do?pageNumber=1&pageId=1">
 	<s:textfield name="query"/>
 	<ss:submit targets="divCatList" label="搜索"/>
-</s:form>
+</s:form>--%>
 
-
-
-<ss:div id="divCatList" href="CatListAction.do?pageNumber=1&typeId=1&rankId=1&priceLow=1&priceHigh=100000&pageId=1"/>
- --%>
 	<!--顶部导航栏-->
 		<div class="nav-bar">
 			<div style="margin: 0 auto; width: 1120px; ">
@@ -241,42 +212,29 @@
 				<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
 					<div class="smallpic">
 			            <ul>
-			            <c:forEach var="i"  begin="1" end="10" step="1">
-			            <li><a href=""><img src="image/index/cat1.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 font16 lh30" > &yen; 30,000</span></li>
-			            </c:forEach>
-				        	</ul>
+			            	<s:iterator value="catlist_pet" var="Cat">
+			                      <s:set var="cname" value="#Cat.name"></s:set>
+			            		<li><a href=""><img src="${initParam.fileHost}/image/cat5.png"></a><span class="gray_1 lh30"> <s:property value="#Cat.name"/>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30"><s:property value="#Cat.cattery.name"/></span><br/><span class="orange_1 font16 lh30" > &yen; <s:property value="#Cat.price" /></span></li>
+			            	</s:iterator>
+				        </ul>
 		 			</div>
 
 				</div>
 				<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
 					<div class="smallpic">
                  		<ul>
-							<li><a href=""><img src="image/index/cat4.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 font16 lh30" > &yen; 30,000</span></li>
-							<li><a href=""><img src="image/index/cat4.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 font16 lh30" > &yen; 30,000</span></li>
-							<li><a href=""><img src="image/index/cat4.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 font16 lh30" > &yen; 30,000</span></li>
-							<li><a href=""><img src="image/index/cat4.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 font16 lh30" > &yen; 30,000</span></li>
-							<li><a href=""><img src="image/index/cat4.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 font16 lh30" > &yen; 30,000</span></li>
-							<li><a href=""><img src="image/index/cat4.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 font16 lh30" > &yen; 30,000</span></li>
-							<li><a href=""><img src="image/index/cat4.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 font16 lh30" > &yen; 30,000</span></li>
-							<li><a href=""><img src="image/index/cat4.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 font16 lh30" > &yen; 30,000</span></li>
-							<li><a href=""><img src="image/index/cat4.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 font16 lh30" > &yen; 30,000</span></li>
-							<li><a href=""><img src="image/index/cat4.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 font16 lh30" > &yen; 30,000</span></li>
+                 			<s:iterator value="catlist_breed" var="Cat">
+								<li><a href=""><img src="${initParam.fileHost}/image/cat4.png"></a><span class="gray_1 lh30"><s:property value="#Cat.name"/>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30"><s:property value="#Cat.cattery.name"/></span><br/><span class="orange_1 font16 lh30" > &yen; <s:property value="#Cat.price" /></span></li>
+							</s:iterator>
 						</ul>
 					</div>		
 				</div>
 				<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
 					<div class="smallpic">
                  		<ul>
-							<li><a href=""><img src="image/index/cat7.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 font16 lh30" > &yen; 30,000</span></li>
-							<li><a href=""><img src="image/index/cat7.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 font16 lh30" > &yen; 30,000</span></li>
-							<li><a href=""><img src="image/index/cat7.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 font16 lh30" > &yen; 30,000</span></li>
-							<li><a href=""><img src="image/index/cat7.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 font16 lh30" > &yen; 30,000</span></li>
-							<li><a href=""><img src="image/index/cat7.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 font16 lh30" > &yen; 30,000</span></li>
-							<li><a href=""><img src="image/index/cat7.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 font16 lh30" > &yen; 30,000</span></li>
-							<li><a href=""><img src="image/index/cat7.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 font16 lh30" > &yen; 30,000</span></li>
-							<li><a href=""><img src="image/index/cat7.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 font16 lh30" > &yen; 30,000</span></li>
-							<li><a href=""><img src="image/index/cat7.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 font16 lh30" > &yen; 30,000</span></li>
-							<li><a href=""><img src="image/index/cat7.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 font16 lh30" > &yen; 30,000</span></li>
+                 		<s:iterator value="catlist_match" var="Cat">
+							<li><a href=""><img src="${initParam.fileHost}/image/cat7.png"></a><span class="gray_1 lh30"><s:property value="#Cat.name"/>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30"><s:property value="#Cat.cattery.name"/></span><br/><span class="orange_1 font16 lh30" > &yen; <s:property value="#Cat.price"/></span></li>
+						</s:iterator>	
 						</ul>
 					</div>		
 				</div>	
@@ -293,46 +251,18 @@
 		</div>
 		<div class="smallpic ">
 			<ul>
-				<li>
-					<div class="title f14 gray_1 ">D&C名猫舍</div>
+			<s:iterator value="planlist" var="Plan" >
+			    <li>
+					<div class="title f14 gray_1 "><s:property value="#Plan.cattery.name"/></div>
 					<ul style="width:200px;margin-top:0; ">
-					<li><a href=" "><img src="image/index/cat7.png "></a><img src="image/index/female.png " style="margin:0 5px -2px 0 "><span class="gray_1 lh30 ">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30 ">黑色</span></li>
-					<li style="margin-bottom:0; "><a href=" "><img src="image/index/cat4.png "></a><img src="image/index/male.png " style="margin:0 5px -2px 0 "><span class="gray_1 lh30 ">英国短毛猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30 ">白红色毛色</span></li>
+					<li><a href=" "><img src="${initParam.fileHost}/image/cat5.png "></a><img src="image/index/female.png " style="margin:0 5px -2px 0 "><span class="gray_1 lh30 "><s:property value="#Plan.parentcatByMother.name"/>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30 "><s:property value="#Plan.motherColor"/></span></li>
+					<li style="margin-bottom:0; "><a href=" "><img src="${initParam.fileHost}/image/cat4.png "></a><img src="image/index/male.png " style="margin:0 5px -2px 0 "><span class="gray_1 lh30 "><s:property value="#Plan.parentcatByFather.name"/>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30 "><s:property value="#Plan.fatherColor"/></span></li>
 					</ul>
-					<span class="f14 gray_1 lh40 ">繁育开始时间</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="f14 gray_3 lh40 ">2015-07-24</span>
+					<span class="f14 gray_1 lh40 ">繁育开始时间</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="f14 gray_3 lh40 "><s:property value="#Plan.time"/></span>
 				</li>
-				<li>
-					<div class="title f14 gray_1 ">小K的猫舍</div>
-					<ul style="width:200px;margin-top:0; ">
-					<li><a href=" "><img src="image/index/cat3.png "></a><img src="image/index/female.png " style="margin:0 5px -2px 0 "><span class="gray_1 lh30 ">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30 ">黑色</span></li>
-					<li style="margin-bottom:0; "><a href=" "><img src="image/index/cat4.png "></a><img src="image/index/male.png " style="margin:0 5px -2px 0 "><span class="gray_1 lh30 ">英国短毛猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30 ">白红色毛色</span></li>
-					</ul>
-					<span class="f14 gray_1 lh40 ">繁育开始时间</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="f14 gray_3 lh40 ">2015-07-24</span>
-				</li>
-								<li>
-					<div class="title f14 gray_1 ">D&C名猫舍</div>
-					<ul style="width:200px;margin-top:0; ">
-					<li><a href=" "><img src="image/index/cat7.png "></a><img src="image/index/female.png " style="margin:0 5px -2px 0 "><span class="gray_1 lh30 ">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30 ">黑色</span></li>
-					<li style="margin-bottom:0; "><a href=" "><img src="image/index/cat4.png "></a><img src="image/index/male.png " style="margin:0 5px -2px 0 "><span class="gray_1 lh30 ">英国短毛猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30 ">白红色毛色</span></li>
-					</ul>
-					<span class="f14 gray_1 lh40 ">繁育开始时间</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="f14 gray_3 lh40 ">2015-06-24</span>
-				</li>
-				<li>
-					<div class="title f14 gray_1 ">小K的猫舍</div>
-					<ul style="width:200px;margin-top:0; ">
-					<li><a href=" "><img src="image/index/cat7.png "></a><img src="image/index/female.png " style="margin:0 5px -2px 0 "><span class="gray_1 lh30 ">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30 ">黑色</span></li>
-					<li style="margin-bottom:0; "><a href=" "><img src="image/index/cat8.png "></a><img src="image/index/male.png " style="margin:0 5px -2px 0 "><span class="gray_1 lh30 ">英国短毛猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30 ">白红色毛色</span></li>
-					</ul>
-					<span class="f14 gray_1 lh40 ">繁育开始时间</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="f14 gray_3 lh40 ">2015-09-27</span>
-				</li>
-								<li>
-					<div class="title f14 gray_1 ">D&C名猫舍</div>
-					<ul style="width:200px;margin-top:0; ">
-					<li><a href=" "><img src="image/index/cat5.png "></a><img src="image/index/female.png " style="margin:0 5px -2px 0 "><span class="gray_1 lh30 ">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30 ">黑色</span></li>
-					<li style="margin-bottom:0; "><a href=" "><img src="image/index/cat6.png "></a><img src="image/index/male.png " style="margin:0 5px -2px 0 "><span class="gray_1 lh30 ">英国短毛猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30 ">白红色毛色</span></li>
-					</ul>
-					<span class="f14 gray_1 lh40 ">繁育开始时间</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="f14 gray_3 lh40 ">2015-06-26</span>
-				</li>
+			</s:iterator>
+					
+			
 			</ul>
 		</div>
 	</div>	
