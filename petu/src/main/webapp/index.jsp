@@ -77,11 +77,6 @@
 </head>
 <body>
 
-
-
-
-
-
 <%-- <s:a href="CatListAction.do?pageNumber=1&typeId=1&rankId=1&priceLow=1&priceHigh=100000&pageId=1"></s:a> --%>
 <%-- <ss:div id="divCatList" href="CatListAction.do?pageNumber=1&typeId=1&rankId=1&priceLow=1&priceHigh=100000&pageId=1"/> --%>
 
@@ -89,12 +84,8 @@
 <%-- <s:form action="CatsByQueryAction.do?pageNumber=1&pageId=1">
 	<s:textfield name="query"/>
 	<ss:submit targets="divCatList" label="搜索"/>
-</s:form>
+</s:form>--%>
 
-
-
-<ss:div id="divCatList" href="CatListAction.do?pageNumber=1&typeId=1&rankId=1&priceLow=1&priceHigh=100000&pageId=1"/>
- --%>
 	<!--顶部导航栏-->
 		<div class="nav-bar">
 			<div style="margin: 0 auto; width: 1120px; ">

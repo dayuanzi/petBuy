@@ -18,11 +18,11 @@
     <s:textfield name="catlist[0].name" type="String" label="名字"/>
     <s:textfield name="catlist[0].sex" type="Byte" label="性别"/> 
 
-    <s:textfield label="图片类别" name="imageType" value="1"></s:textfield>  
-    <s:textfield label="图片类别" name="catsimagelist" value="0"></s:textfield>  
+    <s:textfield label="图片类别" name="imageType" value="1"></s:textfield>
+    <s:textfield label="图片类别" name="catsimagelist" value="0"></s:textfield>
     <s:file label="上传文件" name="uploadfile"></s:file>  
     
-     <s:textfield label="图片类别" name="imageType" value="1"></s:textfield>  
+    <s:textfield label="图片类别" name="imageType" value="1"></s:textfield>  
     <s:textfield label="图片类别" name="catsimagelist" value="0"></s:textfield>  
     <s:file label="上传文件" name="uploadfile"></s:file>  
     

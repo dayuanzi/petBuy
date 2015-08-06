@@ -75,7 +75,7 @@ public class CatDaoHibernate extends YeekuHibernateDaoSupport implements CatDao
 	 * 
 	 * return List<Cat>
 	 */
-	public List<Cat> findByPage(final Integer pageNo,final Integer pageSize,final Integer typeId,final Integer rankId ,final Integer priceLow ,final Integer priceHigh)
+	public List<Cat> findByPage(final Integer pageNo,final Integer pageSize,final Integer typeId,final Integer rankId ,final Double priceLow ,final Double priceHigh)
 	{
 		HibernateTemplate ht=getHibernateTemplate();
 		

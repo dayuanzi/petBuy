@@ -48,7 +48,7 @@ public interface CatDao
 	 * @param pageNo pageSize typeId rankId priceLow priceHigh 
 	 * @return 返回 Cat List
 	 */
-	public List<Cat> findByPage(Integer pageNo,Integer pageSize, Integer typeId, Integer rankId,Integer priceLow,Integer priceHigh);
+	public List<Cat> findByPage(Integer pageNo,Integer pageSize, Integer typeId, Integer rankId,Double priceLow,Double priceHigh);
 	
 	
 	

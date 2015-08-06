@@ -60,7 +60,7 @@
 	<!-- Spring托管session的过滤器 -->
 	<filter>     
 	<filter-name>hibernateFilter</filter-name> 
-	<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class> -->
+	<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class> 
 	<!-- singleSession默认为true,若设为false则等于没用OpenSessionInView --> 
    <init-param> 
 	<param-name>singleSession</param-name>  
@@ -115,7 +115,6 @@
 
 	<!-- 定义Web应用的首页 -->
 	<welcome-file-list>
-
 		<welcome-file>first.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>
