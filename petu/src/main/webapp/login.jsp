@@ -16,9 +16,9 @@
 			href="css/login-register/login.css" />
 
 		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/jquery.validator.js" type="text/javascript"
+		<script src="js/login/jquery.validator.js" type="text/javascript"
 			charset="utf-8"></script>
-		<script src="js/zh_CN.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/login/zh_CN.js" type="text/javascript" charset="utf-8"></script>
 
 
 

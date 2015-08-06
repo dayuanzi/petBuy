@@ -28,11 +28,10 @@
 
 <!--链接JavaScript资源文件-->
 <script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/jquery.immersive-slider.js" type="text/javascript"
-	charset="utf-8"></script>
-<script src="js/responsiveslides.min.js" type="text/javascript"
-	charset="utf-8"></script>
-<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+<script src="js/index/jquery.immersive-slider.js" type="text/javascript"charset="utf-8" ></script>
+<script src="js/index/responsiveslides.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/index/easyResponsiveTabs.js" type="text/javascript"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8" ></script>
 <title>宠你-首页</title>
 <script type="text/javascript">
 			$(document).ready(function() {
@@ -43,43 +42,12 @@
 				});
 			});
 </script>
-<script type="text/javascript">
-			var timeout = 100;
-			var closetimer = 0;
-			var ddmenuitem = 0;
 
-			function menu_open() {
-				menu_canceltimer();
-				menu_close();
-				ddmenuitem = $(this).find('ul').eq(0).css('visibility', 'visible');
-			}
-
-			function menu_close() {
-				if (ddmenuitem) ddmenuitem.css('visibility', 'hidden');
-			}
-
-			function menu_timer() {
-				closetimer = window.setTimeout(menu_close, timeout);
-			}
-
-			function menu_canceltimer() {
-				if (closetimer) {
-					window.clearTimeout(closetimer);
-					closetimer = null;
-				}
-			}
-			$(document).ready(function() {
-				$('.header-menu > li').bind('mouseover', menu_open);
-				$('.header-menu > li').bind('mouseout', menu_timer);
-			});
-			document.onclick = menu_close;
-		</script>
 </head>
 <body>
 
 <%-- <s:a href="CatListAction.do?pageNumber=1&typeId=1&rankId=1&priceLow=1&priceHigh=100000&pageId=1"></s:a> --%>
 <%-- <ss:div id="divCatList" href="CatListAction.do?pageNumber=1&typeId=1&rankId=1&priceLow=1&priceHigh=100000&pageId=1"/> --%>
-
 
 <%-- <s:form action="CatsByQueryAction.do?pageNumber=1&pageId=1">
 	<s:textfield name="query"/>
