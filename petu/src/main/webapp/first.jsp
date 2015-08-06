@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>宠你-首页</title>
+<title>宠你-最美丽的邂逅</title>
 </head>
 <body>
 
-<s:action name="CatListAction" id="meth" executeResult="true" namespace="/" >
+<s:action name="CatlistAction" id="meth"  namespace="/" >
 <s:property value="#meth.excute"/>
 <s:param name="pageNumberStr" value="1" ></s:param>
 <s:param name="typeIdStr" value="1" ></s:param>
