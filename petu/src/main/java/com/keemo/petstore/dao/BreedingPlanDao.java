@@ -55,7 +55,15 @@ public interface BreedingPlanDao {
 	 */
 	public List<Breedingplan> findByUserId(Integer pageNo,Integer pageSize,Integer userId);
 	
-	
+	/**
+	 * 2015-8-5
+	 * 打水的
+	 * @param pageNo
+	 * @param pageSize
+	 * @return
+	 * List<Breedingplan>
+	 */
+	List<Breedingplan> findByIndex(final Integer pageNo,final Integer pageSize);
 	
 	
 	/**------------ BreedingOrder--------------*/

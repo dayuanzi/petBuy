@@ -13,6 +13,8 @@ import com.keemo.petstore.dao.ImageDao;
  *
  */
 public interface ImgManager {
+	
+
 	/**
 	 * 2015-8-5
 	 * 打水的
@@ -20,7 +22,47 @@ public interface ImgManager {
 	 * @return
 	 * Imagmsg
 	 */
-	Imagmsg getCatImagebyId(Integer catid);
+	public Imagmsg getCatImagebyId(Integer catid) throws Exception;
+	
+    /**
+     * 2015-8-5
+     * 打水的
+     * @param catid
+     * @return
+     * Imagmsg
+     */
+    public Imagmsg getParentcatImagebyId(Integer catid) throws Exception;
+    
+    
+    /**
+     * 2015-8-5
+     * 打水的
+     * @param catid
+     * @param imageType
+     * @return
+     * List<Imagmsg>
+     */
+    public List<Imagmsg> getCatImagebyList(Integer catid,Integer imageType) throws Exception;
+    
+    /**
+     * 2015-8-5
+     * 打水的
+     * @param catid
+     * @param imageType
+     * @return
+     * List<Imagmsg>
+     */
+    public List<Imagmsg> getParentcatImageList(Integer catid,Integer imageType) throws Exception;
+    
+    /**
+     * 2015-8-5
+     * 打水的
+     * @param userid
+     * @param imageType
+     * @return
+     * List<Imagmsg>
+     */
+    public List<Imagmsg> getCatteryImageList(Integer userid,Integer imageType) throws Exception;
 	
 	
 }

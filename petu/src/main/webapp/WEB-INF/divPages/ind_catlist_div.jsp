@@ -9,20 +9,26 @@
 </head>
 <body>
 
-	 <s:iterator value="catlist" var="Cat">
-     <p><s:property value="#Cat.name"/></p>
-     <s:property value="#Cat.sex"/>
-     <s:property value="#Cat.getCatype().getCatype()"/>
-     <s:property value="#Cat.getRank().getRank()"/>
-     <s:property value="#Cat.pedigreeCertificate"/>
-     <s:property value="#Cat.immune"/>
-     <s:property value="#Cat.birthday"/>
-     <s:property value="#Cat.getCattery().getCattery()"/>
-     <s:property value="#Cat.price"/>
-     <s:property value="#Cat.oldprice"/>
-     <s:property value="#Cat.image"/>
-     </s:iterator>
+	 <p><s:iterator value="catlist_pet" var="Cat">
+     <s:property value="#Cat.name"/>
      
+     </s:iterator></p>
+     ================================
+     <p> <s:iterator value="catlist_breed" var="Cat">
+     <s:property value="#Cat.name"/>
+   
+     </s:iterator></p>
+     ----------------------
+      <p><s:iterator value="catlist_match" var="Cat">
+      <s:property value="#Cat.name"/>
+   
+     </s:iterator></p>
+     
+     ----------------------
+     <p>
+     <s:iterator value="planlist" var="Plan">
+     <s:property value="#Plan.parentcatByMother.name"/>  <s:property value="#Plan.parentcatByFather.name"/> 
+     </s:iterator></p>
      
 </body>
 </html>
