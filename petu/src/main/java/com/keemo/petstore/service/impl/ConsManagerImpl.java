@@ -24,15 +24,45 @@ public class ConsManagerImpl implements ConsManager{
 		this.adminDao = adminDao;
 	}
 
-	public List<Admin> getUserList(Integer pageNo,Integer pageSize){
+	public List<Admin> getUserList(Integer pageNo,Integer pageSize) throws Exception{
 		
-		return adminDao.getUserByManager(pageNo, pageSize);
+		try{
+			return adminDao.getUserByManager(pageNo, pageSize);
+		}
+		catch (Exception e){
+		e.printStackTrace();
+		throw e;
+		}
+
 		
 	}
 	
-	public List<Admin> getAdminList(Integer pageNo,Integer pageSize){
+	public List<Admin> getAdminList(Integer pageNo,Integer pageSize) throws Exception{
 		
-		return adminDao.getAdminByManager(pageNo, pageSize);
+		try{
+			return adminDao.getAdminByManager(pageNo, pageSize);
+		}
+		catch (Exception e){
+			e.printStackTrace();
+			throw e;
+			}
+		
+		
+	}
+	
+    public void updatePrivileges(Integer adminid,String privileges) throws Exception{
+		
+    	try{
+        	Admin admin = adminDao.get(adminid);        	
+        	admin.setPrivileges(privileges);
+    		adminDao.update(admin);
+    	}
+    	catch(Exception e)
+    	{
+    		e.printStackTrace();
+    		throw e;
+    	}
+
 		
 	}
 	

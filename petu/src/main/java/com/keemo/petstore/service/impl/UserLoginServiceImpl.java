@@ -61,17 +61,11 @@ public class UserLoginServiceImpl implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException, DataAccessException {
 		// TODO Auto-generated method stub
 
-		// 通过用户名从数据库中取得用户信息
-		//List<Admin> list = adminDao.findByProperty(User.class, "userName", username);
-		System.out.println("调用loadUserByUsername");
-		System.out.println(username);
+
 		List<Admin> list = adminDao.findByName(username);
 		System.out.println(list.get(0).getPassword());
 		if (list != null && list.size() > 0) {
 			user = list.get(0);
-			System.out.println("存在用户");
-			System.out.println("username====" + user.getUsername());
-			System.out.println("password====" + user.getPassword());
 
 			org.springframework.security.core.userdetails.User myUser = new org.springframework.security.core.userdetails.User(
 					user.getUsername(), user.getPassword(), true, true, true, true, getAuthorities(user.getPrivileges()));
@@ -86,7 +80,9 @@ public class UserLoginServiceImpl implements UserDetailsService {
 
 		} else {
 			System.out.println("用户列表为空，不存在该用户");
-			return null;
+			
+			throw new UsernameNotFoundException(username+" is not exist");
+		
 		}
 
 	}

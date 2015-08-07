@@ -144,6 +144,10 @@ public class AdminDaoHibernate extends YeekuHibernateDaoSupport implements Admin
 		 });
 	}
 	
+	
+	
+	
+	
 /**********************Activericode********************************/	
 
 	/**

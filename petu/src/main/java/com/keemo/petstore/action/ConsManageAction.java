@@ -22,14 +22,32 @@ public class ConsManageAction extends ConsBaseAction{
 	
 	private final String ADM_LIST = "adminlist";
 	private final String USR_LIST = "userlist";
+	private final String ADM_SUC = "adminupdsuccess";
 	private String pageId;
 	private Integer pageNumber;
 	private List<Admin> adminlist;
+	private Integer adminid;
 	/**
 	 * @return the adminlist
 	 */
 	public List<Admin> getAdminlist() {
 		return adminlist;
+	}
+
+
+	/**
+	 * @return the adminid
+	 */
+	public Integer getAdminid() {
+		return adminid;
+	}
+
+
+	/**
+	 * @param adminid the adminid to set
+	 */
+	public void setAdminid(Integer adminid) {
+		this.adminid = adminid;
 	}
 
 
@@ -76,31 +94,52 @@ public class ConsManageAction extends ConsBaseAction{
 
 	@Action(value = "AdminListAction",
 			results = { @Result(name = "adminlist", 
-					            location = "/content/userlist.jsp"),
-					    @Result(name = "indexlist",
-					    		location = "/index.jsp")})
+					            location = "/content/userlist.jsp")})
 			
-			
-	public String excute(){
+
+	public String excute() throws Exception{
 		
 		
 		if(pageId.equals("1"))
 		{
 			Integer pageNo = (pageNumber-1) * WebConstant.userlistPageSize;
+		try{
 			this.adminlist = cons.getAdminList(pageNo, WebConstant.userlistPageSize);
+		}
+		catch (Exception e){
+			throw e;
+		}
+			
 			return ADM_LIST;
 		}
 		else {
 			
 			Integer pageNo = (pageNumber-1) * WebConstant.userlistPageSize;
+			try{
 			this.adminlist = cons.getUserList(pageNo, WebConstant.userlistPageSize);
+			}
+			catch (Exception e){
+				throw e;
+			}
 			return USR_LIST;
 			
 			
 		}
 		
+	}
+	
+	
+	
+	@Action(value = "UpdateAdminAction",
+			results = { @Result(name = "adminupdsuccess", 
+					            location = "/content/userlist.jsp")})
+			
 
+	public String UpdateAdminAction() throws Exception{
 		
+	   cons.updatePrivileges(adminid,"USER_ROLE");
+	   
+	   return ADM_SUC;
 		
 	}
 	

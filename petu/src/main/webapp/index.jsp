@@ -54,6 +54,9 @@
 	<ss:submit targets="divCatList" label="搜索"/>
 </s:form>--%>
 
+
+
+
 	<!--顶部导航栏-->
 		<div class="nav-bar">
 			<div style="margin: 0 auto; width: 1120px; ">
@@ -114,7 +117,6 @@
 						<input type="text" id="keyword" name="keywords" class="search_edit" value="请输入关键字" onfocus="this.value=''" onblur="if(this.value==" "){this.value=" "}" style="color: #AAAAAA;">
 						<input type="submit" class="search_btn " id="button" name="button" value="搜 索">
 					</form>
-
 				</div>
 
 				<div class="search_link right">
