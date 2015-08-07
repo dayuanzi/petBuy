@@ -129,9 +129,36 @@ input:-webkit-autofill {
 	
 	-->
 
+<<<<<<< HEAD
 	<!--顶部导航栏-->
 		<div class="nav-bar">
 			<div style="margin: 0 auto; width: 1120px; ">
+=======
+
+
+
+	<div class="nav-bar">
+		<ul class="header-menu">
+			<li><a href="#">首页</a></li>
+			<li><a href="#"
+				style="background-image: url(img/cattery.png); background-repeat: no-repeat; background-position-y: center; padding-left: 20px;">猫舍</a></li>
+			<li><a href="#"
+				style="background-image: url(img/cat_basket.png); background-repeat: no-repeat; background-position-y: center; padding-left: 20px;">猫篮</a></li>
+			<li><a href="#"
+				style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position-y: center; padding-right: 15px; background-position-x: right;">买家中心</a>
+				<ul>
+					<li><a href="#">我的订单</a></li>
+					<li><a href="#">已买到的猫咪</a></li>
+					<li><a href="#">已预订的猫咪</a></li>
+				</ul></li>
+			<li><a href="#"
+				style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position-y: center; padding-right: 15px; background-position-x: right;">猫舍中心</a>
+				<ul>
+					<li><a href="#">我的订单</a></li>
+					<li><a href="#">已买到的猫咪</a></li>
+					<li><a href="#">已预订的猫咪</a></li>
+				</ul></li>
+>>>>>>> refs/remotes/origin/zsy
 
 				<div class="right">
 					<ul class="header-menu">

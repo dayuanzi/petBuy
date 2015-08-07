@@ -1,6 +1,12 @@
 package com.keemo.petstore.dao.impl;
 import java.util.List;
 
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.springframework.orm.hibernate3.HibernateCallback;
+import org.springframework.orm.hibernate3.HibernateTemplate;
+
 import com.keemo.petstore.bean.Activericode;
 import com.keemo.petstore.bean.Admin;
 import com.keemo.petstore.common.hibernate3.support.YeekuHibernateDaoSupport;
@@ -105,7 +111,44 @@ public class AdminDaoHibernate extends YeekuHibernateDaoSupport implements Admin
 		return null;
 	}
 	
+
+	public List<Admin> getAdminByManager(final Integer pageNo,final Integer pageSize)
+	{
+
+		HibernateTemplate ht=getHibernateTemplate();
+	    return ht.executeFind(new HibernateCallback() {
+	    public Object doInHibernate(Session session)
+        throws HibernateException {
+	    		   Query query = session.createQuery("from Admin admin where privileges = 'ROLE_USER'"); 
+
+	    		   query.setMaxResults(pageSize);
+			       query.setFirstResult(pageNo);
+			       return query.list();
+	    	   	}
+		 });
+	}
 	
+
+	public List<Admin> getUserByManager(final Integer pageNo,final Integer pageSize){
+		
+		HibernateTemplate ht=getHibernateTemplate();
+	    return ht.executeFind(new HibernateCallback() {
+	    public Object doInHibernate(Session session)
+        throws HibernateException {
+	    		   Query query = session.createQuery("from Admin admin where privileges = 'ROLE_USER'"); 
+
+	    		   query.setMaxResults(pageSize);
+			       query.setFirstResult(pageNo);
+			       return query.list();
+	    	   	}
+		 });
+	}
+	
+	
+	
+	
+	
+/**********************Activericode********************************/	
 
 	/**
 	 * 根据标识属性来加载Activericode实例

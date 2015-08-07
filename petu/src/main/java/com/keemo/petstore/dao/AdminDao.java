@@ -81,9 +81,27 @@ public interface AdminDao
 	public Admin getByEmailAndPassword(String email, String password, int active);
 	
 	
+	/**
+	 * 2015-8-6
+	 * 打水的
+	 * @param pageNo
+	 * @param pageSize
+	 * @return
+	 * List<Admin>
+	 */
+	List<Admin> getAdminByManager(Integer pageNo,Integer pageSize);
 	
+	/**
+	 * 2015-8-6
+	 * 打水的
+	 * @param pageNo
+	 * @param pageSize
+	 * @return
+	 * List<Admin>
+	 */
+	List<Admin> getUserByManager(Integer pageNo,Integer pageSize);
 	
-	
+	/*******************************Activericode***********************************/
 	/**
 	 * 根据标识属性来加载Activericode实例
 	 * @param id 需要加载的Activericode实例的标识属性值

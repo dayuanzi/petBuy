@@ -20,7 +20,7 @@
 		p:driverClass="com.mysql.jdbc.Driver"
 		p:jdbcUrl="jdbc:mysql://localhost:3306/petbuy?useUnicode=true&amp;characterEncoding=utf8"
 		p:user="root"
-		p:password="123456"
+		p:password="zsy"
 		p:maxPoolSize="40"
 		p:minPoolSize="1"
 		p:initialPoolSize="1"
@@ -126,7 +126,9 @@
 	/>
 		
 		
-		
+	<bean id="consManagerTemplate" abstract="true" lazy-init="true"
+		p:adminDao-ref="adminDao"
+	/>
 	<bean id="loginManagerTemplate" abstract="true" lazy-init="true"
 		p:adminDao-ref="adminDao"
 	/>
@@ -143,6 +145,11 @@
     <bean id="memManager" name="memManager"
 		class="com.keemo.petstore.service.impl.MemManagerImpl"
 		parent="memberManagerTemplate"/>
+		
+	<bean id="consManager" name="consManager"
+		class="com.keemo.petstore.service.impl.ConsManagerImpl"
+		parent="consManagerTemplate"/>
+		
     <bean id="cattManager" name="cattManager"
 		class="com.keemo.petstore.service.impl.CattManagerImpl" 
 		parent="cattManagerTemplate">
