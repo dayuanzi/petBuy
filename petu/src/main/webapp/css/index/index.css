@@ -1,4 +1,3 @@
-
 /*=============主要内容部分 ===================*/
 
 .sap_tabs {
@@ -8,13 +7,6 @@
 	height: auto;
 	overflow: hidden;
 }
-/*.tab_box {
-	background: #fd926d;
-	padding: 2em;
-}
-.top1 {
-	margin-top: 2%;
-}*/
 .resp-tabs-list {
 	list-style: none;
 	padding: 0;
@@ -71,98 +63,6 @@ h2.resp-accordion {
 	
 	color: #45B9A6;
 }
-/*@media only screen and (max-width: 480px) {
-	.sap_tabs {
-		padding-top: 0;
-	}
-	.resp-tabs-container {
-		padding: 10px;
-	}
-	ul.resp-tabs-list {
-		display: none;
-	}
-	h2.resp-accordion {
-		display: block;
-		font-size: 1em;
-		text-transform: uppercase;
-		padding: 10px;
-	}
-	.resp-vtabs .resp-tab-content {
-		border: 1px solid #C1C1C1;
-	}
-	.resp-vtabs .resp-tabs-container {
-		border: none;
-		float: none;
-		width: 100%;
-		min-height: initial;
-		clear: none;
-	}
-	.resp-accordion-closed {
-		display: none !important;
-	}
-}
-ul.tab_img {
-	padding: 0;
-	list-style: none;
-	position: relative;
-}
-ul.tab_img li {
-	float: left;
-	width: 15.92%;
-	margin-right: 5%;
-}
-ul.tab_img li.last {
-	margin-right: 0;
-}
-ul.tab_img1 {
-	margin-top: 3em;
-}
-.tab_desc {
-	background: #f7f7f7;
-	padding: 1em 0;
-	list-style: none;
-	text-align: center;
-}
-.tab_desc h3,
-.tab_desc1 h3 {
-	font-size: 0.85em;
-	text-transform: uppercase;
-	font-weight: 600;
-	margin-bottom: 3px;
-}
-.tab_desc h3 a,
-.tab_desc1 h3 a {
-	color: #555;
-}
-.tab_desc p,
-.tab_desc1 p {
-	font-size: 1.5em;
-	color: #000;
-	margin-bottom: 10px;
-}
-.client_box1 {
-	background: none;
-	border: 0;
-	/*border-top:1px solid #000;
-	width: 200px;
-	padding-bottom: 12px;
-	border-bottom: 1px solid rgba(69, 183, 165, 0.4);
-}
-.client_box1 h4 {
-	color: #000;
-	text-transform: uppercase;
-	font-size: 1.1em;
-	margin-top: 1em;
-}
-.container1 {
-	padding: 0 10px;
-}
-.grid_1 {
-	margin-bottom: 0em;
-}
-.col-md-12 {
-	padding: 0;
-}*/
 .cattery {
 	color: #C1C1C1;
 	display: block;

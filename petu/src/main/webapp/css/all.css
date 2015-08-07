@@ -1,0 +1,72 @@
+@CHARSET "UTF-8";
+.middle{width:100%;background-image:url(../image/middle-bg.png); background-repeat:no-repeat;}
+.middle_1{margin-top:20px;}
+.middle_1 .title{width:1120px;height:40px;line-height:30px;font-size:16px;}
+.middle_1 .title ul li{float:left;margin-right:30px;}
+.middle_1 .title ul li a:hover{color:#45b9a6;}
+.middle_1 .smallpic{width:1120px;height:500px;}
+.middle_1 .smallpic ul{width:1150px;margin-top:10px;}
+.middle_1 .smallpic ul li{float:left;width:200px; margin:0 30px 30px 0;border-bottom:solid #45b9a6 1px;padding-bottom:5px;}
+.middle_1 .smallpic img{width:200px;height:160px;}
+/* 3申请繁育人 */
+.sq_3{width:1120px ; height: 60px;border-bottom:solid #dcdcdc 2px; }
+.sq_3 span {line-height:80px; border-bottom:solid #ff9225 4px;padding:0 20px 8px 20px;margin-left:35px;}
+.zhuce_3{font-size:18px;line-height:80px;margin:0 0 0 50px;}
+.table_3{padding:0 0 0 100px;}
+.table_3 tr{height:40px;}
+.table_3 .txt1{width:100px;}.table_3 .txt2{width:320px;}
+.table_3 tr td{padding:0 20px 0 0;}
+.zp_3{margin:0 0 0 50px;line-height:60px;}
+.jd_3{margin:0 0 0 50px;}
+.jd_3 li{float:left;} 
+.jd_3_1{width:345px;}
+.jd_3_1 li{width:200px;padding-left:80px;}
+.jd_3_1 .yq{font-size:16px;color:#dcdcdc;line-height:40px;padding-left:40px;}
+.sl_3 {width:1125px;display:block;}
+.sl_3  ul{padding:10px 0 0 90px;}
+.sl_3 li{width:240px;float:left;margin:0 105px 0 0;line-height:40px;border:none;}
+.sl_3 img{width:240px;height:160px;}
+.sl_3 li .tj{font-size:16px;color:#dcdcdc;}
+.sl_3  .line{width:200px;border-bottom:solid #45b8a6 1px;float:right;padding:20px 0 0 0}
+.xiazai_3{width:620px;height:140px;margin:60px auto;border:solid #45b8a6 1px;text-align:center;padding:30px 200px 10px 200px;}
+.xiazai_3 .tjsh{width:140px;height:35px;background-color:#46B7A5;color:#fff;line-height:35px;margin:20px auto;}
+.xiazai_3 .tjsh a{color:#fff;}.xiazai_3 .tjsh a:hover{color:#fff;}
+
+/* 4猫咪搜索 */
+.all_4{width:1080px;height:30px;line-height:30px; border:solid #ccc 1px;padding:0 0 0 40px; margin:10px 0 0 0;}
+.all_4_1{width:1040px;height:auto;line-height:30px; border:solid #ccc 1px;padding:0 40px 0 40px;margin:10px 0 0 0; }
+.all_4_1 .pz{display:block;width:1000px;float:right;}
+.all_4_1 .pz li{float:left;padding:0 0 0 20px;}
+.all_4_1 .jiage{width:90px;height:20px;}
+.all_4_1  .button{padding:2px 15px;margin:0 0 0 30px;border:none;background-color:#999;color:#fff;line-height:20px;}
+.page{text-align:center;font-size:12px;line-height:60px;}
+
+/* 4.2猫咪详情 */
+.main_4{width:1000px;}
+.main_4 .title{height:80px;line-height:80px;background-color:#444;color:#fff;font-size:16px;text-align:center}
+.main_4 .detail{margin:20px 0 30px 0;}
+.main_4 .detail img{float:left;width:400px;height:320px}
+.main_4 .detail .detail_1{width:570px;float:left;margin:0 0 0 30px;}
+.main_4 .goumai{width:178px;height:38px;border:solid #ff9326 1px;text-align:center;line-height:40px;float:left;margin:30px 40px 0 0}
+.main_4 .goumai a{color:#ff9326;font-size:18px}
+.main_4 .jiaru{width:180px;height:40px;background-color:#ff9326;text-align:center;line-height:40px;color:#fff;float:left;margin:30px 0 0 0}
+.main_4 .jiaru a{color:#fff;font-size:18px}
+.main_4  .left{width:240px;float:left}
+.main_4 .lefttop{;width:238px;height:198px;border:solid #45b8a6 1px;}
+.main_4  .lefttop .title{height:40px;line-height:40px;background-color:#45b8a6;color:#fff;font-size:14px;text-align:left;padding:0 0 0 20px;}
+.main_4  .right{width:740px;float:left;margin:0 0 0 20px;}
+.main_4 .leftmid{;width:218px;height:38px;border:solid #45b8a6 1px;padding:0 0 0 20px;line-height:38px;margin:10px 0 0 0 }
+.main_4 .leftdown{;width:240px;height:200px;background-color:#ccc;margin:10px 0 0 0}
+.main_4  .right .title{height:40px;line-height:40px;background-color:#45b8a6;color:#fff;font-size:14px;text-align:left;padding:0 0 0 20px;}
+.main_4  .right .table{width:720px;line-height:40px;padding-left:20px}
+.main_4 .rightdown{;width:740px;height:600px;background-color:#ccc;margin:10px 0 30px 0}
+
+/* 5猫咪搜索 */
+.diqu_5 {margin:0 0 0 10px;}
+.middle_5{width:1120px;margin:20px 0 30px 0;}
+.middle_5 li{width:1120px;height:100px;padding:10px 0;border-bottom:solid #ccc 1px;}
+.middle_5 .mst{width:90px;height:90px;border:solid #ccc 1px;float:left;padding:3px;}
+.middle_5 .jieshao{float:left;width:440px; margin:0 0 0 20px;}
+.middle_5 .slt{width:560px;float:right}
+.middle_5 .slt li{width:120px;border:none;padding:0;margin:0 0 0 20px;float:left}
+.middle_5 .slt img{width:120px;height:100px} 

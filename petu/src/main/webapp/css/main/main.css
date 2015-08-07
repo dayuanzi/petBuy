@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+/*4猫咪搜索*/
+.all_4{width:1080px;height:30px;line-height:30px; border:solid #ccc 1px;padding:0 0 0 40px; margin:10px 0 0 0;}
+.all_4_1{width:1040px;height:auto;line-height:30px; border:solid #ccc 1px;padding:0 40px 0 40px;margin:10px 0 0 0; }
+.all_4_1 .pz{display:block;width:1000px;float:right;}
+.all_4_1 .pz li{float:left;padding:0 0 0 20px;}
+.all_4_1 .jiage{width:90px;height:20px;}
+.all_4_1  .button{padding:2px 15px;margin:0 0 0 30px;border:none;background-color:#999;color:#fff;line-height:20px;}
+.page{text-align:center;font-size:12px;line-height:60px;}

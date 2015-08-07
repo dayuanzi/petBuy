@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" isELIgnored="true"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,17 +13,14 @@
 		<link rel="stylesheet" type="text/css" href="css/common/common.css" />
 		<link rel="stylesheet" type="text/css" href="css/common/nav-bar.css" />
 		<link rel="stylesheet" type="text/css"
-			href="css/login-register/jquery.validator.css" />
+			href="css/jquery.validator.css" />
 		<link rel="stylesheet" type="text/css"
-			href="css/login-register/login.css" />
+			href="css/login.css" />
 
 		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/login/jquery.validator.js" type="text/javascript"
 			charset="utf-8"></script>
 		<script src="js/login/zh_CN.js" type="text/javascript" charset="utf-8"></script>
-
-
-
 
 		<script language="javascript" type="text/javascript">
 			$(function() {
@@ -33,9 +32,16 @@
 					$('.tab-page').eq(index).slideDown(500);
 				});
 			});
+			
+			
+			function  onLogin(){
+				//var msg=request.getParameter("msg");
+				
+				alert(<%=request.getParameter("error")%>);
+			}
+			
+			
 		</script>
-
-
 
 		<script language="javascript" type="text/javascript">
 			var timeout = 100;
@@ -69,12 +75,13 @@
 				$('.header-menu > li').bind('mouseout', menu_timer);
 			});
 			document.onclick = menu_close;
+
 		</script>
 
 
 
 
-		<style type="text/css">
+<style type="text/css">
 input:-webkit-autofill {
 	-webkit-box-shadow: 0 0 0px 1000px rgb(240, 240, 239) inset;
 	-webkit-text-fill-color: #333;
@@ -122,33 +129,44 @@ input:-webkit-autofill {
 	
 	-->
 
-	<div class="nav-bar">
-		<ul class="header-menu">
-			<li><a href="#">首页</a></li>
-			<li><a href="#"
-				style="background-image: url(img/cattery.png); background-repeat: no-repeat; background-position-y: center; padding-left: 20px;">猫舍</a></li>
-			<li><a href="#"
-				style="background-image: url(img/cat_basket.png); background-repeat: no-repeat; background-position-y: center; padding-left: 20px;">猫篮</a></li>
-			<li><a href="#"
-				style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position-y: center; padding-right: 15px; background-position-x: right;">买家中心</a>
-				<ul>
-					<li><a href="#">我的订单</a></li>
-					<li><a href="#">已买到的猫咪</a></li>
-					<li><a href="#">已预订的猫咪</a></li>
-				</ul></li>
-			<li><a href="#"
-				style="background-image: url(img/arrowdown.png); background-repeat: no-repeat; background-position-y: center; padding-right: 15px; background-position-x: right;">猫舍中心</a>
-				<ul>
-					<li><a href="#">我的订单</a></li>
-					<li><a href="#">已买到的猫咪</a></li>
-					<li><a href="#">已预订的猫咪</a></li>
-				</ul></li>
+	<!--顶部导航栏-->
+		<div class="nav-bar">
+			<div style="margin: 0 auto; width: 1120px; ">
 
-			<li><a href="#" target="_blank">联系客服</a></li>
-		</ul>
-		<div class="clear"></div>
+				<div class="right">
+					<ul class="header-menu">
+						<li style="width: 80px;"><a href="#">首页</a></li>
+						<li style="width: 80px;">
+							<a href=""><img src="image/common/cattery.png" style="margin:0 5px -2px 0">猫舍</a>
+						</li>
+						</li>
+						<li style="width: 80px;">
+							<a href=""><img src="image/common/cat_basket.png" style="margin:0 5px -2px 0">猫篮</a>
+						</li>
+						<li style="width:20px">
+							<a href=""><img src="image/common/top-line.png" style="margin:12px 0 -2px 5px"></li>
+						<li style="width: 100px;"><a href="">买家中心<img src="image/common/arrowdown.png" style="margin:0 0 1px 5px;float: ;"></a>
+							<ul>
+								<li><a href="#">我的订单</a></li>
+								<li><a href="#">已买到的猫咪</a></li>
+								<li><a href="#">已预订的猫咪</a></li>
+							</ul>
+						</li>
+						<li style="width: 100px;"><a href="">猫舍中心<img src="image/common/arrowdown.png" style="margin:0 0 1px 5px;float: ;"></a>
+							<ul>
+								<li><a href="#">我的订单</a></li>
+								<li><a href="#">已买到的猫咪</a></li>
+								<li><a href="#">已预订的猫咪</a></li>
+							</ul>
+						</li>
 
-	</div>
+						<li style="width: 75px;"><a href="#" target="_blank" style="text-align: end;">联系客服</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="clear"> </div>
+
+		</div>
 
 	<div class="main">
 		<div class="login-wrap">
@@ -186,8 +204,20 @@ input:-webkit-autofill {
 								</div>
 							</div>
 							<div class="button-wrapper">
-								<input id="login-button-account" class="login-button"
+							
+						<%if(request.getQueryString().equals("error=1")){ %>	
+						
+							<%=request.getQueryString() %>
+							<input id="login-button-account" 
+									type="submit" value="呵呵" /> 
+							<%}else if(request.getQueryString()==null){%>
+					
+						
+						
+					
+								<input id="login-button-account" class="login-button" 
 									type="submit" value="登录" />
+	                   <%} %>
 							</div>
 
 							<div class="input-wrapper" style="margin-top: 10px">

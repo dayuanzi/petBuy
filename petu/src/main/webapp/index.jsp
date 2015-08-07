@@ -7,7 +7,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<ss:head/>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!--链接标签图标-->
 <link rel="shortcut icon" href="img/logo.ico">
@@ -173,7 +173,7 @@
 					<li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>宠物级</span></li>
 					<li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>繁育级</span></li>
 					<li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>赛级</span></li>
-					<li class="more" style="float: right;padding-right: 0;"><a href="#">更多 ></a></li>
+					<li class="more" style="float: right;padding-right: 0;"><a href="/pages/main.jsp">更多 ></a></li>
 					<div class="clearfix"></div>
 				</ul>
 
@@ -226,7 +226,7 @@
 					<li><a href=" "><img src="${initParam.fileHost}/image/cat5.png "></a><img src="image/index/female.png " style="margin:0 5px -2px 0 "><span class="gray_1 lh30 "><s:property value="#Plan.parentcatByMother.name"/>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30 "><s:property value="#Plan.motherColor"/></span></li>
 					<li style="margin-bottom:0; "><a href=" "><img src="${initParam.fileHost}/image/cat4.png "></a><img src="image/index/male.png " style="margin:0 5px -2px 0 "><span class="gray_1 lh30 "><s:property value="#Plan.parentcatByFather.name"/>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30 "><s:property value="#Plan.fatherColor"/></span></li>
 					</ul>
-					<span class="f14 gray_1 lh40 ">繁育开始时间</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="f14 gray_3 lh40 "><s:property value="#Plan.time"/></span>
+					<span class="f14 gray_1 lh40 ">繁育开始时间</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="f14 gray_3 lh40 "><s:date name="#Plan.time" format="dd-yy-mm"/></span>
 				</li>
 			</s:iterator>
 					

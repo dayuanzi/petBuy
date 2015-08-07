@@ -21,10 +21,17 @@ body {
 
 ol, ul {
 	list-style: none;
+	
 }
+a{color:#444;}
+.active a{color:#45b9a6;}
+a:hover{color:#45b9a6;}
 
 :link, :visited, ins {
 	text-decoration: none;
+}
+.main-content{
+	width:1120px;
 }
 
 .clear {
