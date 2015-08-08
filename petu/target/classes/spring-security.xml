@@ -26,12 +26,15 @@
 
 	<!-- 自动配置 开启表达式 -->
 	<http auto-config='true' use-expressions="true">
+	<access-denied-handler ref="accessDeniedHandler"/>
 		<intercept-url pattern="/login.jsp" access="permitAll()" />
 		<intercept-url pattern="/register.jsp" access="permitAll()" />
 		<intercept-url pattern="/UserRegisterAction.do" access="permitAll()" />
 		<intercept-url pattern="/UserActiveAction.do" access="permitAll()" />
+		<!-- <intercept-url pattern="/**" access="isAuthenticated()" /> -->
 		<intercept-url pattern="/**" access="hasRole('ROLE_CATT')" />
 		<intercept-url pattern="/Order/**" access="hasRole('ROLE_CATT')" />
+		
 
 
 		<!-- 默认登录界面 -->
@@ -47,6 +50,8 @@
 		<!-- 安全退出后的页面 删除cookie -->
 		<logout delete-cookies="JSESSIONID" logout-success-url="/login.jsp" />
 	</http>
+	
+	
 
 	<!-- 认证管理器 -->
 	<authentication-manager erase-credentials="false"
@@ -63,10 +68,24 @@
 		class="com.keemo.petstore.security.filter.CustomLoginHandler">
 		<beans:property name="adminDao" ref="adminDao" />
 	</beans:bean>
-
+	
+	<beans:bean id="accessDeniedHandler" 
+	    class="com.keemo.petstore.security.filter.CustomDeniedHandler">
+</beans:bean>
+<!--  <beansroperty name="accessDeniedUrl" value="/accessDenied" /> -->
 	<beans:bean id="failureHandler"
 		class="com.keemo.petstore.vo.AuthenticationFailureHandlerImpl">
 	</beans:bean>
+
+
+ <!-- <security:http auto-config="true">
+      <security:form-login/>
+       只能通过POST访问 
+      <security:intercept-url pattern="/post/**" method="POST"/>
+      只能通过GET访问 
+      <security:intercept-url pattern="/**" access="ROLE_USER" method="GET"/>
+   </security:http>
+  -->
 
 
 	<!-- <beans:bean id="myUserDetailsService" class="com.petu.webapp.service.impl.UserLoginServiceImpl"> 

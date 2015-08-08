@@ -1,6 +1,7 @@
 package com.keemo.petstore.service.impl;
 
 import com.keemo.petstore.bean.Activericode;
+
 import com.keemo.petstore.bean.Admin;
 import com.keemo.petstore.bean.Breedingplan;
 import com.keemo.petstore.bean.Cat;
@@ -14,11 +15,13 @@ import com.keemo.petstore.dao.CatDao;
 import com.keemo.petstore.dao.CatteryDao;
 import com.keemo.petstore.dao.CartDao;
 import com.keemo.petstore.dao.OrderDao;
+import org.springframework.cache.annotation.*;
 
 import java.text.*;
 import java.util.*;
 
 
+@Cacheable(value = "users")
 public class AdmManagerImpl
 	implements AdmManager
 {
@@ -94,6 +97,7 @@ public class AdmManagerImpl
 		
 	}
 	
+
 	public List<Breedingplan> getPlanList(Integer pageNo,Integer pageSize){
 		
 		return breedingPlanDao.findByIndex(pageNo, pageSize);

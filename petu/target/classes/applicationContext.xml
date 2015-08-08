@@ -101,6 +101,12 @@
 	</aop:config>
 
 	<!-- 定义业务逻辑组件模板 -->
+
+<!-- 缓存配置 -->
+
+
+
+
 	<!-- 为之注入DAO组件 -->
 
 	<bean id="adminManagerTemplate" abstract="true" lazy-init="true"
@@ -183,6 +189,16 @@
 		class="com.keemo.petstore.util.SendEmail" >
     </bean>
     
+    
+    <!--  缓存  属性-->  
+    <bean id="cacheManagerFactory" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">    
+        <property name="configLocation"  value="classpath:ehcache.xml"/>   
+    </bean>   
+      
+    <!-- 默认是cacheManager -->  
+    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">    
+        <property name="cacheManager"  ref="cacheManagerFactory"/>    
+    </bean>    
     
  
 	<!--定义Spring的事务拦截器TransactionInterceptor
