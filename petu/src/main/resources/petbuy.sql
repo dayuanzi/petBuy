@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-08-06 11:01:05
+Date: 2015-08-10 14:53:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -90,7 +90,7 @@ CREATE TABLE `admin` (
 -- ----------------------------
 INSERT INTO `admin` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'ROLE_USER', null, null, null, null, null, null, null, null, null, null, null);
 INSERT INTO `admin` VALUES ('2', 'adm', 'adm', 'ROLE_USER', null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `admin` VALUES ('33', 'a_dayuanzi@163.com', 'tTz0fdmj7dkYsbpD3q08Zw==', 'ROLE_USER', '1', 'aaa', null, null, null, null, null, null, null, null, null);
+INSERT INTO `admin` VALUES ('33', 'a_dayuanzi@163.com', 'tTz0fdmj7dkYsbpD3q08Zw==', 'ROLE_CATT', '1', 'aaa', null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for breedingorder
@@ -188,11 +188,12 @@ CREATE TABLE `cat` (
   `immune` tinyint(2) DEFAULT NULL,
   `birthday` date DEFAULT NULL,
   `catteryid` int(11) DEFAULT NULL,
-  `price` double(11,0) DEFAULT NULL,
-  `oldprice` double(11,0) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `oldprice` int(11) DEFAULT NULL,
   `stalen` tinyint(11) DEFAULT NULL,
   `orderid` int(11) DEFAULT NULL,
   `sex` tinyint(2) DEFAULT NULL,
+  `imageid` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `typeid` (`typeid`),
   KEY `rankid` (`rankid`),
@@ -209,48 +210,48 @@ CREATE TABLE `cat` (
 -- ----------------------------
 -- Records of cat
 -- ----------------------------
-INSERT INTO `cat` VALUES ('1', '小黑', '1', '2', '1', '1', '2015-07-01', '1', '10000', null, null, null, '1');
-INSERT INTO `cat` VALUES ('2', '小红', '1', '1', '1', '1', '2015-07-01', '1', '20000', null, null, null, '0');
-INSERT INTO `cat` VALUES ('3', '小黄', '1', '2', '1', '1', '2015-07-01', '1', '30000', '40000', null, null, '1');
-INSERT INTO `cat` VALUES ('4', '小粉', '1', '1', '1', '1', '2015-07-02', '1', '10000', null, null, null, '0');
-INSERT INTO `cat` VALUES ('5', '小绿', '1', '2', '1', '1', '2015-07-01', '2', '20000', '30000', null, null, '1');
-INSERT INTO `cat` VALUES ('6', '小黄', '1', '1', '1', '1', '2015-07-01', '1', '30000', null, null, null, '1');
-INSERT INTO `cat` VALUES ('7', '小橙', '1', '1', '1', '1', '2015-07-01', '2', '10000', null, null, null, '0');
-INSERT INTO `cat` VALUES ('8', '小白', '1', '2', '1', '1', '2015-07-01', '1', '20000', null, null, null, '1');
-INSERT INTO `cat` VALUES ('9', '小驴', '1', '3', '1', '1', '2015-08-01', '2', '20000', null, null, null, '1');
-INSERT INTO `cat` VALUES ('10', '大驴', '1', '1', '1', '1', '2015-08-01', '2', '10000', null, null, null, '1');
-INSERT INTO `cat` VALUES ('11', '大红', '1', '1', '1', '1', '2015-08-02', '4', '20000', null, null, null, '1');
-INSERT INTO `cat` VALUES ('12', '大白', '1', '1', '1', '1', '2015-08-02', '1', '2000', null, null, null, '1');
-INSERT INTO `cat` VALUES ('13', '大紫', '1', '1', '1', '1', '2015-08-02', '2', '3000', null, null, null, '1');
-INSERT INTO `cat` VALUES ('14', '小紫', '1', '1', '1', '1', '2015-08-01', '1', '4000', null, null, null, '1');
-INSERT INTO `cat` VALUES ('15', '大粉', '1', '1', '1', '1', '2015-08-05', '2', '1000', null, null, null, '1');
-INSERT INTO `cat` VALUES ('16', '大屎', '1', '2', '1', '1', '2015-08-01', '2', '3000', null, null, null, '0');
-INSERT INTO `cat` VALUES ('17', '小屎', '1', '3', '1', '1', '2015-08-01', '1', '2000', null, null, null, '0');
-INSERT INTO `cat` VALUES ('18', '花花', '1', '3', '1', '1', '2015-08-01', '2', '1000', null, null, null, '0');
-INSERT INTO `cat` VALUES ('19', '草草', '1', '2', '1', '1', '2015-08-01', '1', '2000', null, null, null, '0');
-INSERT INTO `cat` VALUES ('20', '笔笔', '1', '3', '1', '1', '2015-08-01', '2', '3000', null, null, null, '1');
-INSERT INTO `cat` VALUES ('21', '路路', '1', '2', '1', '1', '2015-08-01', '1', '2000', null, null, null, '0');
-INSERT INTO `cat` VALUES ('22', '班长', '1', '2', '1', '1', '2015-08-07', '2', '3000', null, null, null, '1');
-INSERT INTO `cat` VALUES ('23', '大远子', '1', '3', '1', '1', '2015-08-01', '4', '2000', null, null, null, '0');
-INSERT INTO `cat` VALUES ('24', '小袖子', '1', '2', '1', '1', '2015-08-01', '2', '2000', null, null, null, '1');
-INSERT INTO `cat` VALUES ('25', '绿茶', '1', '3', '1', '1', '2015-08-01', '1', '3000', null, null, null, '0');
-INSERT INTO `cat` VALUES ('26', '王尼玛', '1', '3', '1', '1', '2015-08-01', '1', '2000', null, null, null, '1');
-INSERT INTO `cat` VALUES ('27', '二货', '1', '3', '1', '1', '2015-08-01', '2', '20000', null, null, null, '0');
-INSERT INTO `cat` VALUES ('28', '汤圆', '1', '3', '1', '1', '2015-08-01', '1', '20000', null, null, null, '1');
-INSERT INTO `cat` VALUES ('29', '元宵', '1', '2', '1', '1', '2015-08-01', '2', '5000', null, null, null, '0');
-INSERT INTO `cat` VALUES ('30', '粽子', '1', '3', '1', '1', '2015-08-01', '4', '9000', null, null, null, '1');
-INSERT INTO `cat` VALUES ('31', '饺子', '1', '2', '1', '1', '2015-08-01', '4', '20000', null, null, null, '0');
-INSERT INTO `cat` VALUES ('32', '火腿', '1', '3', '1', '1', '2015-08-01', '1', '1000', null, null, null, '1');
-INSERT INTO `cat` VALUES ('33', '叉烧包', '1', '3', '1', '1', '2015-08-01', '2', '3000', null, null, null, '0');
-INSERT INTO `cat` VALUES ('34', '小鲜肉', '1', '3', '1', '1', '2015-08-01', '1', '4000', null, null, null, '1');
-INSERT INTO `cat` VALUES ('35', '罗汉果', '1', '2', '1', '1', '2015-08-01', '2', '6000', null, null, null, '0');
-INSERT INTO `cat` VALUES ('36', '脑洞', '1', '2', '1', '1', '2015-08-01', '1', '5000', null, null, null, '1');
-INSERT INTO `cat` VALUES ('37', '魅族', '1', '3', '1', '1', '2015-08-01', '2', '6000', null, null, null, '0');
-INSERT INTO `cat` VALUES ('38', '小米', '1', '1', '1', '1', '2015-08-01', '1', '8000', null, null, null, '0');
-INSERT INTO `cat` VALUES ('39', '三星', '1', '3', '1', '1', '2015-08-01', '2', '10000', null, null, null, '1');
-INSERT INTO `cat` VALUES ('40', '茄子', '1', '1', '1', '1', '2015-08-01', '1', '5000', null, null, null, '0');
-INSERT INTO `cat` VALUES ('41', '黄瓜', '1', '2', '1', '1', '2015-08-01', '2', '7000', null, null, null, '1');
-INSERT INTO `cat` VALUES ('42', '草莓', '1', '3', '1', '1', '2015-08-01', '1', '4000', null, null, null, '0');
+INSERT INTO `cat` VALUES ('1', '小黑', '1', '2', '1', '1', '2015-07-01', '1', '10000', null, null, null, '1', null);
+INSERT INTO `cat` VALUES ('2', '小红', '1', '1', '1', '1', '2015-07-01', '1', '20000', null, null, null, '0', null);
+INSERT INTO `cat` VALUES ('3', '小黄', '1', '2', '1', '1', '2015-07-01', '1', '30000', '40000', null, null, '1', null);
+INSERT INTO `cat` VALUES ('4', '小粉', '1', '1', '1', '1', '2015-07-02', '1', '10000', null, null, null, '0', null);
+INSERT INTO `cat` VALUES ('5', '小绿', '1', '2', '1', '1', '2015-07-01', '2', '20000', '30000', null, null, '1', null);
+INSERT INTO `cat` VALUES ('6', '小黄', '1', '1', '1', '1', '2015-07-01', '1', '30000', null, null, null, '1', null);
+INSERT INTO `cat` VALUES ('7', '小橙', '1', '1', '1', '1', '2015-07-01', '2', '10000', null, null, null, '0', null);
+INSERT INTO `cat` VALUES ('8', '小白', '1', '2', '1', '1', '2015-07-01', '1', '20000', null, null, null, '1', null);
+INSERT INTO `cat` VALUES ('9', '小驴', '1', '3', '1', '1', '2015-08-01', '2', '20000', null, null, null, '1', null);
+INSERT INTO `cat` VALUES ('10', '大驴', '1', '1', '1', '1', '2015-08-01', '2', '10000', null, null, null, '1', null);
+INSERT INTO `cat` VALUES ('11', '大红', '1', '1', '1', '1', '2015-08-02', '4', '20000', null, null, null, '1', null);
+INSERT INTO `cat` VALUES ('12', '大白', '1', '1', '1', '1', '2015-08-02', '1', '2000', null, null, null, '1', null);
+INSERT INTO `cat` VALUES ('13', '大紫', '1', '1', '1', '1', '2015-08-02', '2', '3000', null, null, null, '1', null);
+INSERT INTO `cat` VALUES ('14', '小紫', '1', '1', '1', '1', '2015-08-01', '1', '4000', null, null, null, '1', null);
+INSERT INTO `cat` VALUES ('15', '大粉', '1', '1', '1', '1', '2015-08-05', '2', '1000', null, null, null, '1', null);
+INSERT INTO `cat` VALUES ('16', '大屎', '1', '2', '1', '1', '2015-08-01', '2', '3000', null, null, null, '0', null);
+INSERT INTO `cat` VALUES ('17', '小屎', '1', '3', '1', '1', '2015-08-01', '1', '2000', null, null, null, '0', null);
+INSERT INTO `cat` VALUES ('18', '花花', '1', '3', '1', '1', '2015-08-01', '2', '1000', null, null, null, '0', null);
+INSERT INTO `cat` VALUES ('19', '草草', '1', '2', '1', '1', '2015-08-01', '1', '2000', null, null, null, '0', null);
+INSERT INTO `cat` VALUES ('20', '笔笔', '1', '3', '1', '1', '2015-08-01', '2', '3000', null, null, null, '1', null);
+INSERT INTO `cat` VALUES ('21', '路路', '1', '2', '1', '1', '2015-08-01', '1', '2000', null, null, null, '0', null);
+INSERT INTO `cat` VALUES ('22', '班长', '1', '2', '1', '1', '2015-08-07', '2', '3000', null, null, null, '1', null);
+INSERT INTO `cat` VALUES ('23', '大远子', '1', '3', '1', '1', '2015-08-01', '4', '2000', null, null, null, '0', null);
+INSERT INTO `cat` VALUES ('24', '小袖子', '1', '2', '1', '1', '2015-08-01', '2', '2000', null, null, null, '1', null);
+INSERT INTO `cat` VALUES ('25', '绿茶', '1', '3', '1', '1', '2015-08-01', '1', '3000', null, null, null, '0', null);
+INSERT INTO `cat` VALUES ('26', '王尼玛', '1', '3', '1', '1', '2015-08-01', '1', '2000', null, null, null, '1', null);
+INSERT INTO `cat` VALUES ('27', '二货', '1', '3', '1', '1', '2015-08-01', '2', '20000', null, null, null, '0', null);
+INSERT INTO `cat` VALUES ('28', '汤圆', '1', '3', '1', '1', '2015-08-01', '1', '20000', null, null, null, '1', null);
+INSERT INTO `cat` VALUES ('29', '元宵', '1', '2', '1', '1', '2015-08-01', '2', '5000', null, null, null, '0', null);
+INSERT INTO `cat` VALUES ('30', '粽子', '1', '3', '1', '1', '2015-08-01', '4', '9000', null, null, null, '1', null);
+INSERT INTO `cat` VALUES ('31', '饺子', '1', '2', '1', '1', '2015-08-01', '4', '20000', null, null, null, '0', null);
+INSERT INTO `cat` VALUES ('32', '火腿', '1', '3', '1', '1', '2015-08-01', '1', '1000', null, null, null, '1', null);
+INSERT INTO `cat` VALUES ('33', '叉烧包', '1', '3', '1', '1', '2015-08-01', '2', '3000', null, null, null, '0', null);
+INSERT INTO `cat` VALUES ('34', '小鲜肉', '1', '3', '1', '1', '2015-08-01', '1', '4000', null, null, null, '1', null);
+INSERT INTO `cat` VALUES ('35', '罗汉果', '1', '2', '1', '1', '2015-08-01', '2', '6000', null, null, null, '0', null);
+INSERT INTO `cat` VALUES ('36', '脑洞', '1', '2', '1', '1', '2015-08-01', '1', '5000', null, null, null, '1', null);
+INSERT INTO `cat` VALUES ('37', '魅族', '1', '3', '1', '1', '2015-08-01', '2', '6000', null, null, null, '0', null);
+INSERT INTO `cat` VALUES ('38', '小米', '1', '1', '1', '1', '2015-08-01', '1', '8000', null, null, null, '0', null);
+INSERT INTO `cat` VALUES ('39', '三星', '1', '3', '1', '1', '2015-08-01', '2', '10000', null, null, null, '1', null);
+INSERT INTO `cat` VALUES ('40', '茄子', '1', '1', '1', '1', '2015-08-01', '1', '5000', null, null, null, '0', null);
+INSERT INTO `cat` VALUES ('41', '黄瓜', '1', '2', '1', '1', '2015-08-01', '2', '7000', null, null, null, '1', null);
+INSERT INTO `cat` VALUES ('42', '草莓', '1', '3', '1', '1', '2015-08-01', '1', '4000', null, null, null, '0', null);
 
 -- ----------------------------
 -- Table structure for cattery
@@ -277,9 +278,9 @@ CREATE TABLE `cattery` (
 -- ----------------------------
 -- Records of cattery
 -- ----------------------------
-INSERT INTO `cattery` VALUES ('1', '大远子猫舍', '1', '布偶猫', '6', '2', '1', null, null, null);
-INSERT INTO `cattery` VALUES ('2', '好坏好坏的猫舍', '1', '布偶猫', '4', '2', '1', null, null, null);
-INSERT INTO `cattery` VALUES ('4', '1', null, '1', null, null, null, '1', '1', '1');
+INSERT INTO `cattery` VALUES ('1', '大远子猫舍', '1', '布偶猫', '6', '2', '1', '北京', '13628619951', '张随远');
+INSERT INTO `cattery` VALUES ('2', '好坏好坏的猫舍', '1', '布偶猫', '4', '2', '1', '上海', '13628619937', '张继笔');
+INSERT INTO `cattery` VALUES ('4', '小菲菲猫舍', '1', '折耳猫', '3', '2', '1', '深圳', '13628619980', '陈梦菲');
 
 -- ----------------------------
 -- Table structure for cattpetrank
@@ -344,40 +345,65 @@ CREATE TABLE `imagmsg` (
   `pid` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of imagmsg
 -- ----------------------------
-INSERT INTO `imagmsg` VALUES ('1', '1', '1', '1', null);
-INSERT INTO `imagmsg` VALUES ('2', '1201507220343130.jpg', '1', '1', null);
-INSERT INTO `imagmsg` VALUES ('3', '1201507220343131.jpg', '1', '1', null);
-INSERT INTO `imagmsg` VALUES ('8', '33201508010408240.jpg', '1', '5', '2');
+INSERT INTO `imagmsg` VALUES ('1', '1.jpg', '1', '1', '1');
+INSERT INTO `imagmsg` VALUES ('2', '1201507220343130.jpg', '1', '2', '1');
+INSERT INTO `imagmsg` VALUES ('3', '1201507220343131.jpg', '1', '3', '1');
+INSERT INTO `imagmsg` VALUES ('8', '33201508010408240.jpg', '1', '1', '2');
 INSERT INTO `imagmsg` VALUES ('9', '33201508010408241.jpg', '1', '5', '2');
 INSERT INTO `imagmsg` VALUES ('10', '33201508010408240.jpeg', '1', '6', '2');
 INSERT INTO `imagmsg` VALUES ('11', '33201508010408240.jpg', '1', '7', '2');
 INSERT INTO `imagmsg` VALUES ('17', '33201508010437250.jpg', '1', '12', '2');
-INSERT INTO `imagmsg` VALUES ('18', '33201508010437251.jpg', '1', '12', '2');
+INSERT INTO `imagmsg` VALUES ('18', '33201508010437251.jpg', '2', '13', '2');
 INSERT INTO `imagmsg` VALUES ('19', '33201508010437250.jpg', '1', '13', '2');
 INSERT INTO `imagmsg` VALUES ('20', '33201508010437250.jpeg', '1', '14', '2');
-INSERT INTO `imagmsg` VALUES ('21', '33201508031038470.jpg', '1', '10', '1');
-INSERT INTO `imagmsg` VALUES ('22', '33201508031038481.jpg', '1', '10', '1');
-INSERT INTO `imagmsg` VALUES ('23', '33201508031038480.jpeg', '1', '11', '1');
-INSERT INTO `imagmsg` VALUES ('24', '33201508031038480.jpg', '1', '12', '1');
-INSERT INTO `imagmsg` VALUES ('25', '33201508031106230.jpg', '1', '9', '1');
+INSERT INTO `imagmsg` VALUES ('21', '33201508031038470.jpg', '1', '4', '1');
+INSERT INTO `imagmsg` VALUES ('22', '33201508031038481.jpg', '1', '5', '1');
+INSERT INTO `imagmsg` VALUES ('23', '33201508031038480.jpeg', '1', '6', '1');
+INSERT INTO `imagmsg` VALUES ('24', '33201508031038480.jpg', '1', '7', '1');
+INSERT INTO `imagmsg` VALUES ('25', '33201508031106230.jpg', '1', '8', '1');
 INSERT INTO `imagmsg` VALUES ('26', '33201508031106231.jpg', '1', '9', '1');
 INSERT INTO `imagmsg` VALUES ('27', '33201508031126290.jpeg', '1', '10', '1');
-INSERT INTO `imagmsg` VALUES ('28', '33201508031126291.jpg', '1', '10', '1');
+INSERT INTO `imagmsg` VALUES ('28', '33201508031126291.jpg', '1', '11', '1');
 INSERT INTO `imagmsg` VALUES ('29', '33201508031129060.jpg', '1', '12', '1');
-INSERT INTO `imagmsg` VALUES ('30', '33201508031129061.jpg', '1', '12', '1');
-INSERT INTO `imagmsg` VALUES ('31', '33201508040254370.jpg', '1', '13', '1');
-INSERT INTO `imagmsg` VALUES ('32', '33201508040254371.jpeg', '1', '13', '1');
-INSERT INTO `imagmsg` VALUES ('33', '33201508040254370.jpeg', '1', '14', '1');
-INSERT INTO `imagmsg` VALUES ('34', '33201508040254370.jpg', '1', '15', '1');
+INSERT INTO `imagmsg` VALUES ('30', '33201508031129061.jpg', '1', '13', '1');
+INSERT INTO `imagmsg` VALUES ('31', '33201508040254370.jpg', '1', '14', '1');
+INSERT INTO `imagmsg` VALUES ('32', '33201508040254371.jpeg', '1', '15', '1');
+INSERT INTO `imagmsg` VALUES ('33', '33201508040254370.jpeg', '1', '16', '1');
+INSERT INTO `imagmsg` VALUES ('34', '33201508040254370.jpg', '1', '17', '1');
 INSERT INTO `imagmsg` VALUES ('35', '33201508040731190.jpg', '1', '33', '3');
 INSERT INTO `imagmsg` VALUES ('36', '33201508040731191.jpg', '2', '33', '3');
 INSERT INTO `imagmsg` VALUES ('37', '33201508040731192.jpeg', '2', '33', '3');
 INSERT INTO `imagmsg` VALUES ('38', '33201508040731193.jpg', '3', '33', '3');
+INSERT INTO `imagmsg` VALUES ('39', '39.jpg', '1', '18', '1');
+INSERT INTO `imagmsg` VALUES ('40', '40.jpg', '1', '19', '1');
+INSERT INTO `imagmsg` VALUES ('41', '41.jpg', '1', '20', '1');
+INSERT INTO `imagmsg` VALUES ('42', '42.jpg', '1', '21', '1');
+INSERT INTO `imagmsg` VALUES ('43', '43.jpg', '1', '22', '1');
+INSERT INTO `imagmsg` VALUES ('44', '44.jpg', '1', '23', '1');
+INSERT INTO `imagmsg` VALUES ('45', '45.jpg', '1', '24', '1');
+INSERT INTO `imagmsg` VALUES ('46', '46.jpg', '1', '25', '1');
+INSERT INTO `imagmsg` VALUES ('47', '47.jpg', '1', '26', '1');
+INSERT INTO `imagmsg` VALUES ('48', '48.jpg', '1', '27', '1');
+INSERT INTO `imagmsg` VALUES ('49', '49.jpg', '1', '28', '1');
+INSERT INTO `imagmsg` VALUES ('50', '50.jpg', '1', '29', '1');
+INSERT INTO `imagmsg` VALUES ('51', '51.jpg', '1', '30', '1');
+INSERT INTO `imagmsg` VALUES ('52', '52.jpg', '1', '31', '1');
+INSERT INTO `imagmsg` VALUES ('53', '53.jpg', '1', '32', '1');
+INSERT INTO `imagmsg` VALUES ('54', '54.jpg', '1', '33', '1');
+INSERT INTO `imagmsg` VALUES ('55', '55.jpg', '1', '34', '1');
+INSERT INTO `imagmsg` VALUES ('56', '56.jpg', '1', '35', '1');
+INSERT INTO `imagmsg` VALUES ('57', '57.jpg', '1', '36', '1');
+INSERT INTO `imagmsg` VALUES ('58', '58.jpg', '1', '37', '1');
+INSERT INTO `imagmsg` VALUES ('59', '59.jpg', '1', '38', '1');
+INSERT INTO `imagmsg` VALUES ('60', '60.jpg', '1', '39', '1');
+INSERT INTO `imagmsg` VALUES ('61', '61.jpg', '1', '40', '1');
+INSERT INTO `imagmsg` VALUES ('62', '62.jpg', '1', '41', '1');
+INSERT INTO `imagmsg` VALUES ('63', '63.jpg', '1', '42', '1');
 
 -- ----------------------------
 -- Table structure for order
@@ -389,7 +415,7 @@ CREATE TABLE `order` (
   `userid` int(11) DEFAULT NULL,
   `ispay` tinyint(4) DEFAULT NULL,
   `catteryid` int(11) DEFAULT NULL,
-  `price` double(11,0) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
   `addressid` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `userid` (`userid`),
@@ -431,13 +457,13 @@ CREATE TABLE `parentcat` (
 -- ----------------------------
 -- Records of parentcat
 -- ----------------------------
-INSERT INTO `parentcat` VALUES ('1', '汤圆', '1', '绿色', '1', null);
-INSERT INTO `parentcat` VALUES ('5', '绿茶猫', '2', null, null, null);
-INSERT INTO `parentcat` VALUES ('6', '单身猫', '1', null, null, null);
-INSERT INTO `parentcat` VALUES ('7', '争气猫', '2', null, null, null);
-INSERT INTO `parentcat` VALUES ('12', '包子', '1', null, null, null);
-INSERT INTO `parentcat` VALUES ('13', '蒸饺', '2', null, null, null);
-INSERT INTO `parentcat` VALUES ('14', '水饺', '1', null, null, null);
+INSERT INTO `parentcat` VALUES ('1', '汤圆', '1', '绿色', '1', '1');
+INSERT INTO `parentcat` VALUES ('5', '绿茶猫', '2', '蓝色', '1', '2');
+INSERT INTO `parentcat` VALUES ('6', '单身猫', '1', '粉色', '1', '1');
+INSERT INTO `parentcat` VALUES ('7', '争气猫', '2', '花色', '1', '2');
+INSERT INTO `parentcat` VALUES ('12', '包子', '1', '白色', '1', '1');
+INSERT INTO `parentcat` VALUES ('13', '蒸饺', '2', '透明色', '1', '2');
+INSERT INTO `parentcat` VALUES ('14', '水饺', '1', '黄色', '1', '1');
 
 -- ----------------------------
 -- Table structure for pedigree_certificate

@@ -215,7 +215,7 @@ public class CatListAction
 			
 			Imagmsg imagmsg = img.getCatImagebyId(catlist.get(i).getId());
 			this.imagelist.add(imagmsg);
-	}
+	    }
 		return ADM_CAT_LIST;
 	
 	}
@@ -246,24 +246,29 @@ public class CatListAction
 					Imagmsg imagmsg = img.getCatImagebyId(catlist_pet.get(i).getId());
 					this.imagelist_pet.add(imagmsg);
 					
-				}
-		    for (int i = 0;i < catlist_breed.size();i++){
+			}
+		  
+			  for (int i = 0;i < catlist_breed.size();i++){
 					
 					Imagmsg imagmsg = img.getCatImagebyId(catlist_breed.get(i).getId());
 					this.imagelist_breed.add(imagmsg);
-				}
-		    for (int i = 0;i < catlist_pet.size();i++){
+					
+			}
+			
+		    for (int i = 0;i < catlist_match.size();i++){
 			
 			        Imagmsg imagmsg = img.getCatImagebyId(catlist_match.get(i).getId());
 			        this.imagelist_match.add(imagmsg);
-		        }
+		    }
+		    
+          
 
 			
 		}catch (Exception e){
 			e.printStackTrace();
 			throw e;
 		}
-		
+		 
      
 		return INDEX_LIST;
 	}
@@ -300,39 +305,4 @@ public class CatListAction
 		
 	}
 	
-
-	@Action(value = "CatAction",
-			results = { @Result(name = "success", 
-					            location = "/login.jsp")})
-	public String textAction()
-		throws Exception
-		{
-		Cat cat = adm.getCatById(1);
-		
-		Cat cat2 = adm.getCatById(1);
-		
-		
-		System.out.println(cat == cat2);
-		
-		return "success";
-		
-	}
-	
-	@Action(value = "CatAction2",
-			results = { @Result(name = "success", 
-					            location = "/login.jsp")})
-	public String textAction2()
-		throws Exception
-		{
-		Cat cat = adm.getCatById(1);		
-		Cat cat2 = adm.getCatById(1);
-
-		System.out.println(cat == cat2);
-		
-		return "success";
-		
-	}
-	
-	
-
 }

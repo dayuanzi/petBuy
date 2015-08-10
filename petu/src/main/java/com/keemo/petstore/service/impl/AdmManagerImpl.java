@@ -47,16 +47,17 @@ public class AdmManagerImpl
 		this.breedingPlanDao = breedingPlanDao;
 	}
 	
-	@Cacheable(value = "users", key="#id")
+	@Cacheable(value = "users", key="'catby'+#id")
 	public Cat getCatById(Integer id){
 		return catDao.get(id);
 	}
 	
+	@Cacheable(value = "users", key="'catteryby'+#id")
 	public Cattery getCatteryById(Integer id){
 		return catteryDao.get(id);
 	}
 
-	
+
 	public List<Cat> getCatsbyPage(Integer pageNo,Integer pageSize,Integer typeId,Integer rankId,Double priceLow,Double priceHigh)
 	{
 		
@@ -89,6 +90,7 @@ public class AdmManagerImpl
 		return list;
 	}
 	
+	@Cacheable(value = "users", key="'catsbycattery'+#pageNo+#pageSize+#catteryId")
 	public List<Cat> getCatsbyCatteryId(Integer pageNo,Integer pageSize,Integer catteryId)
 	{
 		List<Cat> list = catDao.findByCattery(pageNo, pageSize, catteryId);
@@ -96,7 +98,7 @@ public class AdmManagerImpl
 		
 	}
 	
-
+	@Cacheable(value = "users" ,key = "'planlist'+#pageNo+#pageSize")
 	public List<Breedingplan> getPlanList(Integer pageNo,Integer pageSize){
 		
 		return breedingPlanDao.findByIndex(pageNo, pageSize);

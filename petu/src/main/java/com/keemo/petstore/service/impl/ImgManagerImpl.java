@@ -30,7 +30,7 @@ public class ImgManagerImpl implements ImgManager{
 			}
 
 		}
-        @Cacheable(value = "users" , key = "#catid")
+        @Cacheable(value = "users" ,key = "'catimagebyid'+#catid")
 		public Imagmsg getCatImagebyId(Integer catid) throws Exception{
 			
 			try{
@@ -43,7 +43,7 @@ public class ImgManagerImpl implements ImgManager{
 			
 		}
 		
-        @Cacheable(value = "users" , key = "#catid")
+        @Cacheable(value = "users" , key = "'parentcatimagebyid'+#catid")
         public Imagmsg getParentcatImagebyId(Integer catid) throws Exception{
 			
         	try{
