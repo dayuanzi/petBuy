@@ -9,11 +9,11 @@
 		timeToLiveSeconds="120"
 		diskPersistent="false"/>
 	<cache name = "users"
-		maxElementsInMemory="10000"
+		maxElementsInMemory="20000"
 		eternal="false"
 		overflowToDisk="true"
-		timeToIdleSeconds="120"
-		timeToLiveSeconds="120"
+		timeToIdleSeconds="300"
+		timeToLiveSeconds="600"
 		diskPersistent="false"/>
 		
 </ehcache>

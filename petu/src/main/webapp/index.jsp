@@ -56,7 +56,10 @@
 
 
 
+<s:iterator value = "imagelist_pet" var = "image">
+<s:property value = "#image.path"/>
 
+</s:iterator>
 	<!--顶部导航栏-->
 		<div class="nav-bar">
 			<div style="margin: 0 auto; width: 1120px; ">

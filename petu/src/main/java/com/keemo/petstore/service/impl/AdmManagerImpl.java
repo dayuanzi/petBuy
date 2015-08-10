@@ -21,7 +21,6 @@ import java.text.*;
 import java.util.*;
 
 
-@Cacheable(value = "users")
 public class AdmManagerImpl
 	implements AdmManager
 {
@@ -48,7 +47,7 @@ public class AdmManagerImpl
 		this.breedingPlanDao = breedingPlanDao;
 	}
 	
-	
+	@Cacheable(value = "users", key="#id")
 	public Cat getCatById(Integer id){
 		return catDao.get(id);
 	}
