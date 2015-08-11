@@ -184,38 +184,57 @@ public class CatListAction
 	{
 		
 		ActionContext ctx = ActionContext.getContext();
-
-
-		Integer pageNumber = Integer.valueOf(pageNumberStr);
+		
+		Integer pageNumber = 1;
 		Integer typeId = null;
 		Integer rankId = null;
+		Double priceLow = 1.00;
+		Double priceHigh = 1000000.00;
 		
-		if(typeIdStr!=""){
+
+		if(pageNumberStr!=null){
+			pageNumber = Integer.valueOf(pageNumberStr);
+		}
+		
+
+		if(typeIdStr!=null){
 			typeId = Integer.valueOf(typeIdStr);
 		}
-		else
-		{
-			typeId = null;
-		}
-		if(rankIdStr!="")
+
+		if(rankIdStr!=null)
 		{
 			rankId = Integer.valueOf(rankIdStr);
 		}
-		else
-		{
-			rankId = null;
-		}
 
-		Double priceLow = Double.valueOf(priceLowStr);
-		Double priceHigh = Double.valueOf(priceHighStr);
+
+		if(priceLowStr!=null)
+		{
+			priceLow = Double.valueOf(priceLowStr);
+		}
+		
+
+		if(priceHighStr!=null)
+		{
+			priceHigh = Double.valueOf(priceHighStr);
+		}
+	
+
 		
 	    Integer pageNo = (pageNumber-1) * WebConstant.admPageSize;
 		this.catlist = adm.getCatsbyPage(pageNo, WebConstant.admPageSize, typeId, rankId, priceLow, priceHigh);
-		for (int i = 0;i < catlist.size();i++){
-			
-			Imagmsg imagmsg = img.getCatImagebyId(catlist.get(i).getId());
-			this.imagelist.add(imagmsg);
-	    }
+		this.imagelist = new ArrayList<Imagmsg>();
+		try{
+			for (int i = 0;i < catlist.size();i++){
+				System.out.println(catlist.get(i).getId());
+				Imagmsg imagmsg = img.getCatImagebyId(catlist.get(i).getId());
+				this.imagelist.add(imagmsg);
+		    }
+		}
+		catch (Exception e){
+			e.printStackTrace();
+			throw e;
+		}
+		
 		return ADM_CAT_LIST;
 	
 	}
@@ -277,9 +296,7 @@ public class CatListAction
 	
 	@Action(value = "CatsByQueryAction",
 			results = { @Result(name = "catlist", 
-					            location = "/content/main_cat_list.jsp"),
-					    @Result(name = "catlistindex",
-					    		location = "/WEB-INF/divPages/ind_catlist_div.jsp")},
+					            location = "/content/main_cat_list.jsp")},
 			interceptorRefs = { @InterceptorRef(value = "parStack")})
 	
 	public String CatsByQueryAction()
@@ -295,11 +312,22 @@ public class CatListAction
 		Integer pageNo = (pageNumber-1) * WebConstant.admPageSize;
 		this.catlist = adm.getCatsbyQuery(pageNo, WebConstant.admPageSize, queryStr);
 		
-		for (int i = 0;i < catlist.size();i++){
+		
+		this.imagelist = new ArrayList<Imagmsg>();
+		
+		try {
+	         for (int i = 0;i < catlist.size();i++){
 				
 				Imagmsg imagmsg = img.getCatImagebyId(catlist.get(i).getId());
 				this.imagelist.add(imagmsg);
 		}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			throw e;
+		}
+	
 		
 		return ADM_CAT_LIST;
 		

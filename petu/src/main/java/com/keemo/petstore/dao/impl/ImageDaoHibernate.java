@@ -67,12 +67,12 @@ public class ImageDaoHibernate extends YeekuHibernateDaoSupport implements Image
 	}
 
 	
-	public Imagmsg findByImageId(final Integer imageId,final Integer pid , final Integer imagetype){
+	public Imagmsg findByImageId(final Integer catId,final Integer pid , final Integer imagetype){
 		
 		HibernateTemplate ht=getHibernateTemplate();
 		
 		return (Imagmsg)ht.find("select imagmsg from Imagmsg imagmsg where imagmsg.catid = ? and imagmsg.pid = ? and imagmsg.imagetype = ?"
-				               ,imageId,pid,imagetype).get(0);
+				               ,catId,pid,imagetype).get(0);
 		 
 	   
 	}
@@ -82,7 +82,7 @@ public List<Imagmsg> findByImageList(final Integer catId,final Integer pid , fin
 		
 		HibernateTemplate ht=getHibernateTemplate();
 		
-		return ht.find("select imagmsg from Imagmsg imagmsg where imagmsg.catid = ? and imagmsg.pid = ? and imagmsg.imagetype = ?");
+		return ht.find("select imagmsg from Imagmsg imagmsg where imagmsg.catid = ? and imagmsg.pid = ? and imagmsg.imagetype = ?",catId,pid,imagetype);
 		 
 	   
 	}

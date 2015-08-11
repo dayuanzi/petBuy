@@ -127,10 +127,6 @@
            <result name="catsquery">/content/catlist.jsp</result>
            <result name="input">/content/catlist.jsp</result>
        </action>  
-       <action name="CatDetailAction" class="com.keemo.petstore.action.CatDetailAction" >  
-           <result name="catdetail">/content/catdetail.jsp</result>
-           <result name="input">/content/catdetail.jsp</result>
-       </action>  
        
         <action name="CatteryListAction" class="com.keemo.petstore.action.CatteryListAction" >  
            <result name="catterylist">/content/catterylist.jsp</result>
