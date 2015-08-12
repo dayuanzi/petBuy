@@ -1,6 +1,6 @@
 package com.keemo.petstore.bean;
 
-// Generated 2015-8-6 10:57:19 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-8-11 18:13:01 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import java.util.HashSet;
@@ -21,9 +21,10 @@ public class Cat implements java.io.Serializable {
 	private Byte immune;
 	private Date birthday;
 	private Double price;
-	private Double oldprice;
+	private Integer oldprice;
 	private Byte stalen;
 	private Byte sex;
+	private Integer imageid;
 	private Set carts = new HashSet(0);
 
 	public Cat() {
@@ -31,8 +32,8 @@ public class Cat implements java.io.Serializable {
 
 	public Cat(Cattery cattery, Order order, Catype catype, Rank rank,
 			PedigreeCertificate pedigreeCertificate, String name, Byte immune,
-			Date birthday, Double price, Double oldprice, Byte stalen,
-			Byte sex, Set carts) {
+			Date birthday, Double price, Integer oldprice, Byte stalen,
+			Byte sex, Integer imageid, Set carts) {
 		this.cattery = cattery;
 		this.order = order;
 		this.catype = catype;
@@ -45,6 +46,7 @@ public class Cat implements java.io.Serializable {
 		this.oldprice = oldprice;
 		this.stalen = stalen;
 		this.sex = sex;
+		this.imageid = imageid;
 		this.carts = carts;
 	}
 
@@ -128,11 +130,11 @@ public class Cat implements java.io.Serializable {
 		this.price = price;
 	}
 
-	public Double getOldprice() {
+	public Integer getOldprice() {
 		return this.oldprice;
 	}
 
-	public void setOldprice(Double oldprice) {
+	public void setOldprice(Integer oldprice) {
 		this.oldprice = oldprice;
 	}
 
@@ -150,6 +152,14 @@ public class Cat implements java.io.Serializable {
 
 	public void setSex(Byte sex) {
 		this.sex = sex;
+	}
+
+	public Integer getImageid() {
+		return this.imageid;
+	}
+
+	public void setImageid(Integer imageid) {
+		this.imageid = imageid;
 	}
 
 	public Set getCarts() {

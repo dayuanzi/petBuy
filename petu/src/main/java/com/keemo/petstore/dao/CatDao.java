@@ -60,12 +60,15 @@ public interface CatDao
 	public List<Cat> findByQuery(Integer pageNo,Integer pageSize,String queryStr);
 	
 	
-	/**
-	 * 根据猫舍id返回猫咪列表
-	 * @param pageNo pageSize catteryId
-	 * @return 返回 Cat List
+
+	/**根据猫舍id返回猫咪列表
+	 * 2015-8-11
+	 * 打水的
+	 * @param catteryId
+	 * @return
+	 * List<Cat>
 	 */
-	public List<Cat> findByCattery(Integer pageNo,Integer pageSize,Integer catteryId);
+	public List<Cat> findByCattery(Integer catteryId);
 	
 	
 	

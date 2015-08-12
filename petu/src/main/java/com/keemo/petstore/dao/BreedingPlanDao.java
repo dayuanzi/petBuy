@@ -63,7 +63,18 @@ public interface BreedingPlanDao {
 	 * @return
 	 * List<Breedingplan>
 	 */
-	List<Breedingplan> findByIndex(final Integer pageNo,final Integer pageSize);
+	List<Breedingplan> findByIndex(Integer pageNo,Integer pageSize);
+	
+	
+	/**
+	 * 2015-8-11
+	 * 打水的
+	 * @param catteryId
+	 * @return
+	 * List<Breedingplan>
+	 */
+	List<Breedingplan> findByCattery(Integer catteryId);
+	
 	
 	
 	/**------------ BreedingOrder--------------*/

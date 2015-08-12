@@ -151,7 +151,7 @@ public class CatDaoHibernate extends YeekuHibernateDaoSupport implements CatDao
 	 * @param pageNo pageSize catteryId
 	 * @return 返回 Cat List
 	 */
-	public List<Cat> findByCattery(final Integer pageNo,final Integer pageSize,final Integer catteryId)
+	public List<Cat> findByCattery(final Integer catteryId)
 	{
 		
 		HibernateTemplate ht=getHibernateTemplate();
@@ -160,8 +160,6 @@ public class CatDaoHibernate extends YeekuHibernateDaoSupport implements CatDao
 	        throws HibernateException {
 		    		   Query query = session.createQuery("from Cat cat where catteryid=? and order = null"); 
 		    		   query.setParameter(0, catteryId);
-		    		   query.setMaxResults(pageSize);
-				       query.setFirstResult(pageNo);
 				       return query.list();
 		    	   	}
 			 });

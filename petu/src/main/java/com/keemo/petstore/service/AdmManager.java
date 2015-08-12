@@ -23,11 +23,35 @@ public interface AdmManager
 	
 	List<Cattery> getCatterybyQuery(Integer pageNo,Integer pageSize,String queryStr);
 	
-	List<Cat> getCatsbyCatteryId(Integer pageNo,Integer pageSize,Integer catteryId);
+	/**
+	 * 2015-8-11
+	 * 打水的
+	 * @param catteryId
+	 * @return
+	 * @throws Exception
+	 * List<Cat>
+	 */
+	List<Cat> getCatsbyCatteryId(Integer catteryId) throws Exception;
 	
+	/**
+	 * 2015-8-11
+	 * 打水的
+	 * @param pageNo
+	 * @param pageSize
+	 * @return
+	 * List<Breedingplan>
+	 */
 	List<Breedingplan> getPlanList(Integer pageNo,Integer pageSize);
 	
-
+	/**
+	 * 2015-8-11
+	 * 打水的
+	 * @param catteryId
+	 * @return
+	 * @throws Exception
+	 * List<Breedingplan>
+	 */
+	public List<Breedingplan> getPlanListByCattery(Integer catteryId) throws Exception;
     
 
 

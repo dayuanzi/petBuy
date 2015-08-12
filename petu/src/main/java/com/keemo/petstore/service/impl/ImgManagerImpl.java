@@ -59,6 +59,19 @@ public class ImgManagerImpl implements ImgManager{
 			
 		}
         
+        @Cacheable(value = "users" ,key = "'catteryimagebyid'+#catteryid")
+		public Imagmsg getCatteryImagebyId(Integer catteryid) throws Exception{
+			
+			try{
+				return imageDao.findByImageId(catteryid, 3, 1);
+			}
+			catch (Exception e){
+				e.printStackTrace();
+				throw e;
+			}
+			
+		}
+        
         
         public List<Imagmsg> getCatImagebyList(Integer catid,Integer imageType) throws Exception{
 			
@@ -96,6 +109,8 @@ public class ImgManagerImpl implements ImgManager{
         		throw e;
         	}
 		}
+        
+        
         
         
 		

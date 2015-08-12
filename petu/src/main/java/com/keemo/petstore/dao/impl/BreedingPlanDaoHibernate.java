@@ -135,6 +135,18 @@ public class BreedingPlanDaoHibernate extends YeekuHibernateDaoSupport implement
 	}
 	
 	
+	public List<Breedingplan> findByCattery(Integer catteryId){
+
+		HibernateTemplate ht=getHibernateTemplate();
+		return ht.find("from Breedingplan breedingplan where breedingplan.cattery.id=?" ,catteryId );
+
+	}
+	
+	
+	
+	/****************************Breedingplan***********************************/
+	
+	
 	
 	
 	

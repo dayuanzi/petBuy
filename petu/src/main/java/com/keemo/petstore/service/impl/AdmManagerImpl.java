@@ -91,12 +91,32 @@ public class AdmManagerImpl
 	}
 	
 	@Cacheable(value = "users", key="'catsbycattery'+#pageNo+#pageSize+#catteryId")
-	public List<Cat> getCatsbyCatteryId(Integer pageNo,Integer pageSize,Integer catteryId)
+	public List<Cat> getCatsbyCatteryId(Integer catteryId) throws Exception
 	{
-		List<Cat> list = catDao.findByCattery(pageNo, pageSize, catteryId);
-		return list;
+		try{
+			return catDao.findByCattery(catteryId);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			throw e;
+		}
 		
 	}
+	/******************************planlist************************************/
+	
+	@Cacheable(value = "users" ,key = "'planlistbycattery'+#catteryId")
+	public List<Breedingplan> getPlanListByCattery(Integer catteryId) throws Exception{
+	try {
+			return breedingPlanDao.findByCattery(catteryId);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			throw e;
+		}
+	}
+	
 	
 	@Cacheable(value = "users" ,key = "'planlist'+#pageNo+#pageSize")
 	public List<Breedingplan> getPlanList(Integer pageNo,Integer pageSize){
