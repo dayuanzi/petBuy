@@ -66,10 +66,10 @@ public class AdmManagerImpl
 	
 	}
 	
-	public List<Cat> getCatsbyQuery(Integer pageNo,Integer pageSize,String queryStr)
+	public List<Cat> getCatsbyQuery(Integer pageNo,Integer pageSize,String queryStr,Integer typeId, Integer rankId,Double priceLow,Double priceHigh)
 	{
 		
-		List<Cat> list = catDao.findByQuery(pageNo, pageSize , queryStr);
+		List<Cat> list = catDao.findByQuery(pageNo, pageSize , queryStr, typeId, rankId, priceLow, priceHigh);
 		return list;
 	}
 	

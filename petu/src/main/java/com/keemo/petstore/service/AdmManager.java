@@ -17,7 +17,20 @@ public interface AdmManager
 	
 	List<Cat> getCatsbyPage(Integer pageNo,Integer pageSize,Integer typeId , Integer rankId,Double pricelow,Double pricehigh);
 	
-	List<Cat> getCatsbyQuery(Integer pageNo,Integer pageSize,String queryStr);
+	/**
+	 * 2015-8-12
+	 * 打水的
+	 * @param pageNo
+	 * @param pageSize
+	 * @param queryStr
+	 * @param typeId
+	 * @param rankId
+	 * @param pricelow
+	 * @param pricehigh
+	 * @return
+	 * List<Cat>
+	 */
+	List<Cat> getCatsbyQuery(Integer pageNo,Integer pageSize,String queryStr,Integer typeId , Integer rankId,Double pricelow,Double pricehigh);
 	
 	List<Cattery> getCatterybyPage(Integer pageNo,Integer pageSize,Integer typeId,Integer rankId,Integer regionId,Integer priceLow,Integer priceHigh);
 	

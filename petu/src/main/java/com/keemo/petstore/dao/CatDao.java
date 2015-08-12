@@ -8,6 +8,10 @@ import com.keemo.petstore.bean.Cattery;
 import com.keemo.petstore.bean.Parentcat;
 
 
+/**
+ * @author 打水的
+ *
+ */
 public interface CatDao
 {
 	/**
@@ -50,14 +54,20 @@ public interface CatDao
 	 */
 	public List<Cat> findByPage(Integer pageNo,Integer pageSize, Integer typeId, Integer rankId,Double priceLow,Double priceHigh);
 	
-	
-	
 	/**
-	 * 根据搜索返回猫咪列表
-	 * @param pageNo pageSize queryStr
-	 * @return 返回 Cat List
+	 * 2015-8-12
+	 * 打水的
+	 * @param pageNo
+	 * @param pageSize
+	 * @param queryStr
+	 * @param typeId
+	 * @param rankId
+	 * @param priceLow
+	 * @param priceHigh
+	 * @return
+	 * List<Cat>
 	 */
-	public List<Cat> findByQuery(Integer pageNo,Integer pageSize,String queryStr);
+	public List<Cat> findByQuery(Integer pageNo,Integer pageSize,String queryStr,Integer typeId, Integer rankId,Double priceLow,Double priceHigh);
 	
 	
 
