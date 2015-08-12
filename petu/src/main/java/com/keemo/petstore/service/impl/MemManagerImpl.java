@@ -390,6 +390,52 @@ public class MemManagerImpl
     	  
       }
       
+
+      public void deleteCart(Cart cart,Admin admin) throws Exception{
+    	  
+    	  try{
+    		  if(cartDao.get(cart.getId()).getAdmin().getId()==admin.getId()){
+    			  cartDao.delete(cart);
+    		  }
+
+    	  }
+    	  catch (Exception e){
+    		  e.printStackTrace();
+    		  throw e;
+    	  }
+
+      }
+      
+      
+      public void deleteOrder(Order order,Admin admin) throws Exception{
+    	  
+    	  try{
+    		  if(orderDao.get(order.getId()).getAdmin().getId()==admin.getId()){
+            	  orderDao.delete(order);
+    		  }
+
+    	  }
+    	  catch (Exception e){
+    		  e.printStackTrace();
+    		  throw e;
+    	  }
+
+      }
+      
+      
+       public void deletePlanOrder(Breedingorder breedingorder,Admin admin) throws Exception{
+    	  
+    	  try{
+    		  if(orderDao.get(breedingorder.getId()).getAdmin().getId()==admin.getId()){
+        		  breedingPlanDao.deleteOrder(breedingorder);
+    		  }
+
+    	  }
+    	  catch (Exception e){
+    		  e.printStackTrace();
+    		  throw e;
+    	  }
+      }
       
 
 }

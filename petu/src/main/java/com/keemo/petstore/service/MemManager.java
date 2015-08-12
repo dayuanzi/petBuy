@@ -191,4 +191,41 @@ public interface MemManager {
 	
 
 	
+	
+	
+	
+	/************************delete*******************************/
+	
+	 /**
+	 * 2015-8-12
+	 * 打水的
+	 * @param cart
+	 * @throws Exception
+	 * void
+	 */
+	public void deleteCart(Cart cart,Admin admin) throws Exception;
+	
+	
+	/**
+	 * 2015-8-12
+	 * 打水的
+	 * @param order
+	 * @param userid
+	 * @throws Exception
+	 * void
+	 */
+	public void deleteOrder(Order order,Admin admin) throws Exception;
+	
+	
+	/**
+	 * 2015-8-12
+	 * 打水的
+	 * @param breedingorder
+	 * @param userid
+	 * @throws Exception
+	 * void
+	 */
+	public void deletePlanOrder(Breedingorder breedingorder,Admin admin) throws Exception;
+	
+	
 }

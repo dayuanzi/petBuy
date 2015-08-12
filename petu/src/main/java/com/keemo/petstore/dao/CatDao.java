@@ -52,7 +52,7 @@ public interface CatDao
 	 * @param pageNo pageSize typeId rankId priceLow priceHigh 
 	 * @return 返回 Cat List
 	 */
-	public List<Cat> findByPage(Integer pageNo,Integer pageSize, Integer typeId, Integer rankId,Double priceLow,Double priceHigh);
+	public List<Cat> findByPage(Integer pageNo,Integer pageSize, Integer typeId, Integer rankId,Byte stalen,Double priceLow,Double priceHigh);
 	
 	/**
 	 * 2015-8-12
@@ -67,7 +67,7 @@ public interface CatDao
 	 * @return
 	 * List<Cat>
 	 */
-	public List<Cat> findByQuery(Integer pageNo,Integer pageSize,String queryStr,Integer typeId, Integer rankId,Double priceLow,Double priceHigh);
+	public List<Cat> findByQuery(Integer pageNo,Integer pageSize,String queryStr,Integer typeId, Integer rankId,Byte stalen,Double priceLow,Double priceHigh);
 	
 	
 

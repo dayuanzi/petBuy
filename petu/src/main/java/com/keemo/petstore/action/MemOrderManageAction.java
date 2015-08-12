@@ -15,18 +15,19 @@ import com.keemo.petstore.bean.Breedingorder;
 import com.keemo.petstore.bean.Cart;
 import com.keemo.petstore.bean.Cat;
 import com.keemo.petstore.bean.Order;
+import com.keemo.petstore.dao.BreedingPlanDao;
 import com.opensymphony.xwork2.ActionContext;
 
 public class MemOrderManageAction extends MemBaseAction{
 	
 	private final String MEM_ADD_ORDER = "memaddorder";
 	private final String MEM_ADD_PLAN_ORDER = "memaddplanorder";
-	
-	
+
 	
 	public List<Cart> cartlist;
 	public Integer addressid;
 	public Breedingorder breedingorder;
+	public Order order;
 	
 	public void setAddressid(Integer addressid){
 		
@@ -84,6 +85,31 @@ public String execute()
 		}
 
 
+@Action(value = "OrderDeleteAction")
+
+public String OrderDeleteAction()
+	throws Exception
+{
+
+	ActionContext ctx = ActionContext.getContext();
+	String userIdStr = ((String)ctx.getSession().get("userid"));
+	Admin admin = new Admin();
+	admin.setId(Integer.valueOf(userIdStr));
+	mem.deleteOrder(order, admin);
+	
+    return null;
+    
+}
+
+
+
+
+
+
+
+
+
+
 @Action(value = "BreedingPlanOrderRegisterAction", 
 		results = { 
 		     @Result(name = "memaddplanorder", 
@@ -108,5 +134,29 @@ public String BreedingPlanOrderRegisterAction()
     return MEM_ADD_PLAN_ORDER;
     
 }
+
+
+@Action(value = "BreedingPlanOrderDeleteAction")
+
+public String BreedingPlanOrderDeleteAction()
+	throws Exception
+{
+
+	ActionContext ctx = ActionContext.getContext();
+	String userIdStr = ((String)ctx.getSession().get("userid"));
+	
+	Admin admin = new Admin();
+	admin.setId(Integer.valueOf(userIdStr));
+	
+	mem.deletePlanOrder(breedingorder, admin);
+	
+    return null;
+    
+}
+
+
+
+
+
 
 }
