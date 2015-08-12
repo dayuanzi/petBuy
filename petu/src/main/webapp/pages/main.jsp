@@ -7,7 +7,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
+<s:head/>
+<ss:head/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!--链接标签图标-->
 <link rel="shortcut icon" href="../img/logo.ico">
@@ -17,12 +18,123 @@
 <link rel="stylesheet" type="text/css" href="../css/common/top-search.css" />
 <link rel="stylesheet" type="text/css" href="../css/common/footer.css" />
 <link rel="stylesheet" type="text/css" href="../css/all.css" />
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
 
 <!--链接JavaScript资源文件-->
 <script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/common.js" type="text/javascript" charset="utf-8" ></script>
+<%-- <script src="../js/script.js" type="text/javascript" charset="utf-8" ></script> --%>
 <title>宠你-首页</title>
 
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	var type="";
+	var hair="";
+	var rank="";
+	
+							
+	 $("#select1 dd a").click(function () {
+		$(this).parent().addClass("selected").siblings().removeClass("selected");
+		$(this).parent().parent().siblings().children($("dd")).removeClass("selected");
+		if ($(this).parent().hasClass("select-all")) {
+			$("#selectA").remove();
+		} else {
+			var copyThisA = $(this).parent().clone();
+			var title=$(this).attr("label");
+			if ($("#selectA").length > 0) {
+				$("#selectA a").html($(this).attr("title")).attr("label",title);
+				
+			} else {
+				$(".select-result dl").append(copyThisA.attr("id", "selectA"));
+			}
+		}
+		type=$("#selectA a").attr("label");
+		
+		linkToUrl($(this)); 
+		
+	});
+	
+	
+	
+	$("#select2 dd a").click(function () {
+		$(this).parent().addClass("selected").siblings().removeClass("selected");
+		$(this).parent().parent().siblings().children($("dd")).removeClass("selected");
+		if ($(this).parent().hasClass("select-all")) {
+			$("#selectB").remove();
+		} else {
+			var copyThisA = $(this).parent().clone();
+			var title=$(this).attr("label");
+			if ($("#selectB").length > 0) {
+				$("#selectB a").html($(this).attr("title")).attr("label",title);
+			} else {
+				$(".select-result dl").append(copyThisA.attr("id", "selectB"));
+			}
+		}
+		hair=$("#selectB a").attr("label");
+		linkToUrl($(this)); 
+	});
+	
+	$("#select3 dd a").click(function () {
+		$(this).parent().addClass("selected").siblings().removeClass("selected");
+		$(this).parent().parent().siblings().children($("dd")).removeClass("selected");
+		if ($(this).parent().hasClass("select-all")) {
+			$("#selectC").remove();
+		} else {
+			var copyThisA = $(this).parent().clone();
+			var title=$(this).attr("label");
+			if ($("#selectC").length > 0) {
+				$("#selectC a").html($(this).attr("title")).attr("label",title);
+			} else {
+				$(".select-result dl").append(copyThisA.attr("id", "selectC"));
+			}
+		}
+		rank=$("#selectC a").attr("label");
+		linkToUrl($(this)); 
+	});
+	
+	$(document).on("click","#selectA",function () {
+		type="";
+		linkToUrl($("#selectA").children());
+		$(this).remove();
+		$("#select1 .select-all").addClass("selected").siblings().removeClass("selected");
+	});
+	
+	$(document).on("click", "#selectB",function () {
+		hair="";
+		linkToUrl($("#selectB").children());
+		$(this).remove();
+		$("#select2 .select-all").addClass("selected").siblings().removeClass("selected");
+	});
+	
+	$(document).on("click","#selectC", function () {
+		rank="";
+		linkToUrl($("#selectC").children());
+		$(this).remove();
+		$("#select3 .select-all").addClass("selected").siblings().removeClass("selected");
+	});
+	
+	$(document).on("click", ".select dd",function () {
+		if ($(".select-result dd").length > 1) {
+			$(".select-no").hide();
+		} else {
+			$(".select-no").show();
+		}
+	});
+	
+	function linkToUrl(meth) {  
+    var host = "CatListAction.do";  
+    var Url;
+    Url=host+"?"+"pageNumberStr=1&"+"typeIdStr="+type+"&"+"rankIdStr="+rank+"&priceLowStr=1&priceHighStr=100000";
+    //alert(Url);
+    meth.attr("href",Url);
+    } 
+});
+
+function showMore(){
+	$("#typeMore").toggle("fast","linear");
+    }
+</script>
 </head>
 <body>
 
@@ -101,34 +213,59 @@
 			</div>
 		</div>
 		
-		<div class="main-content center">
-		<div class="all_4"><a href="">所有猫咪浏览&nbsp;>&nbsp;</a></div>
+	<div class="main-content center">
 		<div class="all_4_1">
-		<span class="gray_2">品种</span>
-	<ul class="pz">				
-			<li><a href="">布偶猫</a></li><li><a href="">波斯猫</a></li><li><a href="">罗威森林猫</a></li>			<li><a href="">缅因猫</a></li>			<li><a href="">伯曼猫</a></li>			<li><a href="">索马里猫</a></li><li><a href="">土耳其梵猫</a></li>			<li><a href="">英国短耳猫</a></li>			<li><a href="">布偶猫</a></li>
-			<li><a href="">波斯猫</a></li>			<li><a href="">罗威森林猫</a></li>			<li><a href="">缅因猫</a></li>
-			<li><a href="">布偶猫</a></li>			<li><a href="">波斯猫</a></li>			<li><a href="">罗威森林猫</a></li>
-			<li><a href="">缅因猫</a></li>			<li><a href="">伯曼猫</a></li>			<li><a href="">索马里猫</a></li>
-			<li><a href="">土耳其梵猫</a></li>			<li><a href="">英国短耳猫</a></li>			<li><a href="">布偶猫</a></li>			<li><a href="">波斯猫</a></li>			<li><a href="">罗威森林猫</a></li>			<li><a href="">缅因猫</a></li>			<li><a href="">布偶猫</a></li>			<li><a href="">波斯猫</a></li>		<li><a href="">罗威森林猫</a></li>			<li><a href="">缅因猫</a></li>			<li><a href="">伯曼猫</a></li><li><a href="">索马里猫</a></li>			<li><a href="">土耳其梵猫</a></li>			<li><a href="">英国短耳猫</a></li>
-			<li><a href="">布偶猫</a></li>			<li><a href="">波斯猫</a></li>			<li><a href="">罗威森林猫</a></li>
-			<li><a href="">缅因猫</a></li>
+			<ul class="select">
+		<li class="select-result" style="padding:10px 0 5px 100px;">
+			<dl>
+				<dt>所有猫咪浏览&nbsp;>&nbsp;</dt>
+				<dd class="select-no">&nbsp;</dd>
+			</dl>
+		</li>
 	</ul>
-		<div class="clear"></div>
-		<span class="gray_2">毛长</span>
-		<ul class="pz">	
-			<li><a href="">长毛</a></li>
-			<li><a href="">短毛</a></li>
-			<li><a href="">无毛</a></li>
+	</div>
+	<div class="all_4_1">
+		<ul class="select">
+		<li class="select-list" id="select1">
+			<dl >
+				<dt>品种 &nbsp;&nbsp;</dt>
+				<dd class="select-all selected" ><ss:a href="#">全部</ss:a></dd>
+				<dd><ss:a href="CatListAction.do?pageNumberStr=1&typeIdStr=1&rankIdStr=1&priceLowStr=1&priceHighStr=100000"title="布偶猫" targets="main_cat_list" label="1">布偶猫</ss:a></dd>
+				<dd><ss:a href="#"title="波斯猫" targets="_blank" label="2">波斯猫</ss:a></dd> 
+				<dd><ss:a href="#"title="挪威森林猫" targets="_blank" label="3">挪威森林猫</ss:a></dd>
+				<dd><ss:a href="#"title="缅甸猫" targets="_blank" label="4">缅甸猫</ss:a></dd>
+				<dd><ss:a href="#"title="伯曼猫" targets="_blank" label="5">伯曼猫</ss:a></dd>
+				<dd><ss:a href="#"title="英国短毛猫" targets="_blank" label="6">英国短耳猫</ss:a></dd>
+				<dd><ss:a href="#"title="美国短毛猫" targets="_blank" label="7" >美国短毛猫</ss:a></dd>
+				<a class="right" href="#" onclick="showMore()">更多></a>
+			</dl>
+			<dl id="typeMore" style="display: none;">
+				<dd><ss:a href="#"title="1">布偶猫</ss:a></dd>
+				<dd><ss:a href="#"title="2">波斯猫</ss:a></dd>
+				<dd><ss:a href="#"title="3">挪威森林猫</ss:a></dd>
+				<dd><ss:a href="#"title="4">缅甸猫</ss:a></dd>
+				<dd><ss:a href="#"title="5">伯曼猫</ss:a></dd>
+			</dl>
+		</li>
+		<li class="select-list" id="select2">
+			<dl >
+				<dt>毛长 &nbsp;&nbsp;&nbsp;&nbsp;</dt>
+				<dd class="select-all selected"><ss:a href="#">全部</ss:a></dd>
+				<dd><ss:a href="#" title="长毛" targets="_blank" label="1">长毛</ss:a></dd>
+				<dd><ss:a href="#" title="短毛" targets="_blank" label="2">短毛</ss:a></dd>
+				<dd><ss:a href="#" title="无毛" targets="_blank" label="3">无毛</ss:a></dd>
+			</dl>
+		</li>
+		<li class="select-list" id="select3" style="border-bottom: none;">
+			<dl >
+				<dt>等级&nbsp;&nbsp;&nbsp;&nbsp; </dt>
+				<dd class="select-all selected"><ss:a href="#">全部</ss:a></dd>
+				<dd><ss:a href="#" title="宠物级" targets="_blank" label="1">宠物级</ss:a></dd>
+				<dd><ss:a href="#" title="繁育级" targets="_blank" label="2">繁育级</ss:a></dd>
+				<dd><ss:a href="#" title="赛级" targets="_blank" label="3">赛级</ss:a></dd>
+			</dl>
+		</li>
 		</ul>
-		<div class="clear"></div>
-		<span class="gray_2">等级</span>
-		<ul class="pz">	
-			<li><a href="">宠物级</a></li>
-			<li><a href="">繁育级</a></li>
-			<li><a href="">赛级</a></li>
-		</ul>
-		<div class="clear"></div>
 	</div>
 	<div class="all_4_1">
 		<span class="gray_2">价格</span>
@@ -138,33 +275,50 @@
 		<button type="button" class="button"  style="cursor:pointer">确定</button>
 		</div>
 	</div>
-	<div class="middle_1">
+	
+	 <%-- <s:form id="form1" action="CatListAction.do" method="post" >
+	 <s:param name="pageNumberStr" value="1"></s:param>
+ 	 <s:param name="typeIdStr" value="1"></s:param>
+	 <s:param name="rankIdStr" value="1"></s:param>
+ 	 <s:param name="priceLowStr" value="1"></s:param>
+ 	 <s:param name="priceHighStr" value="100000"></s:param> 
+ 	 <s:param name="pageIdStr" value="1"></s:param>
+ 	  <ss:submit targets="main_cat_list" ></ss:submit> 
+ 	 </s:form>  --%>
+ 	 <ss:a
+		href="CatListAction.do?pageNumberStr=1&typeIdStr=1&rankIdStr=1&priceLowStr=1&priceHighStr=100000" value="123"
+		targets="main_cat_list">update</ss:a>
+	<ss:div id="main_cat_list"></ss:div>
+	<%-- <div class="middle_1">
 	<div class="smallpic">
 			<ul>
-				<li><a href=""><img src="image/cat1.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
-				<li><a href=""><img src="image/cat2.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
-				<li><a href=""><img src="image/cat3.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
-				<li><a href=""><img src="image/cat4.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
-				<li><a href=""><img src="image/cat5.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
-				<li><a href=""><img src="image/cat1.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
-				<li><a href=""><img src="image/cat2.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
-				<li><a href=""><img src="image/cat3.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
-				<li><a href=""><img src="image/cat4.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
-				<li><a href=""><img src="image/cat5.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
-				<li><a href=""><img src="image/cat1.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
-				<li><a href=""><img src="image/cat2.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
-				<li><a href=""><img src="image/cat3.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
-				<li><a href=""><img src="image/cat4.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
-				<li><a href=""><img src="image/4_1.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
+			<li><a href=""><img src="${initParam.fileHost}/image/cat1.png"></a><span class="gray_1 lh30"><s:property value="#Cat.name"/>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30"><s:property value="#Cat.cattery.name"/></span><br/><span class="orange_1 f18 lh30" > &yen; <s:property value="#Cat.price"/></span></li>
+				<li><a href=""><img src="${initParam.fileHost}/image/cat2.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
+				<li><a href=""><img src="${initParam.fileHost}/image/cat3.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
+				<li><a href=""><img src="${initParam.fileHost}/image/cat4.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
+				<li><a href=""><img src="${initParam.fileHost}/image/cat5.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
+				<li><a href=""><img src="${initParam.fileHost}/image/cat1.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
+				<li><a href=""><img src="${initParam.fileHost}/image/cat2.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
+				<li><a href=""><img src="${initParam.fileHost}/image/cat3.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
+				<li><a href=""><img src="${initParam.fileHost}/image/cat4.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
+				<li><a href=""><img src="${initParam.fileHost}/image/cat5.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
+				<li><a href=""><img src="${initParam.fileHost}/image/cat1.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
+				<li><a href=""><img src="${initParam.fileHost}/image/cat2.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
+				<li><a href=""><img src="${initParam.fileHost}/image/cat3.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
+				<li><a href=""><img src="${initParam.fileHost}/image/cat4.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li>
+				<li><a href=""><img src="${initParam.fileHost}/image/cat5.png"></a><span class="gray_1 lh30">英国蓝猫&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30">D&C名猫舍</span><br/><span class="orange_1 f18 lh30" > &yen; 30,000</span></li> 
 			</ul>
 		</div>
-		</div>
+		</div>--%>
 	<div class="page">
 		<span style="margin-right:20px;"><a href="">上一页</a></span>
 		<span class="gray_2" style="margin-right:10px;">第&nbsp;1&nbsp;页</span>
 		<span class="gray_2">共&nbsp;16&nbsp;页</span>
 		<span  style="margin-left:20px;"><a href="">下一页</a></span>
+		<input type="button" value="AJAX" onclick="ajax()">
 	</div> 
+	
+	
 </div>
 		
 	<div class="clear"></div>

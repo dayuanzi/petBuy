@@ -152,6 +152,7 @@ public class CatListAction
 		Double priceHigh = Double.valueOf(priceHighStr);
 		
 	    Integer pageNo = (pageNumber-1) * WebConstant.admPageSize;
+	    
 		this.catlist = adm.getCatsbyPage(pageNo, WebConstant.admPageSize, typeId, rankId, priceLow, priceHigh);
 		return ADM_CAT_LIST;
 	

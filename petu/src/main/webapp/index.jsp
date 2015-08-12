@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
-<%@taglib uri="/struts-dojo-tags"  prefix="ss"%>
+<%@taglib  prefix="ss" uri="/struts-dojo-tags"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
+
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!--链接标签图标-->
@@ -47,14 +49,22 @@
 <body>
 
 <%-- <s:a href="CatListAction.do?pageNumber=1&typeId=1&rankId=1&priceLow=1&priceHigh=100000&pageId=1"></s:a> --%>
-<%-- <ss:div id="divCatList" href="CatListAction.do?pageNumber=1&typeId=1&rankId=1&priceLow=1&priceHigh=100000&pageId=1"/> --%>
 
+<%-- <ss:div  title="+++++++" id="divCatList" /> --%>
 <%-- <s:form action="CatsByQueryAction.do?pageNumber=1&pageId=1">
 	<s:textfield name="query"/>
 	<ss:submit targets="divCatList" label="搜索"/>
 </s:form>--%>
 
-
+<%--<s:form id="form1" action="IndexAction.do" method="post" >
+ <s:param name="pageNumber" value="1"></s:param>
+ <s:param name="typeId" value="1"></s:param>
+<s:param name="rankId" value="1"></s:param>
+<s:param name="priceLow" value="1"></s:param>
+<s:param name="priceHigh" value="100000"></s:param> 
+<s:param name="pageId" value="1"></s:param>
+<ss:submit targets="divCatList" ></ss:submit>
+</s:form> --%>
 
 
 	<!--顶部导航栏-->

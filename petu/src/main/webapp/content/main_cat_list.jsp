@@ -5,12 +5,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="stylesheet" type="text/css" href="../css/all.css" />
+<link rel="stylesheet" type="text/css" href="../css/common/common.css" />
 <title>Insert title here</title>
 </head>
 <body>
-
-	 <s:iterator value="catlist" var="Cat">
-     <p><s:property value="#Cat.name"/></p>
+<div class="middle_1">
+	<div class="smallpic">
+		<ul>
+		 <s:iterator value="catlist" var="Cat">
+		 <li>
+	 		<a href=""><img src="${initParam.fileHost}/image/cat1.png"></a><span class="gray_1 lh30"><s:property value="#Cat.name"/>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30"><s:property value="#Cat.cattery.name"/></span><br/><span class="orange_1 f18 lh30" > &yen; <s:property value="#Cat.price"/></span>
+	 	</li>
+    <%--  <p><s:property value="#Cat.name"/></p>
      <s:property value="#Cat.sex"/>
      <s:property value="#Cat.getCatype().getCatype()"/>
      <s:property value="#Cat.getRank().getRank()"/>
@@ -20,10 +28,11 @@
      <s:property value="#Cat.getCattery().getCattery()"/>
      <s:property value="#Cat.price"/>
      <s:property value="#Cat.oldprice"/>
-     <s:property value="#Cat.image"/>
-     </s:iterator>
-
-
+     <s:property value="#Cat.image"/> --%>
+     	</s:iterator>
+		</ul>
+	</div>
+</div>
 
 
   

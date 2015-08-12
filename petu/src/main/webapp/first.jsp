@@ -11,12 +11,12 @@
 
 <s:action name="IndexAction" id="meth"  namespace="/" executeResult="true">
 <s:property value="#meth.IndexAction"/>
-<%--  <s:param name="pageNumberStr" value="1" ></s:param>
+<%--<s:param name="pageNumberStr" value="1" ></s:param>
 <s:param name="typeIdStr" value="1" ></s:param>
 <s:param name="rankIdStr" value="1"></s:param>
 <s:param name="priceLowStr" value="1" ></s:param>
 <s:param name="priceHighStr" value="100000"></s:param>
-<s:param name="pageIdStr" value="1" ></s:param>  --%>
+<s:param name="pageIdStr" value="1" ></s:param>--%>
 </s:action> 
 
 </body>
