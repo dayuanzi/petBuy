@@ -16,12 +16,18 @@
 <s:property value="cat.catype.catype"/>
 <s:property value="cat.rank.rank"/>
 <s:property value="cat.sex"/>
-<s:property value="cat.pedigreeCertificate"/>
+<s:property value="cat.pedigreeCertificate.pedigreeCertificate"/>
 <s:property value="cat.immune"/>
 <s:property value="cat.birthday"/>
 <s:property value="cat.price"/>
 <s:property value="cat.oldprice"/>
-<s:property value="cat.image"/>
+<s:property value="mainimage.path"/>
+
+<s:iterator value="imagelist" var="image">
+<s:property value="#image.path"/>
+</s:iterator>
+
+
 
 
 

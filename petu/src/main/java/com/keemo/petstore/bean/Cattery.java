@@ -1,6 +1,6 @@
 package com.keemo.petstore.bean;
 
-// Generated 2015-8-6 10:57:19 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-8-11 18:13:01 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -20,6 +20,7 @@ public class Cattery implements java.io.Serializable {
 	private String address;
 	private String phone;
 	private String leadername;
+	private String maintxt;
 	private Set parentcats = new HashSet(0);
 	private Set follows = new HashSet(0);
 	private Set orders = new HashSet(0);
@@ -31,8 +32,8 @@ public class Cattery implements java.io.Serializable {
 
 	public Cattery(Region region, Cattpetrank cattpetrank, String name,
 			String mainvariety, Integer experience, Byte pass, String address,
-			String phone, String leadername, Set parentcats, Set follows,
-			Set orders, Set cats, Set breedingplans) {
+			String phone, String leadername, String maintxt, Set parentcats,
+			Set follows, Set orders, Set cats, Set breedingplans) {
 		this.region = region;
 		this.cattpetrank = cattpetrank;
 		this.name = name;
@@ -42,6 +43,7 @@ public class Cattery implements java.io.Serializable {
 		this.address = address;
 		this.phone = phone;
 		this.leadername = leadername;
+		this.maintxt = maintxt;
 		this.parentcats = parentcats;
 		this.follows = follows;
 		this.orders = orders;
@@ -127,6 +129,14 @@ public class Cattery implements java.io.Serializable {
 
 	public void setLeadername(String leadername) {
 		this.leadername = leadername;
+	}
+
+	public String getMaintxt() {
+		return this.maintxt;
+	}
+
+	public void setMaintxt(String maintxt) {
+		this.maintxt = maintxt;
 	}
 
 	public Set getParentcats() {

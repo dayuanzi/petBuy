@@ -63,6 +63,17 @@ public interface ImgManager {
      * List<Imagmsg>
      */
     public List<Imagmsg> getCatteryImageList(Integer userid,Integer imageType) throws Exception;
+    
+    
+    /**
+     * 2015-8-11
+     * 打水的
+     * @param catteryid
+     * @return
+     * @throws Exception
+     * Imagmsg
+     */
+    Imagmsg getCatteryImagebyId(Integer catteryid) throws Exception;
 	
 	
 }

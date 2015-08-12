@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-8-6 10:57:20 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2015-8-11 18:13:02 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.keemo.petstore.bean.Cattery" table="cattery" catalog="petbuy">
         <id name="id" type="java.lang.Integer">
@@ -34,6 +34,9 @@
         </property>
         <property name="leadername" type="string">
             <column name="leadername" length="30" />
+        </property>
+        <property name="maintxt" type="string">
+            <column name="maintxt" />
         </property>
         <set name="parentcats" table="parentcat" inverse="true" lazy="true" fetch="select">
             <key>

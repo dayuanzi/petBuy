@@ -24,6 +24,8 @@ import java.io.File;
 import java.text.*;
 import java.util.*;
 
+import javax.persistence.Cacheable;
+
 
 public class CattManagerImpl
 	implements CattManager
@@ -147,7 +149,7 @@ public class CattManagerImpl
        
        }
        
-       
+    
 	public void getCatsImageList(List<Integer> catsimagelist,List<File> upload,
 			List<Integer> imagetypelist,List<String> uploadFileName){
 		

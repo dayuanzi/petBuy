@@ -69,12 +69,7 @@ public interface ImageDao
 	List<Imagmsg> findByImageList(final Integer catId,final Integer pid , final Integer imagetype);
 	
 	
-	/**
-	 * 根据参数返回图片列表
-	 * @param pageNo pageSize typeId
-	 * @return 返回 Imagmsg List
-	 */
-	List<Imagmsg> findByStoreId(Integer pageNo,Integer pageSize, Integer typeId ,  Integer storeId);
+	
 	
 	
 	

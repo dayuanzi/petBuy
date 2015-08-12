@@ -67,52 +67,25 @@ public class ImageDaoHibernate extends YeekuHibernateDaoSupport implements Image
 	}
 
 	
-	public Imagmsg findByImageId(final Integer imageId,final Integer pid , final Integer imagetype){
+	public Imagmsg findByImageId(final Integer catId,final Integer pid , final Integer imagetype){
 		
 		HibernateTemplate ht=getHibernateTemplate();
 		
 		return (Imagmsg)ht.find("select imagmsg from Imagmsg imagmsg where imagmsg.catid = ? and imagmsg.pid = ? and imagmsg.imagetype = ?"
-				               ,imageId,pid,imagetype).get(0);
+				               ,catId,pid,imagetype).get(0);
 		 
 	   
 	}
 	
 	
-public List<Imagmsg> findByImageList(final Integer catId,final Integer pid , final Integer imagetype){
+    public List<Imagmsg> findByImageList(final Integer catId,final Integer pid , final Integer imagetype){
 		
 		HibernateTemplate ht=getHibernateTemplate();
 		
-		return ht.find("select imagmsg from Imagmsg imagmsg where imagmsg.catid = ? and imagmsg.pid = ? and imagmsg.imagetype = ?");
+		return ht.find("select imagmsg from Imagmsg imagmsg where imagmsg.catid = ? and imagmsg.pid = ? and imagmsg.imagetype = ?",catId,pid,imagetype);
 		 
-	   
 	}
 	
-	/**
-	 * 根据条件返回猫咪列表
-	 * @param pageNo 
-	 * @param pageSize  
-	 * @param typeId 
-	 * @param rankId 
-	 * 
-	 * return List<Cat>
-	 */
-	public List<Imagmsg> findByStoreId(final Integer pageNo,final Integer pageSize,final Integer typeId ,final Integer storeId)
-	{
-		HibernateTemplate ht=getHibernateTemplate();
-		
-		   return ht.executeFind(new HibernateCallback() {
-			   
-		       public Object doInHibernate(Session session)
-		             throws HibernateException {
-		    		   Query query = session.createQuery("from Imagmsg imagmsg where imagetype = ? and catteryid = ?"); 
-		    		   query.setParameter(0, typeId);
-		    		   query.setParameter(1, storeId);
-		    		   query.setMaxResults(pageSize);
-				       query.setFirstResult(pageNo);
-				       return query.list();
-		     }
-		 });
-    }
 	
 	
 }

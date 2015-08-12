@@ -1,6 +1,7 @@
 package com.keemo.petstore.service.impl;
 
 import com.keemo.petstore.bean.Activericode;
+
 import com.keemo.petstore.bean.Admin;
 import com.keemo.petstore.bean.Breedingplan;
 import com.keemo.petstore.bean.Cat;
@@ -14,6 +15,7 @@ import com.keemo.petstore.dao.CatDao;
 import com.keemo.petstore.dao.CatteryDao;
 import com.keemo.petstore.dao.CartDao;
 import com.keemo.petstore.dao.OrderDao;
+import org.springframework.cache.annotation.*;
 
 import java.text.*;
 import java.util.*;
@@ -45,16 +47,17 @@ public class AdmManagerImpl
 		this.breedingPlanDao = breedingPlanDao;
 	}
 	
-	
+	@Cacheable(value = "users", key="'catby'+#id")
 	public Cat getCatById(Integer id){
 		return catDao.get(id);
 	}
 	
+	@Cacheable(value = "users", key="'catteryby'+#id")
 	public Cattery getCatteryById(Integer id){
 		return catteryDao.get(id);
 	}
 
-	
+
 	public List<Cat> getCatsbyPage(Integer pageNo,Integer pageSize,Integer typeId,Integer rankId,Double priceLow,Double priceHigh)
 	{
 		
@@ -63,10 +66,10 @@ public class AdmManagerImpl
 	
 	}
 	
-	public List<Cat> getCatsbyQuery(Integer pageNo,Integer pageSize,String queryStr)
+	public List<Cat> getCatsbyQuery(Integer pageNo,Integer pageSize,String queryStr,Integer typeId, Integer rankId,Double priceLow,Double priceHigh)
 	{
 		
-		List<Cat> list = catDao.findByQuery(pageNo, pageSize , queryStr);
+		List<Cat> list = catDao.findByQuery(pageNo, pageSize , queryStr, typeId, rankId, priceLow, priceHigh);
 		return list;
 	}
 	
@@ -87,13 +90,35 @@ public class AdmManagerImpl
 		return list;
 	}
 	
-	public List<Cat> getCatsbyCatteryId(Integer pageNo,Integer pageSize,Integer catteryId)
+	@Cacheable(value = "users", key="'catsbycattery'+#pageNo+#pageSize+#catteryId")
+	public List<Cat> getCatsbyCatteryId(Integer catteryId) throws Exception
 	{
-		List<Cat> list = catDao.findByCattery(pageNo, pageSize, catteryId);
-		return list;
+		try{
+			return catDao.findByCattery(catteryId);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			throw e;
+		}
 		
 	}
+	/******************************planlist************************************/
 	
+	@Cacheable(value = "users" ,key = "'planlistbycattery'+#catteryId")
+	public List<Breedingplan> getPlanListByCattery(Integer catteryId) throws Exception{
+	try {
+			return breedingPlanDao.findByCattery(catteryId);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			throw e;
+		}
+	}
+	
+	
+	@Cacheable(value = "users" ,key = "'planlist'+#pageNo+#pageSize")
 	public List<Breedingplan> getPlanList(Integer pageNo,Integer pageSize){
 		
 		return breedingPlanDao.findByIndex(pageNo, pageSize);

@@ -58,8 +58,7 @@ public class CattMessManageAction
 			interceptorRefs = {  
 			     @InterceptorRef(value = "fileUpload", 
 			    		         params={"maximumSize","409600",
-			    		                 "allowedTypesSet", "image/jpeg,image/jpg,image/bmp"}),
-			     @InterceptorRef(value = "defaultStack")})
+			    		                 "allowedTypesSet", "image/jpeg,image/jpg,image/bmp"})})
 	
 	public String execute()
 		throws Exception
@@ -67,8 +66,30 @@ public class CattMessManageAction
     	ActionContext ctx = ActionContext.getContext();
     	 
     	String userid = (String)ctx.getSession().get("userid");
-	//	System.out.println(uploadfile.size());
-	//	catt.saveCat(catlist, uploadfile, imageType, catsimagelist, uploadfileFileName, userid);
+    	cattery.setMaintxt(cattery.getMaintxt().replaceAll("\n", "</br>"));
+		catt.saveCattery(cattery, uploadfile, imageType, uploadfileFileName, userid);
+      	return CATT_REGIST;
+        
+	}
+    
+    
+    @Action(value = "CattUpdateAction", 
+			results = { 
+			     @Result(name = "cattupdate", 
+			    		 location = "/login.jsp")},
+			interceptorRefs = {  
+			     @InterceptorRef(value = "fileUpload", 
+			    		         params={"maximumSize","409600",
+			    		                 "allowedTypesSet", "image/jpeg,image/jpg,image/bmp"})})
+	
+	public String CattUpdateAction()
+		throws Exception
+	{
+    	ActionContext ctx = ActionContext.getContext();
+    	 
+    	String userid = (String)ctx.getSession().get("userid");
+
+    	cattery.setMaintxt(cattery.getMaintxt().replaceAll("\n", "</br>"));
 		catt.saveCattery(cattery, uploadfile, imageType, uploadfileFileName, userid);
       	return CATT_REGIST;
         

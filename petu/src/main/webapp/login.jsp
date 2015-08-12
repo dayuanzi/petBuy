@@ -128,7 +128,6 @@ input:-webkit-autofill {
 	<li><a href="register.jsp">注册</a></li>
 	
 	-->
-
 	<!--顶部导航栏-->
 		<div class="nav-bar">
 			<div style="margin: 0 auto; width: 1120px; ">
@@ -205,14 +204,11 @@ input:-webkit-autofill {
 							<div class="button-wrapper">
 								<input id="login-button-account" class="login-button" 
 									type="submit" value="登录" />
-	 
 							</div>
-
 							<div class="input-wrapper" style="margin-top: 10px">
 								<a href="#" class="font-common font13">登录遇到问题</a> <a href="#"
 									class="font-common font13">忘记密码</a>
 							</div>
-
 						</form>
 
 						<form id="tab-register" class="tab-page hide " method="post" action="UserRegisterAction.do">

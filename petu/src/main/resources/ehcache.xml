@@ -8,4 +8,12 @@
 		timeToIdleSeconds="120"
 		timeToLiveSeconds="120"
 		diskPersistent="false"/>
+	<cache name = "users"
+		maxElementsInMemory="20000"
+		eternal="false"
+		overflowToDisk="true"
+		timeToIdleSeconds="300"
+		timeToLiveSeconds="600"
+		diskPersistent="false"/>
+	
 </ehcache>

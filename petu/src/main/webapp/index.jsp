@@ -66,7 +66,19 @@
 <ss:submit targets="divCatList" ></ss:submit>
 </s:form> --%>
 
+<s:iterator value = "imagelist_pet" var = "image">
+<s:property value = "#image.path"/>
+</s:iterator>
 
+<s:iterator value = "imagelist_breed" var = "image">
+<s:property value = "#image.path"/>
+</s:iterator>
+
+<s:iterator value = "imagelist_match" var = "image">
+<s:property value = "#image.path"/>
+
+
+</s:iterator>
 	<!--顶部导航栏-->
 		<div class="nav-bar">
 			<div style="margin: 0 auto; width: 1120px; ">

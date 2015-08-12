@@ -41,6 +41,7 @@ public class CustomLoginHandler  extends SavedRequestAwareAuthenticationSuccessH
 		String username = authentication.getName();
 		Admin admin = adminDao.findByName(username).get(0);
 		session.putValue("userid", String.valueOf(admin.getId()));
+		session.putValue("privileges", admin.getPrivileges());
 		
 	}
 	

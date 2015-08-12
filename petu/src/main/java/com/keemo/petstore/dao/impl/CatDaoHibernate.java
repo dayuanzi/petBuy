@@ -129,20 +129,56 @@ public class CatDaoHibernate extends YeekuHibernateDaoSupport implements CatDao
 	 * @param pageNo pageSize queryStr
 	 * @return 返回 Cat List
 	 */
-	public List<Cat> findByQuery(final Integer pageNo,final Integer pageSize,final String queryStr)
+	public List<Cat> findByQuery(final Integer pageNo,final Integer pageSize,final String queryStr,final Integer typeId,final Integer rankId ,final Double priceLow ,final Double priceHigh)
     {
 		HibernateTemplate ht=getHibernateTemplate();
-	return ht.executeFind(new HibernateCallback() {
-	   public Object doInHibernate(Session session)
-        throws HibernateException {
-	    		   Query query = session.createQuery("from Cat cat where name like ? and order = null"); 
-
-	    		   query.setParameter(0, "%"+queryStr+"%");
+	    return ht.executeFind(new HibernateCallback() {
+		   
+	       public Object doInHibernate(Session session)
+	             throws HibernateException {
+	    	   if(typeId==null&&rankId==null){
+	    		   Query query = session.createQuery("from Cat cat where price >= ? and price <= ? and order = null and name like ?"); 
+	    		   query.setParameter(1, priceHigh);
+	    		   query.setParameter(0, priceLow);
+	    		   query.setParameter(2, "%"+queryStr+"%");
 	    		   query.setMaxResults(pageSize);
-			       query.setFirstResult(pageNo);
-			       return query.list();
-	    	   	}
-		 });
+			         query.setFirstResult(pageNo);
+			         return query.list();
+	    	   }
+	    	   else if(typeId!=null&&rankId==null){
+	    		   Query  query = session.createQuery("from Cat cat where typeId = ? and  price >= ? and price <= ? and order = null and name like ?");
+	    		   query.setParameter(0, typeId);
+	    		   query.setParameter(1, priceLow);
+	    		   query.setParameter(2, priceHigh);
+	    		   query.setParameter(3, "%"+queryStr+"%");
+	    		   query.setMaxResults(pageSize);
+			         query.setFirstResult(pageNo);
+			         return query.list();
+	    	   }
+	    	   else if(typeId==null&&rankId!=null){
+	    		   Query query = session.createQuery("from Cat cat where rankId = ? and price >= ? and price <= ? and order = null and name like ?");
+	    		   query.setParameter(0, rankId);
+	    		   query.setParameter(1, priceLow);
+	    		   query.setParameter(2, priceHigh);
+	    		   query.setParameter(3, "%"+queryStr+"%");
+	    		   query.setMaxResults(pageSize);
+			         query.setFirstResult(pageNo);
+			         return query.list();
+	    	   }
+	    	   Query query = session.createQuery("from Cat cat where typeId = ? and rankId = ? and price >= ? and price <= ? and order = null and name like ?");
+	    		   query.setParameter(0, typeId);
+	    		   query.setParameter(1, rankId);
+	    		   query.setParameter(2, priceLow);
+	    		   query.setParameter(3, priceHigh);
+	    		   query.setParameter(4, "%"+queryStr+"%");
+	    		   query.setMaxResults(pageSize);
+			         query.setFirstResult(pageNo);
+			         return query.list();
+	    	   
+	     }
+	 });
+	
+	
      }
 	
 	
@@ -151,7 +187,7 @@ public class CatDaoHibernate extends YeekuHibernateDaoSupport implements CatDao
 	 * @param pageNo pageSize catteryId
 	 * @return 返回 Cat List
 	 */
-	public List<Cat> findByCattery(final Integer pageNo,final Integer pageSize,final Integer catteryId)
+	public List<Cat> findByCattery(final Integer catteryId)
 	{
 		
 		HibernateTemplate ht=getHibernateTemplate();
@@ -160,8 +196,6 @@ public class CatDaoHibernate extends YeekuHibernateDaoSupport implements CatDao
 	        throws HibernateException {
 		    		   Query query = session.createQuery("from Cat cat where catteryid=? and order = null"); 
 		    		   query.setParameter(0, catteryId);
-		    		   query.setMaxResults(pageSize);
-				       query.setFirstResult(pageNo);
 				       return query.list();
 		    	   	}
 			 });

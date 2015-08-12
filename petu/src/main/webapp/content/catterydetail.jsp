@@ -16,8 +16,42 @@
 <s:property value="cattery.experience"/>
 <s:property value="cattery.mainvariety"/>
 <s:property value="cattery.region.region"/>
+<p>
 
-<s:form action="CatsByCatteryAction?catteryId=1&pageNumner=1">
+<s:iterator value="catlist" var="Cat" >
+<s:property value="#Cat.name"/>
+</s:iterator>
+
+
+<p>
+<s:iterator value="cattery_imagelist" var="Image" >
+<s:property value="#Image.path"/>
+</s:iterator>
+<p>
+<s:iterator value="cat_imagelist" var="Image" >
+<s:property value="#Image.path"/>
+</s:iterator><p>
+
+<s:property value="cattmainimage.path"/> <p>
+
+<s:iterator value="planlist" var="Plan" >
+<s:property value="#Plan.id"/>
+</s:iterator><p>
+
+<s:iterator value="imagelist_mom" var="Image" >
+<s:property value="#Image.path"/>
+</s:iterator><p>
+
+<s:iterator value="imagelist_dad" var="Image" >
+<s:property value="#Image.path"/>
+</s:iterator><p>
+
+<s:property value="cattery.maintxt"  escape="false"/>
+
+
+
+
+<%-- <s:form action="CatsByCatteryAction?catteryId=1&pageNumner=1">
 	<tr><td colspan="2">
 	<s:submit value="登录" theme="simple"/><s:reset theme="simple" value="重填"/>
 	</td></tr>
@@ -26,7 +60,7 @@
 
 
 <ss:a href="CatsByCatteryAction?catteryId=1&pageNumner=2" targets="divCatList" >update</ss:a>
-<ss:div id="divCatList" href="CatsByCatteryAction?catteryId=1&pageNumner=1" />
+<ss:div id="divCatList" href="CatsByCatteryAction?catteryId=1&pageNumner=1" /> --%>
 
 
 

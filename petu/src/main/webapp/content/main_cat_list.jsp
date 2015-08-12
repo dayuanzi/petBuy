@@ -28,11 +28,16 @@
      <s:property value="#Cat.getCattery().getCattery()"/>
      <s:property value="#Cat.price"/>
      <s:property value="#Cat.oldprice"/>
-     <s:property value="#Cat.image"/> --%>
+     --%>
      	</s:iterator>
 		</ul>
 	</div>
 </div>
+
+     <s:iterator value="imagelist" var="image">
+      <s:property value="#image.path"/>
+     </s:iterator>
+
 
 
   

@@ -5,6 +5,8 @@ package com.keemo.petstore.service.impl;
 
 import java.util.List;
 
+import org.springframework.cache.annotation.Cacheable;
+
 import com.keemo.petstore.bean.Imagmsg;
 import com.keemo.petstore.dao.ImageDao;
 import com.keemo.petstore.service.ImgManager;
@@ -28,7 +30,7 @@ public class ImgManagerImpl implements ImgManager{
 			}
 
 		}
-
+        @Cacheable(value = "users" ,key = "'catimagebyid'+#catid")
 		public Imagmsg getCatImagebyId(Integer catid) throws Exception{
 			
 			try{
@@ -41,6 +43,7 @@ public class ImgManagerImpl implements ImgManager{
 			
 		}
 		
+        @Cacheable(value = "users" , key = "'parentcatimagebyid'+#catid")
         public Imagmsg getParentcatImagebyId(Integer catid) throws Exception{
 			
         	try{
@@ -53,6 +56,19 @@ public class ImgManagerImpl implements ImgManager{
 			throw e;
 			
 		}
+			
+		}
+        
+        @Cacheable(value = "users" ,key = "'catteryimagebyid'+#catteryid")
+		public Imagmsg getCatteryImagebyId(Integer catteryid) throws Exception{
+			
+			try{
+				return imageDao.findByImageId(catteryid, 3, 1);
+			}
+			catch (Exception e){
+				e.printStackTrace();
+				throw e;
+			}
 			
 		}
         
@@ -80,7 +96,7 @@ public class ImgManagerImpl implements ImgManager{
         	}
 			
 		}
-        
+
         public List<Imagmsg> getCatteryImageList(Integer userid,Integer imageType) throws Exception{
 			
         	try{
@@ -93,6 +109,8 @@ public class ImgManagerImpl implements ImgManager{
         		throw e;
         	}
 		}
+        
+        
         
         
 		
