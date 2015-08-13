@@ -76,7 +76,7 @@ public class CatteryDaoHibernate extends YeekuHibernateDaoSupport implements Cat
 	 * 
 	 * return List<Cattery>
 	 */
- public List<Cattery> findByPage(final Integer pageNo,final Integer pageSize, final Integer typeId,final Integer rankId,final Integer regionId,final Integer priceLow,final Integer priceHigh)
+ public List<Cattery> findByPage(final Integer pageNo,final Integer pageSize, final Integer typeId,final Integer rankId,final Integer regionId,final Double priceLow,final Double priceHigh,final String queryStr)
 	{
 		HibernateTemplate ht=getHibernateTemplate();
 		   return ht.executeFind(new HibernateCallback() {
@@ -86,6 +86,7 @@ public class CatteryDaoHibernate extends YeekuHibernateDaoSupport implements Cat
 		    	   String rankIdStr = null;
 		    	   String typeIdStr = null;
 		    	   String regionIdStr = null;
+		    	   if(queryStr==null){
 		    	   if(rankId!=null){
 
 		    	         rankIdStr = String.valueOf(rankId);
@@ -113,7 +114,7 @@ public class CatteryDaoHibernate extends YeekuHibernateDaoSupport implements Cat
 		    	    	 regionIdStr = "cattery.region.id";
 		    	     }
 
-		    	    Query query = session.createQuery("select cattery from Cattery cattery , Cat cat where cat.cattery=cattery.id" +
+		    	    Query query = session.createQuery("select cattery from Cattery cattery , Cat cat where cat.cattery.id=cattery.id" +
 		    	    		" and cat.price>? and cat.price<? and cat.rank.id="+rankIdStr+" and cat.catype.id="+typeIdStr+" and cattery.region.id="+regionIdStr+" group by cattery.id"); 
 		    		
 		    	     query.setParameter(0,priceLow);
@@ -121,6 +122,47 @@ public class CatteryDaoHibernate extends YeekuHibernateDaoSupport implements Cat
 	    		     query.setMaxResults(pageSize);
 			         query.setFirstResult(pageNo);
 			         return query.list();
+		    	   }
+		    	   else{
+
+			    	   if(rankId!=null){
+
+			    	         rankIdStr = String.valueOf(rankId);
+			    	     }
+			    	     else
+			    	     {
+
+			    	    	 rankIdStr = String.valueOf("cat.rank.id");
+			    	     }
+			    	
+			    	     if(typeId!=null){
+
+			    	    	 typeIdStr = String.valueOf(typeId);
+			    	     }
+			    	     else
+			    	     {
+
+			    	    	 typeIdStr = "cat.catype.id";
+			    	     }
+			    	     if(regionId!=null){
+			    	    	 regionIdStr = String.valueOf(regionId);
+
+			    	     }
+			    	     else{
+			    	    	 regionIdStr = "cattery.region.id";
+			    	     }
+
+			    	    Query query = session.createQuery("select cattery from Cattery cattery , Cat cat where cat.cattery=cattery.id" +
+			    	    		" and cat.price>? and cat.price<? and cat.rank.id="+rankIdStr+" and cat.catype.id="+typeIdStr+" and cattery.region.id="+regionIdStr+" and cattery.name like ? group by cattery.id"); 
+			    		
+			    	     query.setParameter(0,priceLow);
+			    	     query.setParameter(1,priceHigh);
+			    	     query.setParameter(2,"%"+queryStr+"%");
+		    		     query.setMaxResults(pageSize);
+				         query.setFirstResult(pageNo);
+				         return query.list();
+				         
+		    	   }
 		       }
 		 });
     }

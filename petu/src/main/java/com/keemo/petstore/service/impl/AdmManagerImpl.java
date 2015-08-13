@@ -73,11 +73,11 @@ public class AdmManagerImpl
 		return list;
 	}
 	
-	public List<Cattery> getCatterybyPage(Integer pageNo,Integer pageSize,Integer typeId,Integer rankId,Integer regionId,Integer priceLow,Integer priceHigh)
+	public List<Cattery> getCatterybyPage(Integer pageNo,Integer pageSize,Integer typeId,Integer rankId,Integer regionId,Double priceLow,Double priceHigh,String queryStr)
 	{
 	
-		List<Cattery> list = catteryDao.findByPage(pageNo,pageSize,typeId,rankId,regionId,priceLow,priceHigh);
-		
+		List<Cattery> list = catteryDao.findByPage(pageNo,pageSize,typeId,rankId,regionId,priceLow,priceHigh,queryStr);
+
 		return list;
 	}
 	

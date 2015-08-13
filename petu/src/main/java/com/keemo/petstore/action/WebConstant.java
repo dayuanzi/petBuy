@@ -12,7 +12,7 @@ public interface WebConstant
 	//管理员管理列表单页单元的个数
 	Integer userlistPageSize = 5;
 	//未登录浏览猫舍列表页面单页显示单元的个数
-	Integer admCatteryPageSize = 2;
+	Integer admCatteryPageSize = 6;
 	//猫舍详情页面猫咪列表显示单元个数
 	Integer admCattDetCatPageSize = 2;
 	//用户订单列表显示单元个数
