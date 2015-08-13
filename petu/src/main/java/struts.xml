@@ -123,10 +123,6 @@
            <result name="input">/content/catterylist.jsp</result>  
        </action>  
               
-       <action name="CatterysByQueryAction" class="com.keemo.petstore.action.CatteryListAction" method="CatterysByQueryAction">  
-           <result name="catteryquery">/content/catterylist.jsp</result>
-           <result name="input">/content/catterylist.jsp</result>
-       </action>
        
          <action name="MemOwnCatsAction" class="com.keemo.petstore.action.MemberDetailAction" method="MemOwnCatsAction">  
            <result name="memcatlist">/WEB-INF/content/memcatlistdiv.jsp</result>

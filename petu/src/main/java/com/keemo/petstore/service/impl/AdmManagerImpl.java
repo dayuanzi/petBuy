@@ -82,14 +82,6 @@ public class AdmManagerImpl
 	}
 	
 	
-	public List<Cattery> getCatterybyQuery(Integer pageNo,Integer pageSize,String queryStr)
-	{
-	
-		List<Cattery> list = catteryDao.findByQuery(pageNo,pageSize,queryStr);
-		
-		return list;
-	}
-	
 	@Cacheable(value = "users", key="'catsbycattery'+#pageNo+#pageSize+#catteryId")
 	public List<Cat> getCatsbyCatteryId(Integer catteryId) throws Exception
 	{

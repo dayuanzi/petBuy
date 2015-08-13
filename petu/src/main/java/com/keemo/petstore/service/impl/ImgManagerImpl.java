@@ -73,6 +73,20 @@ public class ImgManagerImpl implements ImgManager{
 		}
         
         
+        @Cacheable(value = "users" ,key = "'cattbgimagebyid'+#catteryid")
+		public Imagmsg getCatteryBackgroundImagebyId(Integer catteryid) throws Exception{
+			
+			try{
+				return imageDao.findByImageId(catteryid, 3, 3);
+			}
+			catch (Exception e){
+				e.printStackTrace();
+				throw e;
+			}
+			
+		}
+        
+        
         public List<Imagmsg> getCatImagebyList(Integer catid,Integer imageType) throws Exception{
 			
         	try{

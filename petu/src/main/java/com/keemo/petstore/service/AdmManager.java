@@ -76,7 +76,6 @@ public interface AdmManager
 	 */
 	List<Cattery> getCatterybyPage(Integer pageNo,Integer pageSize,Integer typeId,Integer rankId,Integer regionId,Double priceLow,Double priceHigh,String queryStr);
 	
-	List<Cattery> getCatterybyQuery(Integer pageNo,Integer pageSize,String queryStr);
 	
 	/**
 	 * 2015-8-11

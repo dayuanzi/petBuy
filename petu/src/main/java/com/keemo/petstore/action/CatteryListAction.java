@@ -233,19 +233,5 @@ public class CatteryListAction
 		return ADM_CATTE_LIST;
 	}
 	
-	public String CatterysByQueryAction()
-	    throws Exception
-	    {
-		
-		ActionContext ctx = ActionContext.getContext();
-		String pageNumberStr = ((String[])ctx.getParameters().get("pageNumner"))[0];
-		String queryStr = ((String[])ctx.getParameters().get("query"))[0];
-		Integer pageNumber = Integer.valueOf(pageNumberStr);
-		System.out.println(queryStr);
-		Integer pageNo = (pageNumber-1) * WebConstant.admPageSize;
-		this.catterylist = adm.getCatterybyQuery(pageNo, WebConstant.admCatteryPageSize, queryStr);
-		return ADM_CATTE_LIST_QUE;
-	}
-	
 	
 }

@@ -33,11 +33,24 @@ public class CatteryDetailAction
 	private Imagmsg cattmainimage;
 	private List<Imagmsg> imagelist_mom;
 	private List<Imagmsg> imagelist_dad;
+	private Imagmsg background;
+ 
+	
+	
+	
 
-	
-	
-	
-	
+	/**
+	 * @return the background
+	 */
+	public Imagmsg getBackground() {
+		return background;
+	}
+	/**
+	 * @param background the background to set
+	 */
+	public void setBackground(Imagmsg background) {
+		this.background = background;
+	}
 	/**
 	 * @return the imagelist_mom
 	 */
@@ -167,14 +180,16 @@ public class CatteryDetailAction
 				this.cat_imagelist.add(img.getCatImagebyId(catlist.get(i).getId()));
 			}
 			this.cattmainimage = img.getCatteryImagebyId(catteryId);
+			
 			this.planlist = adm.getPlanListByCattery(catteryId);
+			this.background =img.getCatteryBackgroundImagebyId(catteryId);
 
 			for (int i = 0;i<planlist.size();i++){
 				this.imagelist_mom.add(img.getParentcatImagebyId(planlist.get(i).getParentcatByMother().getId()));
 				this.imagelist_dad.add(img.getParentcatImagebyId(planlist.get(i).getParentcatByFather().getId()));
 				
-
 			}
+			
 			
 			
 
