@@ -11,12 +11,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="main-content center">
 <div class="middle_1">
 	<div class="smallpic">
 		<ul>
-		 <s:iterator value="catlist" var="Cat">
+		 <s:iterator value="catlist" var="Cat" status="image">
 		 <li>
-	 		<a href=""><img src="${initParam.fileHost}/image/cat1.png"></a><span class="gray_1 lh30"><s:property value="#Cat.name"/>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30"><s:property value="#Cat.cattery.name"/></span><br/><span class="orange_1 f18 lh30" > &yen; <s:property value="#Cat.price"/></span>
+	 		<a href=""><img src="${initParam.fileHost}/image/<s:property value="imagelist[#image.index].path"/>"></a><span class="gray_1 lh30"><s:property value="#Cat.name"/>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30"><s:property value="#Cat.cattery.name"/></span><br/><span class="orange_1 f18 lh30" > &yen; <s:property value="#Cat.price"/></span>
 	 	</li>
     <%--  <p><s:property value="#Cat.name"/></p>
      <s:property value="#Cat.sex"/>
@@ -33,10 +34,12 @@
 		</ul>
 	</div>
 </div>
+</div>
 
-     <s:iterator value="imagelist" var="image">
-      <s:property value="#image.path"/>
-     </s:iterator>
+ <%-- <s:iterator value="imagelist" var="image" status="st"> 
+ 
+     <img src="${initParam.fileHost}/image/<s:property value="imagelist[0].path"/>">
+      </s:iterator>  --%>
 
 
 

@@ -48,7 +48,7 @@
 </head>
 <body>
 
-<%-- <s:a href="CatListAction.do?pageNumber=1&typeId=1&rankId=1&priceLow=1&priceHigh=100000&pageId=1"></s:a> --%>
+<%-- <s:a href="CatListAction.do?pageNumberStr=1&typeIdStr=1&rankIdStr=1&priceLowStr=1&priceHighStr=100000"></s:a> --%>
 
 <%-- <ss:div  title="+++++++" id="divCatList" /> --%>
 <%-- <s:form action="CatsByQueryAction.do?pageNumber=1&pageId=1">
@@ -66,7 +66,7 @@
 <ss:submit targets="divCatList" ></ss:submit>
 </s:form> --%>
 
-<s:iterator value = "imagelist_pet" var = "image">
+<%-- <s:iterator value = "imagelist_pet" var = "image">
 <s:property value = "#image.path"/>
 </s:iterator>
 
@@ -76,9 +76,7 @@
 
 <s:iterator value = "imagelist_match" var = "image">
 <s:property value = "#image.path"/>
-
-
-</s:iterator>
+</s:iterator> --%>
 	<!--顶部导航栏-->
 		<div class="nav-bar">
 			<div style="margin: 0 auto; width: 1120px; ">

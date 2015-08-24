@@ -2,14 +2,19 @@
     pageEncoding="utf-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib uri="/struts-dojo-tags"  prefix="ss"%>
+<%-- <%@taglib uri="/struts-jquery-tags" prefix="sj"%> --%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<s:head/>
-<ss:head/>
+<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<s:head/>
+<ss:head />
+
+
+
 <!--链接标签图标-->
 <link rel="shortcut icon" href="../img/logo.ico">
 
@@ -27,14 +32,195 @@
 <title>宠你-首页</title>
 
 <script type="text/javascript">
-$(document).ready(function(){
+/*
+ * MAP对象，实现MAP功能
+ *
+ * 接口：
+ * size()     获取MAP元素个数
+ * isEmpty()  判断MAP是否为空
+ * clear()    删除MAP所有元素
+ * put(key, value)   向MAP中增加元素（key, value) 
+ * remove(key)    删除指定KEY的元素，成功返回True，失败返回False
+ * get(key)    获取指定KEY的元素值VALUE，失败返回NULL
+ * isContainsKey(key)  判断MAP中是否含有指定KEY的元素
+ * isContainsValue(value) 判断MAP中是否含有指定VALUE的元素
+ * valueArray()    获取MAP中所有VALUE的数组（ARRAY）
+ * keyArray()     获取MAP中所有KEY的数组（ARRAY）
+ *
+ * 例子：
+ * var map = new Map();
+ *
+ * map.put("key", "value");
+ * var val = map.get("key")
+ * ……
+ *
+ */
+
+//定义map       
+function Map()       
+{        
+this.container = {};        
+} 
+ 
+
+   
+//将key-value放入map中       
+Map.prototype.put = function(key,value){        
+try{        
+     
+if(key!=null && key != "")       
+ this.container[key] = value;        
+   
+}catch(e){        
+return e;        
+}        
+};        
+   
+//根据key从map中取出对应的value       
+Map.prototype.get = function(key){        
+try{        
+   
+return this.container[key];        
+   
+}catch(e){        
+return e;        
+}        
+}; 
+
+Map.prototype.set=function(key,value){
 	
-	var type="";
-	var hair="";
-	var rank="";
+	try{
+		this.remove(key);
+		this.put(key,value);
+		
+		
+	}catch(e){
+		return e;
+	}
+}
+   
+//判断map中是否包含指定的key       
+Map.prototype.isContainsKey=function(key){       
+   
+try{       
+for(var p in this.container)       
+{       
+   if(this.p==key)       
+      return true;       
+}       
+   
+return false;       
+   
+}catch(e){       
+return e;       
+}       
+   
+};       
+   
+//判断map中是否包含指定的value       
+Map.prototype.isContainsValue = function(value){        
+try{        
+   
+for(var p in this.container)       
+{        
+if(this.container[p] === value)        
+  return true;        
+}        
+   
+return false;        
+   
+}catch(e){        
+return e;        
+}        
+};        
+   
+   
+//删除map中指定的key       
+Map.prototype.remove = function(key){        
+try{        
+   
+delete this.container[key];        
+   
+}catch(e){        
+return e;        
+}        
+};        
+   
+//清空map       
+Map.prototype.clear = function(){        
+try{        
+delete this.container;        
+this.container = {};        
+   
+}catch(e){        
+ return e;        
+}        
+};  
+
+   
+ //判断map是否为空       
+Map.prototype.isEmpty = function(){        
+     
+if(this.keyArray().length==0)       
+ return true;       
+else        
+ return false;       
+};        
+   
+//获取map的大小       
+Map.prototype.size=function(){       
+   
+return this.keyArray().length;       
+};       
+   
+//返回map中的key值数组       
+Map.prototype.keyArray=function(){       
+    
+  var keys=new Array();       
+  for(var p in this.container)       
+  {       
+      keys.push(p);       
+  }       
+      
+  return keys;       
+} 
+   
+//返回map中的value值数组       
+Map.prototype.valueArray=function(){       
+    
+ var values=new Array();       
+ var keys=this.keyArray();       
+ for(var i=0;i<keys.length;i++)       
+ {       
+    values.push(this.container[keys[i]]);       
+ }       
+        
+ return values;       
+} ; 
+
+var type=null;
+var hair=null;
+var rank=null;
+var priceLow=1;
+var priceHigh=100000;
+var pageNumber=1;
+
+
+var map=new Map();
+map.put("typeIdStr",type);
+map.put("rankIdStr",rank);
+map.put("priceLowStr",priceLow);
+map.put("priceHighStr",priceHigh);
+map.put("pageNumberStr",pageNumber);
+
+ 
+ $(document).ready(function(){
 	
-							
+	 $('#main_cat_list').load('CatListAction.do?pageNumberStr=1&priceLowStr=1&priceHighStr=100000');
+	 var pageNow=document.getElementById ("pageNow");
+	 pageNow.innerHTML="第  "+pageNumber+" 页 ";
 	 $("#select1 dd a").click(function () {
+		
 		$(this).parent().addClass("selected").siblings().removeClass("selected");
 		$(this).parent().parent().siblings().children($("dd")).removeClass("selected");
 		if ($(this).parent().hasClass("select-all")) {
@@ -49,7 +235,8 @@ $(document).ready(function(){
 				$(".select-result dl").append(copyThisA.attr("id", "selectA"));
 			}
 		}
-		type=$("#selectA a").attr("label");
+		map.set("typeIdStr",$("#selectA a").attr("label"));
+		
 		
 		linkToUrl($(this)); 
 		
@@ -71,7 +258,7 @@ $(document).ready(function(){
 				$(".select-result dl").append(copyThisA.attr("id", "selectB"));
 			}
 		}
-		hair=$("#selectB a").attr("label");
+		map.set("hairIdStr",$("#selectB a").attr("label"));
 		linkToUrl($(this)); 
 	});
 	
@@ -89,26 +276,26 @@ $(document).ready(function(){
 				$(".select-result dl").append(copyThisA.attr("id", "selectC"));
 			}
 		}
-		rank=$("#selectC a").attr("label");
+		map.set("rankIdStr",$("#selectC a").attr("label"));
 		linkToUrl($(this)); 
 	});
 	
 	$(document).on("click","#selectA",function () {
-		type="";
+		map.remove("typeIdStr");
 		linkToUrl($("#selectA").children());
 		$(this).remove();
 		$("#select1 .select-all").addClass("selected").siblings().removeClass("selected");
 	});
 	
 	$(document).on("click", "#selectB",function () {
-		hair="";
+		map.remove("hairIdStr");
 		linkToUrl($("#selectB").children());
 		$(this).remove();
 		$("#select2 .select-all").addClass("selected").siblings().removeClass("selected");
 	});
 	
 	$(document).on("click","#selectC", function () {
-		rank="";
+		map.remove("rankIdStr");
 		linkToUrl($("#selectC").children());
 		$(this).remove();
 		$("#select3 .select-all").addClass("selected").siblings().removeClass("selected");
@@ -123,20 +310,58 @@ $(document).ready(function(){
 	});
 	
 	function linkToUrl(meth) {  
-    var host = "CatListAction.do";  
-    var Url;
-    Url=host+"?"+"pageNumberStr=1&"+"typeIdStr="+type+"&"+"rankIdStr="+rank+"&priceLowStr=1&priceHighStr=100000";
-    //alert(Url);
-    meth.attr("href",Url);
+    var host = "CatListAction.do?";
+    pageNumber=1;
+    map.set("pageNumberStr",1);
+    doPost();
+    pageNow.innerHTML="第  1 页 ";
     } 
+
 });
+ 
+ function doPost(){
+		
+		for(var key in map.container){
+			
+			if(map.get(key)==""||map.get(key)==null){
+				map.remove(key);
+			}
+		}
+		
+		$.post("CatListAction.do",map.container,
+			   function(data){
+				   
+				   $('#main_cat_list').html(data);
+			   }
+		);
+	}
 
 function showMore(){
 	$("#typeMore").toggle("fast","linear");
-    }
+  }  
+    
+ function pageNext(){
+	 
+	pageNumber=pageNumber+1;
+	map.set("pageNumberStr",pageNumber);
+	doPost();
+	pageNow.innerHTML="第  "+pageNumber+" 页 ";
+ }   
+function pagePre(){
+	
+	if(pageNumber>1){
+		
+		pageNumber=pageNumber-1;
+	}
+	map.set("pageNumberStr",pageNumber);
+	doPost();
+	pageNow.innerHTML="第  "+pageNumber+" 页 ";
+}
+
 </script>
 </head>
 <body>
+
 
 	<!--顶部导航栏-->
 		<div class="nav-bar">
@@ -216,10 +441,10 @@ function showMore(){
 	<div class="main-content center">
 		<div class="all_4_1">
 			<ul class="select">
-		<li class="select-result" style="padding:10px 0 5px 100px;">
+		<li class="select-result" style="padding:10px 0 5px 100px;height: 25px">
 			<dl>
 				<dt>所有猫咪浏览&nbsp;>&nbsp;</dt>
-				<dd class="select-no">&nbsp;</dd>
+				<dd class="select-no"></dd>
 			</dl>
 		</li>
 	</ul>
@@ -230,17 +455,17 @@ function showMore(){
 			<dl >
 				<dt>品种 &nbsp;&nbsp;</dt>
 				<dd class="select-all selected" ><ss:a href="#">全部</ss:a></dd>
-				<dd><ss:a href="CatListAction.do?pageNumberStr=1&typeIdStr=1&rankIdStr=1&priceLowStr=1&priceHighStr=100000"title="布偶猫" targets="main_cat_list" label="1">布偶猫</ss:a></dd>
-				<dd><ss:a href="#"title="波斯猫" targets="_blank" label="2">波斯猫</ss:a></dd> 
-				<dd><ss:a href="#"title="挪威森林猫" targets="_blank" label="3">挪威森林猫</ss:a></dd>
-				<dd><ss:a href="#"title="缅甸猫" targets="_blank" label="4">缅甸猫</ss:a></dd>
-				<dd><ss:a href="#"title="伯曼猫" targets="_blank" label="5">伯曼猫</ss:a></dd>
+				<dd><ss:a  title="布偶猫" targets="main_cat_list" label="1">布偶猫</ss:a></dd>
+				<dd><ss:a title="波斯猫"  targets="main_cat_list" label="2" >波斯猫</ss:a></dd> 
+				<dd><ss:a title="挪威森林猫" targets="main_cat_list" label="3" >挪威森林猫</ss:a></dd>
+				<dd><ss:a title="缅甸猫" targets="main_cat_list" label="4">缅甸猫</ss:a></dd>
+				<dd><ss:a href="#"title="伯曼猫" targets="main_cat_list" label="5">伯曼猫</ss:a></dd>
 				<dd><ss:a href="#"title="英国短毛猫" targets="_blank" label="6">英国短耳猫</ss:a></dd>
 				<dd><ss:a href="#"title="美国短毛猫" targets="_blank" label="7" >美国短毛猫</ss:a></dd>
 				<a class="right" href="#" onclick="showMore()">更多></a>
 			</dl>
 			<dl id="typeMore" style="display: none;">
-				<dd><ss:a href="#"title="1">布偶猫</ss:a></dd>
+				<dd><ss:a href="#"title="hairIdStr1">布偶猫</ss:a></dd>
 				<dd><ss:a href="#"title="2">波斯猫</ss:a></dd>
 				<dd><ss:a href="#"title="3">挪威森林猫</ss:a></dd>
 				<dd><ss:a href="#"title="4">缅甸猫</ss:a></dd>
@@ -276,19 +501,8 @@ function showMore(){
 		</div>
 	</div>
 	
-	 <%-- <s:form id="form1" action="CatListAction.do" method="post" >
-	 <s:param name="pageNumberStr" value="1"></s:param>
- 	 <s:param name="typeIdStr" value="1"></s:param>
-	 <s:param name="rankIdStr" value="1"></s:param>
- 	 <s:param name="priceLowStr" value="1"></s:param>
- 	 <s:param name="priceHighStr" value="100000"></s:param> 
- 	 <s:param name="pageIdStr" value="1"></s:param>
- 	  <ss:submit targets="main_cat_list" ></ss:submit> 
- 	 </s:form>  --%>
- 	 <ss:a
-		href="CatListAction.do?pageNumberStr=1&typeIdStr=1&rankIdStr=1&priceLowStr=1&priceHighStr=100000" value="123"
-		targets="main_cat_list">update</ss:a>
-	<ss:div id="main_cat_list"></ss:div>
+	<div id="main_cat_list"></div>
+	
 	<%-- <div class="middle_1">
 	<div class="smallpic">
 			<ul>
@@ -311,11 +525,10 @@ function showMore(){
 		</div>
 		</div>--%>
 	<div class="page">
-		<span style="margin-right:20px;"><a href="">上一页</a></span>
-		<span class="gray_2" style="margin-right:10px;">第&nbsp;1&nbsp;页</span>
+		<span style="margin-right:20px;"><a href="#" onclick="pagePre()">上一页</a></span>
+		<span class="gray_2" style="margin-right:10px;" id="pageNow"></span>
 		<span class="gray_2">共&nbsp;16&nbsp;页</span>
-		<span  style="margin-left:20px;"><a href="">下一页</a></span>
-		<input type="button" value="AJAX" onclick="ajax()">
+		<span  style="margin-left:20px;"><a href="#" onclick="pageNext()">下一页</a></span>
 	</div> 
 	
 	
