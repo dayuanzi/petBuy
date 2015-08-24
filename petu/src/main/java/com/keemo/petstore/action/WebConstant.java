@@ -16,13 +16,15 @@ public interface WebConstant
 	//猫舍详情页面猫咪列表显示单元个数
 	Integer admCattDetCatPageSize = 2;
 	//用户订单列表显示单元个数
-	Integer memOrderPageSize = 2;
+	Integer memOrderPageSize = 10;
 	//用户拥有猫咪列表的单元个数
 	Integer memCatPageSize = 2;
 	//用户拥有购物车列表的单元个数
 	Integer memCartPageSize = 2;
 	//用户拥有购物车列表的单元个数
 	Integer memFollowedCatteryPageSize = 2;
+	//用户预定的计划列表
+	Integer memPlanPageSize = 10;
 	//默认价格区间最小值
     Double priceLow = 0.00;
     //默认价格区间最大值

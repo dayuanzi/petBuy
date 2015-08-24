@@ -20,9 +20,9 @@ public interface MemManager {
 	 * @param userid
 	 * @param ispay
 	 * @return
-	 * List<Order>
+	 * List<List<Cat>>
 	 */
-	List<Order> getOrdersbyUserid(Integer pageNo,Integer pageSize,Integer userid,Byte ispay);
+	List<List<Cat>> getOrdersbyUserid(Integer pageNo,Integer pageSize,Integer userid,Byte ispay) throws Exception;
 	
 	
 	
@@ -59,6 +59,17 @@ public interface MemManager {
 	 * List<List<Cart>>
 	 */
 	List<List<Cart>>  getCartbyUserid(Integer pageNo,Integer pageSize,Integer userid) throws Exception;
+	
+	/**
+	 * 2015-8-21
+	 * 打水的
+	 * @param catteryId
+	 * @return
+	 * @throws Exception
+	 * List<Cat>
+	 */
+	List<Cat> getCatsbyCatteryId(Integer catteryId) throws Exception;
+	
 	
 	/**保存购物车
 	 * 2015-7-27
@@ -226,6 +237,19 @@ public interface MemManager {
 	 * void
 	 */
 	public void deletePlanOrder(Breedingorder breedingorder,Admin admin) throws Exception;
+
+	
+	/**
+	 * 2015-8-23
+	 * 打水的
+	 * @param pageNo
+	 * @param pageSize
+	 * @param userId
+	 * @return
+	 * @throws Exception
+	 * List<Breedingplan>
+	 */
+	public List<Breedingplan> getPlanListByUser(Integer pageNo,Integer pageSize, Integer userId) throws Exception;
 	
 	
 }

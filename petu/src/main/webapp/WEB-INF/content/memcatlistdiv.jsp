@@ -22,6 +22,10 @@
      <s:property value="#Cat.price"/>
      <s:property value="#Cat.oldprice"/>
      <s:property value="#Cat.image"/>
+     </s:iterator><p>
+     
+     <s:iterator value="owncatimagelist" var="image">
+     <p><s:property value="#image.path"/></p>
      </s:iterator>
 
 </body>

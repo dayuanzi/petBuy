@@ -203,30 +203,5 @@ public class CatteryDetailAction
 		
 		return ADM_CATT_DET;
 	}
-	
-	
-	@Action(value = "CatsByCatteryAction",
-			results = { @Result(name = "catsquery", 
-					            location = "/kongbai.jsp")})
-	public String CatsByCatteryAction()
-	throws Exception
-{
-
-//	ActionContext ctx = ActionContext.getContext();
-	System.out.println(111111);
-/*	String pageNumberStr = ((String[])ctx.getParameters().get("pageNumner"))[0];
-	String catteryIdStr = ((String[])ctx.getParameters().get("catteryId"))[0];
-	Integer catteryId = Integer.valueOf(catteryIdStr);
-	
-	Integer pageNumber = Integer.valueOf(pageNumberStr);
-	Integer pageNo = (pageNumber-1) * WebConstant.admCattDetCatPageSize;
-	
-	this.catlist = adm.getCatsbyCatteryId(pageNo, WebConstant.admCattDetCatPageSize, catteryId);*/
-	
-	
-	
-	return null;
-}
-	
     
 }

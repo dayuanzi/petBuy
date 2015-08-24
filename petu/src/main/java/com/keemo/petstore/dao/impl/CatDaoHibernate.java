@@ -295,6 +295,14 @@ public class CatDaoHibernate extends YeekuHibernateDaoSupport implements CatDao
 	}
 	
 	
+
+	public List<Cat> findByOrder(Integer orderId)
+	{
+		
+		HibernateTemplate ht=getHibernateTemplate();
+		return ht.find("from Cat cat where cat.order.id=?",orderId);
+	}
+	
 	
 	
 	

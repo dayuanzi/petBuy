@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Comparator;
 
+import org.springframework.cache.annotation.Cacheable;
+
 import com.keemo.petstore.action.WebConstant;
 import com.keemo.petstore.bean.Activericode;
 import com.keemo.petstore.bean.Address;
@@ -76,16 +78,52 @@ public class MemManagerImpl
 		this.breedingPlanDao = breedingPlanDao;
 	}
 
-
+    /**************************get方法******************************/
+    @Cacheable(value = "users", key="'catsbycattery'+#pageNo+#pageSize+#catteryId")
+	public List<Cat> getCatsbyCatteryId(Integer catteryId) throws Exception
+	{
+		try{
+			return catDao.findByCattery(catteryId);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			throw e;
+		}
+	}
     
-    
-	public List<Order> getOrdersbyUserid(Integer pageNo, Integer pageSize,
-			Integer userid ,Byte ispay) {
+	public List<List<Cat>> getOrdersbyUserid(Integer pageNo, Integer pageSize,
+			Integer userid ,Byte ispay) throws Exception {
 		// TODO Auto-generated method stub
 		List<Order> list=orderDao.findByUserid(userid, pageNo, pageSize, ispay);
-		
-		return list;
+		List<List<Cat>> catlist = new ArrayList<List<Cat>>();
+		try{
+			for(int i=0;i<list.size();i++){
+			    catlist.add(this.getCatsbyOrder(list.get(i)));
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			throw e;
+			
+		}
+
+		return catlist;
 	}
+	
+	public List<Cat> getCatsbyOrder(Order order) throws Exception {
+		// TODO Auto-generated method stub
+		List<Cat> catlist = new ArrayList<Cat>();
+		try{
+			catlist = catDao.findByOrder(order.getId());	
+		}catch (Exception e)
+		{
+			e.printStackTrace();
+			throw e;
+			
+		}
+		return catlist;
+	}
+	
 	public List<Cat> getOwnedCatsbyUserid(Integer pageNo,Integer pageSize,Integer userid)
 	{
 		return orderDao.findByOwnCats(userid, pageNo, pageSize);
@@ -121,8 +159,15 @@ public class MemManagerImpl
 	{
 		return followDao.findByUserId(pageNo, pageSize, userid);
 	}
+	public List<Breedingplan> getPlanListByUser(Integer pageNo,Integer pageSize, Integer userId) throws Exception{
+		
+		
+		return breedingPlanDao.findByUserId(pageNo, pageSize, userId);
+	}
 	
 
+	/**************************Vericode方法******************************/
+	
 	/**
 	 * 保存验证码
 	 * @param username
@@ -164,7 +209,7 @@ public class MemManagerImpl
 	
 }
 	
-	
+	/*******************************admin方法*************************************/
 	public Admin getAdmin(Integer id){
 		
 		return adminDao.get(id);
@@ -176,6 +221,8 @@ public class MemManagerImpl
 		adminDao.update(admin);
 		
 	}
+    
+
     
     public  boolean  checkUsername(String username){
     	
@@ -189,7 +236,7 @@ public class MemManagerImpl
     
     }
     
-    
+    /*****************************address方法********************************/
       public Integer saveAddress(Address address){
     	  
     	   return addressDao.save(address);
@@ -364,6 +411,10 @@ public class MemManagerImpl
         return catlists;
       
       }
+      
+      
+      
+      
       
       public boolean addPlanOrder(Breedingorder breedingorder) throws Exception{
     	  

@@ -80,6 +80,14 @@ public interface CatDao
 	 */
 	public List<Cat> findByCattery(Integer catteryId);
 	
+	/**
+	 * 2015-8-23
+	 * 打水的
+	 * @param orderId
+	 * @return
+	 * List<Cat>
+	 */
+	public List<Cat> findByOrder(Integer orderId);
 	
 	
 	/*******************ParentCat**************************/
