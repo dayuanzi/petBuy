@@ -365,7 +365,7 @@ public class MemberDetailAction
     
     @Action(value = "MemPlanAction",
 			results = { @Result(name = "memplanlist", 
-					            location = "/content/catterydetail.jsp")})
+					            location = "/WEB-INF/content/memplanlistdiv.jsp")})
 					    		
 	public String MemPlanAction()
 		throws Exception
@@ -373,23 +373,18 @@ public class MemberDetailAction
 
 		ActionContext ctx = ActionContext.getContext();
 		
-		
 			this.imagelist_dad = new ArrayList<Imagmsg>();
 			this.imagelist_mom = new ArrayList<Imagmsg>();
 			String userIdStr = ((String)ctx.getSession().get("userid"));
 		    Integer userId = Integer.valueOf(userIdStr);
 		    Integer pageNo = (pageNumber-1) * WebConstant.memPlanPageSize;
-		//	this.planlist = mem.getPlanListByUser(pageNo,WebConstant.memPlanPageSize,userId);
+			this.planlist = mem.getPlanListByUser(pageNo,WebConstant.memPlanPageSize,userId);
 
-		/*	for (int i = 0;i<planlist.size();i++){
+			for (int i = 0;i<planlist.size();i++){
 				this.imagelist_mom.add(img.getParentcatImagebyId(planlist.get(i).getParentcatByMother().getId()));
 				this.imagelist_dad.add(img.getParentcatImagebyId(planlist.get(i).getParentcatByFather().getId()));
 				
-			}*/
-System.out.println(imagelist_dad.size());
-System.out.println(planlist.size());
-		
-
+			}
 		
 		return MEM_PLAN_LIST;
 	}

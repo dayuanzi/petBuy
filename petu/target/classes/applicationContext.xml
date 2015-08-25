@@ -203,7 +203,38 @@
         <property name="cacheManager"  ref="cacheManagerFactory"/>    
     </bean>    
     
- 
+ <!-- 执行实际的调度调度 -->
+<bean 
+class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+	<property name="triggers">
+		<list>
+			<ref local="cronTriggerOrder"/>
+		</list>
+	</property>
+</bean>
+
+
+<bean id="cronTriggerOrder" 
+	class="org.springframework.scheduling.quartz.CronTriggerBean">
+	<property name="jobDetail">
+		<!-- 使用嵌套Bean的方式来定义任务Bean -->
+		<bean 
+		class="org.springframework.scheduling.quartz.JobDetailBean">
+		<!-- 指定任务Bean的实现类 -->
+			<property name="jobClass"
+				value="com.keemo.petstore.schedule.OrderJob"/>
+			<!-- 为任务Bean注入属性 -->
+			<property name="jobDataAsMap">
+				<map>
+					<entry key="empMgr" value-ref="empManager"/>
+				</map>
+			</property>
+		</bean>
+	</property>
+	<!-- 指定Cron表达式：每月3日2时启动 -->
+	<property name="cronExpression" value="0 0 2 3 * ? *"/>
+</bean>
+
 	<!--定义Spring的事务拦截器TransactionInterceptor
 	 <bean id="transactionInterceptor"
 		class="org.springframework.transaction.interceptor.TransactionInterceptor">	-->
