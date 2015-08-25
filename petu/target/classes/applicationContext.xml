@@ -203,6 +203,11 @@
         <property name="cacheManager"  ref="cacheManagerFactory"/>    
     </bean>    
     
+<!--     <bean id="ds1" class="org.springframework.jndi.JndiObjectFactoryBean">  
+    <property name="jndiName" value="${jdbc.jndiName}" />  
+</bean>
+     -->
+    
  <!-- 执行实际的调度调度 -->
 <bean 
 class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
@@ -224,16 +229,18 @@ class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
 			<property name="jobClass"
 				value="com.keemo.petstore.schedule.OrderJob"/>
 			<!-- 为任务Bean注入属性 -->
-			<property name="jobDataAsMap">
+		    <property name="jobDataAsMap">
 				<map>
-					<entry key="empMgr" value-ref="empManager"/>
+					<entry key="memManager" value-ref="memManager"/>
 				</map>
+				
 			</property>
 		</bean>
 	</property>
 	<!-- 指定Cron表达式：每月3日2时启动 -->
-	<property name="cronExpression" value="0 0 2 3 * ? *"/>
+	<property name="cronExpression" value="0-59 * * * * ?"/>
 </bean>
+
 
 	<!--定义Spring的事务拦截器TransactionInterceptor
 	 <bean id="transactionInterceptor"

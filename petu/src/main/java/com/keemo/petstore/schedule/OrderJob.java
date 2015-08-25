@@ -20,7 +20,7 @@ public class OrderJob extends QuartzJobBean {
 	protected void executeInternal(JobExecutionContext arg0)
 			throws JobExecutionException {
 		// TODO Auto-generated method stub
-		
+		System.out.println("执行了调度器");
 	}
 
 }

@@ -14,7 +14,7 @@
 		<hibernate.version>3.6.5.Final</hibernate.version>
 		<struts.version>2.2.1</struts.version>
 		<spring.security.version>3.1.6.RELEASE</spring.security.version>
-        <quartz.version>2.2.0</quartz.version>
+        <quartz.version>1.8.0</quartz.version>
   </properties>
 
 	<dependencies>
@@ -320,11 +320,6 @@
           </dependency>  
           
           <!--quartz dependency-->
-      <dependency>
-          <groupId>org.quartz-scheduler</groupId>
-          <artifactId>quartz-jobs</artifactId>
-          <version>${quartz.version}</version>
-      </dependency>
       <dependency>
           <groupId>org.quartz-scheduler</groupId>
           <artifactId>quartz</artifactId>
