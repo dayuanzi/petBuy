@@ -33,11 +33,24 @@ public class CatteryDetailAction
 	private Imagmsg cattmainimage;
 	private List<Imagmsg> imagelist_mom;
 	private List<Imagmsg> imagelist_dad;
+	private Imagmsg background;
+ 
+	
+	
+	
 
-	
-	
-	
-	
+	/**
+	 * @return the background
+	 */
+	public Imagmsg getBackground() {
+		return background;
+	}
+	/**
+	 * @param background the background to set
+	 */
+	public void setBackground(Imagmsg background) {
+		this.background = background;
+	}
 	/**
 	 * @return the imagelist_mom
 	 */
@@ -167,14 +180,16 @@ public class CatteryDetailAction
 				this.cat_imagelist.add(img.getCatImagebyId(catlist.get(i).getId()));
 			}
 			this.cattmainimage = img.getCatteryImagebyId(catteryId);
+			
 			this.planlist = adm.getPlanListByCattery(catteryId);
+			this.background =img.getCatteryBackgroundImagebyId(catteryId);
 
 			for (int i = 0;i<planlist.size();i++){
 				this.imagelist_mom.add(img.getParentcatImagebyId(planlist.get(i).getParentcatByMother().getId()));
 				this.imagelist_dad.add(img.getParentcatImagebyId(planlist.get(i).getParentcatByFather().getId()));
 				
-
 			}
+			
 			
 			
 
@@ -188,30 +203,5 @@ public class CatteryDetailAction
 		
 		return ADM_CATT_DET;
 	}
-	
-	
-	@Action(value = "CatsByCatteryAction",
-			results = { @Result(name = "catsquery", 
-					            location = "/kongbai.jsp")})
-	public String CatsByCatteryAction()
-	throws Exception
-{
-
-//	ActionContext ctx = ActionContext.getContext();
-	System.out.println(111111);
-/*	String pageNumberStr = ((String[])ctx.getParameters().get("pageNumner"))[0];
-	String catteryIdStr = ((String[])ctx.getParameters().get("catteryId"))[0];
-	Integer catteryId = Integer.valueOf(catteryIdStr);
-	
-	Integer pageNumber = Integer.valueOf(pageNumberStr);
-	Integer pageNo = (pageNumber-1) * WebConstant.admCattDetCatPageSize;
-	
-	this.catlist = adm.getCatsbyCatteryId(pageNo, WebConstant.admCattDetCatPageSize, catteryId);*/
-	
-	
-	
-	return null;
-}
-	
     
 }

@@ -45,15 +45,26 @@ public class CatListAction
 	private String priceLowStr;
 	private String priceHighStr;
 	private String queryStr;
-	
-	
-	
+	private String stalenStr;
+
 	private List<Imagmsg> imagelist;
 	private List<Imagmsg> imagelist_pet;
 	private List<Imagmsg> imagelist_breed;
 	private List<Imagmsg> imagelist_match;
 	
 	
+	/**
+	 * @return the stalenStr
+	 */
+	public String getStalenStr() {
+		return stalenStr;
+	}
+	/**
+	 * @param stalenStr the stalenStr to set
+	 */
+	public void setStalenStr(String stalenStr) {
+		this.stalenStr = stalenStr;
+	}
 	/**
 	 * @return the query
 	 */
@@ -205,8 +216,11 @@ public class CatListAction
 		Integer rankId = null;
 		Double priceLow = 1.00;
 		Double priceHigh = 1000000.00;
+		Byte stalen = null;
+        if(stalenStr!=null){
+	        stalen = Byte.valueOf(stalenStr);
+        }
 		
-
 		if(pageNumberStr!=null){
 			pageNumber = Integer.valueOf(pageNumberStr);
 		}
@@ -236,7 +250,7 @@ public class CatListAction
 		if(queryStr!=null){
 
 			Integer pageNo = (pageNumber-1) * WebConstant.admPageSize;
-			this.catlist = adm.getCatsbyQuery(pageNo, WebConstant.admPageSize, queryStr, typeId, rankId, priceLow, priceHigh);
+			this.catlist = adm.getCatsbyQuery(pageNo, WebConstant.admPageSize, queryStr, typeId, rankId,stalen, priceLow, priceHigh);
 			
 			
 			this.imagelist = new ArrayList<Imagmsg>();
@@ -258,8 +272,9 @@ public class CatListAction
 		{
 		
 	    Integer pageNo = (pageNumber-1) * WebConstant.admPageSize;
-	    
-		this.catlist = adm.getCatsbyPage(pageNo, WebConstant.admPageSize, typeId, rankId, priceLow, priceHigh);
+
+		this.catlist = adm.getCatsbyPage(pageNo, WebConstant.admPageSize, typeId, rankId,stalen, priceLow, priceHigh);
+
 		this.imagelist = new ArrayList<Imagmsg>();
 		try{
 			for (int i = 0;i < catlist.size();i++){
@@ -288,9 +303,9 @@ public class CatListAction
 	    throws Exception
 	    {
 		
-		this.catlist_pet = adm.getCatsbyPage(0, WebConstant.admIndexPageSize, null, 1, WebConstant.priceLow, WebConstant.priceHigh);
-		this.catlist_breed = adm.getCatsbyPage(0, WebConstant.admIndexPageSize, null, 2, WebConstant.priceLow, WebConstant.priceHigh);
-		this.catlist_match = adm.getCatsbyPage(0, WebConstant.admIndexPageSize, null, 3, WebConstant.priceLow, WebConstant.priceHigh);
+		this.catlist_pet = adm.getCatsbyPage(0, WebConstant.admIndexPageSize, null, 1,null, WebConstant.priceLow, WebConstant.priceHigh);
+		this.catlist_breed = adm.getCatsbyPage(0, WebConstant.admIndexPageSize, null, 2,null, WebConstant.priceLow, WebConstant.priceHigh);
+		this.catlist_match = adm.getCatsbyPage(0, WebConstant.admIndexPageSize, null, 3,null, WebConstant.priceLow, WebConstant.priceHigh);
 		this.planlist = adm.getPlanList(0, WebConstant.admIndexPlanPageSize);
 
 		this.imagelist_pet = new ArrayList<Imagmsg>();

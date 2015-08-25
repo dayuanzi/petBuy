@@ -58,37 +58,29 @@ public class AdmManagerImpl
 	}
 
 
-	public List<Cat> getCatsbyPage(Integer pageNo,Integer pageSize,Integer typeId,Integer rankId,Double priceLow,Double priceHigh)
+	public List<Cat> getCatsbyPage(Integer pageNo,Integer pageSize,Integer typeId,Integer rankId,Byte stalen,Double priceLow,Double priceHigh)
 	{
 		
-		List<Cat> list = catDao.findByPage(pageNo, pageSize, typeId, rankId,priceLow,priceHigh);
+		List<Cat> list = catDao.findByPage(pageNo, pageSize, typeId, rankId,stalen,priceLow,priceHigh);
 		return list;
 	
 	}
 	
-	public List<Cat> getCatsbyQuery(Integer pageNo,Integer pageSize,String queryStr,Integer typeId, Integer rankId,Double priceLow,Double priceHigh)
+	public List<Cat> getCatsbyQuery(Integer pageNo,Integer pageSize,String queryStr,Integer typeId, Integer rankId,Byte stalen,Double priceLow,Double priceHigh)
 	{
 		
-		List<Cat> list = catDao.findByQuery(pageNo, pageSize , queryStr, typeId, rankId, priceLow, priceHigh);
+		List<Cat> list = catDao.findByQuery(pageNo, pageSize , queryStr, typeId, rankId,stalen, priceLow, priceHigh);
 		return list;
 	}
 	
-	public List<Cattery> getCatterybyPage(Integer pageNo,Integer pageSize,Integer typeId,Integer rankId,Integer regionId,Integer priceLow,Integer priceHigh)
+	public List<Cattery> getCatterybyPage(Integer pageNo,Integer pageSize,Integer typeId,Integer rankId,Integer regionId,Double priceLow,Double priceHigh,String queryStr)
 	{
 	
-		List<Cattery> list = catteryDao.findByPage(pageNo,pageSize,typeId,rankId,regionId,priceLow,priceHigh);
-		
+		List<Cattery> list = catteryDao.findByPage(pageNo,pageSize,typeId,rankId,regionId,priceLow,priceHigh,queryStr);
+
 		return list;
 	}
 	
-	
-	public List<Cattery> getCatterybyQuery(Integer pageNo,Integer pageSize,String queryStr)
-	{
-	
-		List<Cattery> list = catteryDao.findByQuery(pageNo,pageSize,queryStr);
-		
-		return list;
-	}
 	
 	@Cacheable(value = "users", key="'catsbycattery'+#pageNo+#pageSize+#catteryId")
 	public List<Cat> getCatsbyCatteryId(Integer catteryId) throws Exception

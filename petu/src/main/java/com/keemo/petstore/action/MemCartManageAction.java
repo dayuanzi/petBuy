@@ -31,7 +31,7 @@ public class MemCartManageAction extends MemBaseAction{
 	
 @Action(value = "CartRegisterAction", 
 				results = { 
-				     @Result(name = "memaddcart", 
+				     @Result(name = "memdelcart", 
 				    		 location = "/login.jsp")})
 		
 public String execute()
@@ -45,6 +45,31 @@ public String execute()
 	    	cart.setTime(date); 
 	    	cart.setAdmin(admin);
             mem.saveCart(cart);
-	     return MEM_ADD_CART;
+	        return MEM_ADD_CART;
 		}
+
+
+
+@Action(value = "CartDeleteAction", 
+		results = { 
+		     @Result(name = "memaddcart", 
+		    		 location = "/login.jsp")})
+
+ public String CartDeleteAction()
+	     throws Exception
+      {
+	     ActionContext ctx = ActionContext.getContext();
+	     String userIdStr = ((String)ctx.getSession().get("userid"));
+	     Admin admin = new Admin();
+	     admin.setId(Integer.valueOf(userIdStr));
+
+         mem.deleteCart(cart, admin);
+         
+         return null;
+      }
+
 }
+
+
+
+

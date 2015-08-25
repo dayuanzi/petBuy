@@ -1,6 +1,6 @@
 package com.keemo.petstore.bean;
 
-// Generated 2015-8-11 18:13:01 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-8-21 0:39:59 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import java.util.HashSet;
@@ -24,8 +24,11 @@ public class Admin implements java.io.Serializable {
 	private String salary;
 	private String education;
 	private String company;
-	private String experience;
+	private Byte experience;
 	private Byte marriage;
+	private Integer catcount;
+	private String buyreason;
+	private String selfintroduce;
 	private Set follows = new HashSet(0);
 	private Set carts = new HashSet(0);
 	private Set orders = new HashSet(0);
@@ -37,8 +40,9 @@ public class Admin implements java.io.Serializable {
 	public Admin(String username, String password, String privileges,
 			Byte active, String nickname, Byte sex, Date birthday,
 			String phone, String address, String salary, String education,
-			String company, String experience, Byte marriage, Set follows,
-			Set carts, Set orders, Set breedingplans) {
+			String company, Byte experience, Byte marriage, Integer catcount,
+			String buyreason, String selfintroduce, Set follows, Set carts,
+			Set orders, Set breedingplans) {
 		this.username = username;
 		this.password = password;
 		this.privileges = privileges;
@@ -53,6 +57,9 @@ public class Admin implements java.io.Serializable {
 		this.company = company;
 		this.experience = experience;
 		this.marriage = marriage;
+		this.catcount = catcount;
+		this.buyreason = buyreason;
+		this.selfintroduce = selfintroduce;
 		this.follows = follows;
 		this.carts = carts;
 		this.orders = orders;
@@ -163,11 +170,11 @@ public class Admin implements java.io.Serializable {
 		this.company = company;
 	}
 
-	public String getExperience() {
+	public Byte getExperience() {
 		return this.experience;
 	}
 
-	public void setExperience(String experience) {
+	public void setExperience(Byte experience) {
 		this.experience = experience;
 	}
 
@@ -177,6 +184,30 @@ public class Admin implements java.io.Serializable {
 
 	public void setMarriage(Byte marriage) {
 		this.marriage = marriage;
+	}
+
+	public Integer getCatcount() {
+		return this.catcount;
+	}
+
+	public void setCatcount(Integer catcount) {
+		this.catcount = catcount;
+	}
+
+	public String getBuyreason() {
+		return this.buyreason;
+	}
+
+	public void setBuyreason(String buyreason) {
+		this.buyreason = buyreason;
+	}
+
+	public String getSelfintroduce() {
+		return this.selfintroduce;
+	}
+
+	public void setSelfintroduce(String selfintroduce) {
+		this.selfintroduce = selfintroduce;
 	}
 
 	public Set getFollows() {

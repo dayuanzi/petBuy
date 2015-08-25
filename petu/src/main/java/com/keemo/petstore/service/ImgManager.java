@@ -22,8 +22,18 @@ public interface ImgManager {
 	 * @return
 	 * Imagmsg
 	 */
-	public Imagmsg getCatImagebyId(Integer catid) throws Exception;
+	Imagmsg getCatImagebyId(Integer catid) throws Exception;
 	
+	
+	/**
+	 * 2015-8-13
+	 * 打水的
+	 * @param catteryid
+	 * @return
+	 * @throws Exception
+	 * Imagmsg
+	 */
+	Imagmsg getCatteryBackgroundImagebyId(Integer catteryid) throws Exception;
     /**
      * 2015-8-5
      * 打水的
@@ -31,7 +41,7 @@ public interface ImgManager {
      * @return
      * Imagmsg
      */
-    public Imagmsg getParentcatImagebyId(Integer catid) throws Exception;
+    Imagmsg getParentcatImagebyId(Integer catid) throws Exception;
     
     
     /**
@@ -52,7 +62,7 @@ public interface ImgManager {
      * @return
      * List<Imagmsg>
      */
-    public List<Imagmsg> getParentcatImageList(Integer catid,Integer imageType) throws Exception;
+    List<Imagmsg> getParentcatImageList(Integer catid,Integer imageType) throws Exception;
     
     /**
      * 2015-8-5
@@ -62,7 +72,7 @@ public interface ImgManager {
      * @return
      * List<Imagmsg>
      */
-    public List<Imagmsg> getCatteryImageList(Integer userid,Integer imageType) throws Exception;
+    List<Imagmsg> getCatteryImageList(Integer userid,Integer imageType) throws Exception;
     
     
     /**

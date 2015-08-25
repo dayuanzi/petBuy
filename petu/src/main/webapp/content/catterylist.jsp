@@ -10,24 +10,23 @@
 
 <div>
 
-<s:form action="getCatteryList.do">
-	<tr><td colspan="2">
-	<s:submit value="登录" theme="simple"/><s:reset theme="simple" value="重填"/>
-	</td></tr>
-</s:form>
-</div>
 
-<tr height="60">
-	<td>&nbsp;
-	<div align="center">
 	 <s:iterator value="catterylist" var="Cattery">
      商铺：<s:property value="#Cattery.name"/></p>
-     
-     
-     
-     </s:iterator>
-     </div>
-	</td>
-  </tr>
+     </s:iterator><p>
+     图片1：
+     <s:iterator value="mainimage" var="image">
+    <s:property value="#image.path"/></p>
+     </s:iterator><p>
+    
+    图片2：
+     <s:iterator value="imagelist" var="imagelistsub">
+     第二层：
+     <s:iterator value="#imagelistsub" var="#image">
+     <s:property value="#image.path"/></p>
+     </s:iterator> 
+     </s:iterator><p>
+    
+
 </body>
 </html>

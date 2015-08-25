@@ -34,6 +34,9 @@
 
 <s:property value="cattmainimage.path"/> <p>
 
+背景：
+<s:property value="background.path"/><p>
+
 <s:iterator value="planlist" var="Plan" >
 <s:property value="#Plan.id"/>
 </s:iterator><p>
@@ -46,7 +49,8 @@
 <s:property value="#Image.path"/>
 </s:iterator><p>
 
-<s:property value="cattery.maintxt"  escape="false"/>
+<s:property value="cattery.maintxt"  escape="false"/><p>
+
 
 
 

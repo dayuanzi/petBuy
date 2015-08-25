@@ -17,5 +17,25 @@
      <s:property value="#Cattery.cattpetrank.cattpetrank"/>
      <s:property value="#Cattery.region.region"/>
      </s:iterator>
+     
+     
+     
+     
+  图片
+     <s:iterator value="catterycatimagelist" var="imagelist">
+     <s:iterator value="#imagelist" var="image">
+     <s:property value="#image.path"/></p>
+     </s:iterator>
+     </s:iterator>
+     
+     
+   猫舍头像
+    <s:iterator value="mainimage" var="image">
+
+     <s:property value="#image.path"/></p>
+
+     </s:iterator>
+   
+   
 </body>
 </html>

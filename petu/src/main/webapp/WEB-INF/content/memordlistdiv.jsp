@@ -8,13 +8,22 @@
 </head>
 <body>
 
-	 <s:iterator value="orderlist" var="Order">
-     <p><s:property value="#Order.admin.username"/></p>
-     <s:property value="#Order.cat.name"/>
-     <s:property value="#Order.time"/>
-     <s:property value="#Order.count"/>
-     <s:property value="#Order.ispay"/>
+	 <s:iterator value="ordercatslist" var="catlist">
+	 111
+	 <s:iterator value="#catlist" var="cat">
+	 <s:property value="#cat.name"/>
+	 </s:iterator>
+   
      </s:iterator>
+     
+      <s:iterator value="ordercatsimagelist" var="imagelist">
+      
+	 <s:iterator value="#imagelist" var="image">
+	 <s:property value="#image.path"/>
+	 </s:iterator>
+   
+     </s:iterator>
+
 
 </body>
 </html>

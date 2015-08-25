@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-8-11 18:13:02 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2015-8-21 0:40:00 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.keemo.petstore.bean.Order" table="order" catalog="petbuy">
         <id name="id" type="java.lang.Integer">
@@ -25,6 +25,9 @@
         </property>
         <property name="price" type="java.lang.Double">
             <column name="price" precision="11" scale="0" />
+        </property>
+        <property name="status" type="java.lang.Byte">
+            <column name="status" />
         </property>
         <set name="cats" table="cat" inverse="true" lazy="true" fetch="select">
             <key>

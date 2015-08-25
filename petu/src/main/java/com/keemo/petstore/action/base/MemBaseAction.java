@@ -9,7 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 
 public class MemBaseAction
-	extends ActionSupport
+	extends ImgBaseAction
 {
 	//依赖的业务逻辑组件
 	protected MemManager mem;
