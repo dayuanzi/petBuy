@@ -17,7 +17,7 @@
 		<ul>
 		 <s:iterator value="catlist" var="Cat" status="image">
 		 <li>
-	 		<a href=""><img src="${initParam.fileHost}/image/<s:property value="imagelist[#image.index].path"/>"></a><span class="gray_1 lh30"><s:property value="#Cat.name"/>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30"><s:property value="#Cat.cattery.name"/></span><br/><span class="orange_1 f18 lh30" > &yen; <s:property value="#Cat.price"/></span>
+	 		<a href="CatDetailAction.do?catId=<s:property value="#Cat.id" />"><img src="${initParam.fileHost}/image/<s:property value="imagelist[#image.index].path"/>"></a><span class="gray_1 lh30"><s:property value="#Cat.name"/>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray_3 lh30"><s:property value="#Cat.cattery.name"/></span><br/><span class="orange_1 f18 lh30" > &yen; <s:property value="#Cat.price"/></span>
 	 	</li>
     <%--  <p><s:property value="#Cat.name"/></p>
      <s:property value="#Cat.sex"/>

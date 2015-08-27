@@ -149,7 +149,9 @@ input:-webkit-autofill {
 .lh40 {
 	line-height: 40px;
 }
-
+.lh60{
+	line-height:60px;
+}
 .color-theme {
 	color: #45b9a6;
 }

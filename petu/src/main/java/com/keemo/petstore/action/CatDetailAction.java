@@ -77,7 +77,7 @@ public class CatDetailAction
 	
 	@Action(value = "CatDetailAction",
 			results = { @Result(name = "catdetail", 
-					            location = "/content/catdetail.jsp")})
+					            location = "/pages/CatDetails.jsp")})
 	
 	public String execute()
 		throws Exception
