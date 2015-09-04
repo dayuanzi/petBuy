@@ -13,6 +13,8 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;  
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.InterceptorRef;
+import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.interceptor.*;
 import com.keemo.petstore.bean.*;
@@ -33,6 +35,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 
 
+@Namespace("/CatteryAction") 
 
 public class CattCatManageAction
 	extends CattBaseAction

@@ -2,6 +2,8 @@ package com.keemo.petstore.dao.impl;
 
 import java.util.List;
 
+import javax.sound.midi.Receiver;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -200,6 +202,67 @@ public class BreedingPlanDaoHibernate extends YeekuHibernateDaoSupport implement
 		getHibernateTemplate()
 		.delete(this.getOrder(id));
 	}
+	
+	/************************PlanRecord**************************/
+	
+	/**
+	 * 根据标识属性来加载Planrecord实例
+	 * @param id 需要加载的Planrecord实例的标识属性值
+	 * @return 指定标识属性对应的Planrecord实例
+	 */
+	public Planrecord getRecord(Integer id)
+	{
+		return getHibernateTemplate()
+		.get(Planrecord.class , id);
+	}
+
+	/**
+	 * 持久化指定的Planrecord实例
+	 * @param Planrecord 需要被持久化的Planrecord实例
+	 * @return Planrecord实例被持久化后的标识属性值
+	 */
+	public Integer saveRecord(Planrecord planrecord) {
+		
+		return (Integer)getHibernateTemplate()
+		.save(planrecord);
+	}
+
+	/**
+	 * 修改指定的Breedingorder实例
+	 * @param Breedingorder 需要被修改的Breedingorder实例
+	 */
+	public void updateRecord(Planrecord planrecord) {
+		
+		getHibernateTemplate()
+		.update(planrecord);
+	}
+
+	/**
+	 * 删除指定的Breedingorder实例
+	 * @param Breedingorder 需要被删除的Breedingorder实例
+	 */
+	public void deleteRecord(Planrecord planrecord) {
+		getHibernateTemplate()
+		.delete(planrecord);
+	}
+	
+	
+	/**
+	 * 根据标识属性删除Breedingorder实例
+	 * @param id 需要被删除的Breedingorder实例的标识属性值
+	 */
+	public void deleteRecord(Integer id) {
+		getHibernateTemplate()
+		.delete(this.getRecord(id));
+	}
+	
+	public List<Planrecord> findRecordListByPlanid(Integer planid) {
+		
+		return getHibernateTemplate()
+		.find("from Planrecord planrecord where planrecord.breedingplan.id=?",planid);
+		
+	}
+	
 	
 	
 }

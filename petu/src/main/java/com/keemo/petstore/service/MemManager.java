@@ -188,7 +188,7 @@ public interface MemManager {
 	 * @throws Exception
 	 * boolean
 	 */
-	public boolean addPlanOrder(Breedingorder breedingorder) throws Exception;
+	boolean addPlanOrder(Breedingorder breedingorder) throws Exception;
 	
 	/**
 	 * 2015-7-31
@@ -198,7 +198,7 @@ public interface MemManager {
 	 * @throws Exception
 	 * List<List<Cat>>
 	 */
-	public List<List<Cat>> getCatsByCart(List<Cart> cartlist) throws Exception;
+	List<List<Cat>> getCatsByCart(List<Cart> cartlist) throws Exception;
 	
 
 	
@@ -214,7 +214,7 @@ public interface MemManager {
 	 * @throws Exception
 	 * void
 	 */
-	public void deleteCart(Cart cart,Admin admin) throws Exception;
+	void deleteCart(Cart cart,Admin admin) throws Exception;
 	
 	
 	/**
@@ -225,8 +225,16 @@ public interface MemManager {
 	 * @throws Exception
 	 * void
 	 */
-	public void deleteOrder(Order order,Admin admin) throws Exception;
+	void deleteOrder(Order order,Admin admin) throws Exception;
 	
+	
+	/**
+	 * 2015-8-26
+	 * 打水的
+	 * @throws Exception
+	 * void
+	 */
+	void deleteOrderByPay() throws Exception;
 	
 	/**
 	 * 2015-8-12
@@ -236,7 +244,7 @@ public interface MemManager {
 	 * @throws Exception
 	 * void
 	 */
-	public void deletePlanOrder(Breedingorder breedingorder,Admin admin) throws Exception;
+	void deletePlanOrder(Breedingorder breedingorder,Admin admin) throws Exception;
 
 	
 	/**
@@ -249,7 +257,7 @@ public interface MemManager {
 	 * @throws Exception
 	 * List<Breedingplan>
 	 */
-	public List<Breedingplan> getPlanListByUser(Integer pageNo,Integer pageSize, Integer userId) throws Exception;
+	List<Breedingplan> getPlanListByUser(Integer pageNo,Integer pageSize, Integer userId) throws Exception;
 	
 	
 }

@@ -64,6 +64,7 @@ public class OrderDaoHibernate extends YeekuHibernateDaoSupport implements Order
 		getHibernateTemplate()
 		.delete(get(id));
 	}
+	
 	/**
 	 * 根据标识属性删除Order实例
 	 * @param pageNo 第一条订单
@@ -213,9 +214,27 @@ public class OrderDaoHibernate extends YeekuHibernateDaoSupport implements Order
 			       return query.list();
 		       }
 		  });
-		
 	}
 	
+   public List<Order> findByPay() throws Exception{
+		
+		HibernateTemplate ht=getHibernateTemplate();
+		 return ht.find("from Order ord where ord.ispay=0");
+	}
+	
+	
+	public void deleteByPay() throws Exception{
+		
+		HibernateTemplate ht=getHibernateTemplate();
+		 ht.execute(new HibernateCallback() {
+		       public Object doInHibernate(Session session)
+		             throws HibernateException {
+		    	
+		    	   Query query = session.createQuery("delete from Order ord where ord.ispay=0"); 
+			       return query.executeUpdate();
+		       }
+		  });
+	}
 	
 	
 }

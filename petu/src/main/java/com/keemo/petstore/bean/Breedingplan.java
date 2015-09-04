@@ -1,6 +1,6 @@
 package com.keemo.petstore.bean;
 
-// Generated 2015-8-21 0:39:59 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-9-1 13:23:31 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import java.util.HashSet;
@@ -17,30 +17,30 @@ public class Breedingplan implements java.io.Serializable {
 	private Parentcat parentcatByFather;
 	private Admin admin;
 	private Date time;
-	private String video;
 	private Integer catcount;
 	private Integer ordercount;
 	private String fatherColor;
 	private String motherColor;
+	private Set planrecords = new HashSet(0);
 	private Set breedingorders = new HashSet(0);
 
 	public Breedingplan() {
 	}
 
 	public Breedingplan(Parentcat parentcatByMother, Cattery cattery,
-			Parentcat parentcatByFather, Admin admin, Date time, String video,
+			Parentcat parentcatByFather, Admin admin, Date time,
 			Integer catcount, Integer ordercount, String fatherColor,
-			String motherColor, Set breedingorders) {
+			String motherColor, Set planrecords, Set breedingorders) {
 		this.parentcatByMother = parentcatByMother;
 		this.cattery = cattery;
 		this.parentcatByFather = parentcatByFather;
 		this.admin = admin;
 		this.time = time;
-		this.video = video;
 		this.catcount = catcount;
 		this.ordercount = ordercount;
 		this.fatherColor = fatherColor;
 		this.motherColor = motherColor;
+		this.planrecords = planrecords;
 		this.breedingorders = breedingorders;
 	}
 
@@ -92,14 +92,6 @@ public class Breedingplan implements java.io.Serializable {
 		this.time = time;
 	}
 
-	public String getVideo() {
-		return this.video;
-	}
-
-	public void setVideo(String video) {
-		this.video = video;
-	}
-
 	public Integer getCatcount() {
 		return this.catcount;
 	}
@@ -130,6 +122,14 @@ public class Breedingplan implements java.io.Serializable {
 
 	public void setMotherColor(String motherColor) {
 		this.motherColor = motherColor;
+	}
+
+	public Set getPlanrecords() {
+		return this.planrecords;
+	}
+
+	public void setPlanrecords(Set planrecords) {
+		this.planrecords = planrecords;
 	}
 
 	public Set getBreedingorders() {

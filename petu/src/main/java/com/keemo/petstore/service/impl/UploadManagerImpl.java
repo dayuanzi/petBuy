@@ -25,7 +25,6 @@ public class UploadManagerImpl implements UploadManager{
 		this.imageDao = imageDao;
 	}
 
-	
 	public boolean upLoadImage(List<Integer> imageType,List<File> upload,List<String> uploadFileName,String userid,Integer catid,Integer pid) throws Exception{
 
 	    // 把得到的文件的集合通过循环的方式读取并放在指定的路径下  
@@ -34,6 +33,13 @@ public class UploadManagerImpl implements UploadManager{
 	    	 switch(imageType.get(i)){
 	 	    
 		        case 1: path = ServletActionContext.getServletContext().getRealPath("/WEB-INF/uploadList");
+		        
+		        case 2: path = ServletActionContext.getServletContext().getRealPath("/WEB-INF/uploadList");
+		        
+		        case 3: path = ServletActionContext.getServletContext().getRealPath("/WEB-INF/uploadList");
+		        
+		        case 4: path = ServletActionContext.getServletContext().getRealPath("/WEB-INF/uploadList");
+		        
 		        
 		    }
 		 	
@@ -51,7 +57,7 @@ public class UploadManagerImpl implements UploadManager{
 	    	String rename =reName(userid,uploadFileName.get(i),i);
 			FileUtils.copyFile(upload.get(i), new File(file,rename));
 			try{
-				saveImage(rename,imageType.get(i),catid,pid);
+				saveImage("/WEB-INF/uploadList/"+rename,imageType.get(i),catid,pid);
 			}
 			catch (Exception e){
 				
@@ -66,10 +72,7 @@ public class UploadManagerImpl implements UploadManager{
 			e.printStackTrace();
 		}  
 		 	
-		 	
-	   
-	    }  
-
+	    }
 	    return true; 
 		
 	}

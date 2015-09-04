@@ -42,6 +42,21 @@ public class CattPlanManageAction extends CattBaseAction{
 	public List<Parentcat> parentcatlist;
 	public List<Integer> catsimagelist;
 	public Breedingplan breedingplan;
+	public Planrecord planrecord;
+
+	/**
+	 * @return the planrecord
+	 */
+	public Planrecord getPlanrecord() {
+		return planrecord;
+	}
+
+	/**
+	 * @param planrecord the planrecord to set
+	 */
+	public void setPlanrecord(Planrecord planrecord) {
+		this.planrecord = planrecord;
+	}
 	
 	public void setParentcatlist(List<Parentcat> parentcatlist){
 		
@@ -153,6 +168,30 @@ public class CattPlanManageAction extends CattBaseAction{
 	    return CATT_UPD_PAR;
 	    
 	}
+	 
+	 
+	 @Action(value = "CattPlanRecordManageAction",
+		     interceptorRefs = {  
+		              @InterceptorRef(value =  "fileUpload", 
+		    		                  params={ "maximumSize","409600",
+		    		                           "allowedTypesSet", "image/jpeg,image/jpg,image/bmp"}),
+		              @InterceptorRef(value =  "defaultStack")})
+		public String MemPlanRecordAction() throws Exception{
+			
+			ActionContext ctx = ActionContext.getContext();
+			String userid = (String)ctx.getSession().get("userid");
+			
+			try{
+	
+			catt.savePlanrecord(planrecord, uploadfile, imageType, uploadfileFileName,userid);
+			}
+			catch(Exception e){
+				e.printStackTrace();
+				
+			}
+			
+			return null;
+		}
 }
 
 

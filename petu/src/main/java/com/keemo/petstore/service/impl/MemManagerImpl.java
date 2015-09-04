@@ -488,6 +488,27 @@ public class MemManagerImpl
     	  }
       }
       
+       public void deleteOrderByPay() throws Exception{
+    	   
+    	   try{
+    		  // orderDao.deleteByPay();
+    		   List<Order> orderlist = orderDao.findByPay();
+    		   for(int i=0;i<orderlist.size();i++){
+    			   List<Cat> catlist = catDao.findByOrder(orderlist.get(i).getId());   
+    			   for(int j = 0;j<catlist.size();j++){
+    				   catlist.get(j).setOrder(null);
+    			   }
+    		   }
+              orderDao.deleteByPay();
+    		  
+    	   }
+    	   catch(Exception e)
+    	   {
+    		  e.printStackTrace();
+    		  throw e;
+    	   }
+    	   
+       }
 
 }
 
