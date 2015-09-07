@@ -14,13 +14,14 @@ import com.opensymphony.xwork2.*;
 
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.interceptor.*;
 import com.keemo.petstore.bean.*;
 
 import static com.keemo.petstore.service.MemManager.*;
 
-
+@Namespace("/MemberAction")
 public class MemberDetailAction
 	extends MemBaseAction
 {
@@ -33,8 +34,6 @@ public class MemberDetailAction
 	private final String MEM_PLAN_LIST= "memplanlist";
 	
 	
-
-
 	private Admin admin;
 	private List<List<Cat>> ordercatslist;
 	private List<List<Imagmsg>> ordercatsimagelist;
@@ -242,7 +241,7 @@ public class MemberDetailAction
 	public String MemOrderListAction() throws Exception
 	{
 		ActionContext ctx = ActionContext.getContext();
-		String userIdStr = ((String)ctx.getSession().get("userid"));		
+		String userIdStr = ((String)ctx.getSession().get("userid"));	
 		Integer userId = Integer.valueOf(userIdStr);
 		Integer pageNo = (pageNumber-1) * WebConstant.memOrderPageSize;
 		ordercatslist = mem.getOrdersbyUserid(pageNo, WebConstant.memOrderPageSize, userId, ispay);
@@ -480,7 +479,7 @@ public class MemberDetailAction
     		
     		HttpServletResponse response = ServletActionContext.getResponse();
        		response.setContentType("text/json");
-       		response.setStatus(200);
+       		response.setStatus(100);
            	response.getWriter().write("failed");
            	return null;
            	
@@ -494,7 +493,7 @@ public class MemberDetailAction
     	else{
     		HttpServletResponse response = ServletActionContext.getResponse();
        		response.setContentType("text/json");
-       		response.setStatus(200);
+       		response.setStatus(100);
            	response.getWriter().write("failed");
            	return null;
     		
@@ -508,7 +507,7 @@ public class MemberDetailAction
     		
     		HttpServletResponse response = ServletActionContext.getResponse();
        		response.setContentType("text/json");
-       		response.setStatus(200);
+       		response.setStatus(100);
            	response.getWriter().write("failed");
            	return null;
     	}
@@ -523,7 +522,7 @@ public class MemberDetailAction
     		
     		HttpServletResponse response = ServletActionContext.getResponse();
        		response.setContentType("text/json");
-       		response.setStatus(200);
+       		response.setStatus(100);
            	response.getWriter().write("failed");
            	return null;
     	}
@@ -536,7 +535,7 @@ public class MemberDetailAction
     	else{
     		HttpServletResponse response = ServletActionContext.getResponse();
        		response.setContentType("text/json");
-       		response.setStatus(200);
+       		response.setStatus(100);
            	response.getWriter().write("failed");
            	return null;
     		
@@ -550,7 +549,7 @@ public class MemberDetailAction
     	else{
     		HttpServletResponse response = ServletActionContext.getResponse();
        		response.setContentType("text/json");
-       		response.setStatus(200);
+       		response.setStatus(100);
            	response.getWriter().write("failed");
            	return null;
     		
@@ -565,7 +564,7 @@ public class MemberDetailAction
     	{
     		HttpServletResponse response = ServletActionContext.getResponse();
        		response.setContentType("text/json");
-       		response.setStatus(200);
+       		response.setStatus(100);
            	response.getWriter().write("failed");
            	return null;
     		
@@ -579,7 +578,7 @@ public class MemberDetailAction
     	else{
     		HttpServletResponse response = ServletActionContext.getResponse();
        		response.setContentType("text/json");
-       		response.setStatus(200);
+       		response.setStatus(100);
            	response.getWriter().write("failed");
            	return null;
     		
@@ -594,7 +593,7 @@ public class MemberDetailAction
     	{
     		HttpServletResponse response = ServletActionContext.getResponse();
        		response.setContentType("text/json");
-       		response.setStatus(200);
+       		response.setStatus(100);
            	response.getWriter().write("failed");
            	return null;
     	}
@@ -608,7 +607,7 @@ public class MemberDetailAction
     	else{
     		HttpServletResponse response = ServletActionContext.getResponse();
        		response.setContentType("text/json");
-       		response.setStatus(200);
+       		response.setStatus(100);
            	response.getWriter().write("failed");
            	return null;
     	}
@@ -622,7 +621,7 @@ public class MemberDetailAction
     	else{
     		HttpServletResponse response = ServletActionContext.getResponse();
        		response.setContentType("text/json");
-       		response.setStatus(200);
+       		response.setStatus(100);
            	response.getWriter().write("failed");
            	return null;
     	}
@@ -636,7 +635,7 @@ public class MemberDetailAction
     	{
     		HttpServletResponse response = ServletActionContext.getResponse();
        		response.setContentType("text/json");
-       		response.setStatus(200);
+       		response.setStatus(100);
            	response.getWriter().write("failed");
            	return null;
     	}
@@ -651,7 +650,7 @@ public class MemberDetailAction
     	{
     		HttpServletResponse response = ServletActionContext.getResponse();
        		response.setContentType("text/json");
-       		response.setStatus(200);
+       		response.setStatus(100);
            	response.getWriter().write("failed");
            	return null;
     	}
@@ -666,7 +665,7 @@ public class MemberDetailAction
     	catch(Exception e){
         	HttpServletResponse response = ServletActionContext.getResponse();
        		response.setContentType("text/json");
-       		response.setStatus(200);
+       		response.setStatus(500);
            	response.getWriter().write("failed");
     		e.printStackTrace();
     		return null;

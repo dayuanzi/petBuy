@@ -7,6 +7,7 @@ import java.util.Map;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.InterceptorRef;
+import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
 
 import com.keemo.petstore.action.base.MemBaseAction;
@@ -18,12 +19,12 @@ import com.keemo.petstore.bean.Order;
 import com.keemo.petstore.dao.BreedingPlanDao;
 import com.opensymphony.xwork2.ActionContext;
 
+@Namespace("/MemberAction")
 public class MemOrderManageAction extends MemBaseAction{
 	
 	private final String MEM_ADD_ORDER = "memaddorder";
 	private final String MEM_ADD_PLAN_ORDER = "memaddplanorder";
 
-	
 	public List<Cart> cartlist;
 	public Integer addressid;
 	public Breedingorder breedingorder;

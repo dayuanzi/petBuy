@@ -1,8 +1,10 @@
 package com.keemo.petstore.action;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
@@ -50,7 +52,8 @@ public class UserAction extends ActionSupport {
 	private AuthenticationManager authenticationManager;
 	private String nickName;
 
-
+	private EmailVerificationCodeService ema;
+	private MemManager mem;
 	private UserService userService;
 	
 	public void setUserService(UserService userService)
@@ -60,14 +63,13 @@ public class UserAction extends ActionSupport {
 	}
 
 
-	private EmailVerificationCodeService ema;
 	public void setEmailManager(EmailVerificationCodeService ema)
 	{
 		this.ema = ema;
 		
 	}
 
-	private MemManager mem;
+
 	public void setMemManager(MemManager mem)
 	{
 		this.mem = mem;
@@ -75,13 +77,14 @@ public class UserAction extends ActionSupport {
 	}
 	
 	/**
+	 * @throws IOException 
 	 * 
 	* @Description: 用户注册 
 	* @return
 	* @throws
 	 */
 	@Action(value = "UserRegisterAction", results = { @Result(name = "success", location = "/login.jsp") })
-	public String register() {
+	public String register() throws IOException {
 
 		/*	HttpSession session = ServletActionContext.getRequest().getSession();
 	String radomcode = (String) session.getAttribute(RandomCodeAction.RANDOMCODEKEY);
@@ -93,33 +96,65 @@ public class UserAction extends ActionSupport {
 				return "toregist";
 			}
 	*/
-
 		if (!password.equals(repassword)) {
-			ServletActionContext.getRequest().setAttribute("msg", "密码不一致");
-			return "toregist";
+		//	ServletActionContext.getRequest().setAttribute("msg", "密码不一致");
+			
+		    HttpServletResponse response = ServletActionContext.getResponse();
+		    response.setContentType("text/json");
+		    response.setStatus(403);
+		    response.setCharacterEncoding("utf-8");
+		    response.getWriter().write("密码不一致");  
+			return null;
+			
 		}
-
 
 		if (!mem.checkUsername(userName)){
-			ServletActionContext.getRequest().setAttribute("msg", "邮箱已注册");
-			return "toregist";
+		//	ServletActionContext.getRequest().setAttribute("msg", "邮箱已注册");
+			
+		    HttpServletResponse response = ServletActionContext.getResponse();
+		    response.setContentType("text/json");
+		    response.setStatus(403);
+		    response.setCharacterEncoding("utf-8");
+		    response.getWriter().write("邮箱已注册");  
+			return null;
+			
 		}
 		
-
-		Admin user = new Admin();
-		user.setUsername(userName);
-		user.setPassword(Util.encodePassword(password, userName));
-		user.setPrivileges("ROLE_USER");
-		user.setNickname(nickName);
-		user.setActive((byte)0);
-	    Integer userid=ema.save(user);
-	    String vericode = ema.getRandomString();
-	    mem.saveVericode(userid, vericode);
-		String content = "hello,请点击此处进行邮箱激活，" + "http://localhost:8080/ActiveAction.do" + "?userid=" + String.valueOf(userid)
-				+ "&vericode=" + vericode;
-		ema.sendEmail(userName, EmailVerificationCodeService.SUBJECT_MAIL_ACTIVE, content);
-	    
-		return "success";
+ try{
+	Admin user = new Admin();
+	user.setUsername(userName);
+	user.setPassword(Util.encodePassword(password, userName));
+	user.setPrivileges("ROLE_MEM");
+	user.setNickname(nickName);
+	user.setActive((byte)0);
+    Integer userid=ema.save(user);
+    String vericode = ema.getRandomString();
+    mem.saveVericode(userid, vericode);
+	String content = "hello,请点击此处进行邮箱激活，" + "http://localhost:8080/ActiveAction.do" + "?userid=" + String.valueOf(userid)
+			+ "&vericode=" + vericode;
+	ema.sendEmail(userName, EmailVerificationCodeService.SUBJECT_MAIL_ACTIVE, content);
+    
+}
+catch(Exception e){
+	 e.printStackTrace();
+	 HttpServletResponse response = ServletActionContext.getResponse();
+	 response.setContentType("text/json");
+	 response.setStatus(500);
+	 response.setCharacterEncoding("utf-8");
+	 response.getWriter().write("内部错误"); 
+	 //throw e;
+	 return null;
+}
+		
+		
+		HttpServletResponse response = ServletActionContext.getResponse();
+	    response.setContentType("text/json");
+	    response.setStatus(200);
+	    response.setCharacterEncoding("utf-8");
+	    response.getWriter().write("注册成功");  
+		
+	//	return "success";
+	    return null;
 
 	}
 	
@@ -149,8 +184,6 @@ public class UserAction extends ActionSupport {
 
 	}
 	
-	
-
 	public String getUserName() {
 		return userName;
 	}

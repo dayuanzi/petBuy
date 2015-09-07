@@ -34,10 +34,8 @@
 		<!-- <intercept-url pattern="/**" access="isAuthenticated()" /> -->
 		<!-- 这里注意拦截器的声明顺序 最先声明的有效 往往是权限最高的放在最前 -->
 		<intercept-url pattern="/CatteryAction/**" access="hasRole('ROLE_CATT')" />
+		<intercept-url pattern="/MemberAction/**" access="hasRole('ROLE_MEM')" />
 		<intercept-url pattern="/**" access="permitAll()" />
-		
-		
-		
 		
 		
 		<!-- 默认登录界面 -->
