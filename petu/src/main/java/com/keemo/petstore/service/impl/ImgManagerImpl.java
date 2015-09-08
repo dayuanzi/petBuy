@@ -125,6 +125,20 @@ public class ImgManagerImpl implements ImgManager{
 		}
         
         
+         public List<Imagmsg> getPlanrecordImageList(Integer planid,Integer imageType) throws Exception{
+			
+        	try{
+        		
+        		return imageDao.findByImageList(planid, 4, imageType);
+        		
+        	}
+        	catch(Exception e){
+        		e.printStackTrace();
+        		throw e;
+        	}
+		}
+        
+        
         
         
 		

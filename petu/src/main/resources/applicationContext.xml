@@ -50,7 +50,7 @@
 				<value>com/keemo/petstore/bean/Follow.hbm.xml</value>
 				<value>com/keemo/petstore/bean/Activericode.hbm.xml</value>
 				<value>com/keemo/petstore/bean/Parentcat.hbm.xml</value>
-				<value>com/keemo/petstore/bean/Planvideo.hbm.xml</value>
+				<value>com/keemo/petstore/bean/Planrecord.hbm.xml</value>
 				<value>com/keemo/petstore/bean/Breedingplan.hbm.xml</value>
 				<value>com/keemo/petstore/bean/Breedingorder.hbm.xml</value>
 			    <value>com/keemo/petstore/bean/PedigreeCertificate.hbm.xml</value>
@@ -238,7 +238,7 @@ class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
 		</bean>
 	</property>
 	<!-- 指定Cron表达式：每月3日2时启动 -->
-	<property name="cronExpression" value="0-59 * * * * ?"/>
+	<property name="cronExpression" value="0 0 3 * * ?"/>
 </bean>
 
 

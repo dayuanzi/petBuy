@@ -41,6 +41,7 @@ D:\git repository\petBuy\petu\src\main\java\com\keemo\petstore\security\filter\a
 D:\git repository\petBuy\petu\src\main\java\com\keemo\petstore\dao\impl\FollowDaoHibernate.java
 D:\git repository\petBuy\petu\src\main\java\com\keemo\petstore\vo\AuthenticationFailureHandlerImpl.java
 D:\git repository\petBuy\petu\src\main\java\com\keemo\petstore\vo\AttendBean.java
+D:\git repository\petBuy\petu\src\main\java\com\keemo\petstore\action\PlanRecordListAction.java
 D:\git repository\petBuy\petu\src\main\java\com\keemo\petstore\bean\Cart.java
 D:\git repository\petBuy\petu\src\main\java\com\keemo\petstore\filter\CheckParamFilter.java
 D:\git repository\petBuy\petu\src\main\java\com\keemo\petstore\dao\impl\OrderDaoHibernate.java
@@ -54,7 +55,6 @@ D:\git repository\petBuy\petu\src\main\java\com\keemo\petstore\dao\impl\CatDaoHi
 D:\git repository\petBuy\petu\src\main\java\com\keemo\petstore\service\impl\ImgManagerImpl.java
 D:\git repository\petBuy\petu\src\main\java\com\keemo\petstore\dao\impl\ImageDaoHibernate.java
 D:\git repository\petBuy\petu\src\main\java\com\keemo\petstore\util\SendEmail.java
-D:\git repository\petBuy\petu\src\main\java\com\keemo\petstore\bean\Planvideo.java
 D:\git repository\petBuy\petu\src\main\java\com\keemo\petstore\action\base\MemBaseAction.java
 D:\git repository\petBuy\petu\src\main\java\com\keemo\petstore\filter\GZIPServletOutputStream.java
 D:\git repository\petBuy\petu\src\main\java\com\keemo\petstore\bean\Parentcat.java
@@ -99,3 +99,4 @@ D:\git repository\petBuy\petu\src\main\java\com\keemo\petstore\dao\impl\AddressD
 D:\git repository\petBuy\petu\src\main\java\com\keemo\petstore\bean\Imagmsg.java
 D:\git repository\petBuy\petu\src\main\java\com\keemo\petstore\dao\CatDao.java
 D:\git repository\petBuy\petu\src\main\java\com\keemo\petstore\bean\Region.java
+D:\git repository\petBuy\petu\src\main\java\com\keemo\petstore\bean\Planrecord.java

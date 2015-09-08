@@ -12,15 +12,15 @@
 <body>
 
 
-<s:form action="CatRegisterAction.do" enctype="multipart/form-data" method="post">
+<%-- <s:form action="/CatteryAction/CatRegisterAction.do" enctype="multipart/form-data" method="post">
 
     
     <s:textfield name="catlist[0].name" type="String" label="名字"/>
     <s:textfield name="catlist[0].sex" type="Byte" label="性别"/> 
-
+    
     <s:textfield label="图片类别" name="imageType" value="1"></s:textfield>
     <s:textfield label="图片类别" name="catsimagelist" value="0"></s:textfield>
-    <s:file label="上传文件" name="uploadfile"></s:file>  
+    <s:file label="上传文件" name="uploadfile"></s:file>
     
     <s:textfield label="图片类别" name="imageType" value="1"></s:textfield>  
     <s:textfield label="图片类别" name="catsimagelist" value="0"></s:textfield>  
@@ -33,15 +33,47 @@
     <s:textfield label="图片类别" name="catsimagelist" value="1"></s:textfield>  
     <s:file label="上传文件" name="uploadfile"></s:file>  
   
-  
     <s:textfield name="catlist[2].name" type="String" label="名字"/>
     <s:textfield name="catlist[2].sex" type="Byte" label="性别"/>
     <s:textfield label="图片类别" name="imageType" value="1"></s:textfield> 
     <s:textfield label="图片类别" name="catsimagelist" value="2"></s:textfield>  
-    <s:file label="上传文件" name="uploadfile"></s:file>  
+    <s:file label="上传文件" name="uploadfile"></s:file>
     
 	<s:submit label="新增猫咪"/>
-</s:form>
+</s:form> --%>
+
+
+
+<form action="/CatteryAction/CatRegisterAction.do" enctype="multipart/form-data" method="post">
+
+    
+    <input name="catlist[0].name"/>
+    <input name="catlist[0].sex"/> 
+    
+    <input name="imageType" value="1"/>
+    <input name="catsimagelist" value="0"/>
+    <input name="uploadfile" type="file"/>
+    
+    <input name="imageType" value="1"/>  
+    <input name="catsimagelist" value="0"/>
+    <input name="uploadfile" type="file"/>
+    
+    
+    <input name="catlist[1].name" />
+    <input name="catlist[1].sex"  />
+    <input name="imageType" value="1"/>
+    <input name="catsimagelist" value="1"/> 
+    <input name="uploadfile" type="file"/>  
+  
+    <input name="catlist[2].name" />
+    <input name="catlist[2].sex" />
+    <input name="imageType" value="1"/>
+    <input name="catsimagelist" value="2"/> 
+    <input name="uploadfile" type="file"/>
+    
+	<s:submit label="新增猫咪"/>
+	
+</form> 
 
 	
 </body>

@@ -19,7 +19,7 @@
 	<table-filter match-name="pedigree_certificate"
 		match-catalog="petbuy">
 	</table-filter>
-	<table-filter match-name="planvideo" match-catalog="petbuy"></table-filter>
 	<table-filter match-name="rank" match-catalog="petbuy"></table-filter>
 	<table-filter match-name="region" match-catalog="petbuy"></table-filter>
+	<table-filter match-name="planrecord" match-catalog="petbuy"></table-filter>
 </hibernate-reverse-engineering>

@@ -38,6 +38,17 @@ public class OrderJob extends QuartzJobBean {
 	protected void executeInternal(JobExecutionContext arg0)
 			throws JobExecutionException {
 		// TODO Auto-generated method stub
+		try {
+			
+			//memManager
+			memManager.deleteOrderByPay();
+			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			//throw e;
+		}
 		System.out.println("执行了调度器");
 	}
 

@@ -56,12 +56,13 @@ public class CustomDeniedHandler implements AccessDeniedHandler {
 		
 		
 		HttpSession session = request.getSession();
-		String privileges = (String) session.getAttribute("privileges");
+		/*String privileges = (String) session.getAttribute("privileges");
 		if (privileges.equals("ROLE_USER"))
 		{
 			response.sendRedirect("/login.jsp");
 		}
-		
+		*/
+		response.sendRedirect("/login.jsp");
 		// TODO Auto-generated method stub
 		
 	}  

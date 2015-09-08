@@ -113,8 +113,50 @@ public interface BreedingPlanDao {
 	 */
 	void deleteOrder(Integer id);
 	
+/************************PlanRecord**************************/
 	
+	/**
+	 * 根据标识属性来加载Planrecord实例
+	 * @param id 需要加载的Planrecord实例的标识属性值
+	 * @return 指定标识属性对应的Planrecord实例
+	 */
+	Planrecord getRecord(Integer id);
+	/**
+	 * 持久化指定的Planrecord实例
+	 * @param Planrecord 需要被持久化的Planrecord实例
+	 * @return Planrecord实例被持久化后的标识属性值
+	 */
+	public Integer saveRecord(Planrecord planrecord);
 
+	/**
+	 * 修改指定的Breedingorder实例
+	 * @param Breedingorder 需要被修改的Breedingorder实例
+	 */
+	public void updateRecord(Planrecord planrecord);
+
+	/**
+	 * 删除指定的Breedingorder实例
+	 * @param Breedingorder 需要被删除的Breedingorder实例
+	 */
+	public void deleteRecord(Planrecord planrecord);
+	
+	
+	/**
+	 * 根据标识属性删除Breedingorder实例
+	 * @param id 需要被删除的Breedingorder实例的标识属性值
+	 */
+	public void deleteRecord(Integer id);
+
+	
+	
+	/**
+	 * 2015-8-28
+	 * 打水的
+	 * @param planid
+	 * @return
+	 * List<Planrecord>
+	 */
+	public List<Planrecord> findRecordListByPlanid(Integer planid);
 }
 
 

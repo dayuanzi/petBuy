@@ -5,6 +5,7 @@ import java.util.Date;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.InterceptorRef;
+import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
 
 import com.keemo.petstore.action.base.MemBaseAction;
@@ -12,6 +13,7 @@ import com.keemo.petstore.bean.Admin;
 import com.keemo.petstore.bean.Cart;
 import com.opensymphony.xwork2.ActionContext;
 
+@Namespace("/MemberAction")
 public class MemCartManageAction extends MemBaseAction{
 	
 	private final String MEM_ADD_CART = "memaddcart";

@@ -40,7 +40,14 @@ public interface OrderDao
 	 */
 	void delete(Integer id);
 	
-
+	/**
+	 * 2015-8-26
+	 * 打水的
+	 * @throws Exception
+	 * void
+	 */
+	void deleteByPay() throws Exception;
+	
 	/**
 	 * 根据默认返回订单列表
 	 * @param pageNo pageSize 返回 Order List
@@ -86,7 +93,14 @@ public interface OrderDao
 	 */
 	public List<Cat> findByOrderId(Integer userid, Integer pageNo,Integer pageSize);
 	
-	
+	 /**
+	 * 2015-8-26
+	 * 打水的
+	 * @return
+	 * @throws Exception
+	 * List<Order>
+	 */
+	List<Order> findByPay() throws Exception;
 	
 	
 	

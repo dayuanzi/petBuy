@@ -106,6 +106,22 @@ public interface AdmManager
 	 * List<Breedingplan>
 	 */
 	public List<Breedingplan> getPlanListByCattery(Integer catteryId) throws Exception;
+	
+	
+	
+	/**
+	 * 2015-8-28
+	 * 打水的
+	 * @param planid
+	 * @return
+	 * @throws Exception
+	 * List<Planrecord>
+	 */
+	public List<Planrecord> getRecordList(Integer planid) throws Exception;
+	
+	
+	
+	
     
 
 

@@ -6,6 +6,7 @@ import com.keemo.petstore.bean.Admin;
 import com.keemo.petstore.bean.Breedingplan;
 import com.keemo.petstore.bean.Cat;
 import com.keemo.petstore.bean.Cattery;
+import com.keemo.petstore.bean.Planrecord;
 import com.keemo.petstore.vo.*;
 import com.keemo.petstore.exception.*;
 import com.keemo.petstore.service.AdmManager;
@@ -114,7 +115,14 @@ public class AdmManagerImpl
 	public List<Breedingplan> getPlanList(Integer pageNo,Integer pageSize){
 		
 		return breedingPlanDao.findByIndex(pageNo, pageSize);
-		
 	}
 	
+	
+	@Cacheable(value = "users" ,key = "'recordlist'+#planid")
+	public List<Planrecord> getRecordList(Integer planid) throws Exception{
+		
+		//return  breedingPlanDao.findByUserId(pageNo, pageSize, userId);
+		return breedingPlanDao.findRecordListByPlanid(planid);
+	
+	}
 }

@@ -8,6 +8,7 @@ import com.keemo.petstore.bean.Catype;
 import com.keemo.petstore.bean.Imagmsg;
 import com.keemo.petstore.bean.Parentcat;
 import com.keemo.petstore.bean.PedigreeCertificate;
+import com.keemo.petstore.bean.Planrecord;
 import com.keemo.petstore.bean.Rank;
 import com.keemo.petstore.service.CattManager;
 import com.keemo.petstore.service.UploadManager;
@@ -239,7 +240,53 @@ public class CattManagerImpl
 			throw e;
 		}
 	}
+   
+   
+   /***************************planrecord****************************/
+   
+   
+   public void savePlanrecord(Planrecord planrecord,List<File> upload,List<Integer> imagetypelist,
+ 		   List<String> uploadFileName,String userid) throws Exception{
 	
-	
+	try{
+		
+		
+			System.out.println(2222);
+			List<Planrecord> recordlist =  breedingPlanDao.findRecordListByPlanid(planrecord.getBreedingplan().getId());
+			System.out.println("test");
+			System.out.println(recordlist.size());
+			System.out.println(planrecord.getBreedingplan().getId());
+			if(recordlist.size()!=0){
+				Date date = recordlist.get(recordlist.size()-1).getTime();
+				Integer week =  recordlist.get(recordlist.size()-1).getWeek();
+			    Calendar resultDate=Calendar.getInstance();  
+			    resultDate.setTime(date);
+			    resultDate.add(Calendar.DAY_OF_YEAR,+7);
+			    Date datenew = resultDate.getTime();
+			    
+			    planrecord.setWeek(week+1);
+			    planrecord.setTime(datenew);
+			    
+			}
+			else
+			{
+				Date date = new Date();
+				planrecord.setTime(date);
+				planrecord.setWeek(1);
+
+			}
+
+	    Integer planid = breedingPlanDao.saveRecord(planrecord);
+		uploadManager.upLoadImage(imagetypelist, upload, uploadFileName, userid, planid , 4);
+		
+		
+	}
+	catch (Exception e){
+		e.printStackTrace();
+		throw e;
+	}
+}
+   
+   
 
 }

@@ -95,6 +95,10 @@ public interface CattManager
 	void savePlan(Breedingplan breedingplan) throws Exception;
 
 	
+	
+	void savePlanrecord(Planrecord planrecord,List<File> upload,List<Integer> imagetypelist,
+	 		   List<String> uploadFileName,String userid) throws Exception;
+	
 	/**
 	 * 2015-8-3
 	 * 打水的
@@ -116,5 +120,8 @@ public interface CattManager
 	 * void
 	 */
 	void updateCattery(Cattery cattery) throws Exception;
+	
+	
+	
 
 }
