@@ -1,8 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
+<%@ page language="java" contentType="text/html; charset=utf-8" 
     pageEncoding="utf-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib  prefix="ss" uri="/struts-dojo-tags"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix='security' uri='http://www.springframework.org/security/tags' %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -47,25 +48,15 @@
 
 </head>
 <body>
+<%Boolean authenticated=false;  %>
 
-<%-- <s:a href="CatListAction.do?pageNumberStr=1&typeIdStr=1&rankIdStr=1&priceLowStr=1&priceHighStr=100000"></s:a> --%>
+yonghu:
+<%-- <security:authentication property="principal.password"></security:authentication>  --%>
+<security:authorize access="isAuthenticated()">  
+ <c:set var="authention"  value="true" scope="session"/>
+<c:out value="${authention}"/>
 
-<%-- <ss:div  title="+++++++" id="divCatList" /> --%>
-<%-- <s:form action="CatsByQueryAction.do?pageNumber=1&pageId=1">
-	<s:textfield name="query"/>
-	<ss:submit targets="divCatList" label="搜索"/>
-</s:form>--%>
-
-<%--<s:form id="form1" action="IndexAction.do" method="post" >
- <s:param name="pageNumber" value="1"></s:param>
- <s:param name="typeId" value="1"></s:param>
-<s:param name="rankId" value="1"></s:param>
-<s:param name="priceLow" value="1"></s:param>
-<s:param name="priceHigh" value="100000"></s:param> 
-<s:param name="pageId" value="1"></s:param>
-<ss:submit targets="divCatList" ></ss:submit>
-</s:form> --%>
-
+</security:authorize>  
 <%-- <s:iterator value = "imagelist_pet" var = "image">
 <s:property value = "#image.path"/>
 </s:iterator>
@@ -80,16 +71,28 @@
 	<!--顶部导航栏-->
 		<div class="nav-bar">
 			<div style="margin: 0 auto; width: 1120px; ">
+			<c:choose>
+			<c:when test="${authention}">
+			<div class="left" style="line-height:40px;">
+			   		<div class="left_1">您好 , <a class="green_1" href="#"><security:authentication property="principal.username"></security:authentication> </a></div>
+					<div class="left_2">我要开猫舍</div>
+				</div> 
+			</c:when>
+			<c:otherwise>
 				<div class="header-login">
 					<ul class="header-grid">
 						<li>您好，请</li>
-						<li><a href="login.html" style="margin-left: 0px;">登录</a></li>
+						<li><a href="/login.jsp" style="margin-left: 0px;">登录</a></li>
 						<li>或</li>
-						<li><a href="sign up" style="margin-left: 0px;">注册 </a> </li>
+						<li><a href="/login.jsp" style="margin-left: 0px;">注册 </a> </li>
 					</ul>
 
 					<div class="clearfix"> </div>
+					
 				</div>
+			</c:otherwise>
+			</c:choose>
+				<!-- -->
 
 				<div class="right">
 					<ul class="header-menu">

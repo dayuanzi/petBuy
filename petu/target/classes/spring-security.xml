@@ -31,8 +31,9 @@
 		<intercept-url pattern="/register.jsp" access="permitAll()" />
 		<intercept-url pattern="/UserRegisterAction.do" access="permitAll()" />
 		<intercept-url pattern="/UserActiveAction.do" access="permitAll()" />
+		<intercept-url pattern="/index.jsp" access="Anonymous()"/>
 		<!-- <intercept-url pattern="/**" access="isAuthenticated()" /> -->
-		<intercept-url pattern="/**" access="hasRole('ROLE_CATT')" />
+		<!-- <intercept-url pattern="/**" access="hasRole('ROLE_CATT')" /> -->
 		<intercept-url pattern="/Order/**" access="hasRole('ROLE_CATT')" />
 		
 

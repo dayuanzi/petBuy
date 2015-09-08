@@ -12,8 +12,15 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.List<String> _jspx_dependants;
 
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_s_date_name_format_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_out_value_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_s_property_value_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_security_authentication_property_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_when_test;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_set_var_value_scope_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_choose;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_s_set_var_value_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_otherwise;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_security_authorize_access;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_s_iterator_var_value;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
@@ -24,15 +31,29 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   public void _jspInit() {
     _jspx_tagPool_s_date_name_format_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_out_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_s_property_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_security_authentication_property_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_when_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_set_var_value_scope_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_choose = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_s_set_var_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_otherwise = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_security_authorize_access = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_s_iterator_var_value = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
     _jspx_tagPool_s_date_name_format_nobody.release();
+    _jspx_tagPool_c_out_value_nobody.release();
     _jspx_tagPool_s_property_value_nobody.release();
+    _jspx_tagPool_security_authentication_property_nobody.release();
+    _jspx_tagPool_c_when_test.release();
+    _jspx_tagPool_c_set_var_value_scope_nobody.release();
+    _jspx_tagPool_c_choose.release();
     _jspx_tagPool_s_set_var_value_nobody.release();
+    _jspx_tagPool_c_otherwise.release();
+    _jspx_tagPool_security_authorize_access.release();
     _jspx_tagPool_s_iterator_var_value.release();
   }
 
@@ -63,6 +84,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write(" \r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\r\n");
@@ -108,29 +130,24 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("</head>\r\n");
       out.write("<body>\r\n");
+Boolean authenticated=false;  
       out.write("\r\n");
-      out.write("\n");
       out.write("\r\n");
+      out.write("yonghu:\r\n");
       out.write('\r');
       out.write('\n');
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      if (_jspx_meth_security_authorize_0(_jspx_page_context))
+        return;
+      out.write("  \r\n");
       out.write("\r\n");
       out.write("\t<!--顶部导航栏-->\r\n");
       out.write("\t\t<div class=\"nav-bar\">\r\n");
       out.write("\t\t\t<div style=\"margin: 0 auto; width: 1120px; \">\r\n");
-      out.write("\t\t\t\t<div class=\"header-login\">\r\n");
-      out.write("\t\t\t\t\t<ul class=\"header-grid\">\r\n");
-      out.write("\t\t\t\t\t\t<li>您好，请</li>\r\n");
-      out.write("\t\t\t\t\t\t<li><a href=\"login.html\" style=\"margin-left: 0px;\">登录</a></li>\r\n");
-      out.write("\t\t\t\t\t\t<li>或</li>\r\n");
-      out.write("\t\t\t\t\t\t<li><a href=\"sign up\" style=\"margin-left: 0px;\">注册 </a> </li>\r\n");
-      out.write("\t\t\t\t\t</ul>\r\n");
+      out.write("\t\t\t");
+      if (_jspx_meth_c_choose_0(_jspx_page_context))
+        return;
       out.write("\r\n");
-      out.write("\t\t\t\t\t<div class=\"clearfix\"> </div>\r\n");
-      out.write("\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t<!-- -->\r\n");
       out.write("\r\n");
       out.write("\t\t\t\t<div class=\"right\">\r\n");
       out.write("\t\t\t\t\t<ul class=\"header-menu\">\r\n");
@@ -333,6 +350,197 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_security_authorize_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  security:authorize
+    org.springframework.security.taglibs.authz.JspAuthorizeTag _jspx_th_security_authorize_0 = (org.springframework.security.taglibs.authz.JspAuthorizeTag) _jspx_tagPool_security_authorize_access.get(org.springframework.security.taglibs.authz.JspAuthorizeTag.class);
+    _jspx_th_security_authorize_0.setPageContext(_jspx_page_context);
+    _jspx_th_security_authorize_0.setParent(null);
+    _jspx_th_security_authorize_0.setAccess("isAuthenticated()");
+    int _jspx_eval_security_authorize_0 = _jspx_th_security_authorize_0.doStartTag();
+    if (_jspx_eval_security_authorize_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      out.write("  \r\n");
+      out.write(" ");
+      if (_jspx_meth_c_set_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_security_authorize_0, _jspx_page_context))
+        return true;
+      out.write('\r');
+      out.write('\n');
+      if (_jspx_meth_c_out_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_security_authorize_0, _jspx_page_context))
+        return true;
+      out.write("\r\n");
+      out.write("\r\n");
+    }
+    if (_jspx_th_security_authorize_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_security_authorize_access.reuse(_jspx_th_security_authorize_0);
+      return true;
+    }
+    _jspx_tagPool_security_authorize_access.reuse(_jspx_th_security_authorize_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_set_0(javax.servlet.jsp.tagext.JspTag _jspx_th_security_authorize_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:set
+    org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_set_0 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _jspx_tagPool_c_set_var_value_scope_nobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
+    _jspx_th_c_set_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_set_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_security_authorize_0);
+    _jspx_th_c_set_0.setVar("authention");
+    _jspx_th_c_set_0.setValue(new String("true"));
+    _jspx_th_c_set_0.setScope("session");
+    int _jspx_eval_c_set_0 = _jspx_th_c_set_0.doStartTag();
+    if (_jspx_th_c_set_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_set_var_value_scope_nobody.reuse(_jspx_th_c_set_0);
+      return true;
+    }
+    _jspx_tagPool_c_set_var_value_scope_nobody.reuse(_jspx_th_c_set_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_out_0(javax.servlet.jsp.tagext.JspTag _jspx_th_security_authorize_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:out
+    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_0 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
+    _jspx_th_c_out_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_out_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_security_authorize_0);
+    _jspx_th_c_out_0.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${authention}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_c_out_0 = _jspx_th_c_out_0.doStartTag();
+    if (_jspx_th_c_out_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_0);
+      return true;
+    }
+    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_choose_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:choose
+    org.apache.taglibs.standard.tag.common.core.ChooseTag _jspx_th_c_choose_0 = (org.apache.taglibs.standard.tag.common.core.ChooseTag) _jspx_tagPool_c_choose.get(org.apache.taglibs.standard.tag.common.core.ChooseTag.class);
+    _jspx_th_c_choose_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_choose_0.setParent(null);
+    int _jspx_eval_c_choose_0 = _jspx_th_c_choose_0.doStartTag();
+    if (_jspx_eval_c_choose_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("\t\t\t");
+        if (_jspx_meth_c_when_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context))
+          return true;
+        out.write("\r\n");
+        out.write("\t\t\t");
+        if (_jspx_meth_c_otherwise_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context))
+          return true;
+        out.write("\r\n");
+        out.write("\t\t\t");
+        int evalDoAfterBody = _jspx_th_c_choose_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_choose_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_0);
+      return true;
+    }
+    _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_when_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:when
+    org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_when_0 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _jspx_tagPool_c_when_test.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
+    _jspx_th_c_when_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_when_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
+    _jspx_th_c_when_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${authention}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_when_0 = _jspx_th_c_when_0.doStartTag();
+    if (_jspx_eval_c_when_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("\t\t\t<div class=\"left\" style=\"line-height:40px;\">\r\n");
+        out.write("\t\t\t   \t\t<div class=\"left_1\">您好 , <a class=\"green_1\" href=\"#\">");
+        if (_jspx_meth_security_authentication_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_when_0, _jspx_page_context))
+          return true;
+        out.write(" </a></div>\r\n");
+        out.write("\t\t\t\t\t<div class=\"left_2\">我要开猫舍</div>\r\n");
+        out.write("\t\t\t\t</div> \r\n");
+        out.write("\t\t\t");
+        int evalDoAfterBody = _jspx_th_c_when_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_when_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_0);
+      return true;
+    }
+    _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_security_authentication_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_when_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  security:authentication
+    org.springframework.security.taglibs.authz.AuthenticationTag _jspx_th_security_authentication_0 = (org.springframework.security.taglibs.authz.AuthenticationTag) _jspx_tagPool_security_authentication_property_nobody.get(org.springframework.security.taglibs.authz.AuthenticationTag.class);
+    _jspx_th_security_authentication_0.setPageContext(_jspx_page_context);
+    _jspx_th_security_authentication_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_when_0);
+    _jspx_th_security_authentication_0.setProperty("principal.username");
+    int _jspx_eval_security_authentication_0 = _jspx_th_security_authentication_0.doStartTag();
+    if (_jspx_th_security_authentication_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_security_authentication_property_nobody.reuse(_jspx_th_security_authentication_0);
+      return true;
+    }
+    _jspx_tagPool_security_authentication_property_nobody.reuse(_jspx_th_security_authentication_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_otherwise_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:otherwise
+    org.apache.taglibs.standard.tag.common.core.OtherwiseTag _jspx_th_c_otherwise_0 = (org.apache.taglibs.standard.tag.common.core.OtherwiseTag) _jspx_tagPool_c_otherwise.get(org.apache.taglibs.standard.tag.common.core.OtherwiseTag.class);
+    _jspx_th_c_otherwise_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_otherwise_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
+    int _jspx_eval_c_otherwise_0 = _jspx_th_c_otherwise_0.doStartTag();
+    if (_jspx_eval_c_otherwise_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("\t\t\t\t<div class=\"header-login\">\r\n");
+        out.write("\t\t\t\t\t<ul class=\"header-grid\">\r\n");
+        out.write("\t\t\t\t\t\t<li>您好，请</li>\r\n");
+        out.write("\t\t\t\t\t\t<li><a href=\"/login.jsp\" style=\"margin-left: 0px;\">登录</a></li>\r\n");
+        out.write("\t\t\t\t\t\t<li>或</li>\r\n");
+        out.write("\t\t\t\t\t\t<li><a href=\"/login.jsp\" style=\"margin-left: 0px;\">注册 </a> </li>\r\n");
+        out.write("\t\t\t\t\t</ul>\r\n");
+        out.write("\r\n");
+        out.write("\t\t\t\t\t<div class=\"clearfix\"> </div>\r\n");
+        out.write("\t\t\t\t\t\r\n");
+        out.write("\t\t\t\t</div>\r\n");
+        out.write("\t\t\t");
+        int evalDoAfterBody = _jspx_th_c_otherwise_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_otherwise_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_0);
+      return true;
+    }
+    _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_0);
+    return false;
   }
 
   private boolean _jspx_meth_s_iterator_0(PageContext _jspx_page_context)

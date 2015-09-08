@@ -35,6 +35,10 @@
 .header-grid li a:hover {
 	color: #45B7A5;
 }
+.green_1{color:#45b9a6;}
+.nav-bar  .left .left_1{float:left;}
+.nav-bar  .left .left_1 a{border-bottom:solid #45b9a6 1px;}
+.nav-bar  .left .left_2{float:left;width:90px;height:40px; margin-left:30px;background-color:#45b9a6;color:#fff;text-align:center;}
 /*导航栏右边菜单选择*/
 
 .header-menu {

@@ -383,12 +383,12 @@ function pagePre(){
 						<li style="width: 80px;">
 							<a href=""><img src="../image/common/cattery.png" style="margin:0 5px -2px 0">猫舍</a>
 						</li>
-						</li>
+						
 						<li style="width: 80px;">
 							<a href=""><img src="../image/common/cat_basket.png" style="margin:0 5px -2px 0">猫篮</a>
 						</li>
 						<li style="width:20px">
-							<a href=""><img src="../image/common/top-line.png" style="margin:12px 0 -2px 5px"></li>
+							<img src="../image/common/top-line.png" style="margin:12px 0 -2px 5px"></li>
 						<li style="width: 100px;"><a href="">买家中心<img src="../image/common/arrowdown.png" style="margin:0 0 1px 5px;float: ;"></a>
 							<ul>
 								<li><a href="#">我的订单</a></li>
@@ -420,7 +420,7 @@ function pagePre(){
 			<div class="right" style="float:right;margin:30px 0 0 0;">
 				<div class="search ">
 					<form id="search_form" method="get" action="http://www.boqii.com/search" target="_blank">
-						<input type="text" id="keyword" name="keywords" class="search_edit" value="请输入关键字" onfocus="this.value=''" onblur="if(this.value==" "){this.value=" "}" style="color: #AAAAAA;">
+						<input type="text" id="keyword" name="keywords" class="search_edit" value="请输入关键字" onfocus="this.value=''" onblur="if(this.value==''){this.value=''}" style="color: #AAAAAA;">
 						<input type="submit" class="search_btn " id="button" name="button" value="搜 索">
 					</form>
 
