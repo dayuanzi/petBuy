@@ -46,7 +46,7 @@ public class authenticationFilter implements Filter {
 		HttpSession session = httpRequest.getSession();
 		
 		
-		System.out.println("这里是remember me的过滤器==========");
+	//	System.out.println("这里是remember me的过滤器==========");
 		
 		String loginStr = filterConfig.getInitParameter("loginStr");
 		String filterStr = filterConfig.getInitParameter("filterStr");

@@ -42,7 +42,7 @@
 		<form-login login-page="/login.jsp" default-target-url="/success.jsp"
 			username-parameter="username" password-parameter="password"
 			authentication-success-handler-ref="authenticationHandler"
-			authentication-failure-url="/login.jsp?error=1" />
+			authentication-failure-handler-ref="failureHandler" />
 		<!-- 记住我功能(自动登录) -->
 		<remember-me key="REMEMBERME" token-validity-seconds="604800"
 			use-secure-cookie="false" user-service-ref="loginManager" />
@@ -54,15 +54,37 @@
 	
 
 	<!-- 认证管理器 -->
-	<authentication-manager erase-credentials="false"
+	<authentication-manager erase-credentials="false" 
 		alias="authenticationManager">
-		<authentication-provider user-service-ref="loginManager">
+		<authentication-provider ref="authenticationProvider" >
 			<!-- 设置加密方法 md5 -->
-			<password-encoder hash="md5" base64="true">
+		<!-- 	<password-encoder hash="md5" base64="true">
 				<salt-source user-property="username" />
-			</password-encoder>
+			</password-encoder> -->
 		</authentication-provider>
 	</authentication-manager>
+
+   <beans:bean id="authenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider"> 
+    <beans:property name="userDetailsService" ref="loginManager" /> 
+    
+    <beans:property name="passwordEncoder">     
+        <beans:bean class="org.springframework.security.authentication.encoding.Md5PasswordEncoder">     
+            <beans:property name="encodeHashAsBase64" value="false" />     
+        </beans:bean>     
+    </beans:property>     
+    
+    <!-- 对密码加密算法中使用特定的加密盐及种子 -->     
+    <beans:property name="saltSource">     
+        <!-- 通过动态的加密盐进行加密，该配置通过用户名提供加密盐, 通过UserDetails的getUsername()方式 -->     
+         <beans:bean class="org.springframework.security.authentication.dao.ReflectionSaltSource">     
+            <beans:property name="userPropertyToUse" value="username" />     
+         </beans:bean>     
+    </beans:property>     
+    
+    <beans:property name="hideUserNotFoundExceptions" value="false" /> 
+
+    </beans:bean>
+
 
 	<beans:bean id="authenticationHandler"
 		class="com.keemo.petstore.security.filter.CustomLoginHandler">
@@ -73,9 +95,9 @@
 	    class="com.keemo.petstore.security.filter.CustomDeniedHandler">
 </beans:bean>
 <!--  <beansroperty name="accessDeniedUrl" value="/accessDenied" /> -->
-	<beans:bean id="failureHandler"
-		class="com.keemo.petstore.vo.AuthenticationFailureHandlerImpl">
-	</beans:bean>
+    <beans:bean id="failureHandler"
+		class="com.keemo.petstore.security.filter.CustomLoginFailureHandler">
+    </beans:bean>
 
 
  <!-- <security:http auto-config="true">

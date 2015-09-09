@@ -169,7 +169,9 @@
 
     <bean id="loginManager" name="loginManager"
 		class="com.keemo.petstore.service.impl.UserLoginServiceImpl"
-		parent="loginManagerTemplate"/>
+		parent="loginManagerTemplate">
+		
+		</bean>
  
      <bean id="emailManager" name="emailManager"
 		class="com.keemo.petstore.service.impl.EmailVerificationCodeServiceImpl" >

@@ -160,10 +160,6 @@ public class MemberDetailAction
 		this.pageNumber = pageNumber;
 	}
 
-
-
-	
-	
 	
 	/**
 	 * @return the ordercatslist
@@ -387,10 +383,6 @@ public class MemberDetailAction
 		
 		return MEM_PLAN_LIST;
 	}
-    
-    
-    
-    
     
     
 	@Action(value = "MemRegisterAction",

@@ -63,7 +63,6 @@ public class UserLoginServiceImpl implements UserDetailsService {
 
 
 		List<Admin> list = adminDao.findByName(username);
-		System.out.println(list.get(0).getPassword());
 		if (list != null && list.size() > 0) {
 			user = list.get(0);
 
@@ -73,15 +72,15 @@ public class UserLoginServiceImpl implements UserDetailsService {
 		
 			for (GrantedAuthority grantedAuthority : myUser.getAuthorities()) {
 				System.out.println(grantedAuthority);
+				
 			}
-			
 			
 			return myUser;
 
 		} else {
 			System.out.println("用户列表为空，不存在该用户");
 			
-			throw new UsernameNotFoundException(username+" is not exist");
+			throw new UsernameNotFoundException("error code:1");
 		
 		}
 
@@ -102,7 +101,6 @@ public class UserLoginServiceImpl implements UserDetailsService {
 		Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
 		for (int i = 0; i < rights.length; i++) {
 			GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(rights[i]);
-			// System.out.println(grantedAuthority.toString());
 			authorities.add(grantedAuthority);
 		}
 		return authorities;

@@ -233,7 +233,7 @@ input:-webkit-autofill {
 								<div class="textbox-border textbox-wide">
 									<span class="user"></span> <input id="userName" name="userName"
 										class="textbox" style="margin-left: 8px" type="text"
-										placeholder="输入您的邮箱/您可以使用此邮箱登陆" value="">
+										placeholder="输入您的邮箱/您可以使用此邮箱登陆" value=""><s:token/>
 								</div>
 							</div>
 							<div class="input-wrapper " style="margin-top: 30px">

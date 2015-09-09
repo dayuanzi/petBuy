@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
@@ -83,7 +84,15 @@ public class UserAction extends ActionSupport {
 	* @return
 	* @throws
 	 */
-	@Action(value = "UserRegisterAction", results = { @Result(name = "success", location = "/login.jsp") })
+
+	@Action(value =  "UserRegisterAction", 
+			 results = {@Result(
+	        		            name = "success", 
+	        		            location = "/login.jsp")},
+			 interceptorRefs = {  
+				       @InterceptorRef(value = "tokenSession"),
+				       @InterceptorRef(value = "defaultStack")})
+				       
 	public String register() throws IOException {
 
 		/*	HttpSession session = ServletActionContext.getRequest().getSession();
@@ -124,7 +133,7 @@ public class UserAction extends ActionSupport {
 	Admin user = new Admin();
 	user.setUsername(userName);
 	user.setPassword(Util.encodePassword(password, userName));
-	user.setPrivileges("ROLE_MEM");
+	user.setPrivileges("ROLE_USER");
 	user.setNickname(nickName);
 	user.setActive((byte)0);
     Integer userid=ema.save(user);
