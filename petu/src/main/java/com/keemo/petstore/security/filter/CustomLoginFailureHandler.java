@@ -39,8 +39,30 @@ public class CustomLoginFailureHandler implements AuthenticationFailureHandler{
 			throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		
-		System.out.println(1111);
-		System.out.println(exception.getMessage());
+		if(exception.getMessage().equals("error code:1")){
+			
+		    response.setContentType("text/json");
+		    response.setStatus(401);
+		    response.getWriter().write("failed:username is not found");  
+			
+		}
+		else if(exception.getMessage().equals("error code:2")){
+			
+		    response.setContentType("text/json");
+		    response.setStatus(401);
+		    response.getWriter().write("failed:privilege is not correct");  		
+		    
+		}
+		else {
+			
+		    response.setContentType("text/json");
+		    response.setStatus(401);
+		    response.getWriter().write("failed:password is not found");  			
+			
+		}
+		
+		
+		
 		
 	}  
 	  
