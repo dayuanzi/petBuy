@@ -184,6 +184,7 @@ catch(Exception e){
 			
 			Admin admin = mem.getAdmin(list.get(0).getUserid());
 			admin.setActive((byte)1);
+			admin.setPrivileges("ROLE_MEM");
 			mem.updateAdmin(admin);
 			return "success";
 		}
