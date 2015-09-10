@@ -9,6 +9,7 @@ import java.util.Set;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.RememberMeAuthenticationToken;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.core.Authentication;
@@ -72,15 +73,19 @@ public class UserLoginServiceImpl implements UserDetailsService {
 		
 			for (GrantedAuthority grantedAuthority : myUser.getAuthorities()) {
 				System.out.println(grantedAuthority);
-				
+				if(grantedAuthority.equals("ROLE_USER")){
+					throw new BadCredentialsException("error code:2");
+				}
 			}
 			
 			return myUser;
 
+			
 		} else {
 			System.out.println("用户列表为空，不存在该用户");
 			
-			throw new UsernameNotFoundException("error code:1");
+			//throw new UsernameNotFoundException("error code:1");
+			throw new BadCredentialsException("error code:1");
 		
 		}
 

@@ -69,7 +69,7 @@
     
     <beans:property name="passwordEncoder">     
         <beans:bean class="org.springframework.security.authentication.encoding.Md5PasswordEncoder">     
-            <beans:property name="encodeHashAsBase64" value="false" />     
+            <beans:property name="encodeHashAsBase64" value="true" />     
         </beans:bean>     
     </beans:property>     
     

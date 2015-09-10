@@ -9,9 +9,13 @@
 <body>
 
 	 <s:iterator value="ordercatslist" var="catlist">
-	 111
+	 ********************
+	 这个是order信息
+	  <s:property value="#catlist[0].order.id"/><p>
+	  ++++++++
 	 <s:iterator value="#catlist" var="cat">
-	 <s:property value="#cat.name"/>
+	 
+	 <s:property value="#cat.name"/><p>
 	 </s:iterator>
    
      </s:iterator>
