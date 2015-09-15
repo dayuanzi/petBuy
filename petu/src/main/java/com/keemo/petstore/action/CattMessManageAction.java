@@ -17,6 +17,7 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;  
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.InterceptorRef;
+import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.interceptor.*;
 import com.keemo.petstore.bean.*;
@@ -32,6 +33,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;  
 
 
+@Namespace("/CatteryAction")
 public class CattMessManageAction
 	extends CattBaseAction
 {
@@ -55,18 +57,26 @@ public class CattMessManageAction
 			results = { 
 			     @Result(name = "cattregist", 
 			    		 location = "/login.jsp")},
-			interceptorRefs = {  
-			     @InterceptorRef(value = "fileUpload", 
-			    		         params={"maximumSize","409600",
-			    		                 "allowedTypesSet", "image/jpeg,image/jpg,image/bmp"})})
+			    		 interceptorRefs = {  
+			    			     @InterceptorRef(value = "fileUpload", 
+			    			    		         params={"maximumSize","409600",
+			    			    		                 "allowedTypesSet", "image/jpeg,image/jpg,image/bmp"}),
+			    			     @InterceptorRef(value = "defaultStack")})
 	
 	public String execute()
 		throws Exception
 	{
     	ActionContext ctx = ActionContext.getContext();
-    	 
+    	try{
+    		System.out.println(cattery.getName());
+    	}catch(Exception e){
+    		e.printStackTrace();
+    		throw e;
+    	}
+    
     	String userid = (String)ctx.getSession().get("userid");
     	cattery.setMaintxt(cattery.getMaintxt().replaceAll("\n", "</br>"));
+    	//cattery = new Cattery();
 		catt.saveCattery(cattery, uploadfile, imageType, uploadfileFileName, userid);
       	return CATT_REGIST;
         

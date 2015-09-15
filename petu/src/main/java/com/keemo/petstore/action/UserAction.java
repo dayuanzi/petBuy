@@ -181,7 +181,6 @@ catch(Exception e){
 		
 		if(list.size() > 0)
 		{
-			
 			Admin admin = mem.getAdmin(list.get(0).getUserid());
 			admin.setActive((byte)1);
 			admin.setPrivileges("ROLE_MEM");

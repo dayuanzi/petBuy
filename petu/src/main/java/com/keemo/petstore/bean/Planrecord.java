@@ -1,6 +1,6 @@
 package com.keemo.petstore.bean;
 
-// Generated 2015-9-1 13:23:31 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-9-14 23:35:40 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 
@@ -9,7 +9,7 @@ import java.util.Date;
  */
 public class Planrecord implements java.io.Serializable {
 
-	private int id;
+	private Integer id;
 	private Breedingplan breedingplan;
 	private Date time;
 	private Integer week;
@@ -18,24 +18,19 @@ public class Planrecord implements java.io.Serializable {
 	public Planrecord() {
 	}
 
-	public Planrecord(int id) {
-		this.id = id;
-	}
-
-	public Planrecord(int id, Breedingplan breedingplan, Date time,
-			Integer week, String message) {
-		this.id = id;
+	public Planrecord(Breedingplan breedingplan, Date time, Integer week,
+			String message) {
 		this.breedingplan = breedingplan;
 		this.time = time;
 		this.week = week;
 		this.message = message;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

@@ -73,7 +73,7 @@
 			
 			<interceptor-stack name="parStack">
 				<interceptor-ref name="defaultStack"/>
-				<interceptor-ref name="parAuth"/>
+				<interceptor-ref name="parAuth"/> 
 			</interceptor-stack>
 			<interceptor-stack name="empStack">
 				<interceptor-ref name="defaultStack"/>
