@@ -26,5 +26,10 @@
 <to type="forward">/login.jsp</to>
 </rule>
 
+<rule>
+<from>/MemberDetail.htm$</from>
+<to type="redirect">/MemberAction/memdetaillist.jsp</to>
+</rule>
+
 
 </urlrewrite>

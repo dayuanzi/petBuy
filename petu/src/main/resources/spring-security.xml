@@ -39,7 +39,7 @@
 		
 		
 		<!-- 默认登录界面 -->
-		<form-login login-page="/login.jsp" default-target-url="/success.jsp"
+		<form-login login-page="/login.htm" default-target-url="/success.jsp"
 			username-parameter="username" password-parameter="password"
 			authentication-success-handler-ref="authenticationHandler"
 			authentication-failure-handler-ref="failureHandler" />

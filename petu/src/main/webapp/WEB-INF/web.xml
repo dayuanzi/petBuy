@@ -40,6 +40,23 @@
 	</context-param>
 
 
+<filter>
+
+
+<filter-name>urlRewriteFilter</filter-name>
+
+<filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+
+<init-param>
+
+<param-name>logLevel</param-name>
+
+<param-value>WARN</param-value>
+
+</init-param>
+
+</filter>
+
 	
 
 	<!--配置SpringSecurity filter，让SpringSecurity先加载，防止SpringSecurity拦截失效 -->
@@ -96,25 +113,6 @@
 		<filter-name>authenticationFilter</filter-name>
 		<url-pattern>/order/*</url-pattern>
 	</filter-mapping>
-
-<filter>
-
-
-<filter-name>urlRewriteFilter</filter-name>
-
-<filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
-
-<init-param>
-
-<param-name>logLevel</param-name>
-
-<param-value>WARN</param-value>
-
-</init-param>
-
-</filter>
-
-
 
 <filter-mapping>
 <filter-name>urlRewriteFilter</filter-name>
