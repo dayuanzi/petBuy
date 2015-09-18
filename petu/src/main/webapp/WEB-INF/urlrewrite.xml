@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.2//EN"        
+"http://tuckey.org/res/dtds/urlrewrite3.2.dtd">
+
+<urlrewrite> 
+
+<!-- <rule>
+
+<from>^/([A-Za-z0-9]+)/([A-Za-z0-9]+)\.htm$</from>
+
+<to type="forward">/$1!$2.do</to>
+
+</rule> -->
+
+<!-- <outbound-rule>
+
+<from>/([A-Za-z0-9]+)!([A-Za-z0-9]+)[\.do]$</from> 
+
+<to>/$1/$2.htm</to>
+
+</outbound-rule> -->
+
+<rule>
+<from>/login.htm$</from>
+<to type="forward">/login.jsp</to>
+</rule>
+
+
+</urlrewrite>
